@@ -1,10 +1,13 @@
 # Dice Games Project
+
 This project is a web application built using Vite. It features a modular structure with dedicated sections for components, library logic, and example implementations
 
 ## Team Memebers
-Student1, Student2, Student3,...
+
+Sucha Singh
 
 ## Folder Structure
+
 ```
 dice-games/
 ├── cypress/            The main folder testing
@@ -37,20 +40,28 @@ dice-games/
 ```
 
 ## Install Dependencies (create node_modules folder)
-Open terminal ensure you are in **dice-games** directory and run the following: 
+
+Open terminal ensure you are in **dice-games** directory and run the following:
+
 ```termimal
 npm install
 ```
+
 ## Run the application
-Open terminal ensure you are in **dice-games** directory and run the following: 
+
+Open terminal ensure you are in **dice-games** directory and run the following:
+
 ```termimal
 npm run seed-data
 npm start
 ```
 
 # GIT Reference
+
 ## Hourly Commit
-Open GitBASH ensure you are in **dice-games** directory and run the following: 
+
+Open GitBASH ensure you are in **dice-games** directory and run the following:
+
 ```termimal
 git status
 git add -A
@@ -59,7 +70,9 @@ git push
 ```
 
 ## Setup GIT
+
 Open GitBASH in any directory and run the following:
+
 ```termimal
 git config --global push.default simple
 git config --global difftool.keepbackup false
@@ -69,30 +82,38 @@ git config --global user.name "Your Name"
 ```
 
 ## Clone a Repository from BitBucket
-Open GitBASH ensure you are in **dice-games** directory and run the following: 
+
+Open GitBASH ensure you are in **dice-games** directory and run the following:
+
 ```termimal
 git clone https://bitbucket.org/cstprojects/team<your team color>2026.git
 ```
 
 ## Switch betwen branches Branch
-Open GitBASH ensure you are in **dice-games** directory and run the following: 
+
+Open GitBASH ensure you are in **dice-games** directory and run the following:
+
 ```termimal
-git reset --hard 
+git reset --hard
 git checkout <branchname>
 git pull
 ```
 
 ## Get latest changes Branch
-Open GitBASH ensure you are in **dice-games** directory and run the following: 
+
+Open GitBASH ensure you are in **dice-games** directory and run the following:
+
 ```termimal
-git reset --hard 
+git reset --hard
 git pull
 ```
 
 ## Merge from main
-Open GitBASH ensure you are in **dice-games** directory and run the following: 
+
+Open GitBASH ensure you are in **dice-games** directory and run the following:
+
 ```termimal
-git reset --hard 
+git reset --hard
 git checkout main
 git pull
 git checkout <branchname>
@@ -105,5 +126,3 @@ git add -A
 git commit –m "A descriptive commit message"
 git push
 ```
-
-
