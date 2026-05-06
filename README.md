@@ -3,8 +3,8 @@
 This project is a web application built using Vite. It features a modular structure with dedicated sections for components, library logic, and example implementations
 
 ## Team Memebers
-
 Sucha Singh
+Change from main
 
 ## Folder Structure
 
