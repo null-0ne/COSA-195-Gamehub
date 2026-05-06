@@ -5,6 +5,7 @@ This project is a web application built using Vite. It features a modular struct
 ## Team Memebers
 
 Garrett Thomson
+Change from main
 
 ## Folder Structure
 
