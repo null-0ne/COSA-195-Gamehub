@@ -2,7 +2,7 @@
 This project is a web application built using Vite. It features a modular structure with dedicated sections for components, library logic, and example implementations
 
 ## Team Memebers
-Student1, Student2, Student3,...
+Preston Dignean
 
 ## Folder Structure
 ```
