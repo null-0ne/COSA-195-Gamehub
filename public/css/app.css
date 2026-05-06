@@ -1,0 +1,35 @@
+/*
+    Filename: app.css
+    Author:   
+    Date:     2026-05-01
+    Purpose:  CSS styles that boostrap can not handle for entire project
+*/
+
+/* Example Styles that are applied to a card that flips
+   including transitions and transforms to make card "flip" 
+   not handled by boot strap
+
+.flippable-card {
+    cursor: pointer;
+    transform-style: preserve-3d;
+    height: 12rem;
+    width: 9rem;
+}
+
+.flippable-card div {
+    backface-visibility: hidden;
+    transition: transform 400ms ease-in;
+}
+
+.flippable-card .card-face {
+    transform: rotate3d(-1, 1, 0, -180deg);
+}
+
+.flippable-card.face-up .card-face {
+    transform: rotate3d(-1, 1, 0, 0);
+}
+
+.flippable-card.face-up .card-back {
+    transform: rotate3d(-1, 1, 0, 180deg);
+}
+*/

@@ -1,0 +1,24 @@
+{
+  "name": "dice-games",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "concurrently --kill-others \"npm run api\" \"npm run dev\"",
+    "seed-db": "copy /y db-seed-data.json db-for-api.json",
+    "api": "json-server --watch db-for-api.json --port 8000",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "cypress open",
+    "cy:e2e": "cypress run --spec cypress/e2e/**/*.cy.js",
+    "cy:comp": "cypress run --component cypress/component/**/*.cy.js"
+  },
+  "devDependencies": {
+    "@cypress/mount-utils": "^4.1.2",
+    "concurrently": "^9.2.1",
+    "cypress": "^15.14.2",
+    "json-server": "^1.0.0-beta.15",
+    "vite": "^8.0.10"
+  }
+}

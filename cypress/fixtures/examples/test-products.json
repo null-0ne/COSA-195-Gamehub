@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "👁❤U Shampoo",
+        "size": "600ml",
+        "price": 8.99
+    },
+    {
+        "id": 2,
+        "title": "👁❤U Conditioner",
+        "size": "600ml",
+        "price": 9.99
+    },
+    {
+        "id": 3,
+        "title": "👁❤U Conditioner",
+        "size": "1.5L",
+        "price": 15.99
+    }
+]

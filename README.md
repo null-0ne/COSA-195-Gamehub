@@ -1,45 +1,109 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# Dice Games Project
+This project is a web application built using Vite. It features a modular structure with dedicated sections for components, library logic, and example implementations
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+## Team Memebers
+Student1, Student2, Student3,...
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+## Folder Structure
+```
+dice-games/
+├── cypress/            The main folder testing
+│   ├── component       Scripts for automated testing of components
+│   │   ├── examples/   Demonstration component testing scripts
+│   ├── e2e/            Scripts for automated end to end testing
+│   │   ├── examples/   Demonstration end to end testing scripts
+│   ├── fixtures/       Sample data used for testing e2e and components
+│   │   ├── examples/   Demonstration sample data used to compare actual content
+│   ├── support/        Extra files used to run command and component test
+├── node_modules/       Contains the npm packages - EXCLUDED from GIT
+├── public/             Static assets that are served directly
+│   ├── css/            Stores global stylesheets, such as app.css
+│   ├── images/         Images used throughout the UI
+├── src/                The main source code directory, contains page components
+│   ├── components/     Reusable UI components like the navbar.js
+│   ├── examples/       Demonstration pages and components
+│   ├── lib/            General-purpose utility functions and shared logic
+│   ├── app.js          The main entry point for the application logic
+├── uml/                Technical documentation and UML diagrams
+│   ├── examples/       Demonstration documentation and diagrams
+├── .gitignore          Configures git to exclude folder like node_modules
+├── cypress.config.js   Configures Cypress for E2E and Component testing
+├── index.html          The main HTML shell for the Vite application
+├── db-for-api.json     JSON file acts as the DB for the api server
+├── db-seed-data.json   JSON file with data fixtures that overwrites db-for-api
+├── package.json        Defines project dependencies and scripts
+├── README.md           This file
+├── vite.config.js      Configures the vite packager for the project
+```
 
----
+## Install Dependencies (create node_modules folder)
+Open terminal ensure you are in **dice-games** directory and run the following: 
+```termimal
+npm install
+```
+## Run the application
+Open terminal ensure you are in **dice-games** directory and run the following: 
+```termimal
+npm run seed-data
+npm start
+```
 
-## Edit a file
+# GIT Reference
+## Hourly Commit
+Open GitBASH ensure you are in **dice-games** directory and run the following: 
+```termimal
+git status
+git add -A
+git commit –m "A descriptive commit message"
+git push
+```
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+## Setup GIT
+Open GitBASH in any directory and run the following:
+```termimal
+git config --global push.default simple
+git config --global difftool.keepbackup false
+git config --global mergetool.keepbackup false
+git config --global user.email yourname@saskpolytech.ca
+git config --global user.name "Your Name"
+```
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+## Clone a Repository from BitBucket
+Open GitBASH ensure you are in **dice-games** directory and run the following: 
+```termimal
+git clone https://bitbucket.org/cstprojects/team<your team color>2026.git
+```
 
----
+## Switch betwen branches Branch
+Open GitBASH ensure you are in **dice-games** directory and run the following: 
+```termimal
+git reset --hard 
+git checkout <branchname>
+git pull
+```
 
-## Create a file
+## Get latest changes Branch
+Open GitBASH ensure you are in **dice-games** directory and run the following: 
+```termimal
+git reset --hard 
+git pull
+```
 
-Next, you’ll add a new file to this repository.
+## Merge from main
+Open GitBASH ensure you are in **dice-games** directory and run the following: 
+```termimal
+git reset --hard 
+git checkout main
+git pull
+git checkout <branchname>
+git merge main
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+## There will likely be conflicts - fix them
+##Once all conflicts are resolved
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+git add -A
+git commit –m "A descriptive commit message"
+git push
+```
 
----
 
-## Clone a repository
-
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
-
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
-
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
