@@ -2,7 +2,10 @@
 This project is a web application built using Vite. It features a modular structure with dedicated sections for components, library logic, and example implementations
 
 ## Team Memebers
-Change from main
+|Name|Name|Name|Name|Name|
+|---|---|---|---|---|
+|Amaka O.|Dustin O.|Garrett T.|Matthew D.|Preston D.|
+|Riley S.|Rylan W.|Samuel C.|Sucha S.| |
 
 ## Folder Structure
 ```
@@ -37,24 +40,31 @@ dice-games/
 ```
 
 ## Install Dependencies (create node_modules folder)
-Open terminal ensure you are in **dice-games** directory and run the following: 
+Open terminal in **teamgreen2026** directory and run the following: 
 ```termimal
 npm install
 ```
 ## Run the application
-Open terminal ensure you are in **dice-games** directory and run the following: 
+Open terminal in **teamgreen2026** directory and run the following: 
 ```termimal
-npm run seed-data
+npm run seed-db     ## OPTIONAL unless to RESET the db
 npm start
+```
+
+## Run Cypres Tests
+Open terminal in **teamgreen2026** directory and run the following: 
+```termimal
+npm run seed-db     ## GOOD PRACTICE, to RESET the db before testing
+npm run test
 ```
 
 # GIT Reference
 ## Hourly Commit
-Open GitBASH ensure you are in **dice-games** directory and run the following: 
+Open GitBASH in **teamgreen2026** directory and run the following: 
 ```termimal
 git status
 git add -A
-git commit –m "A descriptive commit message"
+git commit -m "A descriptive commit message"
 git push
 ```
 
@@ -69,13 +79,13 @@ git config --global user.name "Your Name"
 ```
 
 ## Clone a Repository from BitBucket
-Open GitBASH ensure you are in **dice-games** directory and run the following: 
+Open GitBASH ensure you are in **teamgreen2026** directory and run the following: 
 ```termimal
-git clone https://bitbucket.org/cstprojects/team<your team color>2026.git
+git clone https://bitbucket.org/cstprojects/teamgreen2026.git
 ```
 
 ## Switch betwen branches Branch
-Open GitBASH ensure you are in **dice-games** directory and run the following: 
+Open GitBASH in **teamgreen2026** directory and run the following: 
 ```termimal
 git reset --hard 
 git checkout <branchname>
@@ -83,14 +93,14 @@ git pull
 ```
 
 ## Get latest changes Branch
-Open GitBASH ensure you are in **dice-games** directory and run the following: 
+Open GitBASH in **teamgreen2026** directory and run the following: 
 ```termimal
 git reset --hard 
 git pull
 ```
 
 ## Merge from main
-Open GitBASH ensure you are in **dice-games** directory and run the following: 
+Open GitBASH in **teamgreen2026** directory and run the following: 
 ```termimal
 git reset --hard 
 git checkout main
@@ -102,8 +112,6 @@ git merge main
 ##Once all conflicts are resolved
 
 git add -A
-git commit –m "A descriptive commit message"
+git commit -m "A descriptive commit message"
 git push
 ```
-
-
