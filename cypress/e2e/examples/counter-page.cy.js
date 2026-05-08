@@ -47,7 +47,7 @@ describe('contact page test', () => {
         }
 
         //find second  button and ensure innerText 'have.text' matches expected then click to increment the count
-        cy.get('button.btn').eq(0).should('have.text', 'count is 5')
+        cy.get('button.btn').eq(0).should('have.text', 'count is 5') //SHOULD BE 4 HERE TO PASS
             .click(); // count should be 5 after click
 
         // click the second button 3 times  and ensure count matches what is expected  (except the last time)

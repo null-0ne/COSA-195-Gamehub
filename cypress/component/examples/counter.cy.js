@@ -1,6 +1,6 @@
 /*
     Filename:    countercy.js
-    Student:     
+    Student:     Samuel Cyrenne
     Course:      COSA 195 (Systems Project)
     Date:        2026-05-01
     Purpose:     Test Counter Component
