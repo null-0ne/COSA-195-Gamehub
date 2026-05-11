@@ -6,15 +6,18 @@
 classDiagram
 %%  direction LR
 
-    class User{
-        -email : String
-        -highScore : int
-        -timePlay : int
-    }
     
+    class leaderboardPage{
+        +renderLeaderboardPage(element:HTMLElement,title:string):HTMLElement
+        +renderScores(Score score)
+    }
+    class GameCard {
+        +renderGameCard(element:HTMLElement,games:string[]):HTMLElement
+    }
 
     %% Relationships
+    leaderboardPage --> GameCard : holds
 
 
-%%----------------------- MERMAID MARKUP ABOVE --------------------%%    
+%%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```
