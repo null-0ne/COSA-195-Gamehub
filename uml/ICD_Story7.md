@@ -26,8 +26,6 @@ classDiagram
 
     +rollDice(); %%animate dice roll, calls determine Point at end. returns dice sum. calculates if win, loss or continue. returns Boolean
 
-    %%+shiftDice(); %%move "current roll" dice into "last roll" dice slots
-
     +updateGame(int[] dice, int score) %%updates the current roll and last roll score (visual)
 
     +updateSession(int lossCount, int winCount, int gamesPlayed, boolean didWin) %%updates the session wins, losses, and games played
