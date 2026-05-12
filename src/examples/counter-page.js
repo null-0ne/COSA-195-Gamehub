@@ -8,6 +8,7 @@
 */
 
 import renderCounter from "./components/counter.js"
+import helpSlider from "../components/help-slider.js"
 
 /**
  * ContactPage Component - Acts like a "Page" and can be used in the router in main.js
@@ -27,8 +28,12 @@ export default function renderContactPage(
         <div class="btn-group">
         <button type="button" class="btn btn-primary">hi</button>
         <button type="button" class="btn btn-primary">there</button>
-        <button type="button" class="btn btn-primary">is an error</button>       
+        <button type="button" class="btn btn-primary">is an error</button>
+      
         </div>
+    </div>
+    <div>
+      <img src='/images/q-icon.svg' alt='test' id='ImageTest'>
     </div>
     `;
 
@@ -47,6 +52,10 @@ export default function renderContactPage(
 
   // look for 3rd button element and DO NOT pass the params agrument so that the default params object is used
   renderCounter(document.querySelector('.btn:nth-child(3)'));
+
+  document.getElementById("ImageTest").addEventListener("click", function(){
+      helpSlider(document.getElementById("ImageTest"), "Test");
+  });
 
   //return the element in case it is needed for further logic
   return element;
