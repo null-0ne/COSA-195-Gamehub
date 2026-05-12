@@ -9,14 +9,26 @@ classDiagram
 %%  direction LR
 
     class loginPage {
-        +renderProductPage(element:HTMLElement,title:string,pageNum:int):HTMLElement
+    <<view>>
+        +renderLoginPage(element:HTMLElement,title:string,pageNum:int):HTMLElement
     }
 
     class registerPage {
-        +renderCounterPage(element:HTMLElement,title:string):HTMLElement
+    <<view>>
+        +renderRegisterPage(element:HTMLElement,title:string):HTMLElement
     }
 
+    class dashboardPage{
+    <<view>>
+        +renderDashboardPage(element:HTMLElement,title:string):HTMLElement
+    }
 
+    class user {
+    <<model>>
+        +id: String
+        +email: String
+        +password: String
+    }
 
     %% Relationships
     
@@ -28,6 +40,9 @@ class userCredentials{
     <<service>>
     +retrieveLogin(email: string, password: string) Object[]
     +register(email: string, password: string) Object[]
+    +registerValidate(email: string, password: string) boolean
+    +emailExists(email: string) boolean
+    
 }
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%    

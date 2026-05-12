@@ -12,26 +12,6 @@ erDiagram
       String password
     }
 
-    craps{
-      String id FK
-      int HighScore
-      int timeSpent
-
-    }
-
-    yahtzeeCount{
-      String id FK
-      int HighScore
-      int timeSpent
-    }
-
-
-    %% Relationships
-    user ||--|| craps : "has"
-    user ||--|| yahtzeeCount : "has"
-
 
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%    
-```
-NOTE: orders has a customerId which implys a customer entity (but that is outside of example scope)
