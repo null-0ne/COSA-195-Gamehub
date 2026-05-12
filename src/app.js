@@ -4,6 +4,7 @@ import renderProductPage from './examples/product-page.js';
 import renderContactPage from './examples/counter-page.js';
 import renderMemoryPage from './examples/memory-page.js';
 import renderNavBar from './components/navbar.js';
+import renderLoginPage from './login-page.js';
 
 const appElement = document.querySelector('#app');
 const navElement = document.querySelector('.navbar');
@@ -31,4 +32,5 @@ router
   .on('/counter', (url) => renderContactPage(appElement,{title:'Shared Counter'}))
   .on('/memory', (url) => renderMemoryPage(appElement,{title:'Memory Game'}))
   .on(() => renderHomePage(appElement,{title:'Dice Games'}))
+  .on('/login-page', (url) => renderLoginPage(appElement))
   .resolve();// execute the JS module to render the page

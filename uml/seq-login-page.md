@@ -8,15 +8,14 @@
 
 
 sequenceDiagram
-title: Story 5
+title: Login Page
 
     actor u as User
     participant l as LoginPage<br><<component>>
     participant c as UserCredentials<br><<service>>
-    participant d as DashboardPage<br><<component>>
     
 
-    u->>l: navigates to login page
+    u->>l: Navigates to login page
     activate l
     l->>l: renderLoginPage(element:HTMLElement,title:string,pageNum:int)
     alt Click log in
@@ -24,8 +23,11 @@ title: Story 5
         activate c
         c-->>l: returns user: User
         deactivate c
-        alt True
-            c->>d: renderDashboardPage(element:HTMLElement,title:string):HTMLElement
+        alt User is not null
+            l->>u: redirectToDashboard()
+
+    deactivate l
+
         end
     end
 
