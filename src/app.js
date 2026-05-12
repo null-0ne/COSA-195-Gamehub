@@ -1,5 +1,6 @@
 //import Navigo from 'navigo';  //Documentation: https://github.com/krasimir/navigo/blob/master/DOCUMENTATION.md
 import renderHomePage from './home-page.js';
+import renderCrapsPage from './craps-page.js';
 import renderProductPage from './examples/product-page.js';
 import renderContactPage from './examples/counter-page.js';
 import renderMemoryPage from './examples/memory-page.js';
@@ -26,7 +27,7 @@ router.notFound(() => { // this is like the default case statement in a switch s
 // see documentation at https://github.com/krasimir/navigo/blob/master/DOCUMENTATION.md
 router
   .on('/index.html',()=>router.navigate('/'))
-  .on('/product', (url) => renderProductPage(appElement, {title:'Product List',pageNum:url.params?.page}))
+  .on('/craps', (url) => renderCrapsPage(appElement))
   .on('/product/page/:pageNum', (url) => { console.log(url); renderProductPage(appElement,{title:'Product List',pageNum:url.data.pageNum})})
   .on('/counter', (url) => renderContactPage(appElement,{title:'Shared Counter'}))
   .on('/memory', (url) => renderMemoryPage(appElement,{title:'Memory Game'}))

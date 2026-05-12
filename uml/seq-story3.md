@@ -1,4 +1,4 @@
-# Simplified Sequence Diagram  : Shopper views a list of products
+# Story 3 as_a_user_i_can_view_the_rules_of_the_game
 
 ```mermaid
 %%{init:{"securityLevel":"loose","layout":"elk","elk":{"nodePlacementStrategy":"NETWORK_SIMPLEX"},"theme":"base",

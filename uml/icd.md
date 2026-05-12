@@ -8,54 +8,24 @@
 classDiagram
 %%  direction LR
 
-    class ProductPage {
-        +renderProductPage(element:HTMLElement,title:string,pageNum:int):HTMLElement
+    class crapspage {
+        renderCrapsPage(element:HTMLElement,title:string)
     }
-
-    class CounterPage {
-        +renderCounterPage(element:HTMLElement,title:string):HTMLElement
-        +handleIncrement()
+    class yahtzeecountpage {
+        renderYahtzeeCountPage(element:HTMLElement,title:string)
     }
-
-    class MemoryPage {
-        +renderMemoryPage(element:HTMLElement,title:string):HTMLElement
-    }
-
     class NavBar {
-        +renderNavBar(element:HTMLElement,params:Object):HTMLElement
+        renderNavBar(element:HTMLElement,params:Object)
     }
-
-    class CardGroup {
-        +renderCardGroup(element:HTMLElement,cards:int[],faceUp:bool):HTMLElement
-    }
-
-    class Counter {
-        +renderCounter(element:ButtonElement,count:int,incr:Function):ButtonElement
-    }
-
-    class ProductList {
-        +renderProductList(element:HTMLElement,products:Product[])
-    }
-
-    class ProductService {
-        +getProducts(textSearch:string,sortOrder:string,paging:Object)
-    }
-
-    class Formatter {
-        +formatCurrency(price:decimal)
-        +formatDate(date:Date)
+    class help-slider {
+        renderhelpInfo(params:string)
     }
 
     %% Relationships
-    NavBar <-- ProductPage : layout
-    NavBar <-- CounterPage : layout
-    NavBar <-- MemoryPage : layout
-    
-    ProductPage --> ProductService : fetches data
-    ProductPage --> ProductList : uses
-    CounterPage --> Counter : uses
-    MemoryPage --> CardGroup : contains
-    ProductList --> Formatter : formats prices
+        NavBar <-- crapspage : layout
+        NavBar <-- yahtzeecountpage : layout
+        yahtzeecountpage --> help-slider: uses
+        crapspage --> help-slider: uses
     
 
 
