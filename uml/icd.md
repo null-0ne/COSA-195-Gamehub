@@ -26,7 +26,6 @@ classDiagram
         +SubmitScore()
         +SelectCategory()
         +UpdateScore()
-
     }
 
     %% Relationships
