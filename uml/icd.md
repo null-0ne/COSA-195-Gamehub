@@ -8,41 +8,42 @@
 classDiagram
 %%  direction LR
 
-    
+
 
     class NavBar {
         +renderNavBar(element:HTMLElement,params:Object):HTMLElement
     }
 
     class CrapsPage{
-        +winCount
-        +diceArray
-        +gamesPlayed
-        +lossCount
+        +int winCount
+        +int[] diceArray
+        +int gamesPlayed
+        +int lossCount
+        +boolean continue
 
-        
-        +renderGame(); %% at the start of the game, render game HTML
 
-        +determinePoint(int[] dice); %%after each roll, determine if user won or lost
+    +renderGame(); %% at the start of the game, render game HTML
 
-        +rollDice(); %%animate dice roll, calls determine Point at end
+    +rollDice(); %%animate dice roll, calls determine Point at end. returns dice sum. calculates if win, loss or continue. returns Boolean
 
-        +updateGame(int[] dice, int score) %%updates the current roll and last roll score
+    %%+shiftDice(); %%move "current roll" dice into "last roll" dice slots
 
-        +updateSession(int lossCount, int winCount, int gamesPlayed, boolean didWin) %%updates the session wins, losses, and games played
+    +updateGame(int[] dice, int score) %%updates the current roll and last roll score (visual)
 
-        +submitScore(); %%adds wins and losses to JSON file
+    +updateSession(int lossCount, int winCount, int gamesPlayed, boolean didWin) %%updates the session wins, losses, and games played
+
+    +submitScore(); %%adds wins and losses to JSON file
     }
 
-    
 
- 
+
+
 
     %% Relationships
     NavBar <-- CrapsPage: has
-    
 
 
 
-%%----------------------- MERMAID MARKUP ABOVE --------------------%%    
+
+%%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```

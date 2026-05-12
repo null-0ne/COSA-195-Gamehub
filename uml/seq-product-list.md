@@ -1,4 +1,4 @@
-# Simplified Sequence Diagram  : Shopper views a list of products
+# Simplified Sequence Diagram : Shopper views a list of products
 
 ```mermaid
 %%{init:{"securityLevel":"loose","layout":"elk","elk":{"nodePlacementStrategy":"NETWORK_SIMPLEX"},"theme":"base",
@@ -10,38 +10,33 @@
 sequenceDiagram
 title: Simplified Shopper views a list of products
 
-    actor u as Shopper
-    participant p as ProductPage<br><<component>>
-    participant s as ProductService<br><<service>>
-    participant l as ProductList<br><<component>>
+    actor u as User
+    participant craps as CrapsPage<br><<component>>
+    participant dice as Dice<br><<component>>
+    participant ups as UpdateSession<br><<utility>>
     participant f as Formatter<br><<untility>>
 
-    u->>p: navigates to page
-    activate p
+    u->>craps: navigates to page
+    activate craps
 
-    p->>p: renderProductPage(element,title,pageNum)
-    
-    p->>s: getProducts(textSearch,sortOrder,paging)
-    activate s
-    s-->>p: returns products:Product[]
-    deactivate s
+    craps->>craps: renderGame()
+    u->>craps: clicks roll dice button
 
-    Note over p, l: ProductList manages its own display logic
-    p->>l: renderProductList(element,products)
-    activate l
-    
-    loop for each product
-        l->>f: formatCurrency(price)
-        activate f
-        f-->>l: formattedPrice:string
-        deactivate f
+    alt continue true
+    loop while point is rolled
+        craps->>dice: rollDice()
+        activate dice
+        dice->>dice: updateGame()
+        dice-->>craps: returns boolean (win/loss or point)
+        deactivate dice
     end
-    
-    l-->>p: Rendered List Component
-    deactivate l
 
-    p-->>u: Displays full Product Page
-    deactivate p
+    else continue false
+    end
+
+    craps->>ups: updateSession()
+
+    deactivate craps
 
 
 
