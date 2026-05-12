@@ -8,32 +8,18 @@
 erDiagram
     Score {
       String email FK
-      int score[] PK
-      int time
-      String game FK
+      int score
+
     }
 
-    Leaderboard {
-      String game PK
-      User email FK
-      Score score FK
-      int rank
+    User {
+      String email PK
     }
-
-    User{
-        String email PK
-        Score score FK
-    }
-
 
 
     %% Relationships
-    User }o--o| Leaderboard : "has"
-    User ||--o{ Score : "has"
-
+    User o|--O{ Score : "has"
 
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```
-
-NOTE: orders has a customerId which implys a customer entity (but that is outside of example scope)

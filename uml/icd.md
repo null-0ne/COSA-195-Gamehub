@@ -12,25 +12,21 @@ classDiagram
         +renderNavBar(element:HTMLElement,params:Object):HTMLElement
     }
 
-    class Die {
-        +Roll()
-        +RenderDie()
+    class YahtzeePage {
+        -totalScore : int
+        -scores : Array[int]
+        +renderScoreForm()
+        +SubmitScore()
+        +UpdateScore()
+
     }
 
-    class YahtzeePage {
-
-        -numRolls : int
-        -time : Time
-        +RollDice(Die[])
-        +LockDice(Die)
-        +SubmitScore()
-        +SelectCategory()
-        +UpdateScore()
+    class scoreService {
+        +getScore(String:email, int:score)
     }
 
     %% Relationships
     NavBar <-- YahtzeePage : layout
-    Dice <-- YahtzeePage : Uses
 
 
 
