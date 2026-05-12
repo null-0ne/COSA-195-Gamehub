@@ -15,10 +15,25 @@ participant p as yahtzeePage<br><<component>>
 participant scoreSvc as scoreService<br><<Service>>
 participant scoreRepo as scoreRepository<br><<Repository>>
 
-u->>p: Clicks submit score button
+u->>p: user navigates to yahtzee page
 activate p
 
+p->>p: renderYahtzee()
+
+
+u->>p: enters a score into a category
+
+p->>p: updateScore(int:score)
+
+u->>p: Clicks submit score button
+
+
 p->>scoreSvc: submitScore(score:int,String:email)
+
+activate scoreSvc
+scoreSvc->>scoreRepo: sendScore(String:email, int:score)
+deactivate scoreSvc
+deactivate p
 
 
 

@@ -6,19 +6,18 @@
 }}%%
 %%----------------------- MERMAID MARKUP BELOW --------------------%%
 erDiagram
-    Score {
-      String email FK
-      int score
 
-    }
+
 
     User {
-      String email PK
+      String email
+      int score
+      String gameId
     }
 
 
     %% Relationships
-    User o|--O{ Score : "has"
+
 
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%

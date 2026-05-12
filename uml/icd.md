@@ -12,21 +12,27 @@ classDiagram
         +renderNavBar(element:HTMLElement,params:Object):HTMLElement
     }
 
+    class scoreRepo {
+
+    }
+
     class YahtzeePage {
         -totalScore : int
         -scores : Array[int]
-        +renderScoreForm()
+        +renderYahtzee()
         +SubmitScore()
         +UpdateScore()
 
     }
 
     class scoreService {
-        +getScore(String:email, int:score)
+        +sendScore(String:email, int:score)
     }
 
     %% Relationships
     NavBar <-- YahtzeePage : layout
+    scoreService<-- YahtzeePage : uses
+    scoreRepo <-- scoreService : sends scores
 
 
 
