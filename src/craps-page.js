@@ -55,25 +55,25 @@ export default function renderCrapsPage(param) {
 
     //create image elements
     let img1 = document.createElement("img");
-    img1.src = "/images/dice1.png"
+    img1.src = "/images/dice0.png"
     addAttribute(img1, "id", "img1" );
     addAttribute(img1, "class", "w-75");
     document.getElementById("gameColRow21").append(img1);
 
     let img2 = document.createElement("img");
-    img2.src = "/images/dice1.png"
+    img2.src = "/images/dice0.png"
     addAttribute(img2, "id", "img2" );
     addAttribute(img2, "class", "w-75");
     document.getElementById("gameColRow23").append(img2);
 
     let img3 = document.createElement("img");
-    img3.src = "/images/dice3.png"
+    img3.src = "/images/dice0.png"
     addAttribute(img3, "id", "img3" );
     addAttribute(img3, "class", "w-75");
     document.getElementById("gameColRow41").append(img3);
 
     let img4 = document.createElement("img");
-    img4.src = "/images/dice4.png"
+    img4.src = "/images/dice0.png"
     addAttribute(img4, "id", "img4" );
     addAttribute(img4, "class", "w-75");
     document.getElementById("gameColRow43").append(img4);
