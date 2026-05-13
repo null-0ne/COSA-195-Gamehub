@@ -38,8 +38,6 @@ export default function renderYahtzeeCountPage(
     renderYahtzeeScoreCard(document.querySelector(`.score-form`));
     renderGameplaySection(document.querySelector(`.gameplay`));
   
-  
-
   //return the element in case it is needed for further logic
   return element;
 }

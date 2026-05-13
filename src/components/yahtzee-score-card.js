@@ -22,48 +22,71 @@ export default function renderYahtzeeScoreCard(
   <tbody>
     <tr>
       <th scope="row">Ones</th>
-      <td><input type="text"></input></td>
+      <td><input type="text" class="catInput"></input></td>
       <th>Three of a kind</th>
-      <td><input type="text"></input></td>
+      <td><input type="text" class="catInput"></input></td>
     </tr>
    <tr>
       <th scope="row">Twos</th>
-      <td><input type="text"></input></td>
+      <td><input type="text" class="catInput"></input></td>
       <th>Four of a kind</th>
-      <td><input type="text"></input></td>
+      <td><input type="text" class="catInput"></input></td>
     </tr>
     <tr>
       <th scope="row">Threes</th>
-      <td><input type="text"></input></td>
+      <td><input type="text" class="catInput"></input></td>
       <th>Full House</th>
-      <td><input type="text"></input></td>
+      <td><input type="text" class="catInput"></input></td>
     </tr>
     <tr>
       <th scope="row">Fours</th>
-      <td><input type="text"></input></td>
+      <td><input type="text" class="catInput"></input></td>
       <th>Small Straight</th>
-      <td><input type="text"></input></td>
+      <td><input type="text" class="catInput"></input></td>
     </tr>
     <tr>
       <th scope="row">Fives</th>
-      <td><input type="text"></input></td>
+      <td><input type="text" class="catInput"></input></td>
       <th>Large Straight</th>
-      <td><input type="text"></input></td>
+      <td><input type="text" class="catInput"></input></td>
     </tr>
     <tr>
       <th scope="row">Sixes</th>
-      <td><input type="text"></input></td>
+      <td><input type="text" class="catInput"></input></td>
       <th>Yahtzee!</th>
-      <td><input type="text"></input></td>
+      <td><input type="text" class="catInput"></input></td>
     </tr>
     <tr >
-      <td colspan="3"><input class="btn btn-primary" type="submit" value="Submit"></td>
+      <td colspan="3"><input class="btn btn-primary" id="btnSubmit" type="submit" value="Submit"></td>
     </tr>
   </tbody>
   
 </table>
   `;
+
+  let totalScore = 0;
   //<button class="bg-danger">Submit Score</button>
+  let inputOnes = document.querySelectorAll(".catInput");
+  for(let input of inputOnes)
+  {
+    input.addEventListener("change", function() {
+      totalScore = 0;
+      for (let otherInput of inputOnes)
+      {
+        let num = parseInt(otherInput.value, 10);
+        if(!isNaN(num))
+        {
+          totalScore += parseInt(otherInput.value, 10);
+        }
+      }
+      // totalScore += parseInt(input.value, 10);
+      console.log(totalScore);
+    });
+  }
+  document.getElementById("btnSubmit").addEventListener("click", function(){
+      
+  });
+  
   //return the element in case it is needed for further logic
   return element;
 }

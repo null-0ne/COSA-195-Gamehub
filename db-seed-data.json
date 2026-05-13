@@ -1,4 +1,15 @@
 {
+	"scores": [
+		{
+			"id": 1,
+			"score" : 200,
+			"gameTitle": "yahtzee-count",
+			"user": {
+				"id" : 3000,
+				"email" : "sam@saskpolytech.ca"
+			}
+		}
+	],
 	"products":[
 		{
 			"id": 1,
