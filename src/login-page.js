@@ -6,6 +6,8 @@
  * @param {*} element - HTML element target container
  * @param {*} params - optional values, objects or functions needed to render on the page
  */
+import {retrieveLogin} from "./lib/user-credentials.js";
+
 export default function renderLoginPage(param) {
     let element = document.createElement("div");
     let bod = document.querySelector('body');
@@ -34,7 +36,7 @@ export default function renderLoginPage(param) {
                 <div id="bottomStuff">
                     <p> Do not have an account? </p>
                     <input type="submit" value="SIGN UP"/>
-                    <button type="button" class="btn btn-link">Continue without an account</button>
+                    <button type="button" class="btn btn-link" id="continue2Dash">Continue without an account</button>
                 </div>
             
     `;
@@ -48,5 +50,16 @@ export default function renderLoginPage(param) {
     bottomStuff.classList = "w-50 h-50";
 
     outerElem.classList = "d-flex justify-content-center align-items-center vh-100 vw-100";
+
+    //document.getElementById("continue2Dash").addEventListener("click", redirectToDashboard);
+
+    function redirectToDashboard(){
+        window.location = ""; 
+    }
+
+    document.getElementById("continue2Dash").addEventListener("click", async function(){
+        let user = await retrieveLogin();
+        console.log(user);
+    })
 
 }

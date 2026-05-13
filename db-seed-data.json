@@ -1,4 +1,11 @@
 {
+	"users":[
+		{
+			"id": 1,
+			"email": "ogugofor2899@saskpolytech.ca",
+			"password": "123abc"
+		}
+	],
 	"products":[
 		{
 			"id": 1,
