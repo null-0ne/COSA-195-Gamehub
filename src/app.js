@@ -31,5 +31,6 @@ router
   .on('/product/page/:pageNum', (url) => { console.log(url); renderProductPage(appElement,{title:'Product List',pageNum:url.data.pageNum})})
   .on('/counter', (url) => renderContactPage(appElement,{title:'Shared Counter'}))
   .on('/memory', (url) => renderMemoryPage(appElement,{title:'Memory Game'}))
-  .on(() => renderHomePage(appElement,{title:'Dice Games'}))
+  .on('/YahtzeeCount', (url) => render)
+  .on(() => renderHomePage(appElement,{title:'Home Page'}))
   .resolve();// execute the JS module to render the page
