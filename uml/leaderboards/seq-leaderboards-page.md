@@ -8,43 +8,41 @@
 
 
 sequenceDiagram
-title: Simplified Shopper views a list of products
+title: Leaderboards that show the top 3 scores in each game
 
-    actor u as Shopper
-    participant p as ProductPage<br><<component>>
-    participant s as ProductService<br><<service>>
-    participant l as ProductList<br><<component>>
-    participant f as Formatter<br><<untility>>
+    actor u as User
+    participant l as LeaderboardPage<br><<component>>
+    participant m as LeaderboardService<br><<service>>
+    participant n as LeaderboardList<br><<component>>
+    participant f as Formatter<br><<utility>
 
-    u->>p: navigates to page
-    activate p
-
-    p->>p: renderProductPage(element,title,pageNum)
-    
-    p->>s: getProducts(textSearch,sortOrder,paging)
-    activate s
-    s-->>p: returns products:Product[]
-    deactivate s
-
-    Note over p, l: ProductList manages its own display logic
-    p->>l: renderProductList(element,products)
+    u->>l: navigates to page
     activate l
-    
-    loop for each product
-        l->>f: formatCurrency(price)
-        activate f
-        f-->>l: formattedPrice:string
-        deactivate f
-    end
-    
-    l-->>p: Rendered List Component
+
+    l->>l: renderLeaderboardPage(element, title)
+
+    l->>m: renderScores(score)
+    activate m
+
+    m->>l: returns scores:Score[]
+    deactivate m
+
+    l->>n: renderScoreList(gameCard, scores)
+    activate n
+
+    n->>f: formatScoreList(email, score, gameId)
+    activate f
+
+    f->>f: sortAndRankScore(score)
+
+    f->>n: return ScoreList
+    deactivate f
+
+    n->>l: Rendered List Component
+    deactivate n
+
+    l->>u: Display Leaderboard
     deactivate l
-
-    p-->>u: Displays full Product Page
-    deactivate p
-
-
-
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```
