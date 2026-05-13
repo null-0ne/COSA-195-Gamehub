@@ -13,20 +13,20 @@ import {formatCurrency} from './examples/lib/formatter.js';
  */
 export default function renderProductList(
     element = document.createElement('ol'),/*default - new button element*/
-    params = { products: [] }/* default - object with: products empty array */
+    params = { scores: [] }/* default - object with: products empty array */
 ) {
 
 
     //use the built-in JS array function 'reduce' to convert the array of product objects in to an HTML string
     //reduce loops through each item in the products array and outputs an HTML string for each then joins them all in several list items
-    element.innerHTML = params.products.reduce((str, p) => `
+    element.innerHTML = params.scores.reduce((str, p) => `
     ${str}
     <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
-        <div class="fw-bold">${p.title}</div>
-        ${p.size}
+        <div class="fw-bold">${p.id}</div>
+        ${p.score}
         </div>
-        <span class="badge bg-primary rounded-pill">${formatCurrency(p.price)}</span>
+        <span class="badge bg-primary rounded-pill">${p.score}</span>
     </li>
     `, '');
 

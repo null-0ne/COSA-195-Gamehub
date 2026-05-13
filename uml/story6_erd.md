@@ -6,31 +6,34 @@
 }}%%
 %%----------------------- MERMAID MARKUP BELOW --------------------%%
 erDiagram
-    YahtzeeCountScore {
-      String email FK
-      int score
-      String gameId PK
-      int rank
-    }
+    %% YahtzeeCountScore {
+    %%   String email FK
+    %%   int score
+    %%   String gameId PK
+    %%   int rank
+    %% }
 
-    CrapsScore {
-      String email FK
-      int wins
-      int losses
-      String gameId PK
-      int rank
-    }
+    %% CrapsScore {
+    %%   String email FK
+    %%   String gameId PK
+    %%   int rank
+    %% }
 
-    Score {
-      String gameTitle PK
-      User email FK
-      int[] score FK
+    scores {
+      int id PK
+      String gameTitle 
+      int userID FK
+      Number score 
+    }
+    users {
+      int id PK
+      String email
     }
 
     %% Relationships
+    users ||--o{ scores : "has"
 
-    Score ||--|{ CrapsScore : "holds"
-    Score ||--|{ YahtzeeCountScore : "holds"
+    
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```
