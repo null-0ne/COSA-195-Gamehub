@@ -6,14 +6,31 @@
 
 export async function retrieveLogin(email, password){
     try{
-        const response = await fetch(`../../db-seed-data.json?${email}&${password}`);
+        const response = await fetch("../../db-seed-data.json");
         if(!response.ok){
-            //return[];
-            //throw new Error("File doesn't exist");
+            throw new Error("Error retrieving data");
         }
         const data = await response.json();
-        return data.users;
         
+        for(let user of data.users){
+            if(user.email === email && user.password === password){
+                return user;
+            }
+            else{
+                return null;
+            }
+        }
+        /**
+         * for(let i = 0; i < data.user.length(); i++){
+            let currentUser = data.user[i];
+            if(currentUser.email === email && currentUser.password === password){
+                return currentUser;
+            }
+            else{
+                return null;
+            }
+        }
+         */
         
     }
     catch(error){

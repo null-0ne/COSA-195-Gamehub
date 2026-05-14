@@ -22,26 +22,35 @@ export default function renderLoginPage(param) {
             <div id="holdForm">
                 <form id ="login" action="" method="">
                     <fieldset id = "loginInfo">
-                        <label for="email"> Email Address: <label/>
-                        <input name ="custEmail" id="email" type="email" placeholder="example@saskpolytech.ca"/>
+                        <label for="email"> Email Address: </label>
+                        <input name ="custEmail" id="email" type="email" placeholder="example@saskpolytech.ca" class="input-group-text w-100"/>
 
                         <label for="password"> Password: <label/>
-                        <input name = "custPassword" id="password" type="password"/>
-                        
-                        <input type="submit" value="LOG IN"/>
+                        <input name = "custPassword" id="password" type="password" class="input-group-text w-100"/>
+
+                        <p id="errorMessage"></p>
+                        <input type="submit" value="LOG IN" id="btnLogin" class="btn btn-success d-grid gap-2 col-6 mx-auto "/>
                     </fieldset>
                 </form>
                 </div>
+                
 
                 <div id="bottomStuff">
                     <p> Do not have an account? </p>
-                    <input type="submit" value="SIGN UP"/>
+                    <input type="submit" value="SIGN UP" id="btnSignUp" class="btn btn-success"/>
                     <button type="button" class="btn btn-link" id="continue2Dash">Continue without an account</button>
                 </div>
             
     `;
 
-    element.classList = "border border-black d-flex justify-content-center align-items-center w-50 h-50 flex-column";
+    document.getElementById("errorMessage").classList = "";
+   // let backgroundHolder = document.createElement("div");
+    document.body.style.backgroundImage = "url('../images/bg image.png')"
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "contain";
+    
+
+    element.classList = "border border-black d-flex justify-content-center align-items-center w-50 h=100 flex-column";
     let holdForm = document.getElementById("holdForm");
     holdForm.classList = "border border-black w-75 h-50 mt-4 d-flex justify-content-center align-items-center ";
 
@@ -54,12 +63,35 @@ export default function renderLoginPage(param) {
     //document.getElementById("continue2Dash").addEventListener("click", redirectToDashboard);
 
     function redirectToDashboard(){
-        window.location = ""; 
+        window.location = ""; //dashboard
     }
 
-    document.getElementById("continue2Dash").addEventListener("click", async function(){
-        let user = await retrieveLogin();
-        console.log(user);
-    })
+    //submit handler!
+    document.addEventListener("submit", async function(event){
+        event.preventDefault();
+
+        //validation:
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        const userObject = await retrieveLogin(email, password);
+
+        //check for empty inputs:
+        if(email.trim() == "" || password.trim() == ""){
+            document.getElementById("errorMessage").innerText = "You are missing one or more fields!";
+        }
+        else{
+            if(userObject == null){
+                document.getElementById("errorMessage").innerText = "";
+                document.getElementById("errorMessage").innerText = "Username or password is incorrect";
+            }
+            else{
+                window.location = ""; //dashboard
+            }
+        }
+
+        
+        })
+
+    
 
 }
