@@ -31,9 +31,10 @@ export async function register(email, password){
             throw new Error("Error retrieving data");
         }
         const userExists = await checkEmail.json();
-        console.log(userExists)
+        
         if(userExists.length > 0){ //user already exists
             errorMessage.innerText = "That user already exists";
+            return;
         }
         const response = await fetch(`/api/users`, {
             method: "POST",
@@ -42,6 +43,10 @@ export async function register(email, password){
             },
             body: JSON.stringify({email, password}) //need to add id
         });
+        const user = await response.json();
+        sessionStorage.setItem("email", email);
+        sessionStorage.setItem("id", user.id);
+        return user;
     }
     catch(error){
         console.error(error);
@@ -49,22 +54,18 @@ export async function register(email, password){
 }
 
 export function registerValidation(email, password , confirmPassword){
-    let emailRegex = /^[^/s@]+@saskpolytech.ca$/;
-    if(emailRegex.test(email)){
-        if(password.length > 7){
-            if(password === confirmPassword){
-                return true;
-            } else{
-                errorMessage.innerText = "Passwords do not match";
-                return false;
-            }
-        } else{
-            errorMessage.innerText = "Password must be at least 8 characters";
-            return false;
-        }
-    } else {
+    
+    let emailRegex = /^[a-zA-z0-9._%+-]+@saskpolytech\.ca$/
+
+    if(!emailRegex.test(email)){
         errorMessage.innerText = "Invalid email, must be a @saskpolytech.ca email";
-        return false;
+    } else{
+        if(password.length < 8){
+            errorMessage.innerText = "Password must be at least 8 characters";
+        } else {
+            errorMessage.innerText = "";
+            return true;
+        }
     }
 }
 

@@ -21,25 +21,35 @@ export default function renderLoginPage(param) {
     element.innerHTML = `
             <div id="holdForm">
                 <form id ="login" action="" method="">
-                    <fieldset id = "loginInfo">
-                        <label for="email"> Email Address: </label>
+                    <fieldset id = "loginInfo" class="d-flex flex-column justify-content-center align-items-center">
+                        <div class="mt-2">
+                        <label for="email" class="fw-bold"> Email Address: </label>
                         <input name ="custEmail" id="email" type="email" placeholder="example@saskpolytech.ca" class="input-group-text w-100 bg-secondary"/>
-
-                        <label for="password"> Password: <label/>
-                        <input name = "custPassword" id="password" type="password" class="input-group-text w-100 bg-secondary "/>
-
-                        <p id="errorMessage"></p>
-                        <input type="submit" value="LOG IN" id="btnLogin" class="btn btn-success d-grid gap-2 col-6 mx-auto text-black"/>
+                        </div>
+                        <div>
+                        <label for="password" class="fw-bold"> Password: <label/>
+                        </div>
+                        <div>
+                        <input name = "password" id="password" type="password" class="input-group-text w-100 bg-secondary "/>
+                        </div>
+                        <p id="errorMessage" ></p>
+                        <input type="submit" value="LOG IN" id="btnLogin" class="btn btn-success d-grid gap-2 col-6 mx-auto text-black mb-2"/>
                     </fieldset>
                 </form>
                 </div>
                 
 
-                <div id="bottomStuff">
+                <div id="bottomStuff" class="d-flex flex-column justify-content-center align-items-center">
+                <div>
                     <p> Do not have an account? </p>
-                    <input type="submit" value="SIGN UP" id="btnSignUp" class="btn btn-success text-black"/>
+                </div>
+                <div>
+                    <input type="button" value="SIGN UP" id="btnSignUp" class="btn btn-success text-black"/>
+                </div>
+                <div>
                     <button type="button" class="btn btn-link" id="continue2Dash">Continue without an account</button>
                 </div>
+                    </div>
             
     `;
 
@@ -53,11 +63,11 @@ export default function renderLoginPage(param) {
     errorMessage.classList = "text-danger";
 
 
-    element.classList = "border border-black d-flex justify-content-center align-items-center w-50 h=100 flex-column";
+    element.classList = "border border-3 border-black d-flex justify-content-center align-items-center w-50 h=100 flex-column";
     let holdForm = document.getElementById("holdForm");
-    holdForm.classList = "border border-black w-75 h-50 mt-4 d-flex justify-content-center align-items-center ";
+    holdForm.classList = "border border-2 border-black w-75 h-50 mt-4 d-flex justify-content-center";
 
-    document.getElementById("login").classList = "w-75 h-50 d-flex justify-content-center align-items-center "; 
+    document.getElementById("login").classList = "w-75 h-50 d-flex justify-content-center  "; 
     let bottomStuff = document.getElementById("bottomStuff");
     bottomStuff.classList = "w-50 h-50";
 
@@ -68,6 +78,10 @@ export default function renderLoginPage(param) {
     function redirectToDashboard(){
         window.location = ""; //dashboard
     }
+
+    document.getElementById("btnSignUp").addEventListener("click", () => {
+        window.location = "http://localhost:5173/register-page";
+    });
 
     //submit handler!
     document.addEventListener("submit", async function(event){
@@ -88,7 +102,7 @@ export default function renderLoginPage(param) {
                 document.getElementById("errorMessage").innerText = "Username or password is incorrect";
             }
             else{
-                window.location = ""; //dashboard
+                window.location = "http://localhost:5173"; //dashboard
             }
         }
 

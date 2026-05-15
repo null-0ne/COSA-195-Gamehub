@@ -2,6 +2,7 @@
 import {register} from "./lib/user-credentials.js";
 import {registerValidation} from "./lib/user-credentials.js";
 export default function renderRegisterPage(param) {
+
     let element = document.createElement("div");
     let bod = document.querySelector('body');
     let outerElem = document.createElement("div");
@@ -14,15 +15,28 @@ export default function renderRegisterPage(param) {
     element.innerHTML = `
             <div id="holdForm">
                 <form id ="login" action="" method="">
-                    <fieldset id = "loginInfo">
-                        <label for="email"> Email Address: </label>
+                    <fieldset id = "loginInfo" class="d-flex flex-column justify-content-center align-items-center">
+                    <div>
+                        <label for="email" class="fw-bold form-label"> Email Address: </label>
                         <input name ="custEmail" id="email" type="email" placeholder="example@saskpolytech.ca" class="input-group-text w-100 bg-secondary"/>
-
-                        <label for="password"> Password: <label/>
-                        <input name = "custPassword" id="password" type="password" class="input-group-text w-100 bg-secondary "/>
-
-                        <p id="errorMessage"></p>
-                        <input type="submit" value="Sign Up" id="btnSignUp" class="btn btn-success d-grid gap-2 col-6 mx-auto text-black"/>
+                    </div>
+                    <div>
+                        <label for="password" class="fw-bold "> Password: <label/>
+                    </div>
+                    <div>
+                        <input name = "password" id="password" type="password" class="input-group-text w-100 bg-secondary "/>
+                    </div>
+                    <div>
+                        <label for="confirmPassword" class="fw-bold"> Confirm Password: <label/>
+                    </div>
+                    <div>
+                        <input name = "confirmPassword" id="confirmPassword" type="password" class="input-group-text w-100 bg-secondary "/>
+                    </div>
+                    <div class="w-100">
+                        <p id="errorMessage" class="text-danger"></p>
+                        <input type="submit" value="SIGN UP" id="btnSignUp" class="btn btn-success d-grid gap-2 col-6 mx-auto text-black"/>
+                        <input type="button" value="BACK" id="btnBack" class="btn btn-success d-grid gap-2 col-6 mx-auto text-black mt-2" />
+                    <div>
                     </fieldset>
                 </form>
                 </div>
@@ -31,25 +45,32 @@ export default function renderRegisterPage(param) {
                 
             
     `;
+    document.body.style.backgroundImage = "url('../images/bg image.png')"
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "contain";
 
+    outerElem.classList = "d-flex justify-content-center align-items-center vh-100 vw-100";
+
+    document.getElementById("btnBack").addEventListener("click", () => {
+            window.location = "http://localhost:5173/login-page";
+        });
+
+    document.addEventListener("submit", async function(event){
+        event.preventDefault();
+
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        if(email.trim() == "" || password.trim() == ""){
+                document.getElementById("errorMessage").innerText = "You are missing one or more fields!";
+            }
+
+        if(registerValidation(email, password))
+        {
+            const userObject = await register(email, password);
+            //window.location = ""; //to dashboard
+        }
+        
+    });
 }
 
-let btnSignUp = document.getElementById("btnSignUp");
-
-document.addEventListener("submit", async function(event){
-    event.preventDefault();
-
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-
-    if(email.trim() == "" || password.trim() == ""){
-            document.getElementById("errorMessage").innerText = "You are missing one or more fields!";
-        }
-
-    if(registerValidation())
-    {
-        const userObject = await register(email, password);
-        window.location = ""; //to dashboard
-    }
-    
-});

@@ -32,7 +32,6 @@ class userCredentials{
     +retrieveLogin(email: string, password: string) Object[]
     +register(email: string, password: string) Object[]
     +registerValidate(email: string, password: string) boolean
-    +emailExists(email: string) boolean
 }
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%    

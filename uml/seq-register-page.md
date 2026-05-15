@@ -21,11 +21,6 @@ title: Register Page
     alt Click Sign Up
         r->>r: registerValidate(email: string, password: string)
         alt Validation Successful
-        r->>c: emailExists(email: string)
-        activate c
-        c-->>r: Return boolean
-        deactivate c
-        alt False
             r->>c: register(email: string, password: string)
         activate c
             c-->>r: user:User
@@ -34,7 +29,7 @@ title: Register Page
             
     deactivate r
             
-        end
+        
         end
     end
     
