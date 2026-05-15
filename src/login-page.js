@@ -29,7 +29,8 @@ export default function renderLoginPage(param) {
                         <input name = "custPassword" id="password" type="password" class="input-group-text w-100"/>
 
                         <p id="errorMessage"></p>
-                        <input type="submit" value="LOG IN" id="btnLogin" class="btn btn-success d-grid gap-2 col-6 mx-auto "/>
+                        <input type="submit" value="LOG IN" id="btnLogin" class="btn btn-success d-grid gap-2 col-6 mx-auto " 
+                            style="background-color: #81bc00"/>
                     </fieldset>
                 </form>
                 </div>
@@ -37,7 +38,7 @@ export default function renderLoginPage(param) {
 
                 <div id="bottomStuff">
                     <p> Do not have an account? </p>
-                    <input type="submit" value="SIGN UP" id="btnSignUp" class="btn btn-success"/>
+                    <input type="submit" value="SIGN UP" id="btnSignUp" class="btn btn-success" style="background-color: #81bc00"/>
                     <button type="button" class="btn btn-link" id="continue2Dash">Continue without an account</button>
                 </div>
             
@@ -54,7 +55,7 @@ export default function renderLoginPage(param) {
     let holdForm = document.getElementById("holdForm");
     holdForm.classList = "border border-black w-75 h-50 mt-4 d-flex justify-content-center align-items-center ";
 
-    document.getElementById("login").classList = "w-75 h-50 d-flex justify-content-center align-items-center"; 
+    document.getElementById("login").classList = "w-75 h-50 d-flex justify-content-center align-items-center "; 
     let bottomStuff = document.getElementById("bottomStuff");
     bottomStuff.classList = "w-50 h-50";
 
