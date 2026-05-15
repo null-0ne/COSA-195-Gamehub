@@ -19,16 +19,16 @@ export default function renderNavBar(
         </a>
         <a href="/LoginPage" class='link-offset-2 link-underline link-underline-opacity-0 text-white'><button>Login</button></a>
     </div>
-    <div class='container-fluid bg-black p-0'>
+    <div class='container-fluid bg-success p-0 border border-dark'>
         <div class='row w-100 h-100 text-center'>
         <div class='col-md-4 text-white'>
-        <a href="/" class='link-offset-2 link-underline link-underline-opacity-0 text-white'>Home</a>
+        <a href="/" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Home</a>
         </div>
         <div class='col-md-4 text-white'>
-        <a href="/craps" class='link-offset-2 link-underline link-underline-opacity-0 text-white'>Craps</a>
+        <a href="/craps" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Craps</a>
         </div>
         <div class='col-md-4 text-white'>
-        <a href="/YahtzeeCount" class='link-offset-2 link-underline link-underline-opacity-0 text-white'>Yahtzee Count</a>
+        <a href="/YahtzeeCount" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Yahtzee Count</a>
         </div>
     </div>
     `;
