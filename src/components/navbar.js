@@ -17,9 +17,7 @@ export default function renderNavBar(
         <a classhref="/">
             <img src="/sp.jpg" class="logo vanilla" alt="Saskpolytech logo" />
         </a>
-        <div class='pr-3'>
-        <button><a href="/LoginPage">Login</a></button>
-        </div>
+        <a href="/LoginPage" class='link-offset-2 link-underline link-underline-opacity-0 text-white'><button>Login</button></a>
     </div>
     <div class='container-fluid bg-black p-0'>
         <div class='row w-100 h-100 text-center'>
