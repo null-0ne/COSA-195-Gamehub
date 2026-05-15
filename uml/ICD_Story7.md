@@ -21,17 +21,31 @@ classDiagram
         +int lossCount
         +boolean continue
 
+        +renderGame(); %% at the start of the game, render game HTML
 
-    +renderGame(); %% at the start of the game, render game HTML
+        +rollDice(); %%animate dice roll, calls determine Point at end. returns dice sum. calculates if win, loss or continue. returns Boolean
 
-    +rollDice(); %%animate dice roll, calls determine Point at end. returns dice sum. calculates if win, loss or continue. returns Boolean
+        +updateGame(int[] dice, int score) %%updates the current roll and last roll score (visual)
 
-    +updateGame(int[] dice, int score) %%updates the current roll and last roll score (visual)
+        +updateSession(int lossCount, int winCount, int gamesPlayed, boolean didWin) %%updates the session wins, losses, and games played
 
-    +updateSession(int lossCount, int winCount, int gamesPlayed, boolean didWin) %%updates the session wins, losses, and games played
-
-    +submitScore(); %%adds wins and losses to JSON file
+        +submitRatio(); %%calls submitScore() in score-sservice class
     }
+
+    class score-service{
+        +UserId
+        +uEmail
+        +gameName
+        +ratio
+
+        +submitScore(userId, uEmail, gameName, ratio)
+
+
+    }
+
+
+    
+    
 
 
 

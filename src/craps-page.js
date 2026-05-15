@@ -16,13 +16,16 @@ export default function renderCrapsPage(param) {
 
     //2 columns for the game and statistics
     let gameDiv = document.createElement("div");
-        addAttribute(gameDiv, "class", "col");
+        addAttribute(gameDiv, "class", "col-8");
         addAttribute(gameDiv, "class", "bg-light");
         addAttribute(gameDiv, "id", "gameCol");
 
      let statsDiv = document.createElement("div");
-        addAttribute(statsDiv, "class", "col");
+        addAttribute(statsDiv, "class", "col-3");
         addAttribute(statsDiv, "id", "statsCol");
+         addAttribute(statsDiv, "class", "bg-light");
+         addAttribute(statsDiv, "class", "ms-3");
+        
 
       document.getElementById("mainRow2").append(gameDiv);
       document.getElementById("mainRow2").append(statsDiv);
@@ -60,25 +63,25 @@ export default function renderCrapsPage(param) {
     let img1 = document.createElement("img");
     img1.src = "/images/dice0.png"
     addAttribute(img1, "id", "img1" );
-    addAttribute(img1, "class", "w-75");
+   // addAttribute(img1, "class", "w-75");
     document.getElementById("gameColRow21").append(img1);
 
     let img2 = document.createElement("img");
     img2.src = "/images/dice0.png"
     addAttribute(img2, "id", "img2" );
-    addAttribute(img2, "class", "w-75");
+   // addAttribute(img2, "class", "w-75");
     document.getElementById("gameColRow23").append(img2);
 
     let img3 = document.createElement("img");
     img3.src = "/images/dice0.png"
     addAttribute(img3, "id", "img3" );
-    addAttribute(img3, "class", "w-75");
+    //addAttribute(img3, "class", "w-75");
     document.getElementById("gameColRow41").append(img3);
 
     let img4 = document.createElement("img");
     img4.src = "/images/dice0.png"
     addAttribute(img4, "id", "img4" );
-    addAttribute(img4, "class", "w-75");
+    //addAttribute(img4, "class", "w-75");
     document.getElementById("gameColRow43").append(img4);
 
     //Add text to the game section
@@ -109,7 +112,7 @@ let btnReset = document.createElement("button");
   let btnSubmit = document.createElement("button");
      addAttribute(btnSubmit, "id", "btnSubmit");
      addAttribute(btnSubmit, "class", "invisible");
-      btnSubmit.innerText = "Submit Points "
+      btnSubmit.innerText = "Submit Score "
       document.getElementById("statsColRow51").append(btnSubmit);
       
 
@@ -121,6 +124,10 @@ let btnReset = document.createElement("button");
 }
 
 //Global Variables
+
+
+
+
 let isRolling = false;
 let gamePoint = -1;
 let winCount = 0;
@@ -173,8 +180,16 @@ function rollDice(diceArray) {
 
         let currRollSum = diceArray.reduce((acc, val) => acc+ val, 0);
     console.log(currRollSum);
+ 
+      calculateRound(currRollSum);
 
-    //if first roll of the game
+    }, 1000);
+
+    
+}
+
+function calculateRound(currRollSum){
+     //if first roll of the game
     if(gamePoint == -1){
       
       //if losing value
@@ -212,13 +227,10 @@ function rollDice(diceArray) {
     }
     
     
-
-    }, 1000);
-
-    
 }
 
 function updateSession(didWin){
+      btnSubmit.setAttribute("class", "visible");
         btnReset.setAttribute("class", "visible") ;
         if(didWin){
           winCount ++;
@@ -259,11 +271,45 @@ function resetGame(){
   
 }
 
+
+
+/**
+ * submits user score win/loss ratio
+ * to the database
+ */
 function submitRatio(){
+
+  
+  btnSubmit.setAttribute("class", "invisible");
   let gameRatio = winCount/gamesPlayed;
-  submitScore("uID", "example@gmail", "craps", gameRatio);
+
+  let userId = sessionStorage.getItem("userId");
+  if(userId === null){
+    userId = Math.floor(Math.random()* 1000000 + 1);
+  }
+
+  let userEmail = sessionStorage.getItem("userEmail");
+  if(userEmail === null){
+    userEmail = (Math.floor(Math.random()* 1000000 + 1)) + "@example.com";
+  }
+
+//  let info = {user: userId, email: userEmail, gameTitle: "craps", score: gameRatio};
+
+ // function(() =>{})
+   // submitRatio(info);
+  
+
+  submitScore(userId, userEmail, "craps", gameRatio);
 }
 
+/**
+ * helper method for quickly adding attributes
+ * 
+ * @param {} elem 
+ * @param {*} name 
+ * @param {*} val 
+ * @returns 
+ */
 function addAttribute(elem, name, val) {
     let currentVal = elem.getAttribute(name);
     if (currentVal === null) {

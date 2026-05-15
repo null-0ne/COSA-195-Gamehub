@@ -1,11 +1,11 @@
 
-export async function submitScore(id, uEmail, gameTitle, ratio)
+export async function submitScore(userId, uEmail, gameName, ratio)
 {
     fetch('/api/scores', {
     method: 'POST',
     body: JSON.stringify({
-        user: {userID: id, email: uEmail},
-        game: gameTitle,
+        user: {id: userId, email: uEmail},
+        gameTitle: gameName,
         score: ratio
     }),
     headers: {
