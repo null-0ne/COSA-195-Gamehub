@@ -8,8 +8,8 @@ Course:      COSA 195 (Systems Project)
 Date:        2026-05-01 
 Purpose:     Leaderboard View
 */ 
-import renderLeaderboardList from './leaderboard-list.js'
-import {getScores} from "./leaderboards-service.js";
+import renderLeaderboardList from './components/leaderboard-list.js'
+import {getScores} from "./lib/leaderboards-service.js";
 // import {formatDate, formatDateTime, formatTime} from './examples/lib/formatter.js';
 
 export default async function renderLeaderboardPage(
