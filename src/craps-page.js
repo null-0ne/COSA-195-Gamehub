@@ -1,24 +1,27 @@
 "use strict";
 
 import { submitScore } from "./lib/score-service";
-
+import {renderRollSec} from "./components/renderRollSection";
+import {addAttribute} from "./components/addAttribute";
 
 export default function renderCrapsPage(param) {
-    let body = document.querySelector("body");
 
-    //Three rows of the page
-    for (let i = 1; i < 4; i++) {
-        let dRow = document.createElement("div");
-        addAttribute(dRow, "class", "row");
-        addAttribute(dRow, "id", "mainRow" + i);
-        body.append(dRow);
-    }
+  renderRollSec();
+    // let body = document.querySelector("body");
+
+    // //Three rows of the page
+    // for (let i = 1; i < 4; i++) {
+    //     let dRow = document.createElement("div");
+    //     addAttribute(dRow, "class", "row");
+    //     addAttribute(dRow, "id", "mainRow" + i);
+    //     body.append(dRow);
+    // }
 
     //2 columns for the game and statistics
-    let gameDiv = document.createElement("div");
-        addAttribute(gameDiv, "class", "col-8");
-        addAttribute(gameDiv, "class", "bg-light");
-        addAttribute(gameDiv, "id", "gameCol");
+    // let gameDiv = document.createElement("div");
+    //     addAttribute(gameDiv, "class", "col-8");
+    //     addAttribute(gameDiv, "class", "bg-light");
+    //     addAttribute(gameDiv, "id", "gameCol");
 
      let statsDiv = document.createElement("div");
         addAttribute(statsDiv, "class", "col-3");
@@ -31,18 +34,18 @@ export default function renderCrapsPage(param) {
       document.getElementById("mainRow2").append(statsDiv);
 
     //four rows and 5 columns(inside each row) for game column
-     for (let i = 1; i < 5; i++) {
-        let dRow = document.createElement("div");
-        addAttribute(dRow, "class", "row");
-        addAttribute(dRow, "id", "gameRow" + i);
-        gameDiv.append(dRow);
-        for(let k=1; k< 6; k++){
-          let dCol = document.createElement("div");
-          addAttribute(dCol, "class", "col");
-          addAttribute(dCol, "id", ("gameColRow" + i) + k);
-          dRow.append(dCol);
-        }
-    }
+    //  for (let i = 1; i < 5; i++) {
+    //     let dRow = document.createElement("div");
+    //     addAttribute(dRow, "class", "row");
+    //     addAttribute(dRow, "id", "gameRow" + i);
+    //     gameDiv.append(dRow);
+    //     for(let k=1; k< 6; k++){
+    //       let dCol = document.createElement("div");
+    //       addAttribute(dCol, "class", "col");
+    //       addAttribute(dCol, "id", ("gameColRow" + i) + k);
+    //       dRow.append(dCol);
+    //     }
+    // }
 
     //five rows 2 columns(inside each row) for stats column
      for (let i = 1; i < 6; i++) {
@@ -302,19 +305,4 @@ function submitRatio(){
   submitScore(userId, userEmail, "craps", gameRatio);
 }
 
-/**
- * helper method for quickly adding attributes
- * 
- * @param {} elem 
- * @param {*} name 
- * @param {*} val 
- * @returns 
- */
-function addAttribute(elem, name, val) {
-    let currentVal = elem.getAttribute(name);
-    if (currentVal === null) {
-        elem.setAttribute(name, val);
-        return;
-    }
-    elem.setAttribute(name, currentVal + " " + val);
-}
+
