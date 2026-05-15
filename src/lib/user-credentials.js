@@ -63,8 +63,12 @@ export function registerValidation(email, password , confirmPassword){
         if(password.length < 8){
             errorMessage.innerText = "Password must be at least 8 characters";
         } else {
-            errorMessage.innerText = "";
-            return true;
+            if(confirmPassword !== password){
+                errorMessage.innerText = "Passwords must match";
+            } else {
+                errorMessage.innerText = "";
+                return true;
+            }
         }
     }
 }

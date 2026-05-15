@@ -73,10 +73,10 @@ export default function renderLoginPage(param) {
 
     outerElem.classList = "d-flex justify-content-center align-items-center vh-100 vw-100";
 
-    //document.getElementById("continue2Dash").addEventListener("click", redirectToDashboard);
+    document.getElementById("continue2Dash").addEventListener("click", redirectToDashboard);
 
     function redirectToDashboard(){
-        window.location = ""; //dashboard
+        window.location = "http://localhost:5173/"; //dashboard
     }
 
     document.getElementById("btnSignUp").addEventListener("click", () => {
@@ -102,7 +102,7 @@ export default function renderLoginPage(param) {
                 document.getElementById("errorMessage").innerText = "Username or password is incorrect";
             }
             else{
-                window.location = "http://localhost:5173"; //dashboard
+                window.location = "http://localhost:5173/"; //dashboard
             }
         }
 

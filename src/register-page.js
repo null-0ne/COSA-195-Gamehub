@@ -60,15 +60,16 @@ export default function renderRegisterPage(param) {
 
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
 
         if(email.trim() == "" || password.trim() == ""){
                 document.getElementById("errorMessage").innerText = "You are missing one or more fields!";
             }
 
-        if(registerValidation(email, password))
+        if(registerValidation(email, password, confirmPassword))
         {
             const userObject = await register(email, password);
-            //window.location = ""; //to dashboard
+            window.location = "http://localhost:5173/"; //to dashboard
         }
         
     });
