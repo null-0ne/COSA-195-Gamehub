@@ -22,19 +22,22 @@ describe('product page tests', () => {
         cy.get('h1').should('have.text', `Leaderboard`)
 
         //ensure 3 craps records listed
-        cy.get('.list-group:first-of-type > .list-group-item').should('have.length', 3)
+        cy.get('.col:first-of-type > .list-group:first-of-type > .list-group-item').should('have.length', 3)
+        
+        //ensure 3 craps records listed
+        cy.get('.col:first-of-type > .list-group:first-of-type > .list-group-item').should('have.length', 3)
 
         //alternative way to check text matches without extra whitespaces
-        cy.get('.list-group:first-of-type > .list-group-item').last().invoke('text')
+        cy.get('.col:first-of-type > .list-group:first-of-type > .list-group-item').last().invoke('text')
         .then((text) => {
             // Replaces all whitespace characters (including newlines) with nothing
             const cleanedText = text.replace(/\s+/g, '').trim();
             expect(cleanedText).to.equal('email@email.com2.5672.567');
         });
 
-        cy.get('.list-group:nth-of-type(2) > .list-group-item').should('have.length', 3)
+        cy.get('.col:nth-of-type(2) > .list-group:first-of-type > .list-group-item').should('have.length', 3)
 
-        cy.get('.list-group:nth-of-type(2) > .list-group-item').last().invoke('text')
+        cy.get('.col:nth-of-type(2) > .list-group:first-of-type > .list-group-item').last().invoke('text')
         .then((text) => {
             const cleanedText = text.replace(/\s+/g, '').trim();
             expect(cleanedText).to.equal('email3@email.com4545');

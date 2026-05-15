@@ -20,10 +20,18 @@ export default async function renderLeaderboardPage(
       element.innerHTML = `
       <div>
           <h1><img src="/sp.jpg" class="logo vanilla" alt="Saskpolytech logo" />${params.title}</h1>
-          <h3>Craps</h3>
-          <ol class="list-group list-group-numbered"><li>NO Records Found</li></ol>
-          <h3>Yahtzee Count</h3>
-          <ol class="list-group list-group-numbered"><li>NO Records Found</li></ol>
+          <div class="container text-center">
+            <div class="row align-items-start">
+                <div class="col">
+                    <h3>Craps</h3>
+                    <ol class="list-group list-group-numbered"><li>NO Records Found</li></ol>
+                </div>
+                <div class="col">
+                    <h3>Yahtzee Count</h3>
+                    <ol class="list-group list-group-numbered"><li>NO Records Found</li></ol>
+                </div>
+            </div>
+          </div>
       </div>
     `;
   
@@ -43,8 +51,8 @@ export default async function renderLeaderboardPage(
             });
   
       //call to render the product-list component in the list-group ol element, pass the products to render in the params
-      renderLeaderboardList(document.querySelector('.list-group'), {scores: crapScores});
-      renderLeaderboardList(document.querySelector('.list-group:nth-of-type(2)'), {scores: yahtzeeScores});
+      renderLeaderboardList(document.querySelector('.col > .list-group'), {scores: crapScores});
+      renderLeaderboardList(document.querySelector('.col:nth-of-type(2) > .list-group'), {scores: yahtzeeScores});
   
       //return the element in case it is needed for further logic
       return element;
