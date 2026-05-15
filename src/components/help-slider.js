@@ -1,27 +1,20 @@
 "user Strict";
 
+/*credits: https://getbootstrap.com/docs/5.0/components/offcanvas/ -helped with understanding how offcanvas works*/
+export default function renderHelpSlider(
+        element = document.createElement("img")
+        , params = {text: "No Help Message provided"}
+        ) {
 
-export default function renderHelpSlider(id,text) {
-        id.onclick = () => {
-        if(document.getElementById("offCanvas") != null) {
-                document.getElementById("offCanvas").show();
-        }
-        let body = document.getElementById("app");
-        id.setAttribute("data-bs-toggle","offcanvas");
-        id.setAttribute("data-bs-target", "#offCanvas")
-        let newDiv = document.createElement("div");
-        const bulletPoints = text.split(".");
-        newDiv.innerHTML = `<div class='offcanvas offcanvas-bottom'id='offCanvas'>
-         <div class='offcanvas-header'>
-         <h5>How To play:<h5>
-         </div>
-         <div class='offcanvas-body'>
-         ${text}
-         </div>
-         </div>`;
-        body.append(newDiv);
-        setTimeout(function(){
-                id.click();
-        }, 50)
-        }
+        element.innerHTML = `
+        <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src='/images/q-icon.svg' alt='Test' id='HelpIcon' height='50'></button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">How to Play:</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    ${params.text}
+  </div>
+</div>`
 }
