@@ -1,5 +1,8 @@
 "use strict";
 
+import { submitScore } from "./lib/score-service";
+
+
 export default function renderCrapsPage(param) {
     let body = document.querySelector("body");
 
@@ -38,8 +41,8 @@ export default function renderCrapsPage(param) {
         }
     }
 
-    //four rows 2 columns(inside each row) for stats column
-     for (let i = 1; i < 5; i++) {
+    //five rows 2 columns(inside each row) for stats column
+     for (let i = 1; i < 6; i++) {
         let dRow = document.createElement("div");
         addAttribute(dRow, "class", "row");
         addAttribute(dRow, "id", "statsRow" + i);
@@ -86,14 +89,29 @@ export default function renderCrapsPage(param) {
      document.getElementById("gameColRow22").innerText = "+" ;//TODO: MAKE THEM REAL ELEMENTS
       document.getElementById("gameColRow42").innerText = "+";
 
-      document.getElementById("gameColRow24").innerText = "= 8";
-     document.getElementById("gameColRow44").innerText = "= 12";
+      document.getElementById("gameColRow24").innerText = "= 0";
+     document.getElementById("gameColRow44").innerText = "= 0";
 
-     //Add button to roll
+     //Add buttons 
      let btnRoll = document.createElement("button");
      addAttribute(btnRoll, "id", "btnRoll");
-     btnRoll.innerText = "Roll Dice"
+      addAttribute(btnRoll, "class", "visible");
+     btnRoll.innerText = "Roll Dice";
      document.getElementById("gameColRow25").append(btnRoll);
+
+
+let btnReset = document.createElement("button");
+     addAttribute(btnReset, "id", "btnReset");
+     addAttribute(btnReset, "class", "invisible");
+     btnReset.innerText = "Reset Game"
+     document.getElementById("gameColRow45").append(btnReset);
+
+  let btnSubmit = document.createElement("button");
+     addAttribute(btnSubmit, "id", "btnSubmit");
+     addAttribute(btnSubmit, "class", "invisible");
+      btnSubmit.innerText = "Submit Points "
+      document.getElementById("statsColRow51").append(btnSubmit);
+      
 
     //session statistics
     document.getElementById("statsColRow11").innerText = "Session Scores"
@@ -103,7 +121,7 @@ export default function renderCrapsPage(param) {
 }
 
 //Global Variables
-
+let isRolling = false;
 let gamePoint = -1;
 let winCount = 0;
 let diceArray = [0, 0];
@@ -112,17 +130,25 @@ let lossCount = 0;
 let gameState = true; //win + loss is false, continuing is true
 let didWin;
 
+//button event listeners
 window.addEventListener("load", function(){
-  document.getElementById("btnRoll").addEventListener("click", function(){
-  rollDice(diceArray);
-})
 
-})
+  document.getElementById("btnRoll").addEventListener("click", function(){
+  rollDice(diceArray); });
+
+   document.getElementById("btnReset").addEventListener("click", resetGame);
+
+   document.getElementById("btnSubmit").addEventListener("click", submitRatio);
+
+
+});
 
 function rollDice(diceArray) {
-  if(gameState === false){
+  if(gameState === false || isRolling){
     return;
   }
+  isRolling = true;
+
   //show last roll under last roll
   document.getElementById("img3").src = `/images/dice${diceArray[0]}.png`
   document.getElementById("img4").src = `/images/dice${diceArray[1]}.png`
@@ -143,6 +169,7 @@ function rollDice(diceArray) {
 
     let stopAnimation = setTimeout(function () {
         clearInterval(dieAnimation);
+        isRolling = false;
 
         let currRollSum = diceArray.reduce((acc, val) => acc+ val, 0);
     console.log(currRollSum);
@@ -162,6 +189,7 @@ function rollDice(diceArray) {
        
       }else{ //if game isnt done, set the point
           gamePoint = currRollSum;
+          document.getElementById("gameColRow15").innerText = "Point: " + gamePoint;
     }
     }else{ //if not first roll of the game
       if(currRollSum === 7){ //loss
@@ -183,6 +211,7 @@ function rollDice(diceArray) {
         updateSession(didWin);
     }
     
+    
 
     }, 1000);
 
@@ -190,25 +219,49 @@ function rollDice(diceArray) {
 }
 
 function updateSession(didWin){
+        btnReset.setAttribute("class", "visible") ;
         if(didWin){
           winCount ++;
+          document.getElementById("gameColRow35").innerText = "You Won!"
         }else{
           lossCount ++;
+          document.getElementById("gameColRow35").innerText = "You Lost!"
         }
         gamesPlayed ++;
 
         document.getElementById("statsColRow21").innerText = "Wins: " + winCount;
       document.getElementById("statsColRow31").innerText = "Losses: " + lossCount;
        document.getElementById("statsColRow41").innerText = "Games Played: " + gamesPlayed;
+
+       btnSubmit.setAttribute("class", "visible");
   }
 
 function updateGame(dArray, currSum){
     document.getElementById("gameColRow44").innerText =  document.getElementById("gameColRow24").innerText;
      document.getElementById("gameColRow24").innerText = `= ${currSum}`;
 
-     
-     
 
+}
+
+function resetGame(){
+   img1.src = "/images/dice0.png";
+   img2.src = "/images/dice0.png";
+   img3.src = "/images/dice0.png";
+   img4.src = "/images/dice0.png";
+
+   gamePoint = 0;
+   isRolling = false;
+   gameState = true;
+   document.getElementById("gameColRow24").innerText = "=0";
+    document.getElementById("gameColRow44").innerText = "=0";
+     btnReset.setAttribute("class", "invisible") ;
+      document.getElementById("gameColRow35").innerText = "";
+  
+}
+
+function submitRatio(){
+  let gameRatio = winCount/gamesPlayed;
+  submitScore("uID", "example@gmail", "craps", gameRatio);
 }
 
 function addAttribute(elem, name, val) {

@@ -1,108 +1,186 @@
 {
-	"products":[
-		{
-			"id": 1,
-			"title": "👁❤U Shampoo",
-			"size": "600ml",
-			"price": 8.99
-		},
-		{
-			"id": 2,
-			"title": "👁❤U Conditioner",
-			"size": "600ml",
-			"price": 9.99
-		},
-		{
-			"id": 3,
-			"title": "👁❤U Conditioner",
-			"size": "1.5L",
-			"price": 15.99
-		},
-		{
-			"id": 4,
-			"title": "👁❤U Shampoo",
-			"size": "1.5L",
-			"price": 14.99
-		},
-		{
-			"id": 5,
-			"title": "👁❤U Shampoo",
-			"size": "4L",
-			"price": 23.9
-		},
-		{
-			"id": 6,
-			"title": "👁❤U Conditioner",
-			"size": "4L",
-			"price": 27.98
-		},
-		{
-			"id": 7,
-			"title": "👁❤U Body Wash",
-			"size": "950ml",
-			"price": 12.99
-		},
-		{
-			"id": 8,
-			"title": "👁❤U Body Wash",
-			"size": "600ml",
-			"price": 10.99
-		},
-		{
-			"id": 9,
-			"title": "👁❤U Body Wash",
-			"size": "4L",
-			"price": 35.99
-		},
-		{
-			"id": 10,
-			"title": "👁❤U Tooth Polish",
-			"size": "350ml",
-			"price": 6.99
-		},
-		{
-			"id": 11,
-			"title": "👁❤U Tooth Polish",
-			"size": "150ml",
-			"price": 3.99
-		},
-		{
-			"id": 12,
-			"title": "👁❤U Tooth Polish",
-			"size": "500ml",
-			"price": 9.99
-		}
-	],
-	"orders":[
-		{
-			"id": 1,
-			"purchaseDate":"2026-05-01",
-			"customerId": 1,
-			"product_orders":[
-				{"id":1, "orderId":1, "productId":1, "quantity":2},
-				{"id":2, "orderId":1, "productId":4, "quantity":1},
-				{"id":3, "orderId":1, "productId":9, "quantity":3},
-				{"id":4, "orderId":1, "productId":10, "quantity":1}
-			]
-		},
-		{
-			"id": 2,
-			"purchaseDate":"2026-05-02",
-			"customerId": 1,
-			"product_orders":[
-				{"id":5, "orderId":2, "productId":3, "quantity":2},
-				{"id":6, "orderId":2, "productId":7, "quantity":4},
-				{"id":7, "orderId":2, "productId":12, "quantity":4}
-			]
-		},
-		{
-			"id": 3,
-			"purchaseDate":"2026-05-03",
-			"customerId": 1,
-			"product_orders":[
-				{"id":8, "orderId":3, "productId":2, "quantity":5},
-				{"id":9, "orderId":3, "productId":11, "quantity":5}
-			]
-		}
-	]	
+  "products": [
+    {
+      "id": "1",
+      "title": "👁❤U Shampoo",
+      "size": "600ml",
+      "price": 8.99
+    },
+    {
+      "id": "2",
+      "title": "👁❤U Conditioner",
+      "size": "600ml",
+      "price": 9.99
+    },
+    {
+      "id": "3",
+      "title": "👁❤U Conditioner",
+      "size": "1.5L",
+      "price": 15.99
+    },
+    {
+      "id": "4",
+      "title": "👁❤U Shampoo",
+      "size": "1.5L",
+      "price": 14.99
+    },
+    {
+      "id": "5",
+      "title": "👁❤U Shampoo",
+      "size": "4L",
+      "price": 23.9
+    },
+    {
+      "id": "6",
+      "title": "👁❤U Conditioner",
+      "size": "4L",
+      "price": 27.98
+    },
+    {
+      "id": "7",
+      "title": "👁❤U Body Wash",
+      "size": "950ml",
+      "price": 12.99
+    },
+    {
+      "id": "8",
+      "title": "👁❤U Body Wash",
+      "size": "600ml",
+      "price": 10.99
+    },
+    {
+      "id": "9",
+      "title": "👁❤U Body Wash",
+      "size": "4L",
+      "price": 35.99
+    },
+    {
+      "id": "10",
+      "title": "👁❤U Tooth Polish",
+      "size": "350ml",
+      "price": 6.99
+    },
+    {
+      "id": "11",
+      "title": "👁❤U Tooth Polish",
+      "size": "150ml",
+      "price": 3.99
+    },
+    {
+      "id": "12",
+      "title": "👁❤U Tooth Polish",
+      "size": "500ml",
+      "price": 9.99
+    }
+  ],
+  "scores": [
+    {
+      "id": "0PioRg7TK7U"
+    },
+    {
+      "user": {
+        "userID": "uID",
+        "uEmail": "example@gmail"
+      },
+      "game": "craps",
+      "score": "3.7",
+      "id": "8-Sa7H9dZ9c"
+    },
+    {
+      "user": {
+        "userID": "uID",
+        "uEmail": "example@gmail"
+      },
+      "game": "craps",
+      "score": 0,
+      "id": "cuJJ1XCVq6k"
+    },
+    {
+      "user": {
+        "userID": "uID",
+        "email": "example@gmail"
+      },
+      "game": "craps",
+      "score": 0.5,
+      "id": "I4t-3tJS1mI"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "purchaseDate": "2026-05-01",
+      "customerId": 1,
+      "product_orders": [
+        {
+          "id": 1,
+          "orderId": 1,
+          "productId": 1,
+          "quantity": 2
+        },
+        {
+          "id": 2,
+          "orderId": 1,
+          "productId": 4,
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "orderId": 1,
+          "productId": 9,
+          "quantity": 3
+        },
+        {
+          "id": 4,
+          "orderId": 1,
+          "productId": 10,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "purchaseDate": "2026-05-02",
+      "customerId": 1,
+      "product_orders": [
+        {
+          "id": 5,
+          "orderId": 2,
+          "productId": 3,
+          "quantity": 2
+        },
+        {
+          "id": 6,
+          "orderId": 2,
+          "productId": 7,
+          "quantity": 4
+        },
+        {
+          "id": 7,
+          "orderId": 2,
+          "productId": 12,
+          "quantity": 4
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "purchaseDate": "2026-05-03",
+      "customerId": 1,
+      "product_orders": [
+        {
+          "id": 8,
+          "orderId": 3,
+          "productId": 2,
+          "quantity": 5
+        },
+        {
+          "id": 9,
+          "orderId": 3,
+          "productId": 11,
+          "quantity": 5
+        }
+      ]
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
