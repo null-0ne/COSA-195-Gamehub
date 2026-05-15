@@ -52,9 +52,7 @@ export default function renderGameplaySection(
             </div>
           </div>
 
-          <div class="text-center pt-5">
-            <h1>SCORE: <span id="updateScore">0</span></h1>
-          </div>
+
         </div>
 </div>`;
 

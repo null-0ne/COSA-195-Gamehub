@@ -6,7 +6,7 @@
  Purpose:     Counter Page Component
               Acts like a "Page" and can be used in the router in app.js
 */
-import { postScores } from "../lib/score-service";
+import { postScores } from "./lib/score-service.js";
 import renderYahtzeeScoreCard from "./components/yahtzee-score-card.js";
 import renderGameplaySection from "./components/gameplay-section.js";
 /**
@@ -27,20 +27,37 @@ export default function renderYahtzeeCountPage(
         <div class="">
         <h2>SaskPolytech Yahtzee Count</h2>
           <div class="row">
-            <div class="col-8 border border-secondary rounded grey gameplay">
+            <div class="col-8 border border-secondary rounded grey ">
+              <div class="gameplay">
+              </div>
+              <div class="text-center pt-5">
+                <h1>SCORE: <span id="updateScore">0</span></h1>
+              </div>
             </div>
             <div class="col-4  score-form">
             </div>
           </div>
+          
         </div>
     </div>
     `;
-  renderYahtzeeScoreCard(
-    document.querySelector(`.score-form`),
-    postScores(totalScore, "yahtzee-count", 1, "john@saskpolytech.ca"),
-  );
-  renderGameplaySection(document.querySelector(`.gameplay`));
 
+  const sharedParams = {
+    totalScore: 0,
+    submitScores: function () {
+      postScores(this.totalScore, "yahtzee-count", 1, "john@saskpolytech.ca");
+    },
+    scoreSpan: document.getElementById("updateScore"),
+  };
+
+  renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
+  renderYahtzeeScoreCard(document.querySelector(`.score-form`), sharedParams);
+  let inputOnes = element.querySelectorAll(".catInput");
+  for (let input of inputOnes) {
+    input.addEventListener("change", function () {
+      sharedParams.scoreSpan.innerHTML = sharedParams.totalScore;
+    });
+  }
   //return the element in case it is needed for further logic
   return element;
 }

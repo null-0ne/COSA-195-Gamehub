@@ -4,8 +4,6 @@
  * @param {*} params - optional values, objects or functions needed to render on the page
  */
 
-import { postScores } from "../lib/score-service";
-
 export default function renderYahtzeeScoreCard(
   element = document.createElement("div") /*default - new button element*/,
   params = {} /* default - object with: count property , incr() function */,
@@ -65,26 +63,22 @@ export default function renderYahtzeeScoreCard(
 </table>
   `;
 
-  let totalScore = 0;
-  //<button class="bg-danger">Submit Score</button>
-  let inputOnes = document.querySelectorAll(".catInput");
+  let inputOnes = element.querySelectorAll(".catInput");
   for (let input of inputOnes) {
     input.addEventListener("change", function () {
-      totalScore = 0;
+      params.totalScore = 0;
       for (let otherInput of inputOnes) {
         let num = parseInt(otherInput.value, 10);
         if (!isNaN(num)) {
-          totalScore += parseInt(otherInput.value, 10);
+          params.totalScore += parseInt(otherInput.value, 10);
         }
       }
-      // totalScore += parseInt(input.value, 10);
-      console.log(totalScore);
-      document.getElementById("updateScore").innerHTML = totalScore;
+      console.log(params.totalScore);
     });
   }
-  document.getElementById("btnSubmit").addEventListener("click", function () {
-    postScores(totalScore, "yahtzee-count", 1, "john@saskpolytech.ca");
-  });
+  element
+    .querySelector("#btnSubmit")
+    .addEventListener("click", params.submitScores);
 
   //return the element in case it is needed for further logic
   return element;
