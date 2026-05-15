@@ -2,6 +2,7 @@
 
 /*credits: https://getbootstrap.com/docs/5.0/components/offcanvas/ -helped with understanding how offcanvas works*/
 /*credits Ernesto simplifiying code*/
+
 export default function renderHelpSlider(
         element = document.createElement("img")
         , params = {text: "No Help Message provided"}

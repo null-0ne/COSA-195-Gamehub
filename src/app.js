@@ -31,6 +31,6 @@ router
   .on('/index.html',()=>router.navigate('/'))
   .on('/craps', (url) => renderCrapsPage(appElement))
   .on('/YahtzeeCount', (url) => renderYahtzeeCountPage(appElement))
-  //.on('/LoginPage', (url) => renderLoginPage(appElement))
+  .on('/LoginPage', (url) => renderLoginPage(appElement))
   .on(() => renderHomePage(appElement,{title:'Home Page'}))
   .resolve();// execute the JS module to render the page

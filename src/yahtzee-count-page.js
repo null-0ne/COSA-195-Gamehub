@@ -8,8 +8,8 @@ export default function renderYahtzeeCountPage(appElement) {
     </div>`;
 
     renderHelpSlider(document.getElementById("divHelp"),{text: `<p>Yahtzee Count
-     is a dice game where players try to get certain patterns of dice in the
-     smallest number of rolls.
+    is a dice game where players try to get certain patterns of dice in the
+    smallest number of rolls.
      </p>
     <p>Have you ever played Yahtzee and been disappointed to not get
 a Yahtzee or some other combination of dice? Then Yahtzee
