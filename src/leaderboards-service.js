@@ -19,7 +19,7 @@
 export async function getScores(params={}){
 
     //transform the params.textSearch in a URL query string so that API server does a text search on title and size of product
-    const searchQuery =  params.textSearch?.length ? `gameTitle:contains=${params.textSearch}&score:contains=${params.textSearch}` : '';
+    const searchQuery =  params.textSearch?.length ? `gameTitle:eq=${params.textSearch}` : '';
 
     //transform the params.sortOrder in a URL query string so thar API server sorts the items by the fields and direction
     const sortQuery =  params.sortOrder ? `_sort=${params.sortOrder ?? 'score'}` : '';

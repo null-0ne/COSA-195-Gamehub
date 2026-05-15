@@ -23,10 +23,10 @@ export default function renderProductList(
     ${str}
     <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
-        <div class="fw-bold">${p.id}</div>
-        ${p.score}
+        <div class="fw-bold">User: ${p.user.email}</div>
+        Score: ${p.score}
         </div>
-        <span class="badge bg-primary rounded-pill">${p.score}</span>
+        <span class="badge bg-primary rounded-pill">Score: ${p.score}</span>
     </li>
     `, '');
 
