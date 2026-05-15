@@ -296,10 +296,6 @@ function submitRatio(){
     userEmail = (Math.floor(Math.random()* 1000000 + 1)) + "@example.com";
   }
 
-//  let info = {user: userId, email: userEmail, gameTitle: "craps", score: gameRatio};
-
- // function(() =>{})
-   // submitRatio(info);
   
 
   submitScore(userId, userEmail, "craps", gameRatio);

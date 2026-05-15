@@ -7,7 +7,7 @@
 */
 describe("craps page test", () => {
   beforeEach(() => {
-    cy.visit(`http://localhost:5173/craps`); //todo: change this to actual link
+    cy.visit(`http://localhost:5173/craps`); 
   });
 
   it("rolls dice when Roll button is clicked", () => {
@@ -59,4 +59,22 @@ describe("craps page test", () => {
         rollUntilGameEnds();
       });
   });
+
+  it("resets text when 'reset button is clicked;", () => {
+
+     cy.get("#btnRoll").click(); //roll dice
+     cy.wait(1200);
+
+    cy.get("#btnReset").click(); //click reset button
+
+   
+
+    cy.get("#gameColRow24")
+      .invoke("text") 
+      .should("match", /0/); // text changed properly
+
+   
+  });
+
+  
 });
