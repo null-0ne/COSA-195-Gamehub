@@ -3,7 +3,7 @@
  * a reusable component that can be injected many times on the different "Pages"
  */
 
-import {formatCurrency} from './examples/lib/formatter.js';
+// import {formatCurrency} from './examples/lib/formatter.js';
 
 
 /**
@@ -11,7 +11,7 @@ import {formatCurrency} from './examples/lib/formatter.js';
  * @param {*} element - css selector of element to inject content
  * @param {*} params - optional values, objects or functions needed to render on the page
  */
-export default function renderProductList(
+export default function renderLeaderboardList(
     element = document.createElement('ol'),/*default - new button element*/
     params = { scores: [] }/* default - object with: products empty array */
 ) {
@@ -23,10 +23,10 @@ export default function renderProductList(
     ${str}
     <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
-        <div class="fw-bold">User: ${p.user.email}</div>
-        Score: ${p.score}
+        <div class="fw-bold">${p.user.email}</div>
+        ${p.score}
         </div>
-        <span class="badge bg-primary rounded-pill">Score: ${p.score}</span>
+        <span class="badge bg-primary rounded-pill">${p.score}</span>
     </li>
     `, '');
 

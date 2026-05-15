@@ -5,24 +5,24 @@
     Date:        2026-05-01
     Purpose:     Test Leaderboard List  Component
 */
-import renderProductList from "../../../src/examples/components/product-list.js";
-import testProducts from '../../fixtures/examples/test-products.json';
-import {formatCurrency} from '../../../src/examples/lib/formatter.js';
+import renderProductList from "../../../src/examples/components/leaderboard-list.js";
+import testLeaderboards from '../../fixtures/examples/test-leaderboards.json';
+// import {formatCurrency} from '../../../src/examples/lib/formatter.js';
 
 describe('productList component tests ', () => {
     it('displays the products accurately when loaded', () => {
 
         //render the component by itself in the /support/component-index.html using the fixtures test-products.json
-        cy.mount(renderProductList, {params: {products: testProducts}});
+        cy.mount(renderProductList, {params: {score: testleaderboards}});
 
         //NOTE: vanilla JS map function - use the test-products.json to generate the expected html for each list item
         // using innerHTML is overkill for most test unless you are enforcing exacting styles
-        const expectedProductHTMLs = testProducts.map(p => `
+        const expectedLeaderboardHTMLs = testLeaderboards.map(p => `
         <div class="ms-2 me-auto">
-        <div class="fw-bold">${p.title}</div>
-        ${p.size}
+        <div class="fw-bold">${p.user.id}</div>
+        ${p.score}
         </div>
-        <span class="badge bg-primary rounded-pill">${formatCurrency(p.price)}</span>
+        <span class="badge bg-primary rounded-pill">${p.score}</span>
     `)
 
         // get the actual html from the rendered component and compare with expected
@@ -33,11 +33,11 @@ describe('productList component tests ', () => {
                 expect($items).to.have.length(3);
 
                 //NOTE: JQuery map function - get the innerHTML of each list item (could use innerText for less strict tests)
-                const actualProductHTMLs = $items.map((i, li) => li.innerHTML)
+                const actualLeaderboardHTMLs = $items.map((i, li) => li.innerHTML)
                     .get(); // .get() returns JS Array instead of JQuery
 
                 //ensure each actual item html to equal the expected html
-                expect(actualProductHTMLs).to.deep.eq(expectedProductHTMLs);
+                expect(actualLeaderboardHTMLs).to.deep.eq(expectedLeaderboardHTMLs);
 
             });
     })

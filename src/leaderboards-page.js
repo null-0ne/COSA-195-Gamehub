@@ -8,7 +8,7 @@ Course:      COSA 195 (Systems Project)
 Date:        2026-05-01 
 Purpose:     Leaderboard View
 */ 
-import renderProductList from './leaderboard-list.js'
+import renderLeaderboardList from './leaderboard-list.js'
 import {getScores} from "./leaderboards-service.js";
 // import {formatDate, formatDateTime, formatTime} from './examples/lib/formatter.js';
 
@@ -43,8 +43,8 @@ export default async function renderLeaderboardPage(
             });
   
       //call to render the product-list component in the list-group ol element, pass the products to render in the params
-      renderProductList(document.querySelector('.list-group'), {scores: crapScores});
-      renderProductList(document.querySelector('.list-group:nth-of-type(2)'), {scores: yahtzeeScores});
+      renderLeaderboardList(document.querySelector('.list-group'), {scores: crapScores});
+      renderLeaderboardList(document.querySelector('.list-group:nth-of-type(2)'), {scores: yahtzeeScores});
   
       //return the element in case it is needed for further logic
       return element;

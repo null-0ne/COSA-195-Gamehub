@@ -19,17 +19,25 @@ describe('product page tests', () => {
 
     it('displays 3 products and check last product text', () => {
         // add some tests
-        cy.get('h1').should('have.text', `Product List`)
+        cy.get('h1').should('have.text', `Leaderboard`)
 
-        //ensure 5 products listed
-        cy.get('.list-group-item').should('have.length', 5)
+        //ensure 3 craps records listed
+        cy.get('.list-group-item').should('have.length', 3)
 
         //alternative way to check text matches without extra whitespaces
         cy.get('.list-group-item').last().invoke('text')
         .then((text) => {
             // Replaces all whitespace characters (including newlines) with nothing
             const cleanedText = text.replace(/\s+/g, '').trim();
-            expect(cleanedText).to.equal('👁❤UShampoo1.5L$14.99');
+            expect(cleanedText).to.equal('email@email.com2.5672.567');
         });
+
+        cy.get('.list-group:nth-of-type(2)').should('have.length', 3)
+
+        cy.get('.list-group:nth-of-type(2)').last().invoke('text')
+        .then((text) => {
+            const cleanedText = text.replace(/\s+/g, '').trim();
+            expect(cleanedText).to.equal('email3@email.com4545');
+        })
     })
 });
