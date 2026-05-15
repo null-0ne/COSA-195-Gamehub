@@ -23,14 +23,13 @@ export default function renderLoginPage(param) {
                 <form id ="login" action="" method="">
                     <fieldset id = "loginInfo">
                         <label for="email"> Email Address: </label>
-                        <input name ="custEmail" id="email" type="email" placeholder="example@saskpolytech.ca" class="input-group-text w-100"/>
+                        <input name ="custEmail" id="email" type="email" placeholder="example@saskpolytech.ca" class="input-group-text w-100 bg-secondary"/>
 
                         <label for="password"> Password: <label/>
-                        <input name = "custPassword" id="password" type="password" class="input-group-text w-100"/>
+                        <input name = "custPassword" id="password" type="password" class="input-group-text w-100 bg-secondary "/>
 
                         <p id="errorMessage"></p>
-                        <input type="submit" value="LOG IN" id="btnLogin" class="btn btn-success d-grid gap-2 col-6 mx-auto " 
-                            style="background-color: #81bc00"/>
+                        <input type="submit" value="LOG IN" id="btnLogin" class="btn btn-success d-grid gap-2 col-6 mx-auto text-black"/>
                     </fieldset>
                 </form>
                 </div>
@@ -38,7 +37,7 @@ export default function renderLoginPage(param) {
 
                 <div id="bottomStuff">
                     <p> Do not have an account? </p>
-                    <input type="submit" value="SIGN UP" id="btnSignUp" class="btn btn-success" style="background-color: #81bc00"/>
+                    <input type="submit" value="SIGN UP" id="btnSignUp" class="btn btn-success text-black"/>
                     <button type="button" class="btn btn-link" id="continue2Dash">Continue without an account</button>
                 </div>
             
@@ -50,6 +49,9 @@ export default function renderLoginPage(param) {
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "contain";
     
+    let errorMessage = document.getElementById("errorMessage");
+    errorMessage.classList = "text-danger";
+
 
     element.classList = "border border-black d-flex justify-content-center align-items-center w-50 h=100 flex-column";
     let holdForm = document.getElementById("holdForm");
@@ -81,7 +83,7 @@ export default function renderLoginPage(param) {
             document.getElementById("errorMessage").innerText = "You are missing one or more fields!";
         }
         else{
-            if(userObject == null){
+            if(userObject.length === 0){
                 document.getElementById("errorMessage").innerText = "";
                 document.getElementById("errorMessage").innerText = "Username or password is incorrect";
             }

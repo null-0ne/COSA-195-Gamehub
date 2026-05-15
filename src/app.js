@@ -5,6 +5,7 @@ import renderContactPage from './examples/counter-page.js';
 import renderMemoryPage from './examples/memory-page.js';
 import renderNavBar from './components/navbar.js';
 import renderLoginPage from './login-page.js';
+import renderRegisterPage from './register-page.js';
 
 const appElement = document.querySelector('#app');
 const navElement = document.querySelector('.navbar');
@@ -33,4 +34,5 @@ router
   .on('/memory', (url) => renderMemoryPage(appElement,{title:'Memory Game'}))
   .on(() => renderHomePage(appElement,{title:'Dice Games'}))
   .on('/login-page', (url) => renderLoginPage(appElement))
+  .on('/register-page', (url) => renderRegisterPage(appElement))
   .resolve();// execute the JS module to render the page
