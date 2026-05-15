@@ -21,9 +21,9 @@ export default async function renderLeaderboardPage(
       <div>
           <h1><img src="/sp.jpg" class="logo vanilla" alt="Saskpolytech logo" />${params.title}</h1>
           <h3>Craps</h3>
-          <ol class="list-group list-group-numbered"><li>NO Products Found</li></ol>
+          <ol class="list-group list-group-numbered"><li>NO Records Found</li></ol>
           <h3>Yahtzee Count</h3>
-          <ol class="list-group list-group-numbered"><li>NO Products Found</li></ol>
+          <ol class="list-group list-group-numbered"><li>NO Records Found</li></ol>
       </div>
     `;
   
