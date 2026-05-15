@@ -3,11 +3,12 @@
  * @param {*} element - css selector of element to inject content
  * @param {*} params - optional values, objects or functions needed to render on the page
  */
+
+import { postScores } from "../lib/score-service";
+
 export default function renderYahtzeeScoreCard(
   element = document.createElement("div") /*default - new button element*/,
-  params = {
-  
-  } /* default - object with: count property , incr() function */,
+  params = {} /* default - object with: count property , incr() function */,
 ) {
   //display the count within the button
   element.innerHTML = `<table class="table">
@@ -57,7 +58,7 @@ export default function renderYahtzeeScoreCard(
       <td><input type="text" class="catInput"></input></td>
     </tr>
     <tr >
-      <td colspan="3"><input class="btn btn-primary" id="btnSubmit" type="submit" value="Submit"></td>
+      <td colspan="3"><input class="btn btn-primary" id="btnSubmit" type="button" value="Submit"></td>
     </tr>
   </tbody>
   
@@ -67,26 +68,24 @@ export default function renderYahtzeeScoreCard(
   let totalScore = 0;
   //<button class="bg-danger">Submit Score</button>
   let inputOnes = document.querySelectorAll(".catInput");
-  for(let input of inputOnes)
-  {
-    input.addEventListener("change", function() {
+  for (let input of inputOnes) {
+    input.addEventListener("change", function () {
       totalScore = 0;
-      for (let otherInput of inputOnes)
-      {
+      for (let otherInput of inputOnes) {
         let num = parseInt(otherInput.value, 10);
-        if(!isNaN(num))
-        {
+        if (!isNaN(num)) {
           totalScore += parseInt(otherInput.value, 10);
         }
       }
       // totalScore += parseInt(input.value, 10);
       console.log(totalScore);
+      document.getElementById("updateScore").innerHTML = totalScore;
     });
   }
-  document.getElementById("btnSubmit").addEventListener("click", function(){
-      
+  document.getElementById("btnSubmit").addEventListener("click", function () {
+    postScores(totalScore, "yahtzee-count", 1, "john@saskpolytech.ca");
   });
-  
+
   //return the element in case it is needed for further logic
   return element;
 }

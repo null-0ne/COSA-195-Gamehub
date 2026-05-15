@@ -5,9 +5,7 @@
  */
 export default function renderGameplaySection(
   element = document.createElement("div") /*default - new button element*/,
-  params = {
-  
-  } /* default - object with: count property , incr() function */,
+  params = {} /* default - object with: count property , incr() function */,
 ) {
   //display the count within the button
   element.innerHTML = `<div class="col">
@@ -55,7 +53,7 @@ export default function renderGameplaySection(
           </div>
 
           <div class="text-center pt-5">
-            <h1>SCORE: <span>90</span></h1>
+            <h1>SCORE: <span id="updateScore">0</span></h1>
           </div>
         </div>
 </div>`;
@@ -63,5 +61,3 @@ export default function renderGameplaySection(
   //return the element in case it is needed for further logic
   return element;
 }
-
-

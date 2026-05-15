@@ -6,7 +6,7 @@
  Purpose:     Counter Page Component
               Acts like a "Page" and can be used in the router in app.js
 */
-
+import { postScores } from "../lib/score-service";
 import renderYahtzeeScoreCard from "./components/yahtzee-score-card.js";
 import renderGameplaySection from "./components/gameplay-section.js";
 /**
@@ -35,9 +35,12 @@ export default function renderYahtzeeCountPage(
         </div>
     </div>
     `;
-    renderYahtzeeScoreCard(document.querySelector(`.score-form`));
-    renderGameplaySection(document.querySelector(`.gameplay`));
-  
+  renderYahtzeeScoreCard(
+    document.querySelector(`.score-form`),
+    postScores(totalScore, "yahtzee-count", 1, "john@saskpolytech.ca"),
+  );
+  renderGameplaySection(document.querySelector(`.gameplay`));
+
   //return the element in case it is needed for further logic
   return element;
 }
