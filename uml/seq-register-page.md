@@ -12,7 +12,7 @@ title: Register Page
 
     actor u as User
     participant r as RegisterPage<br><<component>>
-    participant c as UserCredentials<br><<service>> 
+    participant c as UserService<br><<service>> 
     
 
     u->>r: navigates to register page

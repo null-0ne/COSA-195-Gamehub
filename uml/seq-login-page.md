@@ -12,7 +12,7 @@ title: Login Page
 
     actor u as User
     participant l as LoginPage<br><<component>>
-    participant c as UserCredentials<br><<service>>
+    participant c as UserService<br><<service>>
     
 
     u->>l: Navigates to login page

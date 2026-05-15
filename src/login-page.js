@@ -6,19 +6,19 @@
  * @param {*} element - HTML element target container
  * @param {*} params - optional values, objects or functions needed to render on the page
  */
-import {retrieveLogin} from "./lib/user-credentials.js";
+import { retrieveLogin } from "./lib/user-service.js";
 
 export default function renderLoginPage(param) {
-    let element = document.createElement("div");
-    let bod = document.querySelector('body');
-    let outerElem = document.createElement("div");
-    bod.appendChild(outerElem);
+  let element = document.createElement("div");
+  let bod = document.querySelector("body");
+  let outerElem = document.createElement("div");
+  bod.appendChild(outerElem);
 
-    outerElem.id="outerDiv";
-    outerElem.appendChild(element);
+  outerElem.id = "outerDiv";
+  outerElem.appendChild(element);
 
-    element.id = "border";
-    element.innerHTML = `
+  element.id = "border";
+  element.innerHTML = `
             <div id="holdForm">
                 <form id ="login" action="" method="">
                     <fieldset id = "loginInfo" class="d-flex flex-column justify-content-center align-items-center">
@@ -53,62 +53,62 @@ export default function renderLoginPage(param) {
             
     `;
 
-    document.getElementById("errorMessage").classList = "";
-   // let backgroundHolder = document.createElement("div");
-    document.body.style.backgroundImage = "url('../images/bg image.png')"
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundSize = "contain";
-    
-    let errorMessage = document.getElementById("errorMessage");
-    errorMessage.classList = "text-danger";
+  document.getElementById("errorMessage").classList = "";
+  // let backgroundHolder = document.createElement("div");
+  document.body.style.backgroundImage = "url('../images/bg image.png')";
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundSize = "contain";
 
+  let errorMessage = document.getElementById("errorMessage");
+  errorMessage.classList = "text-danger";
 
-    element.classList = "border border-3 border-black d-flex justify-content-center align-items-center w-50 h=100 flex-column";
-    let holdForm = document.getElementById("holdForm");
-    holdForm.classList = "border border-2 border-black w-75 h-50 mt-4 d-flex justify-content-center";
+  element.classList =
+    "border border-3 border-black d-flex justify-content-center align-items-center w-50 h=100 flex-column";
+  let holdForm = document.getElementById("holdForm");
+  holdForm.classList =
+    "border border-2 border-black w-75 h-50 mt-4 d-flex justify-content-center";
 
-    document.getElementById("login").classList = "w-75 h-50 d-flex justify-content-center  "; 
-    let bottomStuff = document.getElementById("bottomStuff");
-    bottomStuff.classList = "w-50 h-50";
+  document.getElementById("login").classList =
+    "w-75 h-50 d-flex justify-content-center  ";
+  let bottomStuff = document.getElementById("bottomStuff");
+  bottomStuff.classList = "w-50 h-50";
 
-    outerElem.classList = "d-flex justify-content-center align-items-center vh-100 vw-100";
+  outerElem.classList =
+    "d-flex justify-content-center align-items-center vh-100 vw-100";
 
-    document.getElementById("continue2Dash").addEventListener("click", redirectToDashboard);
+  document
+    .getElementById("continue2Dash")
+    .addEventListener("click", redirectToDashboard);
 
-    function redirectToDashboard(){
+  function redirectToDashboard() {
+    window.location = "http://localhost:5173/"; //dashboard
+  }
+
+  document.getElementById("btnSignUp").addEventListener("click", () => {
+    window.location = "http://localhost:5173/register-page";
+  });
+
+  //submit handler!
+  document.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    //validation:
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    const userObject = await retrieveLogin(email, password);
+
+    //check for empty inputs:
+    if (email.trim() == "" || password.trim() == "") {
+      document.getElementById("errorMessage").innerText =
+        "You are missing one or more fields!";
+    } else {
+      if (userObject.length === 0) {
+        document.getElementById("errorMessage").innerText = "";
+        document.getElementById("errorMessage").innerText =
+          "Username or password is incorrect";
+      } else {
         window.location = "http://localhost:5173/"; //dashboard
+      }
     }
-
-    document.getElementById("btnSignUp").addEventListener("click", () => {
-        window.location = "http://localhost:5173/register-page";
-    });
-
-    //submit handler!
-    document.addEventListener("submit", async function(event){
-        event.preventDefault();
-
-        //validation:
-        let email = document.getElementById("email").value;
-        let password = document.getElementById("password").value;
-        const userObject = await retrieveLogin(email, password);
-
-        //check for empty inputs:
-        if(email.trim() == "" || password.trim() == ""){
-            document.getElementById("errorMessage").innerText = "You are missing one or more fields!";
-        }
-        else{
-            if(userObject.length === 0){
-                document.getElementById("errorMessage").innerText = "";
-                document.getElementById("errorMessage").innerText = "Username or password is incorrect";
-            }
-            else{
-                window.location = "http://localhost:5173/"; //dashboard
-            }
-        }
-
-        
-        })
-
-    
-
+  });
 }

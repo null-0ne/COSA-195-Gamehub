@@ -51,10 +51,15 @@ describe('contact page test', () => {
     })
 
     it('Redirect to home page when registration is valid', () => {
-        cy.get('input.input-group-text').eq(0).type('wight7143456@saskpolytech.ca')
+        cy.get('input.input-group-text').eq(0).type('wisdfght7143hbc456@saskpolytech.ca')
         cy.get('input.input-group-text').eq(1).type('fdsf1234')
         cy.get('input.input-group-text').eq(2).type('fdsf1234')
         cy.get('input.btn').eq(0).click();
         cy.url().should('eq', "http://localhost:5173/") ;
+    })
+
+    it('Redirect to login-page when back button is clicked', () => {
+        cy.get('input.btn').eq(1).click();
+        cy.url().should('eq', "http://localhost:5173/login-page") ;
     })
 });

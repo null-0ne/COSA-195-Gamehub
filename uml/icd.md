@@ -8,13 +8,13 @@
 classDiagram
 %%  direction LR
 
-    class loginPage {
+    class login-page {
     <<view>>
         +renderLoginPage(element:HTMLElement,title:string,pageNum:int):HTMLElement
         +redirectToDashboard()
     }
 
-    class registerPage {
+    class register-page {
     <<view>>
         +renderRegisterPage(element:HTMLElement,title:string):HTMLElement
         +redirectToDashboard()
@@ -27,7 +27,7 @@ classDiagram
 
 %%----- Services -----%%
 
-class userCredentials{
+class user-service{
     <<service>>
     +retrieveLogin(email: string, password: string) Object[]
     +register(email: string, password: string) Object[]
