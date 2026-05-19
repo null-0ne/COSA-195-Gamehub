@@ -2,7 +2,7 @@
 
 import { submitScore } from "./lib/score-service";
 //import {renderRollSec} from "./components/renderRollSection";
-import {addAttribute} from "./components/addAttribute";
+import {addAttribute} from "./components/add-attribute";
 
 export default function renderCrapsPage(param) {
 
