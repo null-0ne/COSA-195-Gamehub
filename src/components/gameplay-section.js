@@ -10,7 +10,7 @@ export default function renderGameplaySection(
   //display the count within the button
   element.innerHTML = `<div class="col">
         <div>
-          <p class="fw-bold">Current Roll:</p>
+          <p class="fw-bold cr">Current Roll:</p>
         </div>
         <div class="pt-5 img-container ">
           <img 
@@ -42,13 +42,13 @@ export default function renderGameplaySection(
         <div class="container pt-5">
           <div class="row align-items-center">
             <div class="col">
-              <span>Roll Number: <span>1</span></span>
+              <span id="numRoll">Roll Number: <span>1</span></span>
             </div>
             <div class="col text-center">
               <button type="button" class="btn btn-primary">ROLL</button>
             </div>
             <div class="col text-end">
-              <p class="m-0">Time: <span>22:00</span> min</p>
+              <p class="m-0">Time: <span id="time">22:00</span> min</p>
             </div>
           </div>
 
