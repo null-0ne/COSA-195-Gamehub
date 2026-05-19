@@ -14,7 +14,9 @@ export default function renderHomePage(
         <h1><img src="/sp.jpg" class="logo vanilla" alt="Saskpolytech Logo" />
         ${params.title}</h1>
     </div>
+    <h1>My revert commit</h1>
     `;
+  
 
   //return the element in case it is needed for further logic
   return element;
