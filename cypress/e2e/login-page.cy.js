@@ -49,8 +49,8 @@ describe('contact page test', () => {
     })
 
     it('Redirect to home page when username and password are correct', () => {
-        cy.get('input.input-group-text').eq(0).type('wight7143@saskpolytech.ca')
-        cy.get('input.input-group-text').eq(1).type('fdsf')
+        cy.get('input.input-group-text').eq(0).type('ogugofor2899@saskpolytech.ca')
+        cy.get('input.input-group-text').eq(1).type('123abc')
         cy.get('input.btn').eq(0).click();
         cy.url().should('eq', "http://localhost:5173/" )
     })
