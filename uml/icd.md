@@ -8,13 +8,28 @@
 classDiagram
 %%  direction LR
 
-    class login-page {
+    class CrapsPage {
+        renderCrapsPage(element:HTMLElement,title:string)
+    }
+    class YahtzeeCountPage {
+        renderYahtzeeCountPage(element:HTMLElement,title:string)
+    }
+    class NavBar {
+        renderNavBar(element:HTMLElement,params:Object)
+    }
+    class HelpSlider {
+        renderhelpInfo(params:string)
+    }
+
+%%  direction LR
+
+    class LoginPage {
     <<view>>
         +renderLoginPage(element:HTMLElement,title:string,pageNum:int):HTMLElement
         +redirectToDashboard()
     }
 
-    class register-page {
+    class RegisterPage {
     <<view>>
         +renderRegisterPage(element:HTMLElement,title:string):HTMLElement
         +redirectToDashboard()
@@ -22,17 +37,21 @@ classDiagram
 
 
     %% Relationships
-    loginPage --> userCredentials : fetches data
-    registerPage --> userCredentials : fetches data
+    LoginPage --> UserService : fetches data
+    RegisterPage --> UserService : fetches data
+    NavBar <-- CrapsPage : layout
+    NavBar <-- YahtzeeCountPage : layout
+    YahtzeeCountPage --> HelpSlider: uses
+    CrapsPage --> HelpSlider: uses
 
 %%----- Services -----%%
 
-class user-service{
+class UserService{
     <<service>>
     +retrieveLogin(email: string, password: string) Object[]
     +register(email: string, password: string) Object[]
     +registerValidate(email: string, password: string) boolean
 }
 
-%%----------------------- MERMAID MARKUP ABOVE --------------------%%    
+%%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```

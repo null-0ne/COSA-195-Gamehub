@@ -1,10 +1,12 @@
 //import Navigo from 'navigo';  //Documentation: https://github.com/krasimir/navigo/blob/master/DOCUMENTATION.md
 import renderHomePage from './home-page.js';
+import renderCrapsPage from './craps-page.js';
 import renderProductPage from './examples/product-page.js';
 import renderContactPage from './examples/counter-page.js';
 import renderMemoryPage from './examples/memory-page.js';
 import renderNavBar from './components/navbar.js';
-import renderLoginPage from './login-page.js';
+import renderYahtzeeCountPage from "./yahtzee-count-page.js"; 
+import renderLoginPage from "./login-page.js";
 import renderRegisterPage from './register-page.js';
 
 const appElement = document.querySelector('#app');
@@ -28,11 +30,9 @@ router.notFound(() => { // this is like the default case statement in a switch s
 // see documentation at https://github.com/krasimir/navigo/blob/master/DOCUMENTATION.md
 router
   .on('/index.html',()=>router.navigate('/'))
-  .on('/product', (url) => renderProductPage(appElement, {title:'Product List',pageNum:url.params?.page}))
-  .on('/product/page/:pageNum', (url) => { console.log(url); renderProductPage(appElement,{title:'Product List',pageNum:url.data.pageNum})})
-  .on('/counter', (url) => renderContactPage(appElement,{title:'Shared Counter'}))
-  .on('/memory', (url) => renderMemoryPage(appElement,{title:'Memory Game'}))
-  .on(() => renderHomePage(appElement,{title:'Dice Games'}))
-  .on('/login-page', (url) => renderLoginPage(appElement))
+  .on('/craps', (url) => renderCrapsPage(appElement))
+  .on('/YahtzeeCount', (url) => renderYahtzeeCountPage(appElement))
+  .on('/LoginPage', (url) => renderLoginPage(appElement))
+  .on(() => renderHomePage(appElement,{title:'Home Page'}))
   .on('/register-page', (url) => renderRegisterPage(appElement))
   .resolve();// execute the JS module to render the page

@@ -15,7 +15,7 @@ title: Simplified Shopper views a list of products
     participant s as ProductService<br><<service>>
     participant l as ProductList<br><<component>>
     participant f as Formatter<br><<untility>>
-
+    
     u->>p: navigates to page
     activate p
 
@@ -25,7 +25,7 @@ title: Simplified Shopper views a list of products
     activate s
     s-->>p: returns products:Product[]
     deactivate s
-
+    
     Note over p, l: ProductList manages its own display logic
     p->>l: renderProductList(element,products)
     activate l
