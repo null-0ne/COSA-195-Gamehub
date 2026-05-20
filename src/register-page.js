@@ -1,18 +1,14 @@
 //story5_as_a_user_i_can_register_and_login_via_email
 import { register } from "./lib/user-service.js";
 //import { registerValidation } from "./lib/user-service.js";
-export default function renderRegisterPage(param) {
-  let element = document.createElement("div");
-  let bod = document.querySelector("body");
-  let outerElem = document.createElement("div");
-  bod.appendChild(outerElem);
+export default function renderRegisterPage(
+    element = document.createElement('div'), /*default - new div element*/
+    params = {title: 'Product', pageNum: 1} /*default*/)
+{
 
-  outerElem.id = "outerDiv";
-  outerElem.appendChild(element);
-
-  element.id = "border";
   element.innerHTML = `
-            <div id="holdForm">
+  <div class="d-flex justify-content-center align-items-center w-50 h-100 m-auto mt-4">
+            <div id="holdForm" class="border border-3 border-black p-4">
                 <form id ="login" action="" method="">
                     <fieldset id = "loginInfo" class="d-flex flex-column justify-content-center align-items-center">
                     <div>
@@ -39,17 +35,8 @@ export default function renderRegisterPage(param) {
                     </fieldset>
                 </form>
                 </div>
-                
-
-                
-            
+        </div>        
     `;
-  document.body.style.backgroundImage = "url('../images/bg image.png')";
-  document.body.style.backgroundRepeat = "no-repeat";
-  document.body.style.backgroundSize = "contain";
-
-  outerElem.classList =
-    "d-flex justify-content-center align-items-center vh-100 vw-100";
 
   document.getElementById("btnBack").addEventListener("click", () => {
     window.location = "http://localhost:5173/login";

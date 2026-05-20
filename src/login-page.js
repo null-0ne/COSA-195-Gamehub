@@ -12,9 +12,10 @@ export default function renderLoginPage(
     element = document.createElement('div'), /*default - new div element*/
     params = {title: 'Product', pageNum: 1} /*default*/) {
   
+      //document.querySelector("body").classList = "diceBackground";
   
   element.innerHTML = `
-        <div id="test" class="border border-3 border-black d-flex justify-content-center align-items-center w-50 h-100 flex-column">
+        <div id="test" class="m-auto mt-4 border border-3 border-black d-flex justify-content-center align-items-center w-50 h-100 flex-column">
             <div id="holdForm" class="border border-2 border-black w-75 h-50 mt-4 d-flex justify-content-center">
                 <form id ="login" action="" method="" class="w-75 h-50 d-flex justify-content-center">
                     <fieldset id = "loginInfo" class="d-flex flex-column justify-content-center align-items-center">
