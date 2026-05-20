@@ -1,16 +1,15 @@
 /*
  Filename:    yahtzee-count-page.js
- Student:     Riley Sane, 
+ Student:     Riley Sane, Sucha Singh
  Course:      COSA 195 (Systems Project)
  Date:        2026-05-01
- Purpose:     Counter Page Component
+ Purpose:     Yahtzee count page
               Acts like a "Page" and can be used in the router in app.js
 */
 import { postScores } from "./lib/score-service.js";
 import renderYahtzeeScoreCard from "./components/yahtzee-score-card.js";
 import renderGameplaySection from "./components/gameplay-section.js";
 /**
- * ContactPage Component - Acts like a "Page" and can be used in the router in main.js
  * Render function to inject content into an HTML element
  * @param {*} element - HTML element target container
  * @param {*} params - optional values, objects or functions needed to render on the page

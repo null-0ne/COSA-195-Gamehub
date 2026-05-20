@@ -1,9 +1,9 @@
 /*
-    Filename:    counter-page.cy.js
-    Student:     
+    Filename:    yahtzee-count-page.cy.js
+    Student:     Riley Sane, Sucha Singh
     Course:      COSA 195 (Systems Project)
     Date:        2026-05-01
-    Purpose:     End To End test Counter Page Component
+    Purpose:     End To End test Yahtzee Count page
 */
 describe("contact page test", () => {
   beforeEach(() => {

@@ -1,9 +1,9 @@
 /*
     Filename:    yahtzee-count-score-card.cy.js.js
-    Student:     
+    Student:     Riley Sane, Sucha Singh
     Course:      COSA 195 (Systems Project)
     Date:        2026-05-01
-    Purpose:     Test Counter Component
+    Purpose:     Test yahtzee count score card Component
 */
 import renderYahtzeeScoreCard from "../../src/components/yahtzee-score-card.js";
 

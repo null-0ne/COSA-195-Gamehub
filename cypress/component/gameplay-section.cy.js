@@ -1,9 +1,9 @@
 /*
     Filename:    gameplay-section.cy.js.js
-    Student:     
+    Student:     Riley Sane, Sucha Singh
     Course:      COSA 195 (Systems Project)
     Date:        2026-05-01
-    Purpose:     Test Gameplay-sectionComponent
+    Purpose:     Test Gameplay-section Component
 */
 import renderGameplaySection from "../../src/components/gameplay-section.js";
 

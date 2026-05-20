@@ -5,10 +5,9 @@
  */
 
 export default function renderYahtzeeScoreCard(
-  element = document.createElement("div") /*default - new button element*/,
-  params = {} /* default - object with: count property , incr() function */,
+  element = document.createElement("div") /**/,
+  params = {} /*An object that should contain the score, the postScores function and the span to update the score on the page*/,
 ) {
-  //display the count within the button
   element.innerHTML = `<table class="table">
   <thead >
     <tr>
