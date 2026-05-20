@@ -19,14 +19,14 @@ export default function renderLeaderboardList(
 
     //use the built-in JS array function 'reduce' to convert the array of product objects in to an HTML string
     //reduce loops through each item in the products array and outputs an HTML string for each then joins them all in several list items
-    element.innerHTML = params.scores.reduce((str, p) => `
+    
+    element.innerHTML = params.scores.reduce((str, p,i) => `
     ${str}
-    <li class="list-group-item d-flex justify-content-between align-items-start">
+    <li class=" list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
-        <div class="fw-bold">${p.user.email}</div>
-        ${p.score}
+        <div class="fw-bold">${p.user.email} </br>Score: ${p.score}</div>
         </div>
-        <span class="badge bg-primary rounded-pill">${p.score}</span>
+        <h1><span class="1badge bg-primary rounded-pill">&#${129351+i++}</span></h1>
     </li>
     `, '');
 
@@ -35,3 +35,4 @@ export default function renderLeaderboardList(
     //return the element in case it is needed for further logic
     return element;
 }
+

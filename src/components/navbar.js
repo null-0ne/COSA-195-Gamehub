@@ -54,7 +54,7 @@ export default function renderNavBar(
         </div>
         <div class='col-md-4 text-white'>
         <a href="/YahtzeeCount" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Yahtzee Count</a>
->>>>>>> main
+
         </div>
     </div>
     `;

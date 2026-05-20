@@ -17,13 +17,23 @@ describe('leaderboardList component tests ', () => {
 
         //NOTE: vanilla JS map function - use the test-products.json to generate the expected html for each list item
         // using innerHTML is overkill for most test unless you are enforcing exacting styles
-        const expectedLeaderboardHTMLs = testLeaderboards.map(p => `
+    
+        const expectedLeaderboardHTMLs = testLeaderboards.map((p,i) => `
         <div class="ms-2 me-auto">
-        <div class="fw-bold">${p.user.email}</div>
-        ${p.score}
+        <div class="fw-bold">${p.user.email} </br>Score: ${p.score}</div>
         </div>
-        <span class="badge bg-primary rounded-pill">${p.score}</span>
+        <h1><span class="1badge bg-primary rounded-pill">&#${129351+i++}</span></h1>
     `)
+
+    for (let i = 0; i<expectedLeaderboardHTMLs.length; i++)
+    {
+        let li = document.createElement("li");
+        li.innerHTML = expectedLeaderboardHTMLs[i];
+
+        expectedLeaderboardHTMLs[i] = li.innerHTML;
+
+
+    }
 
         // get the actual html from the rendered component and compare with expected
         //get all the list items <li> in the list <ol> wait up to 3 seconds for items to render

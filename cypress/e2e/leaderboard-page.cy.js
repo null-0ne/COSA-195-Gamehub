@@ -32,7 +32,7 @@ describe('product page tests', () => {
         .then((text) => {
             // Replaces all whitespace characters (including newlines) with nothing
             const cleanedText = text.replace(/\s+/g, '').trim();
-            expect(cleanedText).to.equal('email@email.com2.5672.567');
+            expect(cleanedText).to.equal('email@email.comScore:2.567🥉');
         });
 
         cy.get('.col:nth-of-type(2) > .list-group:first-of-type > .list-group-item').should('have.length', 3)
@@ -40,7 +40,7 @@ describe('product page tests', () => {
         cy.get('.col:nth-of-type(2) > .list-group:first-of-type > .list-group-item').last().invoke('text')
         .then((text) => {
             const cleanedText = text.replace(/\s+/g, '').trim();
-            expect(cleanedText).to.equal('email3@email.com4545');
+            expect(cleanedText).to.equal('email3@email.comScore:45🥉');
         })
     })
 });

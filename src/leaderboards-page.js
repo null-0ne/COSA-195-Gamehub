@@ -19,7 +19,7 @@ export default async function renderLeaderboardPage(
    // set the content of the element
       element.innerHTML = `
       <div>
-          <h1><img src="/sp.jpg" class="logo vanilla" alt="Saskpolytech logo" />${params.title}</h1>
+          <h1 class="d-flex justify-content-center">${params.title}</h1>
           <div class="container text-center">
             <div class="row align-items-start">
                 <div class="col">
