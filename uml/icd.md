@@ -7,7 +7,7 @@ classDiagram
 %%  direction LR
 
     
-    class leaderboardPage{
+    class LeaderboardPage{
         +renderLeaderboardPage(element:HTMLElement,title:string):HTMLElement
         
     }
@@ -15,15 +15,15 @@ classDiagram
         +renderGameCard(element:HTMLElement,games:string[]):HTMLElement
     }
 
-    class leaderboardList{
-        +renderScoreList(gameCard: Object, scores: Score[])
+    class LeaderboardList{
+        +renderScoreList(GameCard: Object, scores: Score[])
     }
 
-    class leaderboardService{
+    class LeaderboardService{
         +renderScores(Score score)
     }
 
-    class formatter{
+    class Formatter{
         +formatScoreList(email: String, score: int[], gameId: String)
         +sortAndRankScore(score:int[])
     }
@@ -35,12 +35,24 @@ classDiagram
     class Footer {
         +renderNavBar(element:HTMLElement,advert:String):HTMLElement
     }
+    class CrapsPage {
+        renderCrapsPage(element:HTMLElement,title:string)
+    }
+    class YahtzeeCountPage {
+        renderYahtzeeCountPage(element:HTMLElement,title:string)
+    }
+    class HelpSlider {
+        renderHelpInfo(params:string)
+    }
 
     %% Relationships
-    leaderboardPage --> GameCard : holds
-    leaderboardPage --> NavBar : has
-    leaderboardPage --> Footer : has
-
+    LeaderboardPage --> GameCard : holds
+    LeaderboardPage --> NavBar : has
+    LeaderboardPage --> Footer : has
+    NavBar <-- CrapsPage : layout
+    NavBar <-- YahtzeeCountPage : layout
+    YahtzeeCountPage --> HelpSlider: uses
+    CrapsPage --> HelpSlider: uses
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```
