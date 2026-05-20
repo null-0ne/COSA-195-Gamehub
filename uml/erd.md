@@ -28,13 +28,9 @@ erDiagram
     users {
       int id PK
       String email
+      String password
     }
 
     %% Relationships
     users ||--o{ scores : "has"
-
-    
-
-%%----------------------- MERMAID MARKUP ABOVE --------------------%%
-```
 

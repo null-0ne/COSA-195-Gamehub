@@ -35,24 +35,55 @@ classDiagram
     class Footer {
         +renderNavBar(element:HTMLElement,advert:String):HTMLElement
     }
+
     class CrapsPage {
         renderCrapsPage(element:HTMLElement,title:string)
     }
     class YahtzeeCountPage {
         renderYahtzeeCountPage(element:HTMLElement,title:string)
     }
+    class NavBar {
+        renderNavBar(element:HTMLElement,params:Object)
+    }
     class HelpSlider {
-        renderHelpInfo(params:string)
+        renderhelpInfo(params:string)
     }
 
+%%  direction LR
+
+    class LoginPage {
+    <<view>>
+        +renderLoginPage(element:HTMLElement,title:string,pageNum:int):HTMLElement
+        +redirectToDashboard()
+    }
+
+    class RegisterPage {
+    <<view>>
+        +renderRegisterPage(element:HTMLElement,title:string):HTMLElement
+        +redirectToDashboard()
+    }
+
+
     %% Relationships
-    LeaderboardPage --> GameCard : holds
-    LeaderboardPage --> NavBar : has
-    LeaderboardPage --> Footer : has
+    LoginPage --> UserService : fetches data
+    RegisterPage --> UserService : fetches data
     NavBar <-- CrapsPage : layout
     NavBar <-- YahtzeeCountPage : layout
     YahtzeeCountPage --> HelpSlider: uses
     CrapsPage --> HelpSlider: uses
+    LeaderboardPage --> GameCard : holds
+    LeaderboardPage --> NavBar : has
+    LeaderboardPage --> Footer : has
+
+%%----- Services -----%%
+
+class UserService{
+    <<service>>
+    +retrieveLogin(email: string, password: string) Object[]
+    +register(email: string, password: string) Object[]
+    +registerValidate(email: string, password: string) boolean
+}
+    
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```

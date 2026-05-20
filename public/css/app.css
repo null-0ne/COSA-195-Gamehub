@@ -33,3 +33,9 @@
     transform: rotate3d(-1, 1, 0, 180deg);
 }
 */
+
+.diceBackground {
+    background-image: url('../images/bg image.png');
+    background-repeat: no-repeat;
+    background-size: contian;
+}

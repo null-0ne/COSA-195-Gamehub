@@ -8,6 +8,7 @@ import renderNavBar from './components/navbar.js';
 import renderLeaderboardPage from './leaderboards-page.js';
 import renderYahtzeeCountPage from "./yahtzee-count-page.js"; 
 import renderLoginPage from "./login-page.js";
+import renderRegisterPage from './register-page.js';
 
 const appElement = document.querySelector('#app');
 const navElement = document.querySelector('.navbar');
@@ -37,7 +38,8 @@ router
   .on('/leaderboard', (url) => renderLeaderboardPage(appElement) )
   .on(() => renderHomePage(appElement,{title:'Dice Games'}))
   .on('/craps', (url) => renderCrapsPage(appElement))
-  .on('/YahtzeeCount', (url) => renderYahtzeeCountPage(appElement))
-  .on('/LoginPage', (url) => renderLoginPage(appElement))
+  .on('/yahtzee-count', (url) => renderYahtzeeCountPage(appElement))
+  .on('/login', (url) => renderLoginPage(appElement))
   .on(() => renderHomePage(appElement,{title:'Home Page'}))
+  .on('/register', (url) => renderRegisterPage(appElement))
   .resolve();// execute the JS module to render the page
