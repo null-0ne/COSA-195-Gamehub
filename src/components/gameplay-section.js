@@ -10,7 +10,7 @@ export default function renderGameplaySection(
   //display the count within the button
   element.innerHTML = `<div class="col">
         <div>
-          <p class="fw-bold cr">Current Roll:</p>
+          <p class="fw-bold" id="currentRoll">Current Roll:</p>
         </div>
         <div class="pt-5 img-container ">
           <img 
