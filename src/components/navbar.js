@@ -17,7 +17,7 @@ export default function renderNavBar(
         <a classhref="/">
             <img src="/sp.jpg" class="logo vanilla" alt="Saskpolytech logo" />
         </a>
-        <a href="/LoginPage" class='link-offset-2 link-underline link-underline-opacity-0 text-white'><button>Login</button></a>
+        <a href="/login" class='link-offset-2 link-underline link-underline-opacity-0 text-white'><button>Login</button></a>
     </div>
     <div class='container-fluid bg-success p-0 border border-dark'>
         <div class='row w-100 h-100 text-center'>
@@ -28,7 +28,7 @@ export default function renderNavBar(
         <a href="/craps" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Craps</a>
         </div>
         <div class='col-md-4 text-white'>
-        <a href="/YahtzeeCount" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Yahtzee Count</a>
+        <a href="/yahtzee-count" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Yahtzee Count</a>
         </div>
     </div>
     `;

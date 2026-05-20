@@ -31,8 +31,8 @@ router.notFound(() => { // this is like the default case statement in a switch s
 router
   .on('/index.html',()=>router.navigate('/'))
   .on('/craps', (url) => renderCrapsPage(appElement))
-  .on('/YahtzeeCount', (url) => renderYahtzeeCountPage(appElement))
-  .on('/LoginPage', (url) => renderLoginPage(appElement))
+  .on('/yahtzee-count', (url) => renderYahtzeeCountPage(appElement))
+  .on('/login', (url) => renderLoginPage(appElement))
   .on(() => renderHomePage(appElement,{title:'Home Page'}))
-  .on('/register-page', (url) => renderRegisterPage(appElement))
+  .on('/register', (url) => renderRegisterPage(appElement))
   .resolve();// execute the JS module to render the page

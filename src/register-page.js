@@ -52,7 +52,7 @@ export default function renderRegisterPage(param) {
     "d-flex justify-content-center align-items-center vh-100 vw-100";
 
   document.getElementById("btnBack").addEventListener("click", () => {
-    window.location = "http://localhost:5173/login-page";
+    window.location = "http://localhost:5173/login";
   });
 
   document.addEventListener("submit", async function (event) {

@@ -8,19 +8,15 @@
  */
 import { retrieveLogin } from "./lib/user-service.js";
 
-export default function renderLoginPage(param) {
-  let element = document.createElement("div");
-  let bod = document.querySelector("body");
-  let outerElem = document.createElement("div");
-  bod.appendChild(outerElem);
-
-  outerElem.id = "outerDiv";
-  outerElem.appendChild(element);
-
-  element.id = "border";
+export default function renderLoginPage(
+    element = document.createElement('div'), /*default - new div element*/
+    params = {title: 'Product', pageNum: 1} /*default*/) {
+  
+  
   element.innerHTML = `
-            <div id="holdForm">
-                <form id ="login" action="" method="">
+        <div id="test" class="border border-3 border-black d-flex justify-content-center align-items-center w-50 h-100 flex-column">
+            <div id="holdForm" class="border border-2 border-black w-75 h-50 mt-4 d-flex justify-content-center">
+                <form id ="login" action="" method="" class="w-75 h-50 d-flex justify-content-center">
                     <fieldset id = "loginInfo" class="d-flex flex-column justify-content-center align-items-center">
                         <div class="mt-2">
                         <label for="email" class="fw-bold"> Email Address: </label>
@@ -39,7 +35,7 @@ export default function renderLoginPage(param) {
                 </div>
                 
 
-                <div id="bottomStuff" class="d-flex flex-column justify-content-center align-items-center">
+                <div id="bottomStuff" class="d-flex flex-column justify-content-center align-items-center w-50 h-50">
                 <div>
                     <p> Do not have an account? </p>
                 </div>
@@ -49,32 +45,20 @@ export default function renderLoginPage(param) {
                 <div>
                     <button type="button" class="btn btn-link" id="continue2Dash">Continue without an account</button>
                 </div>
-                    </div>
-            
+                </div>
+            </div>
     `;
-
   document.getElementById("errorMessage").classList = "";
   // let backgroundHolder = document.createElement("div");
-  document.body.style.backgroundImage = "url('../images/bg image.png')";
-  document.body.style.backgroundRepeat = "no-repeat";
-  document.body.style.backgroundSize = "contain";
+  // document.body.style.backgroundImage = "url('../images/bg image.png')";
+  // document.body.style.backgroundRepeat = "no-repeat";
+  // document.body.style.backgroundSize = "contain";
 
   let errorMessage = document.getElementById("errorMessage");
   errorMessage.classList = "text-danger";
 
-  element.classList =
-    "border border-3 border-black d-flex justify-content-center align-items-center w-50 h=100 flex-column";
-  let holdForm = document.getElementById("holdForm");
-  holdForm.classList =
-    "border border-2 border-black w-75 h-50 mt-4 d-flex justify-content-center";
-
-  document.getElementById("login").classList =
-    "w-75 h-50 d-flex justify-content-center  ";
-  let bottomStuff = document.getElementById("bottomStuff");
-  bottomStuff.classList = "w-50 h-50";
-
-  outerElem.classList =
-    "d-flex justify-content-center align-items-center vh-100 vw-100";
+  // outerElem.classList =
+  //   "d-flex justify-content-center align-items-center vh-100 vw-100";
 
   document
     .getElementById("continue2Dash")
@@ -85,7 +69,7 @@ export default function renderLoginPage(param) {
   }
 
   document.getElementById("btnSignUp").addEventListener("click", () => {
-    window.location = "http://localhost:5173/register-page";
+    window.location = "http://localhost:5173/register";
   });
 
   //submit handler!
