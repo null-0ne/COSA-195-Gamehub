@@ -62,7 +62,7 @@ describe('contact page test', () => {
 
     it('Sign up button redirects to the register page', () => {
         cy.get('input.btn').eq(1).click();
-        cy.url().should('eq',"http://localhost:5173/register-page")
+        cy.url().should('eq',"http://localhost:5173/register")
     })
 
 });
