@@ -5,6 +5,7 @@ import renderProductPage from './examples/product-page.js';
 import renderContactPage from './examples/counter-page.js';
 import renderMemoryPage from './examples/memory-page.js';
 import renderNavBar from './components/navbar.js';
+import renderLeaderboardPage from './leaderboards-page.js';
 import renderYahtzeeCountPage from "./yahtzee-count-page.js"; 
 import renderLoginPage from "./login-page.js";
 import renderRegisterPage from './register-page.js';
@@ -30,6 +31,12 @@ router.notFound(() => { // this is like the default case statement in a switch s
 // see documentation at https://github.com/krasimir/navigo/blob/master/DOCUMENTATION.md
 router
   .on('/index.html',()=>router.navigate('/'))
+  .on('/product', (url) => renderProductPage(appElement, {title:'Product List',pageNum:url.params?.page}))
+  .on('/product/page/:pageNum', (url) => { console.log(url); renderProductPage(appElement,{title:'Product List',pageNum:url.data.pageNum})})
+  .on('/counter', (url) => renderContactPage(appElement,{title:'Shared Counter'}))
+  .on('/memory', (url) => renderMemoryPage(appElement,{title:'Memory Game'}))
+  .on('/leaderboard', (url) => renderLeaderboardPage(appElement) )
+  .on(() => renderHomePage(appElement,{title:'Dice Games'}))
   .on('/craps', (url) => renderCrapsPage(appElement))
   .on('/yahtzee-count', (url) => renderYahtzeeCountPage(appElement))
   .on('/login', (url) => renderLoginPage(appElement))
