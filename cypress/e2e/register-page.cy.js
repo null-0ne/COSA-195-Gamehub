@@ -1,6 +1,6 @@
 describe('contact page test', () => {
     beforeEach(() => {
-        cy.visit(`http://localhost:5173/register-page`)
+        cy.visit(`http://localhost:5173/register`)
     })
 
     it('displays form', () => {
