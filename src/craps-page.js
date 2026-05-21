@@ -234,7 +234,7 @@ function updateSession(didWin) {
   btnSubmit.setAttribute("class", "visible");
 }
 
-function updateGame(dArray, currSum) {
+function updateGame(currSum) {
   document.getElementById("gameColRow44").innerText =
     document.getElementById("gameColRow24").innerText;
   document.getElementById("gameColRow24").innerText = `= ${currSum}`;

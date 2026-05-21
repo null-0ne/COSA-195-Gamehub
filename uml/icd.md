@@ -8,18 +8,44 @@
 classDiagram
 %%  direction LR
 
+    class LeaderboardPage{
+        +renderLeaderboardPage(element:HTMLElement,title:string):HTMLElement
+    }
 
+    class GameCard {
+        +renderGameCard(element:HTMLElement,games:string[]):HTMLElement
+    }
+
+    class LeaderboardList{
+        +renderScoreList(GameCard: Object, scores: Score[])
+    }
+
+    class LeaderboardService{
+        +renderScores(Score score)
+    }
+
+    class Formatter{
+        +formatScoreList(email: String, score: int[], gameId: String)
+        +sortAndRankScore(score:int[])
+    }
 
     class NavBar {
         +renderNavBar(element:HTMLElement,params:Object):HTMLElement
     }
 
-    class CrapsPage{
+    class Footer {
+        +renderNavBar(element:HTMLElement,advert:String):HTMLElement
+    }
+
+    class CrapsPage {
+        +boolean isRolling
+        +int gamePoint
         +int winCount
         +int[] diceArray
         +int gamesPlayed
         +int lossCount
-        +boolean continue
+        +boolean gameState
+        +boolean didWin
 
         +renderCrapsPage(); %% at the start of the game, render game HTML
 
@@ -27,13 +53,15 @@ classDiagram
 
         +rollDice(); %%animate dice roll, calls determine Point at end. returns dice sum. calculates if win, loss or continue. returns Boolean
 
-        +calculateRound(currRollSum); %%calculates if the value that was rolled is a win, loss or other
+        +calculateRound(int currRollSum); %%calculates if the value that was rolled is a win, loss or other
 
-        +updateGame(int[] dice, int score) %%updates the current roll and last roll score (visual)
+        +updateGame(int currRollSum) %%updates the current roll and last roll score (visual)
 
-        +updateSession(int lossCount, int winCount, int gamesPlayed, boolean didWin) %%updates the session wins, losses, and games played
+        +updateSession(boolean didWin) %%updates the session wins, losses, and games played
 
-        +submitRatio(); %%calls submitScore() in score-sservice class
+        +resetGame() %% starts the game over so user can roll again
+
+        +submitRatio(); %%calls submitScore() in score-service class
     }
 
     class score-service{
@@ -43,18 +71,31 @@ classDiagram
         +ratio
 
         +submitScore(userId, uEmail, gameName, ratio)
-
-
     }
 
+    class YahtzeeCountPage {
+        renderYahtzeeCountPage(element:HTMLElement,title:string)
+    }
 
+    class HelpSlider {
+        renderhelpInfo(params:string)
+    }
+
+%%  direction LR
+
+    class LoginPage {
+    <<view>>
+        +renderLoginPage(element:HTMLElement,title:string,pageNum:int):HTMLElement
+        +redirectToDashboard()
+    }
+
+    class RegisterPage {
+    <<view>>
+        +renderRegisterPage(element:HTMLElement,title:string):HTMLElement
+        +redirectToDashboard()
+    }
     
     
-
-
-
-
-
     %% Relationships
     NavBar <-- CrapsPage: has
 
