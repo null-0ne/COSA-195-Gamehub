@@ -104,6 +104,15 @@
       "gameTitle": "craps",
       "score": 1,
       "id": "uDVY9VGjNm0"
+    },
+    {
+      "user": {
+        "id": 368896,
+        "email": "954001@example.com"
+      },
+      "gameTitle": "craps",
+      "score": 0,
+      "id": "dsjLWdEoUPc"
     }
   ],
   "orders": [

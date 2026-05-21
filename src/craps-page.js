@@ -90,14 +90,15 @@ export default function renderCrapsPage(param) {
 
     //Add text to the game section
     document.getElementById("gameColRow11").innerText = "Current Roll:";
+    
      document.getElementById("gameColRow15").innerText = "Point:";
       document.getElementById("gameColRow31").innerText = "Last Roll: ";
 
-     document.getElementById("gameColRow22").innerText = "+" ;//TODO: MAKE THEM REAL ELEMENTS
-      document.getElementById("gameColRow42").innerText = "+";
+     document.getElementById("gameColRow22").innerHTML = `<p class ="text-center fs-1 mt-5">+</p>` ;//TODO: MAKE THEM REAL ELEMENTS
+       document.getElementById("gameColRow42").innerHTML = `<p class ="text-center fs-1 mt-5">+</p>` ;
 
-      document.getElementById("gameColRow24").innerText = "= 0";
-     document.getElementById("gameColRow44").innerText = "= 0";
+      document.getElementById("gameColRow24").innerHTML = `<p class =""> =0 </p>`;
+     document.getElementById("gameColRow44").innerHTML = `<p class ="">=0</p>`;
 
      //Add buttons 
      let btnRoll = document.createElement("button");
