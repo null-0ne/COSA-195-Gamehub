@@ -8,21 +8,30 @@
 erDiagram
 
 
-  User{
-    String id pk
+  users{
+    int id PK
+    String email
     String password
-    String crapsScore
   }
 
-  Craps{
-    String id pk
-    String userId fk
-    String score
+  craps{
+    int id pk
+    String email
+    String gameName
+    Number score
+  }
+
+  scores {
+  int id PK
+  String gameTitle
+  int userID FK
+  Number score
   }
 
 
    %% Relationships
-    Craps ||--o{ User : "has"
+    scores }o--o{ craps : "submits"
+    users ||--o{ scores : "has"
 
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%

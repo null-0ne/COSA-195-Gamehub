@@ -14,7 +14,7 @@ title: Story 7 Craps Page
     participant craps as CrapsPage<br><<component>>
     participant dice as Dice<br><<component>>
     participant ups as UpdateSession<br><<utility>>
-    participant ss as SubmitScore<br><<service>>
+    participant ss as ScoreService<br><<service>>
     participant js as Users<br><<database>>
 
     u->>craps: navigates to page
@@ -40,9 +40,9 @@ title: Story 7 Craps Page
     end
 
     u->>craps: clicks submit score button
-    craps->>ss: submitScore()
+    craps->>ss: submitRatio()
     activate ss
-    ss->>js: sends updated score information
+    ss->>js: submitScore()
     activate js
     deactivate js
     deactivate ss
