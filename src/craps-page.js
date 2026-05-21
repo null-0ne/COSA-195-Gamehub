@@ -2,136 +2,131 @@
 
 import { submitScore } from "./lib/score-service";
 //import {renderRollSec} from "./components/renderRollSection";
-import {addAttribute} from "./components/add-attribute";
+import { addAttribute } from "./components/add-attribute";
 
 export default function renderCrapsPage(param) {
+  let body = document.querySelector("body");
+  body.removeChild(document.querySelector("body > div"));
 
+  //Three rows of the page
+  for (let i = 1; i < 4; i++) {
+    let dRow = document.createElement("div");
+    addAttribute(dRow, "class", "row");
+    addAttribute(dRow, "id", "mainRow" + i);
+    body.append(dRow);
+  }
 
-     let body = document.querySelector("body");
-     body.removeChild(document.querySelector("body > div"));
+  //2 columns for the game and statistics
+  let gameDiv = document.createElement("div");
+  addAttribute(gameDiv, "class", "col-8");
+  addAttribute(gameDiv, "class", "bg-light");
+  addAttribute(gameDiv, "id", "gameCol");
 
-     //Three rows of the page
-    for (let i = 1; i < 4; i++) {
-        let dRow = document.createElement("div");
-        addAttribute(dRow, "class", "row");
-        addAttribute(dRow, "id", "mainRow" + i);
-        body.append(dRow);
+  let statsDiv = document.createElement("div");
+  addAttribute(statsDiv, "class", "col-3");
+  addAttribute(statsDiv, "id", "statsCol");
+  addAttribute(statsDiv, "class", "bg-light");
+  addAttribute(statsDiv, "class", "ms-3");
+
+  document.getElementById("mainRow2").append(gameDiv);
+  document.getElementById("mainRow2").append(statsDiv);
+
+  //four rows and 5 columns(inside each row) for game column
+  for (let i = 1; i < 5; i++) {
+    let dRow = document.createElement("div");
+    addAttribute(dRow, "class", "row");
+    addAttribute(dRow, "id", "gameRow" + i);
+    gameDiv.append(dRow);
+    for (let k = 1; k < 6; k++) {
+      let dCol = document.createElement("div");
+      addAttribute(dCol, "class", "col");
+      addAttribute(dCol, "id", "gameColRow" + i + k);
+      dRow.append(dCol);
     }
+  }
 
-    //2 columns for the game and statistics
-    let gameDiv = document.createElement("div");
-        addAttribute(gameDiv, "class", "col-8");
-        addAttribute(gameDiv, "class", "bg-light");
-        addAttribute(gameDiv, "id", "gameCol");
+  //five rows 2 columns(inside each row) for stats column
+  for (let i = 1; i < 6; i++) {
+    let dRow = document.createElement("div");
+    addAttribute(dRow, "class", "row");
+    addAttribute(dRow, "id", "statsRow" + i);
+    statsDiv.append(dRow);
 
-     let statsDiv = document.createElement("div");
-        addAttribute(statsDiv, "class", "col-3");
-        addAttribute(statsDiv, "id", "statsCol");
-         addAttribute(statsDiv, "class", "bg-light");
-         addAttribute(statsDiv, "class", "ms-3");
-        
-
-      document.getElementById("mainRow2").append(gameDiv);
-      document.getElementById("mainRow2").append(statsDiv);
-
-    //four rows and 5 columns(inside each row) for game column
-     for (let i = 1; i < 5; i++) {
-        let dRow = document.createElement("div");
-        addAttribute(dRow, "class", "row");
-        addAttribute(dRow, "id", "gameRow" + i);
-        gameDiv.append(dRow);
-        for(let k=1; k< 6; k++){
-          let dCol = document.createElement("div");
-          addAttribute(dCol, "class", "col");
-          addAttribute(dCol, "id", ("gameColRow" + i) + k);
-          dRow.append(dCol);
-        }
+    for (let k = 1; k < 2; k++) {
+      let dCol = document.createElement("div");
+      addAttribute(dCol, "class", "col");
+      addAttribute(dCol, "id", "statsColRow" + i + k);
+      dRow.append(dCol);
     }
+  }
 
-    //five rows 2 columns(inside each row) for stats column
-     for (let i = 1; i < 6; i++) {
-        let dRow = document.createElement("div");
-        addAttribute(dRow, "class", "row");
-        addAttribute(dRow, "id", "statsRow" + i);
-        statsDiv.append(dRow);
+  //create image elements
+  let img1 = document.createElement("img");
+  img1.src = "/images/dice0.png";
+  addAttribute(img1, "id", "img1");
+  // addAttribute(img1, "class", "w-75");
+  document.getElementById("gameColRow21").append(img1);
 
-        for(let k=1; k< 2; k++){
-          let dCol = document.createElement("div");
-          addAttribute(dCol, "class", "col");
-          addAttribute(dCol, "id", ("statsColRow" + i) + k);
-          dRow.append(dCol);
-        }
-    }
+  let img2 = document.createElement("img");
+  img2.src = "/images/dice0.png";
+  addAttribute(img2, "id", "img2");
+  // addAttribute(img2, "class", "w-75");
+  document.getElementById("gameColRow23").append(img2);
 
-    //create image elements
-    let img1 = document.createElement("img");
-    img1.src = "/images/dice0.png"
-    addAttribute(img1, "id", "img1" );
-   // addAttribute(img1, "class", "w-75");
-    document.getElementById("gameColRow21").append(img1);
+  let img3 = document.createElement("img");
+  img3.src = "/images/dice0.png";
+  addAttribute(img3, "id", "img3");
+  //addAttribute(img3, "class", "w-75");
+  document.getElementById("gameColRow41").append(img3);
 
-    let img2 = document.createElement("img");
-    img2.src = "/images/dice0.png"
-    addAttribute(img2, "id", "img2" );
-   // addAttribute(img2, "class", "w-75");
-    document.getElementById("gameColRow23").append(img2);
+  let img4 = document.createElement("img");
+  img4.src = "/images/dice0.png";
+  addAttribute(img4, "id", "img4");
+  //addAttribute(img4, "class", "w-75");
+  document.getElementById("gameColRow43").append(img4);
 
-    let img3 = document.createElement("img");
-    img3.src = "/images/dice0.png"
-    addAttribute(img3, "id", "img3" );
-    //addAttribute(img3, "class", "w-75");
-    document.getElementById("gameColRow41").append(img3);
+  //Add text to the game section
+  document.getElementById("gameColRow11").innerText = "Current Roll:";
 
-    let img4 = document.createElement("img");
-    img4.src = "/images/dice0.png"
-    addAttribute(img4, "id", "img4" );
-    //addAttribute(img4, "class", "w-75");
-    document.getElementById("gameColRow43").append(img4);
+  document.getElementById("gameColRow15").innerHTML =
+    `<p class =" fs-1 mt-5">Point: </p>`;
+  document.getElementById("gameColRow31").innerText = "Last Roll: ";
 
-    //Add text to the game section
-    document.getElementById("gameColRow11").innerText = "Current Roll:";
-    
-     document.getElementById("gameColRow15").innerHTML = `<p class =" fs-1 mt-5">Point: </p>`;
-      document.getElementById("gameColRow31").innerText = "Last Roll: ";
+  document.getElementById("gameColRow22").innerHTML =
+    `<p class ="text-center fs-1 mt-5">+</p>`; //TODO: MAKE THEM REAL ELEMENTS
+  document.getElementById("gameColRow42").innerHTML =
+    `<p class ="text-center fs-1 mt-5">+</p>`;
 
-     document.getElementById("gameColRow22").innerHTML = `<p class ="text-center fs-1 mt-5">+</p>` ;//TODO: MAKE THEM REAL ELEMENTS
-       document.getElementById("gameColRow42").innerHTML = `<p class ="text-center fs-1 mt-5">+</p>` ;
+  document.getElementById("gameColRow24").innerHTML = `<p class =""> =0 </p>`;
+  document.getElementById("gameColRow44").innerHTML = `<p class ="">=0</p>`;
 
-      document.getElementById("gameColRow24").innerHTML = `<p class =""> =0 </p>`;
-     document.getElementById("gameColRow44").innerHTML = `<p class ="">=0</p>`;
+  //Add buttons
+  let btnRoll = document.createElement("button");
+  addAttribute(btnRoll, "id", "btnRoll");
+  addAttribute(btnRoll, "class", "visible");
+  btnRoll.innerText = "Roll Dice";
+  document.getElementById("gameColRow25").append(btnRoll);
 
-     //Add buttons 
-     let btnRoll = document.createElement("button");
-     addAttribute(btnRoll, "id", "btnRoll");
-      addAttribute(btnRoll, "class", "visible");
-     btnRoll.innerText = "Roll Dice";
-     document.getElementById("gameColRow25").append(btnRoll);
-
-
-let btnReset = document.createElement("button");
-     addAttribute(btnReset, "id", "btnReset");
-     addAttribute(btnReset, "class", "invisible");
-     btnReset.innerText = "Reset Game"
-     document.getElementById("gameColRow45").append(btnReset);
+  let btnReset = document.createElement("button");
+  addAttribute(btnReset, "id", "btnReset");
+  addAttribute(btnReset, "class", "invisible");
+  btnReset.innerText = "Reset Game";
+  document.getElementById("gameColRow45").append(btnReset);
 
   let btnSubmit = document.createElement("button");
-     addAttribute(btnSubmit, "id", "btnSubmit");
-     addAttribute(btnSubmit, "class", "invisible");
-      btnSubmit.innerText = "Submit Score "
-      document.getElementById("statsColRow51").append(btnSubmit);
-      
+  addAttribute(btnSubmit, "id", "btnSubmit");
+  addAttribute(btnSubmit, "class", "invisible");
+  btnSubmit.innerText = "Submit Score ";
+  document.getElementById("statsColRow51").append(btnSubmit);
 
-    //session statistics
-    document.getElementById("statsColRow11").innerText = "Session Scores"
-     document.getElementById("statsColRow21").innerText = "Wins: 0"
-      document.getElementById("statsColRow31").innerText = "Losses: 0"
-       document.getElementById("statsColRow41").innerText = "Games Played: 0"
+  //session statistics
+  document.getElementById("statsColRow11").innerText = "Session Scores";
+  document.getElementById("statsColRow21").innerText = "Wins: 0";
+  document.getElementById("statsColRow31").innerText = "Losses: 0";
+  document.getElementById("statsColRow41").innerText = "Games Played: 0";
 }
 
 //Global Variables
-
-
-
 
 let isRolling = false;
 let gamePoint = -1;
@@ -143,165 +138,142 @@ let gameState = true; //win + loss is false, continuing is true
 let didWin;
 
 //button event listeners
-window.addEventListener("load", function(){
+window.addEventListener("load", function () {
+  document.getElementById("btnRoll").addEventListener("click", function () {
+    rollDice(diceArray);
+  });
 
-  document.getElementById("btnRoll").addEventListener("click", function(){
-  rollDice(diceArray); });
+  document.getElementById("btnReset").addEventListener("click", resetGame);
 
-   document.getElementById("btnReset").addEventListener("click", resetGame);
-
-   document.getElementById("btnSubmit").addEventListener("click", submitRatio);
-
-
+  document.getElementById("btnSubmit").addEventListener("click", submitRatio);
 });
 
 function rollDice(diceArray) {
-  if(gameState === false || isRolling){
+  if (gameState === false || isRolling) {
     return;
   }
   isRolling = true;
 
   //show last roll under last roll
-  document.getElementById("img3").src = `/images/dice${diceArray[0]}.png`
-  document.getElementById("img4").src = `/images/dice${diceArray[1]}.png`
+  document.getElementById("img3").src = `/images/dice${diceArray[0]}.png`;
+  document.getElementById("img4").src = `/images/dice${diceArray[1]}.png`;
 
-    let dieAnimation = setInterval(function () {
-        for (let i = 0; i < diceArray.length; i++) {
-            diceArray[i] = Math.floor(Math.random() *6 + 1);
+  let dieAnimation = setInterval(function () {
+    for (let i = 0; i < diceArray.length; i++) {
+      diceArray[i] = Math.floor(Math.random() * 6 + 1);
 
-                document
-                .getElementById("img" + (i+1))
-                .src =
-                    "images/dice" + diceArray[i] + ".png";
-                
-            }
-           
-        },
-        100);
+      document.getElementById("img" + (i + 1)).src =
+        "images/dice" + diceArray[i] + ".png";
+    }
+  }, 100);
 
-    let stopAnimation = setTimeout(function () {
-        clearInterval(dieAnimation);
-        isRolling = false;
+  let stopAnimation = setTimeout(function () {
+    clearInterval(dieAnimation);
+    isRolling = false;
 
-        let currRollSum = diceArray.reduce((acc, val) => acc+ val, 0);
+    let currRollSum = diceArray.reduce((acc, val) => acc + val, 0);
     console.log(currRollSum);
- 
-      calculateRound(currRollSum);
 
-    }, 1000);
-
-    
+    calculateRound(currRollSum);
+  }, 1000);
 }
 
-function calculateRound(currRollSum){
-     //if first roll of the game
-    if(gamePoint == -1){
-      
-      //if losing value
-      if(currRollSum == 2 || currRollSum == 3 || currRollSum == 12){
-        gameState = false;
-        didWin = false;
-        
-      }else if(currRollSum == 7 || currRollSum == 11 ){  //if game is won value
-        gameState = false; 
-        didWin = true;
-       
-       
-      }else{ //if game isnt done, set the point
-          gamePoint = currRollSum;
-          document.getElementById("gameColRow15").innerHTML = `<p class =" fs-1 mt-5">Point: ${gamePoint}</p>`; 
+function calculateRound(currRollSum) {
+  //if first roll of the game
+  if (gamePoint == -1) {
+    //if losing value
+    if (currRollSum == 2 || currRollSum == 3 || currRollSum == 12) {
+      gameState = false;
+      didWin = false;
+    } else if (currRollSum == 7 || currRollSum == 11) {
+      //if game is won value
+      gameState = false;
+      didWin = true;
+    } else {
+      //if game isnt done, set the point
+      gamePoint = currRollSum;
+      document.getElementById("gameColRow15").innerHTML =
+        `<p class =" fs-1 mt-5">Point: ${gamePoint}</p>`;
     }
-    }else{ //if not first roll of the game
-      if(currRollSum === 7){ //loss
-         gameState = false;
-         didWin = false;
-        
-      }else if(currRollSum === gamePoint){
-         gameState = false;
-        didWin = true;
-        
-      }
-      //otherwise, user keeps rolling
-
+  } else {
+    //if not first roll of the game
+    if (currRollSum === 7) {
+      //loss
+      gameState = false;
+      didWin = false;
+    } else if (currRollSum === gamePoint) {
+      gameState = false;
+      didWin = true;
     }
-
-    updateGame(diceArray, currRollSum);
-    if(gameState === false)
-    {
-        updateSession(didWin);
-    }
-    
-    
-}
-
-function updateSession(didWin){
-      btnSubmit.setAttribute("class", "visible");
-        btnReset.setAttribute("class", "visible") ;
-        if(didWin){
-          winCount ++;
-          document.getElementById("gameColRow35").innerText = "You Won!"
-        }else{
-          lossCount ++;
-          document.getElementById("gameColRow35").innerText = "You Lost!"
-        }
-        gamesPlayed ++;
-
-        document.getElementById("statsColRow21").innerText = "Wins: " + winCount;
-      document.getElementById("statsColRow31").innerText = "Losses: " + lossCount;
-       document.getElementById("statsColRow41").innerText = "Games Played: " + gamesPlayed;
-
-       btnSubmit.setAttribute("class", "visible");
+    //otherwise, user keeps rolling
   }
 
-function updateGame(dArray, currSum){
-    document.getElementById("gameColRow44").innerText =  document.getElementById("gameColRow24").innerText;
-     document.getElementById("gameColRow24").innerText = `= ${currSum}`;
-
-
+  updateGame(diceArray, currRollSum);
+  if (gameState === false) {
+    updateSession(didWin);
+  }
 }
 
-function resetGame(){
-   img1.src = "/images/dice0.png";
-   img2.src = "/images/dice0.png";
-   img3.src = "/images/dice0.png";
-   img4.src = "/images/dice0.png";
+function updateSession(didWin) {
+  btnSubmit.setAttribute("class", "visible");
+  btnReset.setAttribute("class", "visible");
+  if (didWin) {
+    winCount++;
+    document.getElementById("gameColRow35").innerText = "You Won!";
+  } else {
+    lossCount++;
+    document.getElementById("gameColRow35").innerText = "You Lost!";
+  }
+  gamesPlayed++;
 
-   gamePoint = 0;
-   isRolling = false;
-   gameState = true;
-   document.getElementById("gameColRow24").innerText = "=0";
-    document.getElementById("gameColRow44").innerText = "=0";
-     btnReset.setAttribute("class", "invisible") ;
-      document.getElementById("gameColRow35").innerText = "";
-      document.getElementById("gameColRow15").innerHTML = `<p class =" fs-1 mt-5"> Point: </p>`; 
-  
+  document.getElementById("statsColRow21").innerText = "Wins: " + winCount;
+  document.getElementById("statsColRow31").innerText = "Losses: " + lossCount;
+  document.getElementById("statsColRow41").innerText =
+    "Games Played: " + gamesPlayed;
+
+  btnSubmit.setAttribute("class", "visible");
 }
 
+function updateGame(dArray, currSum) {
+  document.getElementById("gameColRow44").innerText =
+    document.getElementById("gameColRow24").innerText;
+  document.getElementById("gameColRow24").innerText = `= ${currSum}`;
+}
 
+function resetGame() {
+  img1.src = "/images/dice0.png";
+  img2.src = "/images/dice0.png";
+  img3.src = "/images/dice0.png";
+  img4.src = "/images/dice0.png";
+
+  gamePoint = -1;
+  isRolling = false;
+  gameState = true;
+  document.getElementById("gameColRow24").innerText = "=0";
+  document.getElementById("gameColRow44").innerText = "=0";
+  btnReset.setAttribute("class", "invisible");
+  document.getElementById("gameColRow35").innerText = "";
+  document.getElementById("gameColRow15").innerHTML =
+    `<p class =" fs-1 mt-5">Point: </p>`;
+}
 
 /**
  * submits user score win/loss ratio
  * to the database
  */
-function submitRatio(){
-
-  
+function submitRatio() {
   btnSubmit.setAttribute("class", "invisible");
-  let gameRatio = winCount/gamesPlayed;
+  let gameRatio = winCount / gamesPlayed;
 
   let userId = sessionStorage.getItem("userId");
-  if(userId === null){
-    userId = Math.floor(Math.random()* 1000000 + 1);
+  if (userId === null) {
+    userId = Math.floor(Math.random() * 1000000 + 1);
   }
 
   let userEmail = sessionStorage.getItem("userEmail");
-  if(userEmail === null){
-    userEmail = (Math.floor(Math.random()* 1000000 + 1)) + "@example.com";
+  if (userEmail === null) {
+    userEmail = Math.floor(Math.random() * 1000000 + 1) + "@example.com";
   }
-
-  
 
   submitScore(userId, userEmail, "craps", gameRatio);
 }
-
-
