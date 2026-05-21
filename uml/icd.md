@@ -64,14 +64,7 @@ classDiagram
         +submitRatio(); %%calls submitScore() in score-service class
     }
 
-    class score-service{
-        +UserId
-        +uEmail
-        +gameName
-        +ratio
 
-        +submitScore(userId, uEmail, gameName, ratio)
-    }
 
     class YahtzeeCountPage {
         renderYahtzeeCountPage(element:HTMLElement,title:string)
@@ -94,12 +87,38 @@ classDiagram
         +renderRegisterPage(element:HTMLElement,title:string):HTMLElement
         +redirectToDashboard()
     }
-    
-    
+
+
     %% Relationships
-    NavBar <-- CrapsPage: has
+    LoginPage --> UserService : fetches data
+    RegisterPage --> UserService : fetches data
+    NavBar <-- CrapsPage : layout
+    NavBar <-- YahtzeeCountPage : layout
+    YahtzeeCountPage --> HelpSlider: uses
+    CrapsPage --> HelpSlider: uses
+    CrapsPage --> score-service : sends score data
+    LeaderboardPage --> GameCard : holds
+    LeaderboardPage --> NavBar : has
+    LeaderboardPage --> Footer : has
 
+    %%----- Services -----%%
 
+    class UserService{
+        <<service>>
+        +retrieveLogin(email: string, password: string) Object[]
+        +register(email: string, password: string) Object[]
+        +registerValidate(email: string, password: string) boolean
+    }
+
+    class score-service{
+        <<service>>
+        +UserId
+        +uEmail
+        +gameName
+        +ratio
+
+        +submitScore(userId, uEmail, gameName, ratio)
+    }
 
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
