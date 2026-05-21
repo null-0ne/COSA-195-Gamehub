@@ -21,7 +21,9 @@ classDiagram
         +int lossCount
         +boolean continue
 
-        +renderGame(); %% at the start of the game, render game HTML
+        +renderCrapsPage(); %% at the start of the game, render game HTML
+
+        +resetGame() %%resets all dice and test data from the current game
 
         +rollDice(); %%animate dice roll, calls determine Point at end. returns dice sum. calculates if win, loss or continue. returns Boolean
 
