@@ -91,7 +91,7 @@ export default function renderCrapsPage(param) {
     //Add text to the game section
     document.getElementById("gameColRow11").innerText = "Current Roll:";
     
-     document.getElementById("gameColRow15").innerText = "Point:";
+     document.getElementById("gameColRow15").innerHTML = `<p class =" fs-1 mt-5">Point: </p>`;
       document.getElementById("gameColRow31").innerText = "Last Roll: ";
 
      document.getElementById("gameColRow22").innerHTML = `<p class ="text-center fs-1 mt-5">+</p>` ;//TODO: MAKE THEM REAL ELEMENTS
@@ -209,7 +209,7 @@ function calculateRound(currRollSum){
        
       }else{ //if game isnt done, set the point
           gamePoint = currRollSum;
-          document.getElementById("gameColRow15").innerText = "Point: " + gamePoint;
+          document.getElementById("gameColRow15").innerHTML = `<p class =" fs-1 mt-5">Point: ${gamePoint}</p>`; 
     }
     }else{ //if not first roll of the game
       if(currRollSum === 7){ //loss
@@ -273,6 +273,7 @@ function resetGame(){
     document.getElementById("gameColRow44").innerText = "=0";
      btnReset.setAttribute("class", "invisible") ;
       document.getElementById("gameColRow35").innerText = "";
+      document.getElementById("gameColRow15").innerHTML = `<p class =" fs-1 mt-5"> Point: </p>`; 
   
 }
 
