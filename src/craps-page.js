@@ -8,6 +8,7 @@ export default function renderCrapsPage(param) {
 
 
      let body = document.querySelector("body");
+     body.removeChild(document.querySelector("body > div"));
 
      //Three rows of the page
     for (let i = 1; i < 4; i++) {
