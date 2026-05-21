@@ -4,6 +4,10 @@ import { submitScore } from "./lib/score-service";
 //import {renderRollSec} from "./components/renderRollSection";
 import { addAttribute } from "./components/add-attribute";
 
+/**renders the craps page
+ *
+ * @param {} param
+ */
 export default function renderCrapsPage(param) {
   let body = document.querySelector("body");
   body.removeChild(document.querySelector("body > div"));
@@ -148,6 +152,13 @@ window.addEventListener("load", function () {
   document.getElementById("btnSubmit").addEventListener("click", submitRatio);
 });
 
+/**
+ * animates the dice rolling,
+ * calls calculateRound to determine if the game is complete
+ *
+ * @param {} diceArray
+ * @returns
+ */
 function rollDice(diceArray) {
   if (gameState === false || isRolling) {
     return;
@@ -178,6 +189,10 @@ function rollDice(diceArray) {
   }, 1000);
 }
 
+/**
+ * calculates whether the game is completed or not after each roll
+ * @param {} currRollSum //the current roll that was just completed
+ */
 function calculateRound(currRollSum) {
   //if first roll of the game
   if (gamePoint == -1) {
@@ -214,6 +229,12 @@ function calculateRound(currRollSum) {
   }
 }
 
+/**
+ * increases wincount, losscount, and gamesplayed respectively
+ * happens when a game is completed
+ *
+ * @param {} didWin //true if game ended in a win, else false
+ */
 function updateSession(didWin) {
   btnSubmit.setAttribute("class", "visible");
   btnReset.setAttribute("class", "visible");
@@ -234,6 +255,12 @@ function updateSession(didWin) {
   btnSubmit.setAttribute("class", "visible");
 }
 
+/**
+ * updates the current and last roll score
+ *
+ * @param {} dArr //roll data
+ * @param {*} currSum current roll score
+ */
 function updateGame(dArr, currSum) {
   document.getElementById("gameColRow44").innerText =
     document.getElementById("gameColRow24").innerText;
@@ -259,7 +286,7 @@ function resetGame() {
 
 /**
  * submits user score win/loss ratio
- * to the database
+ * to the JSON database
  */
 function submitRatio() {
   btnSubmit.setAttribute("class", "invisible");
