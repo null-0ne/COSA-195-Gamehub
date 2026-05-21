@@ -62,8 +62,31 @@ describe("craps page test", () => {
 
   it("resets text when 'reset button is clicked;", () => {
 
-     cy.get("#btnRoll").click(); //roll dice
-     cy.wait(1200);
+     cy.get("#statsColRow41")
+      .invoke("text") // getting text content
+      .then((preGameText) => {
+        // extract the number from the text for comparison
+        const preGame = parseInt(preGameText.match(/\d+/)[0]);
+        // preGame = 0
+
+        function rollUntilGameEnds() {
+          cy.get("#btnRoll").click();
+          cy.wait(1200);
+          cy.get("#statsColRow41")
+            .invoke("text")
+            .then((postText) => {
+              const postGame = parseInt(postText.match(/\d+/)[0]);
+              // postGame SHOULD = 1 if game is over
+
+              if (preGame === postGame) {
+                rollUntilGameEnds();
+              } else {
+                expect(postGame).to.equal(preGame + 1);
+              }
+            });
+        }
+        rollUntilGameEnds();
+      
 
     cy.get("#btnReset").click(); //click reset button
 
@@ -75,6 +98,8 @@ describe("craps page test", () => {
 
    
   });
+
+});
 
   
 });
