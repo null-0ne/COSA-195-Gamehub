@@ -2,7 +2,7 @@
 
 import { submitScore } from "./lib/score-service";
 //import {renderRollSec} from "./components/renderRollSection";
-import { addAttribute } from "./components/add-attribute";
+
 
 /**renders the craps page
  *
@@ -303,4 +303,21 @@ function submitRatio() {
   }
 
   submitScore(userId, userEmail, "craps", gameRatio);
+}
+
+/**
+ * helper method for quickly adding attributes
+ * 
+ * @param {} elem 
+ * @param {*} name 
+ * @param {*} val 
+ * @returns 
+ */
+function addAttribute(elem, name, val) {
+    let currentVal = elem.getAttribute(name);
+    if (currentVal === null) {
+        elem.setAttribute(name, val);
+        return;
+    }
+    elem.setAttribute(name, currentVal + " " + val);
 }
