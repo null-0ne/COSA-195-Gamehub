@@ -1,119 +1,474 @@
 {
-	"scores": [
-		{
-			"id": 1,
-			"score" : 200,
-			"gameTitle": "yahtzee-count",
-			"user": {
-				"id" : 3000,
-				"email" : "sam@saskpolytech.ca"
-			}
-		}
-	],
-	"products":[
-		{
-			"id": 1,
-			"title": "👁❤U Shampoo",
-			"size": "600ml",
-			"price": 8.99
-		},
-		{
-			"id": 2,
-			"title": "👁❤U Conditioner",
-			"size": "600ml",
-			"price": 9.99
-		},
-		{
-			"id": 3,
-			"title": "👁❤U Conditioner",
-			"size": "1.5L",
-			"price": 15.99
-		},
-		{
-			"id": 4,
-			"title": "👁❤U Shampoo",
-			"size": "1.5L",
-			"price": 14.99
-		},
-		{
-			"id": 5,
-			"title": "👁❤U Shampoo",
-			"size": "4L",
-			"price": 23.9
-		},
-		{
-			"id": 6,
-			"title": "👁❤U Conditioner",
-			"size": "4L",
-			"price": 27.98
-		},
-		{
-			"id": 7,
-			"title": "👁❤U Body Wash",
-			"size": "950ml",
-			"price": 12.99
-		},
-		{
-			"id": 8,
-			"title": "👁❤U Body Wash",
-			"size": "600ml",
-			"price": 10.99
-		},
-		{
-			"id": 9,
-			"title": "👁❤U Body Wash",
-			"size": "4L",
-			"price": 35.99
-		},
-		{
-			"id": 10,
-			"title": "👁❤U Tooth Polish",
-			"size": "350ml",
-			"price": 6.99
-		},
-		{
-			"id": 11,
-			"title": "👁❤U Tooth Polish",
-			"size": "150ml",
-			"price": 3.99
-		},
-		{
-			"id": 12,
-			"title": "👁❤U Tooth Polish",
-			"size": "500ml",
-			"price": 9.99
-		}
-	],
-	"orders":[
-		{
-			"id": 1,
-			"purchaseDate":"2026-05-01",
-			"customerId": 1,
-			"product_orders":[
-				{"id":1, "orderId":1, "productId":1, "quantity":2},
-				{"id":2, "orderId":1, "productId":4, "quantity":1},
-				{"id":3, "orderId":1, "productId":9, "quantity":3},
-				{"id":4, "orderId":1, "productId":10, "quantity":1}
-			]
-		},
-		{
-			"id": 2,
-			"purchaseDate":"2026-05-02",
-			"customerId": 1,
-			"product_orders":[
-				{"id":5, "orderId":2, "productId":3, "quantity":2},
-				{"id":6, "orderId":2, "productId":7, "quantity":4},
-				{"id":7, "orderId":2, "productId":12, "quantity":4}
-			]
-		},
-		{
-			"id": 3,
-			"purchaseDate":"2026-05-03",
-			"customerId": 1,
-			"product_orders":[
-				{"id":8, "orderId":3, "productId":2, "quantity":5},
-				{"id":9, "orderId":3, "productId":11, "quantity":5}
-			]
-		}
-	]	
+  "scores": [
+    {
+      "id": "1",
+      "score": 200,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 3000,
+        "email": "sam@saskpolytech.ca"
+      }
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "iuFSPXdWk8o"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "Z8ueBfdwgKM"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "abJ7_c6ValY"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "_9qKPE_S5eA"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "xWUEWi-wYvU"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "_7x8IiZ4roU"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "0-hvEEB8ri8"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "jUxXXWHa4tw"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "jR49dln6kTc"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "QPMd_b9eK6Y"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "q5ZXWxfZIwQ"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "slAcZz62i-A"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "2EypmrSYj6A"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "Rdx2DI3Kzeg"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "hKlR7tpvrjQ"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "56cutMXVAdw"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "wf0hZDH7_lw"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "PlZj4R61Cro"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "biMnVkdiQgs"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "QVSaGpsmD2U"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "91YCoSNe6IA"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "a58LXX04XLM"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "5L2lN0j6-0U"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "8jXOA--Uw98"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "d-QSDy2-PyU"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "trzuhhbPlMA"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "kAioEI0xKUo"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "_zrXoiSzO2k"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "iz_LcIU6xtw"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "PYdRpl8b3Pg"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "3IihEK-Q-sU"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "_ibY1nWMz-o"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "czSA0_J01ls"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "lTCyr_tiFhA"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "SjknS2wpwX4"
+    },
+    {
+      "score": 8,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "IJbDfDgrBYs"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "title": "👁❤U Shampoo",
+      "size": "600ml",
+      "price": 8.99
+    },
+    {
+      "id": "2",
+      "title": "👁❤U Conditioner",
+      "size": "600ml",
+      "price": 9.99
+    },
+    {
+      "id": "3",
+      "title": "👁❤U Conditioner",
+      "size": "1.5L",
+      "price": 15.99
+    },
+    {
+      "id": "4",
+      "title": "👁❤U Shampoo",
+      "size": "1.5L",
+      "price": 14.99
+    },
+    {
+      "id": "5",
+      "title": "👁❤U Shampoo",
+      "size": "4L",
+      "price": 23.9
+    },
+    {
+      "id": "6",
+      "title": "👁❤U Conditioner",
+      "size": "4L",
+      "price": 27.98
+    },
+    {
+      "id": "7",
+      "title": "👁❤U Body Wash",
+      "size": "950ml",
+      "price": 12.99
+    },
+    {
+      "id": "8",
+      "title": "👁❤U Body Wash",
+      "size": "600ml",
+      "price": 10.99
+    },
+    {
+      "id": "9",
+      "title": "👁❤U Body Wash",
+      "size": "4L",
+      "price": 35.99
+    },
+    {
+      "id": "10",
+      "title": "👁❤U Tooth Polish",
+      "size": "350ml",
+      "price": 6.99
+    },
+    {
+      "id": "11",
+      "title": "👁❤U Tooth Polish",
+      "size": "150ml",
+      "price": 3.99
+    },
+    {
+      "id": "12",
+      "title": "👁❤U Tooth Polish",
+      "size": "500ml",
+      "price": 9.99
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "purchaseDate": "2026-05-01",
+      "customerId": 1,
+      "product_orders": [
+        {
+          "id": 1,
+          "orderId": 1,
+          "productId": 1,
+          "quantity": 2
+        },
+        {
+          "id": 2,
+          "orderId": 1,
+          "productId": 4,
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "orderId": 1,
+          "productId": 9,
+          "quantity": 3
+        },
+        {
+          "id": 4,
+          "orderId": 1,
+          "productId": 10,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "purchaseDate": "2026-05-02",
+      "customerId": 1,
+      "product_orders": [
+        {
+          "id": 5,
+          "orderId": 2,
+          "productId": 3,
+          "quantity": 2
+        },
+        {
+          "id": 6,
+          "orderId": 2,
+          "productId": 7,
+          "quantity": 4
+        },
+        {
+          "id": 7,
+          "orderId": 2,
+          "productId": 12,
+          "quantity": 4
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "purchaseDate": "2026-05-03",
+      "customerId": 1,
+      "product_orders": [
+        {
+          "id": 8,
+          "orderId": 3,
+          "productId": 2,
+          "quantity": 5
+        },
+        {
+          "id": 9,
+          "orderId": 3,
+          "productId": 11,
+          "quantity": 5
+        }
+      ]
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

@@ -20,42 +20,42 @@ export default function renderYahtzeeScoreCard(
   <tbody>
     <tr>
       <th scope="row">Ones</th>
-      <td><input type="text" class="catInput"></input></td>
+      <td><input type="number" class="catInput"></input></td>
       <th>Three of a kind</th>
-      <td><input type="text" class="catInput"></input></td>
+      <td><input type="number" class="catInput"></input></td>
     </tr>
    <tr>
       <th scope="row">Twos</th>
-      <td><input type="text" class="catInput"></input></td>
+      <td><input type="number" class="catInput"></input></td>
       <th>Four of a kind</th>
-      <td><input type="text" class="catInput"></input></td>
+      <td><input type="number" class="catInput"></input></td>
     </tr>
     <tr>
       <th scope="row">Threes</th>
-      <td><input type="text" class="catInput"></input></td>
+      <td><input type="number" class="catInput"></input></td>
       <th>Full House</th>
-      <td><input type="text" class="catInput"></input></td>
+      <td><input type="number" class="catInput"></input></td>
     </tr>
     <tr>
       <th scope="row">Fours</th>
-      <td><input type="text" class="catInput"></input></td>
+      <td><input type="number" class="catInput"></input></td>
       <th>Small Straight</th>
-      <td><input type="text" class="catInput"></input></td>
+      <td><input type="number" class="catInput"></input></td>
     </tr>
     <tr>
       <th scope="row">Fives</th>
-      <td><input type="text" class="catInput"></input></td>
+      <td><input type="number" class="catInput"></input></td>
       <th>Large Straight</th>
-      <td><input type="text" class="catInput"></input></td>
+      <td><input type="number" class="catInput"></input></td>
     </tr>
     <tr>
       <th scope="row">Sixes</th>
-      <td><input type="text" class="catInput"></input></td>
+      <td><input type="number" class="catInput"></input></td>
       <th>Yahtzee!</th>
-      <td><input type="text" class="catInput"></input></td>
+      <td><input type="number" class="catInput"></input></td>
     </tr>
     <tr >
-      <td colspan="3"><input class="btn btn-primary" id="btnSubmit" type="button" value="Submit"></td>
+      <td colspan="3"><button class="btn btn-primary" id="btnSubmit" type="button" >Submit</button></td>
     </tr>
   </tbody>
   
@@ -75,9 +75,14 @@ export default function renderYahtzeeScoreCard(
       console.log(params.totalScore);
     });
   }
-  element
-    .querySelector("#btnSubmit")
-    .addEventListener("click", params.submitScores);
+  function submitScore()
+  {
+
+    params.submitScores(params.totalScore);
+  }
+  document.getElementById("btnSubmit")
+    
+    .addEventListener("click", submitScore);
 
   //return the element in case it is needed for further logic
   return element;

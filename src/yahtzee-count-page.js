@@ -40,11 +40,12 @@ export default function renderYahtzeeCountPage(
         </div>
     </div>
     `;
-
+ 
   const sharedParams = {
     totalScore: 0,
-    submitScores: function () {
-      postScores(this.totalScore, "yahtzee-count", 1, "john@saskpolytech.ca");
+    submitScores: function (totalScore) {
+      console.log(totalScore);
+      postScores(totalScore, "yahtzee-count", 1, "john@saskpolytech.ca");
     },
     scoreSpan: document.getElementById("updateScore"),
   };
