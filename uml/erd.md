@@ -9,16 +9,41 @@ erDiagram
 
 
 
-    User {
+    %% User {
+    %%   String email
+    %%   int score
+    %%   String gameId
+    %% }
+
+
+
+    %% YahtzeeCountScore {
+    %%   String email FK
+    %%   int score
+    %%   String gameId PK
+    %%   int rank
+    %% }
+
+    %% CrapsScore {
+    %%   String email FK
+    %%   String gameId PK
+    %%   int rank
+    %% }
+
+    scores {
+      int id PK
+      String gameTitle
+      int userID FK
+      Number score
+    }
+    users {
+      int id PK
       String email
-      int score
-      String gameId
+      String password
     }
 
-
     %% Relationships
-
-
+    users ||--o{ scores : "has"
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```

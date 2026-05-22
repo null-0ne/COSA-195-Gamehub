@@ -12,30 +12,106 @@ classDiagram
         +renderNavBar(element:HTMLElement,params:Object):HTMLElement
     }
 
-    class scoreRepo {
-
+    class gameplay-section{
+        +renderGameplaySection(element:HTMLElement,params:Object):HTMLElement
     }
 
-    class YahtzeePage {
-        -totalScore : int
-        -scores : Array[int]
-        +renderYahtzee()
-        +SubmitScore()
-        +UpdateScore()
+    class yahtzee-scorecard{
+        +renderYahtzeeScoreCard(element:HTMLElement,params:Object):HTMLElement
+    }
 
+    class YahtzeeCountPage {
+        +renderYahtzeeCountPage(element:HTMLElement,params:Object):HTMLElement
     }
 
     class scoreService {
-        +sendScore(String:email, int:score)
+        +postScore(int Scores,String gameTitle, String userID, String email)
     }
 
-    %% Relationships
-    NavBar <-- YahtzeePage : layout
-    scoreService<-- YahtzeePage : uses
-    scoreRepo <-- scoreService : sends scores
+   
 
 
+    class LeaderboardPage{
+        +renderLeaderboardPage(element:HTMLElement,title:string):HTMLElement
+        
+    }
+    class GameCard {
+        +renderGameCard(element:HTMLElement,games:string[]):HTMLElement
+    }
 
+    class LeaderboardList{
+        +renderScoreList(GameCard: Object, scores: Score[])
+    }
+
+    class LeaderboardService{
+        +renderScores(Score score)
+    }
+
+    class Formatter{
+        +formatScoreList(email: String, score: int[], gameId: String)
+        +sortAndRankScore(score:int[])
+    }
+
+    class NavBar {
+        +renderNavBar(element:HTMLElement,params:Object):HTMLElement
+    }
+
+    class Footer {
+        +renderNavBar(element:HTMLElement,advert:String):HTMLElement
+    }
+
+    class CrapsPage {
+        renderCrapsPage(element:HTMLElement,title:string)
+    }
+    class YahtzeeCountPage {
+        renderYahtzeeCountPage(element:HTMLElement,title:string)
+    }
+    class NavBar {
+        renderNavBar(element:HTMLElement,params:Object)
+    }
+    class HelpSlider {
+        renderhelpInfo(params:string)
+    }
+
+%%  direction LR
+
+    class LoginPage {
+    <<view>>
+        +renderLoginPage(element:HTMLElement,title:string,pageNum:int):HTMLElement
+        +redirectToDashboard()
+    }
+
+    class RegisterPage {
+    <<view>>
+        +renderRegisterPage(element:HTMLElement,title:string):HTMLElement
+        +redirectToDashboard()
+    }
+
+
+     %% Relationships
+    NavBar <-- YahtzeeCountPage : layout
+    scoreService<-- YahtzeeCountPage : uses
+    YahtzeeCountPage <-- yahtzee-scorecard : uses
+    YahtzeeCountPage <-- gameplay-section : uses
+    LoginPage --> UserService : fetches data
+    RegisterPage --> UserService : fetches data
+    NavBar <-- CrapsPage : layout
+    NavBar <-- YahtzeeCountPage : layout
+    YahtzeeCountPage --> HelpSlider: uses
+    CrapsPage --> HelpSlider: uses
+    LeaderboardPage --> GameCard : holds
+    LeaderboardPage --> NavBar : has
+    LeaderboardPage --> Footer : has
+
+%%----- Services -----%%
+
+class UserService{
+    <<service>>
+    +retrieveLogin(email: string, password: string) Object[]
+    +register(email: string, password: string) Object[]
+    +registerValidate(email: string, password: string) boolean
+}
+    
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```

@@ -80,7 +80,7 @@ export default function renderYahtzeeScoreCard(
 
     params.submitScores(params.totalScore);
   }
-  document.getElementById("btnSubmit")
+  element.querySelector("#btnSubmit")
     
     .addEventListener("click", submitScore);
 

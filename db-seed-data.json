@@ -1,13 +1,92 @@
 {
-	"scores": [
+	"scores":[
 		{
 			"id": 1,
-			"score" : 200,
+			"gameTitle": "craps",
+			"user": {
+				"id": 1,
+				"email": "email@email.com"
+			},
+			"score":2.567
+		},
+		{
+			"id": 2,
+			"gameTitle": "craps",
+			"user": {
+				"id": 3,
+				"email": "email3@email.com"
+			},
+			"score":3.00
+		},
+		{
+			"id": 3,
+			"gameTitle": "craps",
+			"user": {
+				"id": 4,
+				"email": "email4@email.com"
+			},
+			"score":0.00001
+		},
+		{
+			"id": 4,
+			"gameTitle": "craps",
+			"user": {
+				"id": 2,
+				"email": "email2@email.com"
+			},
+			"score":4.00
+		},
+		{
+			"id": 5,
+			"gameTitle": "craps",
+			"user": {
+				"id": 3,
+				"email": "email3@email.com"
+			},
+			"score":1.00
+		},
+		{
+			"id" : 6,
 			"gameTitle": "yahtzee-count",
 			"user": {
-				"id" : 3000,
-				"email" : "sam@saskpolytech.ca"
-			}
+				"id": 1,
+				"email": "email@email.com"
+			},
+			"score" : 25
+		},
+		{
+			"id" : 7,
+			"gameTitle": "yahtzee-count",
+			"user": {
+				"id": 4,
+				"email": "email4@email.com"
+			},
+			"score" : 50
+		},
+		{
+			"id" : 8,
+			"gameTitle": "yahtzee-count",
+			"user": {
+				"id": 2,
+				"email": "email2@email.com"
+			},
+			"score" : 35
+		},
+		{
+			"id" : 9,
+			"gameTitle": "yahtzee-count",
+			"user": {
+				"id": 3,
+				"email": "email3@email.com"
+			},
+			"score" : 45
+		}
+	],
+	"users":[
+		{
+			"id": 1,
+			"email": "ogugofor2899@saskpolytech.ca",
+			"password": "123abc"
 		}
 	],
 	"products":[

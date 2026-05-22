@@ -25,7 +25,6 @@ describe("contact page test", () => {
       cy.get(".catInput").eq(i).type(expectedInnerText);
 
       cy.get(".catInput").eq(i).should("have.value", expectedInnerText).click();
-
       cy.get("#updateScore").should("have.text", nSum);
       nSum += i;
     }
@@ -48,30 +47,45 @@ describe("contact page test", () => {
     cy.get("#updateScore").should("have.text", nSum);
   });
 
-  // it('submits score and user data to the database when submit button is clicked', () => {
-  //     // click the first button 3 times  and ensure count matches what is expected  (except the last time)
-  //     for(let i = 0 ; i < 4 ; i++) {
+});
+describe("Visit Site", () => {
+  beforeEach(() => {
+    // Cypress starts out with a blank slate for each test
+    // so we must tell it to visit our website with the `cy.visit()` command.
+    // Since we want to visit the same URL at the start of all our tests,
+    // we include it in our beforeEach function so that it runs before each test
+    cy.visit(`http://localhost:5173/yahtzee-count`);
+  });
+  it("Help Icon is visible on page Yahtzee Count", () => {
+    cy.get("#HelpIcon").should("be.visible");
+    cy.get("#offcanvasRightLabel").should("not.be.visible");
+    cy.get(".offcanvas-body").should("not.be.visible");
+  });
 
-  //         //OPTIONAL explicitly declare the expected text
-  //         const expectedInnerText = `count is ${i}`;
+  it("Help Icon When clicked shows rules", () => {
+    cy.get("#HelpIcon").should("be.visible");
+    cy.get("#offcanvasRightLabel").should("not.be.visible");
+    cy.get(".offcanvas-body").should("not.be.visible");
+    cy.get("#HelpIcon").click();
+    cy.get("#offcanvasRightLabel").should("be.visible");
+    cy.get(".offcanvas-body").should("be.visible");
+    cy.get(".offcanvas-body").contains(
+      "Yahtzee Count is a dice game where players try to get certain patterns of dice in the smallest number of rolls.",
+    );
+  });
 
-  //        //find the button and ensure innerText 'have.text' matches expected then click to increment the count
-  //         cy.get('button.btn').eq(0).should('have.text', expectedInnerText).click();
-  //     }
-
-  //     //find second  button and ensure innerText 'have.text' matches expected then click to increment the count
-  //     cy.get('button.btn').eq(0).should('have.text', 'count is 5')
-  //         .click(); // count should be 5 after click
-
-  //     // click the second button 3 times  and ensure count matches what is expected  (except the last time)
-  //     for(let i = 5 ; i < 7 ; i++) {
-
-  //         //OPTIONAL explicitly declare the expected text
-  //         const expectedInnerText = `count is ${i}`;
-
-  //         //find the button and ensure innerText 'have.text' matches expected then click to increment the count
-  //         cy.get('button.btn').eq(0).should('have.text', expectedInnerText).click();
-  //     }
-
-  // })
+  it("Help Icon Hidden When AnyWhere on page is clicked", () => {
+    cy.get("#HelpIcon").should("be.visible");
+    cy.get("#offcanvasRightLabel").should("not.be.visible");
+    cy.get(".offcanvas-body").should("not.be.visible");
+    cy.get("#HelpIcon").click();
+    cy.get("#offcanvasRightLabel").should("be.visible");
+    cy.get(".offcanvas-body").contains(
+      "Yahtzee Count is a dice game where players try to get certain patterns of dice in the smallest number of rolls.",
+    );
+    cy.get("#app").click();
+    cy.get("#offcanvasRightLabel").should("not.be.visible");
+    cy.get("#HelpIcon").should("be.visible");
+    cy.get(".offcanvas-body").should("not.be.visible");
+  });
 });

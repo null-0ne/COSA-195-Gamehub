@@ -11,7 +11,7 @@ classDiagram
     class ProductPage {
         +renderProductPage(element:HTMLElement,title:string,pageNum:int):HTMLElement
     }
-
+    
     class CounterPage {
         +renderCounterPage(element:HTMLElement,title:string):HTMLElement
         +handleIncrement()
