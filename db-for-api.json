@@ -1,198 +1,258 @@
 {
-	"scores":[
-		{
-			"id": 1,
-			"gameTitle": "craps",
-			"user": {
-				"id": 1,
-				"email": "email@email.com"
-			},
-			"score":2.567
-		},
-		{
-			"id": 2,
-			"gameTitle": "craps",
-			"user": {
-				"id": 3,
-				"email": "email3@email.com"
-			},
-			"score":3.00
-		},
-		{
-			"id": 3,
-			"gameTitle": "craps",
-			"user": {
-				"id": 4,
-				"email": "email4@email.com"
-			},
-			"score":0.00001
-		},
-		{
-			"id": 4,
-			"gameTitle": "craps",
-			"user": {
-				"id": 2,
-				"email": "email2@email.com"
-			},
-			"score":4.00
-		},
-		{
-			"id": 5,
-			"gameTitle": "craps",
-			"user": {
-				"id": 3,
-				"email": "email3@email.com"
-			},
-			"score":1.00
-		},
-		{
-			"id" : 6,
-			"gameTitle": "yahtzee-count",
-			"user": {
-				"id": 1,
-				"email": "email@email.com"
-			},
-			"score" : 25
-		},
-		{
-			"id" : 7,
-			"gameTitle": "yahtzee-count",
-			"user": {
-				"id": 4,
-				"email": "email4@email.com"
-			},
-			"score" : 50
-		},
-		{
-			"id" : 8,
-			"gameTitle": "yahtzee-count",
-			"user": {
-				"id": 2,
-				"email": "email2@email.com"
-			},
-			"score" : 35
-		},
-		{
-			"id" : 9,
-			"gameTitle": "yahtzee-count",
-			"user": {
-				"id": 3,
-				"email": "email3@email.com"
-			},
-			"score" : 45
-		}
-	],
-	"users":[
-		{
-			"id": 1,
-			"email": "ogugofor2899@saskpolytech.ca",
-			"password": "123abc"
-		}
-	],
-	"products":[
-		{
-			"id": 1,
-			"title": "👁❤U Shampoo",
-			"size": "600ml",
-			"price": 8.99
-		},
-		{
-			"id": 2,
-			"title": "👁❤U Conditioner",
-			"size": "600ml",
-			"price": 9.99
-		},
-		{
-			"id": 3,
-			"title": "👁❤U Conditioner",
-			"size": "1.5L",
-			"price": 15.99
-		},
-		{
-			"id": 4,
-			"title": "👁❤U Shampoo",
-			"size": "1.5L",
-			"price": 14.99
-		},
-		{
-			"id": 5,
-			"title": "👁❤U Shampoo",
-			"size": "4L",
-			"price": 23.9
-		},
-		{
-			"id": 6,
-			"title": "👁❤U Conditioner",
-			"size": "4L",
-			"price": 27.98
-		},
-		{
-			"id": 7,
-			"title": "👁❤U Body Wash",
-			"size": "950ml",
-			"price": 12.99
-		},
-		{
-			"id": 8,
-			"title": "👁❤U Body Wash",
-			"size": "600ml",
-			"price": 10.99
-		},
-		{
-			"id": 9,
-			"title": "👁❤U Body Wash",
-			"size": "4L",
-			"price": 35.99
-		},
-		{
-			"id": 10,
-			"title": "👁❤U Tooth Polish",
-			"size": "350ml",
-			"price": 6.99
-		},
-		{
-			"id": 11,
-			"title": "👁❤U Tooth Polish",
-			"size": "150ml",
-			"price": 3.99
-		},
-		{
-			"id": 12,
-			"title": "👁❤U Tooth Polish",
-			"size": "500ml",
-			"price": 9.99
-		}
-	],
-	"orders":[
-		{
-			"id": 1,
-			"purchaseDate":"2026-05-01",
-			"customerId": 1,
-			"product_orders":[
-				{"id":1, "orderId":1, "productId":1, "quantity":2},
-				{"id":2, "orderId":1, "productId":4, "quantity":1},
-				{"id":3, "orderId":1, "productId":9, "quantity":3},
-				{"id":4, "orderId":1, "productId":10, "quantity":1}
-			]
-		},
-		{
-			"id": 2,
-			"purchaseDate":"2026-05-02",
-			"customerId": 1,
-			"product_orders":[
-				{"id":5, "orderId":2, "productId":3, "quantity":2},
-				{"id":6, "orderId":2, "productId":7, "quantity":4},
-				{"id":7, "orderId":2, "productId":12, "quantity":4}
-			]
-		},
-		{
-			"id": 3,
-			"purchaseDate":"2026-05-03",
-			"customerId": 1,
-			"product_orders":[
-				{"id":8, "orderId":3, "productId":2, "quantity":5},
-				{"id":9, "orderId":3, "productId":11, "quantity":5}
-			]
-		}
-	]	
+  "scores": [
+    {
+      "id": "1",
+      "gameTitle": "craps",
+      "user": {
+        "id": 1,
+        "email": "email@email.com"
+      },
+      "score": 2.567
+    },
+    {
+      "id": "2",
+      "gameTitle": "craps",
+      "user": {
+        "id": 3,
+        "email": "email3@email.com"
+      },
+      "score": 3
+    },
+    {
+      "id": "3",
+      "gameTitle": "craps",
+      "user": {
+        "id": 4,
+        "email": "email4@email.com"
+      },
+      "score": 0.00001
+    },
+    {
+      "id": "4",
+      "gameTitle": "craps",
+      "user": {
+        "id": 2,
+        "email": "email2@email.com"
+      },
+      "score": 4
+    },
+    {
+      "id": "5",
+      "gameTitle": "craps",
+      "user": {
+        "id": 3,
+        "email": "email3@email.com"
+      },
+      "score": 1
+    },
+    {
+      "id": "6",
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "email@email.com"
+      },
+      "score": 25
+    },
+    {
+      "id": "7",
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 4,
+        "email": "email4@email.com"
+      },
+      "score": 50
+    },
+    {
+      "id": "8",
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 2,
+        "email": "email2@email.com"
+      },
+      "score": 35
+    },
+    {
+      "id": "9",
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 3,
+        "email": "email3@email.com"
+      },
+      "score": 45
+    },
+    {
+      "user": {
+        "id": 991674,
+        "email": "619391@example.com"
+      },
+      "gameTitle": "craps",
+      "score": 0,
+      "id": "ZJAaNczdTwM"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "email": "ogugofor2899@saskpolytech.ca",
+      "password": "123abc"
+    },
+    {
+      "email": "michael1@saskpolytech.ca",
+      "password": "fdsf1234",
+      "id": "76Z2-I3lgro"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "title": "👁❤U Shampoo",
+      "size": "600ml",
+      "price": 8.99
+    },
+    {
+      "id": "2",
+      "title": "👁❤U Conditioner",
+      "size": "600ml",
+      "price": 9.99
+    },
+    {
+      "id": "3",
+      "title": "👁❤U Conditioner",
+      "size": "1.5L",
+      "price": 15.99
+    },
+    {
+      "id": "4",
+      "title": "👁❤U Shampoo",
+      "size": "1.5L",
+      "price": 14.99
+    },
+    {
+      "id": "5",
+      "title": "👁❤U Shampoo",
+      "size": "4L",
+      "price": 23.9
+    },
+    {
+      "id": "6",
+      "title": "👁❤U Conditioner",
+      "size": "4L",
+      "price": 27.98
+    },
+    {
+      "id": "7",
+      "title": "👁❤U Body Wash",
+      "size": "950ml",
+      "price": 12.99
+    },
+    {
+      "id": "8",
+      "title": "👁❤U Body Wash",
+      "size": "600ml",
+      "price": 10.99
+    },
+    {
+      "id": "9",
+      "title": "👁❤U Body Wash",
+      "size": "4L",
+      "price": 35.99
+    },
+    {
+      "id": "10",
+      "title": "👁❤U Tooth Polish",
+      "size": "350ml",
+      "price": 6.99
+    },
+    {
+      "id": "11",
+      "title": "👁❤U Tooth Polish",
+      "size": "150ml",
+      "price": 3.99
+    },
+    {
+      "id": "12",
+      "title": "👁❤U Tooth Polish",
+      "size": "500ml",
+      "price": 9.99
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "purchaseDate": "2026-05-01",
+      "customerId": 1,
+      "product_orders": [
+        {
+          "id": 1,
+          "orderId": 1,
+          "productId": 1,
+          "quantity": 2
+        },
+        {
+          "id": 2,
+          "orderId": 1,
+          "productId": 4,
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "orderId": 1,
+          "productId": 9,
+          "quantity": 3
+        },
+        {
+          "id": 4,
+          "orderId": 1,
+          "productId": 10,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "purchaseDate": "2026-05-02",
+      "customerId": 1,
+      "product_orders": [
+        {
+          "id": 5,
+          "orderId": 2,
+          "productId": 3,
+          "quantity": 2
+        },
+        {
+          "id": 6,
+          "orderId": 2,
+          "productId": 7,
+          "quantity": 4
+        },
+        {
+          "id": 7,
+          "orderId": 2,
+          "productId": 12,
+          "quantity": 4
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "purchaseDate": "2026-05-03",
+      "customerId": 1,
+      "product_orders": [
+        {
+          "id": 8,
+          "orderId": 3,
+          "productId": 2,
+          "quantity": 5
+        },
+        {
+          "id": 9,
+          "orderId": 3,
+          "productId": 11,
+          "quantity": 5
+        }
+      ]
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

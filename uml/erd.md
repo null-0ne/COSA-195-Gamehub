@@ -6,18 +6,21 @@
 }}%%
 %%----------------------- MERMAID MARKUP BELOW --------------------%%
 erDiagram
-    %% YahtzeeCountScore {
-    %%   String email FK
-    %%   int score
-    %%   String gameId PK
-    %%   int rank
-    %% }
 
-    %% CrapsScore {
-    %%   String email FK
-    %%   String gameId PK
-    %%   int rank
-    %% }
+
+     YahtzeeCountScore {
+       String email FK
+       int score
+       String gameId PK
+       int rank
+     }
+
+     CrapsScore {
+       String email FK
+       String gameId PK
+       int rank
+       int score
+     }
 
     scores {
       int id PK
@@ -33,4 +36,7 @@ erDiagram
 
     %% Relationships
     users ||--o{ scores : "has"
+    scores }o--o{ CrapsScore : "submits"
 
+%%----------------------- MERMAID MARKUP ABOVE --------------------%%
+```
