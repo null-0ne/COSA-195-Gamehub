@@ -9,7 +9,7 @@ Date:        2026-05-01
 Purpose:     Leaderboard View
 */ 
 import renderLeaderboardList from './components/leaderboard-list.js'
-import {getScores} from "./lib/leaderboards-service.js";
+import {getScores} from "./lib/score-service.js";
 // import {formatDate, formatDateTime, formatTime} from './examples/lib/formatter.js';
 
 export default async function renderLeaderboardPage(
@@ -34,7 +34,6 @@ export default async function renderLeaderboardPage(
           </div>
       </div>
     `;
-  
       //declare scores from async fetch sort by scores decending and limit top 3
         const crapScores = await getScores(
             {

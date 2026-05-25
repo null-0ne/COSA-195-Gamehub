@@ -1,10 +1,8 @@
-
 "use strict";
 
-import { submitScore } from "./lib/score-service";
-import renderHelpSlider from './components/help-slider.js';
+import { postScores } from "./lib/score-service";
+import renderHelpSlider from "./components/help-slider.js";
 //import {renderRollSec} from "./components/renderRollSection";
-
 
 /**renders the craps page
  *
@@ -17,9 +15,11 @@ export default function renderCrapsPage(param) {
     </div>
     </div>`;
 
-        renderHelpSlider(document.getElementById("divHelp"), { text: `<p>Craps is a dice game played in casinos. The objective of the game is to roll two dices in the effort to roll a 7 or 11 to win the game. If you roll a 2, 3, or 12 you lose the game. <br><br>
+  renderHelpSlider(document.getElementById("divHelp"), {
+    text: `<p>Craps is a dice game played in casinos. The objective of the game is to roll two dices in the effort to roll a 7 or 11 to win the game. If you roll a 2, 3, or 12 you lose the game. <br><br>
         If you roll anything else, that number becomes your point, you will then continue to roll until you roll the same point value and win the game or you roll a 7 and lose the game.<br><br>
-        In the instance of a win, you will be prompted to answer a question, if you answer correctly you will be rewarded the win, if the answer is wrong, you will lose the game.</p>`});
+        In the instance of a win, you will be prompted to answer a question, if you answer correctly you will be rewarded the win, if the answer is wrong, you will lose the game.</p>`,
+  });
 
   //Three rows of the page
   for (let i = 1; i < 4; i++) {
@@ -139,7 +139,7 @@ export default function renderCrapsPage(param) {
   document.getElementById("statsColRow41").innerText = "Games Played: 0";
 
   //button event listeners
-//window.addEventListener("load", function () {
+  //window.addEventListener("load", function () {
   document.getElementById("btnRoll").addEventListener("click", function () {
     rollDice(diceArray);
   });
@@ -147,7 +147,7 @@ export default function renderCrapsPage(param) {
   document.getElementById("btnReset").addEventListener("click", resetGame);
 
   document.getElementById("btnSubmit").addEventListener("click", submitRatio);
-//});
+  //});
 }
 
 //Global Variables
@@ -160,8 +160,6 @@ let gamesPlayed = 0;
 let lossCount = 0;
 let gameState = true; //win + loss is false, continuing is true
 let didWin;
-
-
 
 /**
  * animates the dice rolling,
@@ -299,7 +297,7 @@ function resetGame() {
  * submits user score win/loss ratio
  * to the JSON database
  */
-function submitRatio() {
+async function submitRatio() {
   btnSubmit.setAttribute("class", "invisible");
   let gameRatio = winCount / gamesPlayed;
 
@@ -313,24 +311,22 @@ function submitRatio() {
     userEmail = Math.floor(Math.random() * 1000000 + 1) + "@example.com";
   }
 
-  submitScore(userId, userEmail, "craps", gameRatio);
+  await postScores(gameRatio, "craps", userId, userEmail);
 }
 
 /**
  * helper method for quickly adding attributes
- * 
- * @param {} elem 
- * @param {*} name 
- * @param {*} val 
- * @returns 
+ *
+ * @param {} elem
+ * @param {*} name
+ * @param {*} val
+ * @returns
  */
 function addAttribute(elem, name, val) {
-    let currentVal = elem.getAttribute(name);
-    if (currentVal === null) {
-        elem.setAttribute(name, val);
-        return;
-    }
-    elem.setAttribute(name, currentVal + " " + val);
-
-
+  let currentVal = elem.getAttribute(name);
+  if (currentVal === null) {
+    elem.setAttribute(name, val);
+    return;
+  }
+  elem.setAttribute(name, currentVal + " " + val);
 }

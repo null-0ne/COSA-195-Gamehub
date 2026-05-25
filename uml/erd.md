@@ -8,6 +8,17 @@
 erDiagram
 
 
+
+    %% User {
+    %%   String email
+    %%   int score
+    %%   String gameId
+    %% }
+
+
+
+
+
      YahtzeeCountScore {
        String email FK
        int score
@@ -24,9 +35,9 @@ erDiagram
 
     scores {
       int id PK
-      String gameTitle 
+      String gameTitle
       int userID FK
-      Number score 
+      Number score
     }
     users {
       int id PK
