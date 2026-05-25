@@ -1,6 +1,8 @@
+
 "use strict";
 
 import { submitScore } from "./lib/score-service";
+import renderHelpSlider from './components/help-slider.js';
 //import {renderRollSec} from "./components/renderRollSection";
 
 
@@ -9,15 +11,22 @@ import { submitScore } from "./lib/score-service";
  * @param {} param
  */
 export default function renderCrapsPage(param) {
-  let body = document.querySelector("body");
-  body.removeChild(document.querySelector("body > div"));
+  param.innerHTML = `<div class='container'>
+    <div class='d-flex justify-content-end pt-3'>
+    <div id='divHelp'></div>
+    </div>
+    </div>`;
+
+        renderHelpSlider(document.getElementById("divHelp"), { text: `<p>Craps is a dice game played in casinos. The objective of the game is to roll two dices in the effort to roll a 7 or 11 to win the game. If you roll a 2, 3, or 12 you lose the game. <br><br>
+        If you roll anything else, that number becomes your point, you will then continue to roll until you roll the same point value and win the game or you roll a 7 and lose the game.<br><br>
+        In the instance of a win, you will be prompted to answer a question, if you answer correctly you will be rewarded the win, if the answer is wrong, you will lose the game.</p>`});
 
   //Three rows of the page
   for (let i = 1; i < 4; i++) {
     let dRow = document.createElement("div");
     addAttribute(dRow, "class", "row");
     addAttribute(dRow, "id", "mainRow" + i);
-    body.append(dRow);
+    param.append(dRow);
   }
 
   //2 columns for the game and statistics
@@ -128,6 +137,17 @@ export default function renderCrapsPage(param) {
   document.getElementById("statsColRow21").innerText = "Wins: 0";
   document.getElementById("statsColRow31").innerText = "Losses: 0";
   document.getElementById("statsColRow41").innerText = "Games Played: 0";
+
+  //button event listeners
+//window.addEventListener("load", function () {
+  document.getElementById("btnRoll").addEventListener("click", function () {
+    rollDice(diceArray);
+  });
+
+  document.getElementById("btnReset").addEventListener("click", resetGame);
+
+  document.getElementById("btnSubmit").addEventListener("click", submitRatio);
+//});
 }
 
 //Global Variables
@@ -141,16 +161,7 @@ let lossCount = 0;
 let gameState = true; //win + loss is false, continuing is true
 let didWin;
 
-//button event listeners
-window.addEventListener("load", function () {
-  document.getElementById("btnRoll").addEventListener("click", function () {
-    rollDice(diceArray);
-  });
 
-  document.getElementById("btnReset").addEventListener("click", resetGame);
-
-  document.getElementById("btnSubmit").addEventListener("click", submitRatio);
-});
 
 /**
  * animates the dice rolling,
@@ -320,4 +331,6 @@ function addAttribute(elem, name, val) {
         return;
     }
     elem.setAttribute(name, currentVal + " " + val);
+
+
 }

@@ -1,4 +1,108 @@
 {
+  "scores": [
+    {
+      "id": "1",
+      "gameTitle": "craps",
+      "user": {
+        "id": 1,
+        "email": "email@email.com"
+      },
+      "score": 2.567
+    },
+    {
+      "id": "2",
+      "gameTitle": "craps",
+      "user": {
+        "id": 3,
+        "email": "email3@email.com"
+      },
+      "score": 3
+    },
+    {
+      "id": "3",
+      "gameTitle": "craps",
+      "user": {
+        "id": 4,
+        "email": "email4@email.com"
+      },
+      "score": 0.00001
+    },
+    {
+      "id": "4",
+      "gameTitle": "craps",
+      "user": {
+        "id": 2,
+        "email": "email2@email.com"
+      },
+      "score": 4
+    },
+    {
+      "id": "5",
+      "gameTitle": "craps",
+      "user": {
+        "id": 3,
+        "email": "email3@email.com"
+      },
+      "score": 1
+    },
+    {
+      "id": "6",
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "email@email.com"
+      },
+      "score": 25
+    },
+    {
+      "id": "7",
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 4,
+        "email": "email4@email.com"
+      },
+      "score": 50
+    },
+    {
+      "id": "8",
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 2,
+        "email": "email2@email.com"
+      },
+      "score": 35
+    },
+    {
+      "id": "9",
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 3,
+        "email": "email3@email.com"
+      },
+      "score": 45
+    },
+    {
+      "user": {
+        "id": 991674,
+        "email": "619391@example.com"
+      },
+      "gameTitle": "craps",
+      "score": 0,
+      "id": "ZJAaNczdTwM"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "email": "ogugofor2899@saskpolytech.ca",
+      "password": "123abc"
+    },
+    {
+      "email": "michael1@saskpolytech.ca",
+      "password": "fdsf1234",
+      "id": "76Z2-I3lgro"
+    }
+  ],
   "products": [
     {
       "id": "1",
@@ -71,84 +175,6 @@
       "title": "👁❤U Tooth Polish",
       "size": "500ml",
       "price": 9.99
-    }
-  ],
-  "scores": [
-    {
-      "a": "b",
-      "id": "Qw4GLKEJRuI"
-    },
-    {
-      "user": {
-        "id": 857253,
-        "email": "840200@example.com"
-      },
-      "gameTitle": "craps",
-      "score": 0,
-      "id": "w0QXZ-cJ81M"
-    },
-    {
-      "user": {
-        "id": 634478,
-        "email": "87136@example.com"
-      },
-      "gameTitle": "craps",
-      "score": 0,
-      "id": "IUqfA__jyJc"
-    },
-    {
-      "user": {
-        "id": 957738,
-        "email": "947501@example.com"
-      },
-      "gameTitle": "craps",
-      "score": 1,
-      "id": "uDVY9VGjNm0"
-    },
-    {
-      "user": {
-        "id": 368896,
-        "email": "954001@example.com"
-      },
-      "gameTitle": "craps",
-      "score": 0,
-      "id": "dsjLWdEoUPc"
-    },
-    {
-      "user": {
-        "id": 749497,
-        "email": "548873@example.com"
-      },
-      "gameTitle": "craps",
-      "score": 0,
-      "id": "35xQVUZGGy4"
-    },
-    {
-      "user": {
-        "id": 481325,
-        "email": "776383@example.com"
-      },
-      "gameTitle": "craps",
-      "score": 0,
-      "id": "gOZgKAH9nSE"
-    },
-    {
-      "user": {
-        "id": 64574,
-        "email": "959828@example.com"
-      },
-      "gameTitle": "craps",
-      "score": 0,
-      "id": "BztYCmeBoLE"
-    },
-    {
-      "user": {
-        "id": 425141,
-        "email": "204150@example.com"
-      },
-      "gameTitle": "craps",
-      "score": 1,
-      "id": "_jKwVEcvuZM"
     }
   ],
   "orders": [

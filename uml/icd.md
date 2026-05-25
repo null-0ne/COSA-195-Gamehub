@@ -8,10 +8,11 @@
 classDiagram
 %%  direction LR
 
+    
     class LeaderboardPage{
         +renderLeaderboardPage(element:HTMLElement,title:string):HTMLElement
+        
     }
-
     class GameCard {
         +renderGameCard(element:HTMLElement,games:string[]):HTMLElement
     }
@@ -62,6 +63,10 @@ classDiagram
         +resetGame() %% starts the game over so user can roll again
 
         +submitRatio(); %%calls submitScore() in score-service class
+    }
+
+      class NavBar {
+        renderNavBar(element:HTMLElement,params:Object)
     }
 
 

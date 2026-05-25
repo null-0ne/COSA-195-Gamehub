@@ -8,33 +8,35 @@
 erDiagram
 
 
-  users{
-    int id PK
-    String email
-    String password
-  }
+     YahtzeeCountScore {
+       String email FK
+       int score
+       String gameId PK
+       int rank
+     }
 
-  craps{
-    int id pk
-    String email
-    String gameName
-    Number score
-  }
+     CrapsScore {
+       String email FK
+       String gameId PK
+       int rank
+       int score
+     }
 
-  scores {
-  int id PK
-  String gameTitle
-  int userID FK
-  Number score
-  }
+    scores {
+      int id PK
+      String gameTitle 
+      int userID FK
+      Number score 
+    }
+    users {
+      int id PK
+      String email
+      String password
+    }
 
-
-   %% Relationships
-    scores }o--o{ craps : "submits"
+    %% Relationships
     users ||--o{ scores : "has"
-
+    scores }o--o{ CrapsScore : "submits"
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```
-
-NOTE: orders has a customerId which implys a customer entity (but that is outside of example scope)
