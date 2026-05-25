@@ -21,14 +21,17 @@ export default function renderNavBar(
     </div>
     <div class='container-fluid bg-success p-0 border border-dark'>
         <div class='row w-100 h-100 text-center'>
-        <div class='col-md-4 text-white'>
+        <div class='col-md-3 text-white'>
         <a href="/" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Home</a>
         </div>
-        <div class='col-md-4 text-white'>
+        <div class='col-md-3 text-white'>
         <a href="/craps" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Craps</a>
         </div>
-        <div class='col-md-4 text-white'>
+        <div class='col-md-3 text-white'>
         <a href="/yahtzee-count" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Yahtzee Count</a>
+        </div>
+        <div class='col-md-3 text-white'>
+        <a href="/leaderboard" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Leaderboard</a>
         </div>
     </div>
     `;

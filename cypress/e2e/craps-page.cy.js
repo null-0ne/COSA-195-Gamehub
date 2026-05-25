@@ -1,32 +1,105 @@
-describe('Visit Site', () => {
-    beforeEach(() => {
-        // Cypress starts out with a blank slate for each test
-        // so we must tell it to visit our website with the `cy.visit()` command.
-        // Since we want to visit the same URL at the start of all our tests,
-        // we include it in our beforeEach function so that it runs before each test
-        cy.visit(`http://localhost:5173/craps`)
-    })
-    it('Help Icon is visible on page Craps', () => {
-        cy.get("#HelpIcon").should("be.visible");
-        cy.get("#offcanvasRightLabel").should("not.be.visible");
-        cy.get(".offcanvas-body").should("not.be.visible");
-    })
+/*
+    Filename:    
+    Student:    Garrett Thomson
+    Course:      COSA 195 (Systems Project)
+    Date:        2026-05-15
+    Purpose:     End To End test Craps Page
+*/
+describe("craps page test", () => {
+  beforeEach(() => {
+    cy.visit(`http://localhost:5173/craps`); 
+  });
 
-    it('Help Icon When clicked shows rules' , () => {
-        cy.get("#HelpIcon").should("be.visible");
-        cy.get("#offcanvasRightLabel").should("not.be.visible");
-        cy.get(".offcanvas-body").should("not.be.visible");
-        cy.get("#HelpIcon").click();
-        cy.get("#offcanvasRightLabel").should("be.visible");
-        cy.get(".offcanvas-body").contains("Craps is a dice game played in casinos. The objective of the game is to roll two dices in the effort to roll a 7 or 11 to win the game. If you roll a 2, 3, or 12 you lose the game.")
-    })
+  it("rolls dice when Roll button is clicked", () => {
+    cy.get("#btnRoll").click();
 
-    it('Help Icon Hidden When AnyWhere on page is clicked' , () => {
-        cy.get("#HelpIcon").should("be.visible");
-        cy.get("#HelpIcon").click();
-        cy.get("#offcanvasRightLabel").should("be.visible");
-        cy.get(".offcanvas-body").contains("Craps is a dice game played in casinos. The objective of the game is to roll two dices in the effort to roll a 7 or 11 to win the game. If you roll a 2, 3, or 12 you lose the game.")
-        cy.get("#app").click();
-        cy.get("#offcanvasRightLabel").should("not.be.visible");
-    })
-})
+    cy.wait(1200); // wait until animation is done
+
+    cy.get("#img1")
+      .invoke("attr", "src") // retrieving attribute & source
+      .should("match", /dice[1-6]\.png$/); // img changed properly
+
+    cy.get("#img2")
+      .invoke("attr", "src")
+      .should("match", /dice[1-6]\.png$/);
+  });
+
+  it("updates current roll total", () => {
+    cy.get("#btnRoll").click();
+
+    cy.wait(1200);
+
+    cy.get("#gameColRow24").should("not.contain", "= 0");
+  });
+
+  it("updates games played record when game ends", () => {
+    cy.get("#statsColRow41")
+      .invoke("text") // getting text content
+      .then((preGameText) => {
+        // extract the number from the text for comparison
+        const preGame = parseInt(preGameText.match(/\d+/)[0]);
+        // preGame = 0
+
+        function rollUntilGameEnds() {
+          cy.get("#btnRoll").click();
+          cy.wait(1200);
+          cy.get("#statsColRow41")
+            .invoke("text")
+            .then((postText) => {
+              const postGame = parseInt(postText.match(/\d+/)[0]);
+              // postGame SHOULD = 1 if game is over
+
+              if (preGame === postGame) {
+                rollUntilGameEnds();
+              } else {
+                expect(postGame).to.equal(preGame + 1);
+              }
+            });
+        }
+        rollUntilGameEnds();
+      });
+  });
+
+  it("resets text when 'reset button is clicked;", () => {
+
+     cy.get("#statsColRow41")
+      .invoke("text") // getting text content
+      .then((preGameText) => {
+        // extract the number from the text for comparison
+        const preGame = parseInt(preGameText.match(/\d+/)[0]);
+        // preGame = 0
+
+        function rollUntilGameEnds() {
+          cy.get("#btnRoll").click();
+          cy.wait(1200);
+          cy.get("#statsColRow41")
+            .invoke("text")
+            .then((postText) => {
+              const postGame = parseInt(postText.match(/\d+/)[0]);
+              // postGame SHOULD = 1 if game is over
+
+              if (preGame === postGame) {
+                rollUntilGameEnds();
+              } else {
+                expect(postGame).to.equal(preGame + 1);
+              }
+            });
+        }
+        rollUntilGameEnds();
+      
+
+    cy.get("#btnReset").click(); //click reset button
+
+   
+
+    cy.get("#gameColRow24")
+      .invoke("text") 
+      .should("match", /0/); // text changed properly
+
+   
+  });
+
+});
+
+  
+});
