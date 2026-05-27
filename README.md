@@ -52,8 +52,15 @@ npm install
 Open terminal ensure you are in **dice-games** directory and run the following:
 
 ```termimal
-npm run seed-data
+npm run seed-db     ## OPTIONAL unless to RESET the db
 npm start
+```
+
+## Run Cypres Tests
+Open terminal in **teamgreen2026** directory and run the following: 
+```termimal
+npm run seed-db     ## GOOD PRACTICE, to RESET the db before testing
+npm run test
 ```
 
 # GIT Reference
@@ -65,7 +72,7 @@ Open GitBASH ensure you are in **dice-games** directory and run the following:
 ```termimal
 git status
 git add -A
-git commit –m "A descriptive commit message"
+git commit -m "A descriptive commit message"
 git push
 ```
 
@@ -86,7 +93,7 @@ git config --global user.name "Your Name"
 Open GitBASH ensure you are in **dice-games** directory and run the following:
 
 ```termimal
-git clone https://bitbucket.org/cstprojects/team<your team color>2026.git
+git clone https://bitbucket.org/cstprojects/teamgreen2026.git
 ```
 
 ## Switch betwen branches Branch
@@ -123,6 +130,6 @@ git merge main
 ##Once all conflicts are resolved
 
 git add -A
-git commit –m "A descriptive commit message"
+git commit -m "A descriptive commit message"
 git push
 ```
