@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "concurrently --kill-others \"npm run api\" \"npm run dev\"",
-    "seed-db": "copy /y db-seed-data.json db-for-api.json",
+    "seed-db": "copy /y db-seed-data.json db-for-api.json && timeout /t 1 /nobreak >nul && copy /b db-for-api.json +,,",
     "api": "json-server --watch db-for-api.json --port 8000",
     "dev": "vite",
     "build": "vite build",
