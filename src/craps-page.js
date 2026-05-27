@@ -3,7 +3,7 @@
 import { postScores } from "./lib/score-service";
 import renderHelpSlider from "./components/help-slider.js";
 import renderGameplaySection from "./components/gameplay-section.js";
-//import {renderRollSec} from "./components/renderRollSection";
+import diceRoll from "./components/dice-roll.js";
 
 /**renders the craps page
  *
@@ -74,79 +74,79 @@ export default function renderCrapsPage(param) {
   // }
 
   //create image elements
-  let img1 = document.createElement("img");
-  img1.src = "/images/dice0.png";
-  addAttribute(img1, "id", "img1");
-  // addAttribute(img1, "class", "w-75");
-  document.getElementById("gameColRow21").append(img1);
+  // let img1 = document.createElement("img");
+  // img1.src = "/images/dice0.png";
+  // addAttribute(img1, "id", "img1");
+  // // addAttribute(img1, "class", "w-75");
+  // document.getElementById("gameColRow21").append(img1);
 
-  let img2 = document.createElement("img");
-  img2.src = "/images/dice0.png";
-  addAttribute(img2, "id", "img2");
-  // addAttribute(img2, "class", "w-75");
-  document.getElementById("gameColRow23").append(img2);
+  // let img2 = document.createElement("img");
+  // img2.src = "/images/dice0.png";
+  // addAttribute(img2, "id", "img2");
+  // // addAttribute(img2, "class", "w-75");
+  // document.getElementById("gameColRow23").append(img2);
 
-  let img3 = document.createElement("img");
-  img3.src = "/images/dice0.png";
-  addAttribute(img3, "id", "img3");
-  //addAttribute(img3, "class", "w-75");
-  document.getElementById("gameColRow41").append(img3);
+  // let img3 = document.createElement("img");
+  // img3.src = "/images/dice0.png";
+  // addAttribute(img3, "id", "img3");
+  // //addAttribute(img3, "class", "w-75");
+  // document.getElementById("gameColRow41").append(img3);
 
-  let img4 = document.createElement("img");
-  img4.src = "/images/dice0.png";
-  addAttribute(img4, "id", "img4");
-  //addAttribute(img4, "class", "w-75");
-  document.getElementById("gameColRow43").append(img4);
+  // let img4 = document.createElement("img");
+  // img4.src = "/images/dice0.png";
+  // addAttribute(img4, "id", "img4");
+  // //addAttribute(img4, "class", "w-75");
+  // document.getElementById("gameColRow43").append(img4);
 
-  //Add text to the game section
-  document.getElementById("gameColRow11").innerText = "Current Roll:";
+  // //Add text to the game section
+  // document.getElementById("gameColRow11").innerText = "Current Roll:";
 
-  document.getElementById("gameColRow15").innerHTML =
-    `<p class =" fs-1 mt-5">Point: </p>`;
-  document.getElementById("gameColRow31").innerText = "Last Roll: ";
+  // document.getElementById("gameColRow15").innerHTML =
+  //   `<p class =" fs-1 mt-5">Point: </p>`;
+  // document.getElementById("gameColRow31").innerText = "Last Roll: ";
 
-  document.getElementById("gameColRow22").innerHTML =
-    `<p class ="text-center fs-1 mt-5">+</p>`; //TODO: MAKE THEM REAL ELEMENTS
-  document.getElementById("gameColRow42").innerHTML =
-    `<p class ="text-center fs-1 mt-5">+</p>`;
+  // document.getElementById("gameColRow22").innerHTML =
+  //   `<p class ="text-center fs-1 mt-5">+</p>`; //TODO: MAKE THEM REAL ELEMENTS
+  // document.getElementById("gameColRow42").innerHTML =
+  //   `<p class ="text-center fs-1 mt-5">+</p>`;
 
-  document.getElementById("gameColRow24").innerHTML = `<p class =""> =0 </p>`;
-  document.getElementById("gameColRow44").innerHTML = `<p class ="">=0</p>`;
+  // document.getElementById("gameColRow24").innerHTML = `<p class =""> =0 </p>`;
+  // document.getElementById("gameColRow44").innerHTML = `<p class ="">=0</p>`;
 
-  //Add buttons
-  let btnRoll = document.createElement("button");
-  addAttribute(btnRoll, "id", "btnRoll");
-  addAttribute(btnRoll, "class", "visible");
-  btnRoll.innerText = "Roll Dice";
-  document.getElementById("gameColRow25").append(btnRoll);
+  // //Add buttons
+  // let btnRoll = document.createElement("button");
+  // addAttribute(btnRoll, "id", "btnRoll");
+  // addAttribute(btnRoll, "class", "visible");
+  // btnRoll.innerText = "Roll Dice";
+  // document.getElementById("gameColRow25").append(btnRoll);
 
-  let btnReset = document.createElement("button");
-  addAttribute(btnReset, "id", "btnReset");
-  addAttribute(btnReset, "class", "invisible");
-  btnReset.innerText = "Reset Game";
-  document.getElementById("gameColRow45").append(btnReset);
+  // let btnReset = document.createElement("button");
+  // addAttribute(btnReset, "id", "btnReset");
+  // addAttribute(btnReset, "class", "invisible");
+  // btnReset.innerText = "Reset Game";
+  // document.getElementById("gameColRow45").append(btnReset);
 
-  let btnSubmit = document.createElement("button");
-  addAttribute(btnSubmit, "id", "btnSubmit");
-  addAttribute(btnSubmit, "class", "invisible");
-  btnSubmit.innerText = "Submit Score ";
-  document.getElementById("statsColRow51").append(btnSubmit);
+  // let btnSubmit = document.createElement("button");
+  // addAttribute(btnSubmit, "id", "btnSubmit");
+  // addAttribute(btnSubmit, "class", "invisible");
+  // btnSubmit.innerText = "Submit Score ";
+  // document.getElementById("statsColRow51").append(btnSubmit);
 
-  //session statistics
-  document.getElementById("statsColRow11").innerText = "Session Scores";
-  document.getElementById("statsColRow21").innerText = "Wins: 0";
-  document.getElementById("statsColRow31").innerText = "Losses: 0";
-  document.getElementById("statsColRow41").innerText = "Games Played: 0";
+  // //session statistics
+  // document.getElementById("statsColRow11").innerText = "Session Scores";
+  // document.getElementById("statsColRow21").innerText = "Wins: 0";
+  // document.getElementById("statsColRow31").innerText = "Losses: 0";
+  // document.getElementById("statsColRow41").innerText = "Games Played: 0";
 
-  //button event listeners
-  //window.addEventListener("load", function () {
-  document.getElementById("btnRoll").addEventListener("click", function () {
-    rollDice(diceArray);
-  });
+  // //button event listeners
+  // //window.addEventListener("load", function () {
+  // document.getElementById("btnRoll").addEventListener("click", function () {
+  //   rollDice(diceArray);
+  // });
 
-  document.getElementById("btnReset").addEventListener("click", resetGame);
+  // document.getElementById("btnReset").addEventListener("click", resetGame);
 
-  document.getElementById("btnSubmit").addEventListener("click", submitRatio);
+  // document.getElementById("btnSubmit").addEventListener("click", submitRatio);
   //});
 }
 

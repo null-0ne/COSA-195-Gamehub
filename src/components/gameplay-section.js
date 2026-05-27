@@ -1,3 +1,5 @@
+import diceRoll from "./dice-roll";
+
 /**
  *
  * @param {*} element - css selector of element to inject content
@@ -55,6 +57,18 @@ export default function renderGameplaySection(
         </div>
 </div>`;
 
+  let images = document.querySelectorAll("img"); // get images
+  let imageNumbers = Array.from(images).map((img) => {
+    let source = img.getAttribute("src"); // get filename
+    let number = source.match(/\d+/); // regex, find the number in the filename
+
+    return number;
+  });
+  console.log(images);
+
+  document
+    .querySelector("button")
+    .addEventListener("click", diceRoll(imageNumbers));
   //return the element in case it is needed for further logic
   return element;
 }
