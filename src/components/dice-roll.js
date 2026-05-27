@@ -1,4 +1,5 @@
-
+//https://www.geeksforgeeks.org/bootstrap/how-to-create-image-overlay-effects-in-bootstrap/
+//https://www.geeksforgeeks.org/bootstrap/how-to-use-image-overlay-correctly-with-bootstrap/
 /**
  * Render function to inject content into an HTML element
  * @param {*} element - css selector of element to inject content
@@ -27,10 +28,11 @@ export default function renderDiceGroup(
     `);
 
     //find cards and add click event listener
-    if(lockable)
-    {
+    if(params.lockable){
         element.querySelectorAll(".lockable-dice").forEach((dice) => {
-        dice.addEventListener("click", ({target: dice})=>dice.classList.toggle('lockable'));
+        dice.addEventListener("click", ({target: dice})=>{
+            dice.classList.toggle('dice-img-lock');
+        });
     });
     }
 

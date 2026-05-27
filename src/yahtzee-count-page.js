@@ -93,7 +93,7 @@ to get the final score (lower scores are better). </li>
   };
 
   //renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
-  renderDiceGroup(document.querySelector(`.gameplay`),);
+  renderDiceGroup(document.querySelector(`.gameplay`), {dice: [1,2,3,4,5], lockable: true});
   renderYahtzeeScoreCard(document.querySelector(`.score-form`), sharedParams);
   let inputOnes = element.querySelectorAll(".catInput");
   for (let input of inputOnes) {
