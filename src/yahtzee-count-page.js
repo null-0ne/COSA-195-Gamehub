@@ -10,6 +10,7 @@ import { postScores } from "./lib/score-service.js";
 import renderYahtzeeScoreCard from "./components/yahtzee-score-card.js";
 import renderGameplaySection from "./components/gameplay-section.js";
 import renderHelpSlider from "./components/help-slider.js";
+import renderDiceRoll from "./components/dice-roll.js";
 /**
  * Render function to inject content into an HTML element
  * @param {*} element - HTML element target container
@@ -91,7 +92,13 @@ to get the final score (lower scores are better). </li>
     scoreSpan: document.getElementById("updateScore"),
   };
 
-  renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
+  const sharedParamDiceRoll = {
+    dice: [1, 2, 3, 4, 5],
+    holdable: false
+  }
+
+  //renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
+  renderDiceRoll(document.querySelector(`.gameplay`), sharedParamDiceRoll);
   renderYahtzeeScoreCard(document.querySelector(`.score-form`), sharedParams);
   let inputOnes = element.querySelectorAll(".catInput");
   for (let input of inputOnes) {
