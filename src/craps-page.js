@@ -2,6 +2,7 @@
 
 import { postScores } from "./lib/score-service";
 import renderHelpSlider from "./components/help-slider.js";
+import renderGameplaySection from "./components/gameplay-section.js";
 //import {renderRollSec} from "./components/renderRollSection";
 
 /**renders the craps page
@@ -21,57 +22,56 @@ export default function renderCrapsPage(param) {
         In the instance of a win, you will be prompted to answer a question, if you answer correctly you will be rewarded the win, if the answer is wrong, you will lose the game.</p>`,
   });
 
+  
+
   //Three rows of the page
-  for (let i = 1; i < 4; i++) {
-    let dRow = document.createElement("div");
-    addAttribute(dRow, "class", "row");
-    addAttribute(dRow, "id", "mainRow" + i);
-    param.append(dRow);
-  }
+  // for (let i = 1; i < 4; i++) {
+  //   let dRow = document.createElement("div");
+  //   addAttribute(dRow, "class", "row");
+  //   addAttribute(dRow, "id", "mainRow" + i);
+  //   param.append(dRow);
+  // }
 
   //2 columns for the game and statistics
-  let gameDiv = document.createElement("div");
-  addAttribute(gameDiv, "class", "col-8");
-  addAttribute(gameDiv, "class", "bg-light");
-  addAttribute(gameDiv, "id", "gameCol");
+  let gameDiv = renderGameplaySection();
 
-  let statsDiv = document.createElement("div");
-  addAttribute(statsDiv, "class", "col-3");
-  addAttribute(statsDiv, "id", "statsCol");
-  addAttribute(statsDiv, "class", "bg-light");
-  addAttribute(statsDiv, "class", "ms-3");
+  // let statsDiv = document.createElement("div");
+  // addAttribute(statsDiv, "class", "col-3");
+  // addAttribute(statsDiv, "id", "statsCol");
+  // addAttribute(statsDiv, "class", "bg-light");
+  // addAttribute(statsDiv, "class", "ms-3");
 
-  document.getElementById("mainRow2").append(gameDiv);
-  document.getElementById("mainRow2").append(statsDiv);
+  param.append(gameDiv);
+  //document.getElementById("mainRow2").append(statsDiv);
 
   //four rows and 5 columns(inside each row) for game column
-  for (let i = 1; i < 5; i++) {
-    let dRow = document.createElement("div");
-    addAttribute(dRow, "class", "row");
-    addAttribute(dRow, "id", "gameRow" + i);
-    gameDiv.append(dRow);
-    for (let k = 1; k < 6; k++) {
-      let dCol = document.createElement("div");
-      addAttribute(dCol, "class", "col");
-      addAttribute(dCol, "id", "gameColRow" + i + k);
-      dRow.append(dCol);
-    }
-  }
+  // for (let i = 1; i < 5; i++) {
+  //   let dRow = document.createElement("div");
+  //   addAttribute(dRow, "class", "row");
+  //   addAttribute(dRow, "id", "gameRow" + i);
+  //   gameDiv.append(dRow);
+  //   for (let k = 1; k < 6; k++) {
+  //     let dCol = document.createElement("div");
+  //     addAttribute(dCol, "class", "col");
+  //     addAttribute(dCol, "id", "gameColRow" + i + k);
+  //     dRow.append(dCol);
+  //   }
+  // }
 
   //five rows 2 columns(inside each row) for stats column
-  for (let i = 1; i < 6; i++) {
-    let dRow = document.createElement("div");
-    addAttribute(dRow, "class", "row");
-    addAttribute(dRow, "id", "statsRow" + i);
-    statsDiv.append(dRow);
+  // for (let i = 1; i < 6; i++) {
+  //   let dRow = document.createElement("div");
+  //   addAttribute(dRow, "class", "row");
+  //   addAttribute(dRow, "id", "statsRow" + i);
+  //   statsDiv.append(dRow);
 
-    for (let k = 1; k < 2; k++) {
-      let dCol = document.createElement("div");
-      addAttribute(dCol, "class", "col");
-      addAttribute(dCol, "id", "statsColRow" + i + k);
-      dRow.append(dCol);
-    }
-  }
+  //   for (let k = 1; k < 2; k++) {
+  //     let dCol = document.createElement("div");
+  //     addAttribute(dCol, "class", "col");
+  //     addAttribute(dCol, "id", "statsColRow" + i + k);
+  //     dRow.append(dCol);
+  //   }
+  // }
 
   //create image elements
   let img1 = document.createElement("img");
