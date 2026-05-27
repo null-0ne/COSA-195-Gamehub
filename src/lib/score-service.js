@@ -60,8 +60,8 @@ export async function postScores(score, gameTitle, userId, email) {
       "Content-Type": "application/json; charset=UTF-8",
     },
   })
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+    .await((response) => response.json())
+    .await((json) => console.log(json));
 }
 
 
