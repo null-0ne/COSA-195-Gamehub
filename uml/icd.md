@@ -97,19 +97,19 @@ classDiagram
 
     
      %% Relationships
-    %% NavBar <-- YahtzeeCountPage : layout
-    %% scoreService<-- YahtzeeCountPage : uses
-    %% YahtzeeCountPage <-- yahtzee-scorecard : uses
-    %% YahtzeeCountPage <-- gameplay-section : uses
-    %% LoginPage --> UserService : fetches data
-    %% RegisterPage --> UserService : fetches data
-    %% NavBar <-- CrapsPage : layout
-    %% NavBar <-- YahtzeeCountPage : layout
-    %% YahtzeeCountPage --> HelpSlider: uses
-    %% CrapsPage --> HelpSlider: uses
-    %% CrapsPage --> score-service : sends score data
+    NavBar <-- YahtzeeCountPage : layout
+    ScoreService<-- YahtzeeCountPage : uses
+    YahtzeeCountPage <-- YahtzeeScoreCard : uses
+    YahtzeeCountPage <-- GameplaySection : uses
+    LoginPage --> UserService : fetches data
+    RegisterPage --> UserService : fetches data
+    NavBar <-- CrapsPage : layout
+    NavBar <-- YahtzeeCountPage : layout
+    YahtzeeCountPage --> HelpSlider: uses
+    CrapsPage --> HelpSlider: uses
+    CrapsPage --> ScoreService : sends score data
     %% LeaderboardPage --> GameCard : holds
-    %% LeaderboardPage --> NavBar : has
+    LeaderboardPage --> NavBar : has
     %% LeaderboardPage --> Footer : has
 
     
