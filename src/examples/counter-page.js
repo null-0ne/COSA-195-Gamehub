@@ -27,10 +27,10 @@ export default function renderContactPage(
         <div class="btn-group">
         <button type="button" class="btn btn-primary">hi</button>
         <button type="button" class="btn btn-primary">there</button>
-        <button type="button" class="btn btn-primary">is an error</button>       
+        <button type="button" class="btn btn-primary">is an error</button>
         </div>
     </div>
-    `;
+     `;
 
   // pass by reference object to send as params agruement to multiple components
   const sharedParams = {
