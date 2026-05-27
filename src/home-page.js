@@ -11,8 +11,7 @@ export default function renderHomePage(
   //set the content for the home page
   element.innerHTML = `
     <div>
-        <h1><img src="/sp.jpg" class="logo vanilla" alt="Saskpolytech Logo" />
-        ${params.title}</h1>
+    
     </div>
     <h1>My revert commit</h1>
     `;

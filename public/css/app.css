@@ -1,7 +1,7 @@
 /*
     Filename: app.css
     Author:   
-    Date:     2026-05-01
+    Date:     2026-05-
     Purpose:  CSS styles that boostrap can not handle for entire project
 */
 
@@ -33,3 +33,18 @@
     transform: rotate3d(-1, 1, 0, 180deg);
 }
 */
+.grey {
+    background-color: #97999c;
+}
+
+.img-container > img {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+
+}
+.diceBackground {
+    background-image: url('../images/bg image.png');
+    background-repeat: no-repeat;
+    background-size: contian;
+}
