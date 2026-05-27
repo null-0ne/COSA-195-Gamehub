@@ -16,27 +16,27 @@ export default function renderGameplaySection(
         <div class="pt-5 img-container ">
           <img 
             src="../public/images/dice1.png"
-            class="rounded float"
+            class="dice rounded float"
             alt="..."
           />
           <img
             src="../public/images/dice2.png"
-            class="rounded float"
+            class="dice rounded float"
             alt="..."
           />
           <img
             src="../public/images/dice3.png"
-            class="rounded float"
+            class="dice rounded float"
             alt="..."
           />
           <img
             src="../public/images/dice4.png"
-            class="rounded float"
+            class="dice rounded float"
             alt="..."
           />
           <img
             src="../public/images/dice5.png"
-            class="rounded float"
+            class="dice rounded float"
             alt="..."
           />
         </div>
@@ -46,7 +46,7 @@ export default function renderGameplaySection(
               <span id="numRoll">Roll Number: <span>1</span></span>
             </div>
             <div class="col text-center">
-              <button type="button" class="btn btn-primary">ROLL</button>
+              <button id="btnRoll" type="button" class="btn btn-primary">ROLL</button>
             </div>
             <div class="col text-end">
               <p class="m-0">Time: <span id="time">22:00</span> min</p>
@@ -57,18 +57,48 @@ export default function renderGameplaySection(
         </div>
 </div>`;
 
-  let images = document.querySelectorAll("img"); // get images
-  let imageNumbers = Array.from(images).map((img) => {
+  let images = document.querySelectorAll(".dice"); // get images
+  let diceArray = Array.from(images).map((img) => {
     let source = img.getAttribute("src"); // get filename
     let number = source.match(/\d+/); // regex, find the number in the filename
 
     return number;
   });
   console.log(images);
+  //console.log(imageNumbers);
 
-  document
-    .querySelector("button")
-    .addEventListener("click", diceRoll(imageNumbers));
+  //let diceArray = [1, 2, 3, 4, 5];
+  let isRolling = false;
+
+  document.getElementById("btnRoll").addEventListener("click", diceRoll);
   //return the element in case it is needed for further logic
   return element;
+
+  /**
+   * Dice rolling animation
+   * @param {*} diceArray
+   * @returns
+   */
+  function diceRoll() {
+    if (isRolling) {
+      return;
+    }
+    console.log(diceArray);
+    isRolling = true;
+
+    let rollAnimation = setInterval(() => {
+      for (let i = 0; i < diceArray.length; i++) {
+        diceArray[i] = Math.floor(Math.random() * 6 + 1);
+
+        document.querySelectorAll(".dice")[i].src =
+          "images/dice" + diceArray[i] + ".png";
+      }
+    }, 100);
+
+    let stopAnimation = setTimeout(() => {
+      clearInterval(rollAnimation);
+
+      isRolling = false;
+    }, 1000);
+  }
 }
