@@ -22,8 +22,6 @@ export default function renderCrapsPage(param) {
         In the instance of a win, you will be prompted to answer a question, if you answer correctly you will be rewarded the win, if the answer is wrong, you will lose the game.</p>`,
   });
 
-  
-
   //Three rows of the page
   // for (let i = 1; i < 4; i++) {
   //   let dRow = document.createElement("div");

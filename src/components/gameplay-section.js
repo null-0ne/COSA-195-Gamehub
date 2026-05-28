@@ -65,9 +65,7 @@ export default function renderGameplaySection(
     return number;
   });
   console.log(images);
-  //console.log(imageNumbers);
 
-  //let diceArray = [1, 2, 3, 4, 5];
   let isRolling = false;
 
   document.getElementById("btnRoll").addEventListener("click", diceRoll);
@@ -83,7 +81,7 @@ export default function renderGameplaySection(
     if (isRolling) {
       return;
     }
-    console.log(diceArray);
+
     isRolling = true;
 
     let rollAnimation = setInterval(() => {
@@ -94,6 +92,8 @@ export default function renderGameplaySection(
           "images/dice" + diceArray[i] + ".png";
       }
     }, 100);
+
+    console.log(diceArray);
 
     let stopAnimation = setTimeout(() => {
       clearInterval(rollAnimation);
