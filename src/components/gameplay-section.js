@@ -43,7 +43,7 @@ export default function renderGameplaySection(
         <div class="container pt-5">
           <div class="row align-items-center">
             <div class="col">
-              <span id="numRoll">Roll Number: <span>1</span></span>
+              <span id="numRoll">Roll Number: 0</span>
             </div>
             <div class="col text-center">
               <button id="btnRoll" type="button" class="btn btn-primary">ROLL</button>
@@ -67,6 +67,7 @@ export default function renderGameplaySection(
   console.log(images);
 
   let isRolling = false;
+  let rollCount = 0;
 
   document.getElementById("btnRoll").addEventListener("click", diceRoll);
   //return the element in case it is needed for further logic
@@ -83,6 +84,8 @@ export default function renderGameplaySection(
     }
 
     isRolling = true;
+    rollCount++;
+    document.getElementById("numRoll").innerHTML = `Roll Number: ${rollCount}`;
 
     let rollAnimation = setInterval(() => {
       for (let i = 0; i < diceArray.length; i++) {
