@@ -19,40 +19,40 @@ export default function renderYahtzeeScoreCard(
   </thead>
   <tbody>
     <tr>
-      <th scope="row">Ones</th>
-      <td><input type="number" class="catInput"></input></td>
-      <th>Three of a kind</th>
-      <td><input type="number" class="catInput"></input></td>
+      <th class="catName" scope="row">Ones</th>
+      <td><input id="Ones"type="number" class="catInput"></input></td>
+      <th class="catName" >Three of a kind</th>
+      <td><input id="Threeofakind"type="number" class="catInput"></input></td>
     </tr>
    <tr>
-      <th scope="row">Twos</th>
-      <td><input type="number" class="catInput"></input></td>
-      <th>Four of a kind</th>
-      <td><input type="number" class="catInput"></input></td>
+      <th class="catName" scope="row">Twos</th>
+      <td><input id="Twos"type="number" class="catInput"></input></td>
+      <th class="catName" >Four of a kind</th>
+      <td><input id="Fourofakind"type="number" class="catInput"></input></td>
     </tr>
     <tr>
-      <th scope="row">Threes</th>
-      <td><input type="number" class="catInput"></input></td>
-      <th>Full House</th>
-      <td><input type="number" class="catInput"></input></td>
+      <th class="catName" scope="row">Threes</th>
+      <td><input id="Threes"type="number" class="catInput"></input></td>
+      <th class="catName" >Full House</th>
+      <td><input id="FullHouse"type="number" class="catInput"></input></td>
     </tr>
     <tr>
-      <th scope="row">Fours</th>
-      <td><input type="number" class="catInput"></input></td>
-      <th>Small Straight</th>
-      <td><input type="number" class="catInput"></input></td>
+      <th scope="row" class="catName" >Fours</th>
+      <td><input id="Fours"type="number" class="catInput"></input></td>
+      <th class="catName" >Small Straight</th>
+      <td><input id="SmallStraight"type="number" class="catInput"></input></td>
     </tr>
     <tr>
-      <th scope="row">Fives</th>
-      <td><input type="number" class="catInput"></input></td>
-      <th>Large Straight</th>
-      <td><input type="number" class="catInput"></input></td>
+      <th scope="row" class="catName" >Fives</th>
+      <td><input id="Fives"type="number" class="catInput"></input></td>
+      <th class="catName" >Large Straight</th>
+      <td><input id="LargeStraight"type="number" class="catInput"></input></td>
     </tr>
     <tr>
-      <th scope="row">Sixes</th>
-      <td><input type="number" class="catInput"></input></td>
-      <th>Yahtzee!</th>
-      <td><input type="number" class="catInput"></input></td>
+      <th class="catName" scope="row">Sixes</th>
+      <td><input id="Sixes"type="number" class="catInput"></input></td>
+      <th class="catName" >Yahtzee</th>
+      <td><input id="Yahtzee"type="number" class="catInput"></input></td>
     </tr>
     <tr >
       <td colspan="3"><button class="btn btn-primary" id="btnSubmit" type="button" >Submit</button></td>
@@ -75,13 +75,33 @@ export default function renderYahtzeeScoreCard(
       console.log(params.totalScore);
     });
   }
-  function submitScore()
-  {
 
+  //  cat selection
+  let catNames = element.querySelectorAll(".catName");
+  for (let cat of catNames) {
+    cat.addEventListener("click", function () {
+      params.totalScore = 0;
+      let input = element.querySelector(
+        `#${cat.innerHTML.replaceAll(" ", "")}`,
+      );
+      input.value = params.rollCount;
+      for (let otherInput of inputOnes) {
+        let num = parseInt(otherInput.value, 10);
+        if (!isNaN(num)) {
+          params.totalScore += parseInt(otherInput.value, 10);
+        }
+      }
+      // params.totalScore += params.rollCount;
+      params.rollCount = 0;
+    });
+  }
+
+  function submitScore() {
     params.submitScores(params.totalScore);
   }
-  element.querySelector("#btnSubmit")
-    
+  element
+    .querySelector("#btnSubmit")
+
     .addEventListener("click", submitScore);
 
   //return the element in case it is needed for further logic

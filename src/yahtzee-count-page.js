@@ -10,6 +10,7 @@ import { postScores } from "./lib/score-service.js";
 import renderYahtzeeScoreCard from "./components/yahtzee-score-card.js";
 import renderGameplaySection from "./components/gameplay-section.js";
 import renderHelpSlider from "./components/help-slider.js";
+import renderDiceRoll from "./components/dice-roll.js";
 /**
  * Render function to inject content into an HTML element
  * @param {*} element - HTML element target container
@@ -45,7 +46,8 @@ export default function renderYahtzeeCountPage(
         </div>
     </div>
     `;
-    renderHelpSlider(document.getElementById("divHelp"),{text: `<p>Yahtzee Count
+  renderHelpSlider(document.getElementById("divHelp"), {
+    text: `<p>Yahtzee Count
     is a dice game where players try to get certain patterns of dice in the
     smallest number of rolls.
      </p>
@@ -81,7 +83,8 @@ long as they want.</li>
 <li>When all the possible combinations have been selected, the 
 game is over. The number of rolls for each combination is totaled
 to get the final score (lower scores are better). </li>
-</ul>`})
+</ul>`,
+  });
 
   const sharedParams = {
     totalScore: 0,
@@ -89,16 +92,32 @@ to get the final score (lower scores are better). </li>
       postScores(this.totalScore, "yahtzee-count", 1, "john@saskpolytech.ca");
     },
     scoreSpan: document.getElementById("updateScore"),
+    dice: [1, 2, 3, 4, 5],
+    lockable: true,
+    rollCount: 0,
+    finishedRolling: function () {
+      this.rollCount++;
+    },
   };
 
-  renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
+  //renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
+  renderDiceRoll(document.querySelector(`.gameplay`), sharedParams);
   renderYahtzeeScoreCard(document.querySelector(`.score-form`), sharedParams);
+
   let inputOnes = element.querySelectorAll(".catInput");
   for (let input of inputOnes) {
     input.addEventListener("change", function () {
       sharedParams.scoreSpan.innerHTML = sharedParams.totalScore;
     });
   }
+
+  let catNames = element.querySelectorAll(".catName");
+  for (let cat of catNames) {
+    cat.addEventListener("click", function () {
+      sharedParams.scoreSpan.innerHTML = sharedParams.totalScore;
+    });
+  }
+
   //return the element in case it is needed for further logic
   return element;
 }
