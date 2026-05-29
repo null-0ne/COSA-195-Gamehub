@@ -9,6 +9,7 @@ import renderLeaderboardPage from "./leaderboards-page.js";
 import renderYahtzeeCountPage from "./yahtzee-count-page.js";
 import renderLoginPage from "./login-page.js";
 import renderRegisterPage from "./register-page.js";
+//import renderPigSolitairePage from "./pig-page.js";
 
 const appElement = document.querySelector("#app");
 const navElement = document.querySelector(".navbar");
@@ -41,6 +42,10 @@ router
   .on("/yahtzee-count", (url) => {
     renderYahtzeeCountPage(appElement);
     renderNavBar(navElement, { title: "yahtzee-count" });
+  })
+  .on("/pig-solitaire", (url) => {
+    renderPigSolitairePage(appElement);
+    renderNavBar(navElement, { title: "pig solitaire" });
   })
   .on("/login", (url) => {
     renderLoginPage(appElement);

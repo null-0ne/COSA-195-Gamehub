@@ -1,8 +1,15 @@
 "use strict";
 
+/*
+ Filename:    craps-page.js
+ Student:     Samuel & Garrett
+ Course:      COSA 195 (Systems Project)
+ Date:        2026-05-28
+ Purpose:     The page to play the Craps game
+*/
+
 import { postScores } from "./lib/score-service";
 import renderHelpSlider from "./components/help-slider.js";
-import renderGameplaySection from "./components/gameplay-section.js";
 import renderDiceRoll from "./components/dice-roll.js";
 
 /**renders the craps page

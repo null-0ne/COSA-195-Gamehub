@@ -23,10 +23,6 @@ export default function renderYahtzeeCountPage(
   // set the content of the element
   element.innerHTML = `
     <div>
-        <h1><img src="/sp.jpg" class="logo vanilla" alt="Saskpolytech logo" />
-        ${params.title}</h1>
-        <div class="">
-        <h2>SaskPolytech Yahtzee Count</h2>
           <div class='d-flex justify-content-end pt-3'>
     <div id='divHelp'></div>
     </div>
