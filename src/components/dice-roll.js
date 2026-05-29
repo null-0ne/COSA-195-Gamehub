@@ -19,11 +19,13 @@ export default function renderDiceGroup(
     
     element.innerHTML = params.dice.reduce((str, d) => `
     ${str}
-    <div class="lockable-dice m-2 position-relative ${bsFlex} w-25">
-            <img class="w-75 min" src="images/dice${d}.png" alt="dice ${d}" />
+    <div class="lockable-dice m-2 position-relative ${bsFlex} w-25 ">
+            <img class="w-75 min card-img position-absolute" src="images/dice${d}.png" alt="dice ${d}" />
+            <img class="w-75 min card-img position-absolute locked" src="/images/dice-${d}-lock.png" />
     </div>`,
     `<style>
         .lockable-dice { cursor: pointer; transform-style: preserve-3d; height: 12rem; width: 9rem;}
+        .locked {z-index: -1}
     </style>
     `);
 
@@ -31,7 +33,17 @@ export default function renderDiceGroup(
     if(params.lockable){
         element.querySelectorAll(".lockable-dice").forEach((dice) => {
         dice.addEventListener("click", ({target: dice})=>{
-            dice.classList.toggle('dice-img-lock');
+            dice.classList.toggle('opacity-25');
+            // if(dice.classList.contains("locked"))
+            // {
+            //     dice.classList.toggle('locked');
+            //     //dice.setAttribute('src','/images/dice1.png');
+            // }
+            // else
+            // {
+            //     dice.classList.toggle('locked');
+            //     //dice.setAttribute('src','/images/dice-2-lock.png');
+            // }
         });
     });
     }
