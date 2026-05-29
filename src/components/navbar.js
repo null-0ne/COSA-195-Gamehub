@@ -7,7 +7,7 @@ import renderCrapsPage from "../craps-page";
  */
 export default function renderNavBar(
   element = document.createElement("nav") /* default new nav element*/,
-  params = {} /* default empty object*/,
+  params = { title: "navbar" } /* default empty object*/,
 ) {
   element.setAttribute("class", "navbar bg-primary");
   element.setAttribute("data-bs-theme", "dark");

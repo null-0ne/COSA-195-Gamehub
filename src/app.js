@@ -13,7 +13,6 @@ import renderRegisterPage from "./register-page.js";
 const appElement = document.querySelector("#app");
 const navElement = document.querySelector(".navbar");
 
-renderNavBar(navElement);
 // Creat an instance of the Navigo library used to route to different "Pages"
 const router = new Navigo("/", { linksSelector: "a" });
 
@@ -31,10 +30,28 @@ router.notFound(() => {
 // see documentation at https://github.com/krasimir/navigo/blob/master/DOCUMENTATION.md
 router
   .on("/index.html", () => router.navigate("/"))
-  .on("/leaderboard", (url) => renderLeaderboardPage(appElement))
-  .on("/craps", (url) => renderCrapsPage(appElement, {title: "Craps"}))
-  .on("/yahtzee-count", (url) => renderYahtzeeCountPage(appElement))
-  .on("/login", (url) => renderLoginPage(appElement))
-  .on("/register", (url) => renderRegisterPage(appElement))
-  .on(() => renderHomePage(appElement, { title: "Home Page" }))
+  .on("/leaderboard", (url) => {
+    renderLeaderboardPage(appElement);
+    renderNavBar(navElement, { title: "leaderboard" });
+  })
+  .on("/craps", (url) => {
+    renderCrapsPage(appElement);
+    renderNavBar(navElement, { title: "craps" });
+  })
+  .on("/yahtzee-count", (url) => {
+    renderYahtzeeCountPage(appElement);
+    renderNavBar(navElement, { title: "yahtzee-count" });
+  })
+  .on("/login", (url) => {
+    renderLoginPage(appElement);
+    renderNavBar(navElement, { title: "login" });
+  })
+  .on("/register", (url) => {
+    renderRegisterPage(appElement);
+    renderNavBar(navElement, { title: "register" });
+  })
+  .on(() => {
+    renderHomePage(appElement);
+    renderNavBar(navElement, { title: "home" });
+  })
   .resolve(); // execute the JS module to render the page
