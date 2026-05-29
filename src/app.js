@@ -32,7 +32,7 @@ router.notFound(() => {
 router
   .on("/index.html", () => router.navigate("/"))
   .on("/leaderboard", (url) => renderLeaderboardPage(appElement))
-  .on("/craps", (url) => renderCrapsPage(appElement))
+  .on("/craps", (url) => renderCrapsPage(appElement, {title: "Craps"}))
   .on("/yahtzee-count", (url) => renderYahtzeeCountPage(appElement))
   .on("/login", (url) => renderLoginPage(appElement))
   .on("/register", (url) => renderRegisterPage(appElement))

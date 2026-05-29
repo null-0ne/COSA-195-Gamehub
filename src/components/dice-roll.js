@@ -33,11 +33,11 @@ export default function renderDiceRoll(
   element.innerHTML = params.dice.reduce(
     (str, d) => `
     ${str}
-    <div class="lockable-dice m-2 position-relative ${bsFlex} w-25" data-arrIndex="${d - 1}">
-            <img class="w-75 min" src="images/dice${d}.png" alt="dice ${d}" />
+    <div class="dice-div m-2 position-relative ${bsFlex} w-25" data-arrIndex="${d - 1}">
+            <img class="lockable-dice w-75 min" src="images/dice${d}.png" alt="dice ${d}" />
     </div>`,
     `<style>
-        .lockable-dice { cursor: pointer; transform-style: preserve-3d; height: 12rem; width: 9rem;}
+        .dice-div { cursor: pointer; transform-style: preserve-3d; height: 12rem; width: 9rem;}
     </style>
     `,
   );
@@ -77,7 +77,7 @@ export default function renderDiceRoll(
         const randomDiceFace = Math.floor(Math.random() * 6 + 1);
         params.dice[i] = randomDiceFace;
 
-        die.querySelector("img").src = `/images/dice${randomDiceFace}.png`;
+        die.src = `/images/dice${randomDiceFace}.png`;
       }
     }, 100);
 
