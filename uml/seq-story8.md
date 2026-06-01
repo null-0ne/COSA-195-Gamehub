@@ -11,15 +11,25 @@ sequenceDiagram
 title: User plays Yahtzee Count
 
 participant u as user<br><<actor>>
-participant p as yahtzeePage<br><<component>>
-participant scoreSvc as scoreService<br><<Service>>
-participant scoreRepo as scoreRepository<br><<Repository>>
+participant p as yahtzee-count-page<br><<component>>
+participant help as help-slider<br><<component>>
+participant dice as dice-roll<br><<component>>
+participant scoreSvc as score-service<br><<service>>
+participant scoreRepo as scoreRepository<br><<repository>>
 
-u->>p: user navigates to yahtzee page
+u->>p: navigate to yahtzee page
 activate p
 
-p->>p: renderYahtzee()
+p->>help: renderHelpSlider()
+activate help
 
+help-->>p: sends help menu button
+deactivate help
+
+p->>dice: renderDiceRoll()
+activate dice
+dice-->>p: sends dice component and rolling function
+deactivate dice
 
 u->>p: enters a score into a category
 

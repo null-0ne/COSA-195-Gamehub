@@ -75,13 +75,12 @@ export default function renderYahtzeeScoreCard(
       console.log(params.totalScore);
     });
   }
-  function submitScore()
-  {
-
+  function submitScore() {
     params.submitScores(params.totalScore);
   }
-  element.querySelector("#btnSubmit")
-    
+  element
+    .querySelector("#btnSubmit")
+
     .addEventListener("click", submitScore);
 
   //return the element in case it is needed for further logic
