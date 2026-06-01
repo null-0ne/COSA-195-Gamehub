@@ -14,6 +14,7 @@ const appElement = document.querySelector("#app");
 const navElement = document.querySelector(".navbar");
 
 renderNavBar(navElement);
+
 // Creat an instance of the Navigo library used to route to different "Pages"
 const router = new Navigo("/", { linksSelector: "a" });
 

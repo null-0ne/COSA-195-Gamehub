@@ -29,8 +29,9 @@ classDiagram
         +renderYahtzeeScoreCard(element:HTMLElement,params:Object):HTMLElement
     }
 
-    class adsFooter{
-        +renderAdsFooter(element:HTMLElement,params:Object):HTMLElement
+    class Footer{
+        +renderFooter(element:HTMLElement,params:Object):HTMLElement
+        +changeAd()
     }
     
     %% ---------LIB -----------%%
@@ -49,7 +50,7 @@ classDiagram
 
     class AdService{
         <<service>>
-        +retrieveAd() Object[]
+        +retrieveAds() Object[]
     }
 
     %% ---------PAGES ----------%%
@@ -108,12 +109,12 @@ classDiagram
 
     
      %% Relationships
-    HomePage --> adsFooter : layout
-    YahtzeeCountPage --> adsFooter : layout
-    CrapsPage --> adsFooter : layout
-    LeaderboardPage --> adsFooter : layout
-    LoginPage --> adsFooter : layout
-    RegisterPage --> adsFooter : layout
+    HomePage --> Footer : layout
+    YahtzeeCountPage --> Footer : layout
+    CrapsPage --> Footer : layout
+    LeaderboardPage --> Footer : layout
+    LoginPage --> Footer : layout
+    RegisterPage --> Footer : layout
 
     HomePage --> NavBar : layout
     CrapsPage --> NavBar : layout
@@ -133,7 +134,7 @@ classDiagram
     LoginPage --> UserService : fetches data
     RegisterPage --> UserService : fetches data
 
-    adsFooter --> AdService : fetches data
+    Footer --> AdService : fetches data
     %% scoreService<-- YahtzeeCountPage : uses
     %% YahtzeeCountPage <-- yahtzee-scorecard : uses
     %% YahtzeeCountPage <-- gameplay-section : uses
