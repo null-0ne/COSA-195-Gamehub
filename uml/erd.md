@@ -15,10 +15,6 @@ erDiagram
     %%   String gameId
     %% }
 
-
-
-
-
      YahtzeeCountScore {
        String email FK
        int score
