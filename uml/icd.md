@@ -1,4 +1,4 @@
-# UML Class Diagram for Examples
+# UML Class Diagram for Polytech Game Hub
 
 ```mermaid
 %%{init:{"securityLevel":"loose","layout":"elk","elk":{"nodePlacementStrategy":"NETWORK_SIMPLEX"},"theme":"base",
@@ -23,7 +23,6 @@ classDiagram
     class NavBar {
         +renderNavBar(element:HTMLElement,params:Object):HTMLElement
     }
-
 
     class YahtzeeScoreCard{
         +renderYahtzeeScoreCard(element:HTMLElement,params:Object):HTMLElement
@@ -95,23 +94,30 @@ classDiagram
         +renderYahtzeeCountPage(element:HTMLElement,params:Object):HTMLElement
     }
 
+    class PigPage {
+        +renderPigPage(element:HTMLElement,params:Object):HTMLElement
+        +holdScore()
+    }
+
     
      %% Relationships
-    %% NavBar <-- YahtzeeCountPage : layout
-    %% scoreService<-- YahtzeeCountPage : uses
-    %% YahtzeeCountPage <-- yahtzee-scorecard : uses
-    %% YahtzeeCountPage <-- gameplay-section : uses
-    %% LoginPage --> UserService : fetches data
-    %% RegisterPage --> UserService : fetches data
-    %% NavBar <-- CrapsPage : layout
-    %% NavBar <-- YahtzeeCountPage : layout
-    %% YahtzeeCountPage --> HelpSlider: uses
-    %% CrapsPage --> HelpSlider: uses
-    %% CrapsPage --> score-service : sends score data
-    %% LeaderboardPage --> GameCard : holds
-    %% LeaderboardPage --> NavBar : has
-    %% LeaderboardPage --> Footer : has
-
+    NavBar <-- YahtzeeCountPage : layout
+    ScoreService<-- YahtzeeCountPage : uses
+    YahtzeeCountPage <-- YahtzeeScoreCard : uses
+    YahtzeeCountPage <-- GameplaySection : uses
+    LoginPage --> UserService : fetches data
+    RegisterPage --> UserService : fetches data
+    NavBar <-- CrapsPage : layout
+    YahtzeeCountPage --> HelpSlider: uses
+    CrapsPage --> HelpSlider: uses
+    CrapsPage --> ScoreService : sends score data
+    LeaderboardPage --> NavBar : has
+    LeaderboardPage --> LeaderboardList : holds
+    PigPage --> HelpSlider : uses
+    PigPage --> ScoreService : sends score data
+    NavBar <-- PigPage : layout
+    PigPage <-- GameplaySection : uses
+    HomePage --> PigPage : links
     
 
 
