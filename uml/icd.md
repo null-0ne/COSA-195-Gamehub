@@ -28,6 +28,11 @@ classDiagram
     class YahtzeeScoreCard{
         +renderYahtzeeScoreCard(element:HTMLElement,params:Object):HTMLElement
     }
+
+    class adsFooter{
+        +renderAdsFooter(element:HTMLElement,params:Object):HTMLElement
+    }
+    
     %% ---------LIB -----------%%
     class ScoreService {
         <<service>>
@@ -40,6 +45,11 @@ classDiagram
         +retrieveLogin(email: string, password: string) Object[]
         +register(email: string, password: string) Object[]
         +registerValidate(email: string, password: string) boolean
+    }
+
+    class AdService{
+        <<service>>
+        +retrieveAd() Object[]
     }
 
     %% ---------PAGES ----------%%
@@ -95,16 +105,41 @@ classDiagram
         +renderYahtzeeCountPage(element:HTMLElement,params:Object):HTMLElement
     }
 
+
     
      %% Relationships
-    %% NavBar <-- YahtzeeCountPage : layout
+    HomePage --> adsFooter : layout
+    YahtzeeCountPage --> adsFooter : layout
+    CrapsPage --> adsFooter : layout
+    LeaderboardPage --> adsFooter : layout
+    LoginPage --> adsFooter : layout
+    RegisterPage --> adsFooter : layout
+
+    HomePage --> NavBar : layout
+    CrapsPage --> NavBar : layout
+    YahtzeeCountPage --> NavBar : layout
+    LeaderboardPage --> NavBar : layout
+
+    YahtzeeCountPage --> ScoreService : uses
+    YahtzeeCountPage --> YahtzeeScoreCard : uses
+    YahtzeeCountPage --> GameplaySection : uses
+    YahtzeeCountPage --> HelpSlider : uses
+
+    CrapsPage --> ScoreService : uses
+    CrapsPage --> HelpSlider : uses
+
+    LeaderboardPage --> LeaderboardList : holds
+
+    LoginPage --> UserService : fetches data
+    RegisterPage --> UserService : fetches data
+
+    adsFooter --> AdService : fetches data
     %% scoreService<-- YahtzeeCountPage : uses
     %% YahtzeeCountPage <-- yahtzee-scorecard : uses
     %% YahtzeeCountPage <-- gameplay-section : uses
     %% LoginPage --> UserService : fetches data
     %% RegisterPage --> UserService : fetches data
-    %% NavBar <-- CrapsPage : layout
-    %% NavBar <-- YahtzeeCountPage : layout
+    
     %% YahtzeeCountPage --> HelpSlider: uses
     %% CrapsPage --> HelpSlider: uses
     %% CrapsPage --> score-service : sends score data

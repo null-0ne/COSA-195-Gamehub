@@ -17,7 +17,12 @@ erDiagram
 
 
 
-
+    Ads {
+      String advertisementId PK
+      String category
+      String message
+      String link
+    }
 
      YahtzeeCountScore {
        String email FK
