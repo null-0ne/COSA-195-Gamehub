@@ -89,6 +89,33 @@
       "gameTitle": "craps",
       "score": 0,
       "id": "ZJAaNczdTwM"
+    },
+    {
+      "score": 35,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "_CFm4cL4R_c"
+    },
+    {
+      "score": 35,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "fr4rhbMJIVw"
+    },
+    {
+      "score": 12,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": "oHzftWrRLMA",
+        "email": "sane4670@saskpolytech.ca"
+      },
+      "id": "TPljRzfLZI4"
     }
   ],
   "users": [
@@ -101,6 +128,11 @@
       "email": "michael1@saskpolytech.ca",
       "password": "fdsf1234",
       "id": "wDf11CJWvDQ"
+    },
+    {
+      "email": "sane4670@saskpolytech.ca",
+      "password": "aaaaaaaa",
+      "id": "oHzftWrRLMA"
     }
   ],
   "products": [

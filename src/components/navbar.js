@@ -33,7 +33,7 @@ export default function renderNavBar(
         <a href="/yahtzee-count" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Yahtzee Count</a>
         </div>
         <div class='col text-white border-start border-3 border-dark'>
-        <a href="/yahtzee-count" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Pig Solitaire</a>
+        <a href="/pig-solitaire" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Pig Solitaire</a>
         </div>
         <div class='col text-white border-start border-3 border-dark'>
         <a href="/leaderboard" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Leaderboard</a>

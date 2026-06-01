@@ -89,7 +89,12 @@ to get the final score (lower scores are better). </li>
   const sharedParams = {
     totalScore: 0,
     submitScores: function () {
-      postScores(this.totalScore, "yahtzee-count", 1, "john@saskpolytech.ca");
+      postScores(
+        this.totalScore,
+        "yahtzee-count",
+        sessionStorage.getItem("id"),
+        sessionStorage.getItem("email"),
+      );
     },
     scoreSpan: document.getElementById("updateScore"),
     dice: [1, 2, 3, 4, 5],

@@ -4,6 +4,7 @@ import renderCrapsPage from "./craps-page.js";
 import renderProductPage from "./examples/product-page.js";
 import renderContactPage from "./examples/counter-page.js";
 import renderMemoryPage from "./examples/memory-page.js";
+import renderPigPage from "./pig-page.js";
 import renderNavBar from "./components/navbar.js";
 import renderLeaderboardPage from "./leaderboards-page.js";
 import renderYahtzeeCountPage from "./yahtzee-count-page.js";
@@ -41,6 +42,10 @@ router
   .on("/yahtzee-count", (url) => {
     renderYahtzeeCountPage(appElement);
     renderNavBar(navElement, { title: "Yahtzee Count" });
+  })
+  .on("/pig-solitaire", (url) => {
+    renderPigPage(appElement);
+    renderNavBar(navElement, { title: "Pig Solitaire" });
   })
   .on("/login", (url) => {
     renderLoginPage(appElement);
