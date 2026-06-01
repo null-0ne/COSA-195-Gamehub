@@ -89,6 +89,24 @@
       "gameTitle": "craps",
       "score": 0,
       "id": "ZJAaNczdTwM"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "JkmJGrmN708"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "xApXbGKmJSA"
     }
   ],
   "users": [

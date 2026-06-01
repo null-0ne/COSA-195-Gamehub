@@ -1,4 +1,5 @@
 # Dice Games Project
+
 This project is a web application built using Vite. It features a modular structure with dedicated sections for components, library logic, and example implementations
 
 ## Team Memebers
@@ -8,6 +9,7 @@ This project is a web application built using Vite. It features a modular struct
 |Riley S.|Rylan W.|Samuel C.|Sucha S.| |
 
 ## Folder Structure
+
 ```
 dice-games/
 ├── cypress/            The main folder testing
@@ -44,6 +46,7 @@ Open terminal in **teamgreen2026** directory and run the following:
 ```termimal
 npm install
 ```
+
 ## Run the application
 Open terminal in **teamgreen2026** directory and run the following: 
 ```termimal
@@ -59,6 +62,7 @@ npm run test
 ```
 
 # GIT Reference
+
 ## Hourly Commit
 Open GitBASH in **teamgreen2026** directory and run the following: 
 ```termimal
@@ -69,7 +73,9 @@ git push
 ```
 
 ## Setup GIT
+
 Open GitBASH in any directory and run the following:
+
 ```termimal
 git config --global push.default simple
 git config --global difftool.keepbackup false
@@ -87,7 +93,7 @@ git clone https://bitbucket.org/cstprojects/teamgreen2026.git
 ## Switch betwen branches Branch
 Open GitBASH in **teamgreen2026** directory and run the following: 
 ```termimal
-git reset --hard 
+git reset --hard
 git checkout <branchname>
 git pull
 ```
@@ -95,14 +101,14 @@ git pull
 ## Get latest changes Branch
 Open GitBASH in **teamgreen2026** directory and run the following: 
 ```termimal
-git reset --hard 
+git reset --hard
 git pull
 ```
 
 ## Merge from main
 Open GitBASH in **teamgreen2026** directory and run the following: 
 ```termimal
-git reset --hard 
+git reset --hard
 git checkout main
 git pull
 git checkout <branchname>

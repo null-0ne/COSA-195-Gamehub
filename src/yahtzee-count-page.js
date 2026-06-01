@@ -10,6 +10,7 @@ import { postScores } from "./lib/score-service.js";
 import renderYahtzeeScoreCard from "./components/yahtzee-score-card.js";
 import renderGameplaySection from "./components/gameplay-section.js";
 import renderHelpSlider from "./components/help-slider.js";
+import renderDiceRoll from "./components/dice-roll.js";
 /**
  * Render function to inject content into an HTML element
  * @param {*} element - HTML element target container
@@ -22,10 +23,6 @@ export default function renderYahtzeeCountPage(
   // set the content of the element
   element.innerHTML = `
     <div>
-        <h1><img src="/sp.jpg" class="logo vanilla" alt="Saskpolytech logo" />
-        ${params.title}</h1>
-        <div class="">
-        <h2>SaskPolytech Yahtzee Count</h2>
           <div class='d-flex justify-content-end pt-3'>
     <div id='divHelp'></div>
     </div>
@@ -45,7 +42,8 @@ export default function renderYahtzeeCountPage(
         </div>
     </div>
     `;
-    renderHelpSlider(document.getElementById("divHelp"),{text: `<p>Yahtzee Count
+  renderHelpSlider(document.getElementById("divHelp"), {
+    text: `<p>Yahtzee Count
     is a dice game where players try to get certain patterns of dice in the
     smallest number of rolls.
      </p>
@@ -81,7 +79,8 @@ long as they want.</li>
 <li>When all the possible combinations have been selected, the 
 game is over. The number of rolls for each combination is totaled
 to get the final score (lower scores are better). </li>
-</ul>`})
+</ul>`,
+  });
 
   const sharedParams = {
     totalScore: 0,
@@ -91,7 +90,16 @@ to get the final score (lower scores are better). </li>
     scoreSpan: document.getElementById("updateScore"),
   };
 
-  renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
+  //renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
+  renderDiceRoll(document.querySelector(`.gameplay`), {
+    dice: [1, 2, 3, 4, 5],
+    lockable: true,
+    rollCount: 0,
+    finishedRolling: function () {
+      this.rollCount++;
+      alert(this.rollCount);
+    },
+  });
   renderYahtzeeScoreCard(document.querySelector(`.score-form`), sharedParams);
   let inputOnes = element.querySelectorAll(".catInput");
   for (let input of inputOnes) {
