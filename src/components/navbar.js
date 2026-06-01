@@ -7,7 +7,7 @@ import renderCrapsPage from "../craps-page";
  */
 export default function renderNavBar(
   element = document.createElement("nav") /* default new nav element*/,
-  params = {} /* default empty object*/,
+  params = { title: "navbar" } /* default empty object*/,
 ) {
   element.setAttribute("class", "navbar bg-primary");
   element.setAttribute("data-bs-theme", "dark");
@@ -21,18 +21,21 @@ export default function renderNavBar(
         <h1 class="text-white text-uppercase">${params.title}</h1>
         <a href="/login" class='link-offset-2 link-underline link-underline-opacity-0 text-white'><button>Login</button></a>
     </div>
-    <div class='container-fluid bg-success p-0 border border-dark'>
-        <div class='row w-100 h-100 text-center'>
-        <div class='col-md-3 text-white border border-dark border-3'>
+    <div class='container-fluid bg-success p-0 border border-dark border-3'>
+        <div class='row w-100 text-center'>
+        <div class='col text-white'>
         <a href="/" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Home</a>
         </div>
-        <div class='col-md-3 text-white border border-dark border-3'>
+        <div class='col text-white border-start border-3 border-dark'>
         <a href="/craps" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Craps</a>
         </div>
-        <div class='col-md-3 text-white border border-dark border-3'>
+        <div class='col text-white border-start border-3 border-dark'>
         <a href="/yahtzee-count" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Yahtzee Count</a>
         </div>
-        <div class='col-md-3 text-white border border-dark border-3'>
+        <div class='col text-white border-start border-3 border-dark'>
+        <a href="/yahtzee-count" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Pig Solitaire</a>
+        </div>
+        <div class='col text-white border-start border-3 border-dark'>
         <a href="/leaderboard" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Leaderboard</a>
         </div>
     </div>
