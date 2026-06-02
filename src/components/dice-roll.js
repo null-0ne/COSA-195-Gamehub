@@ -39,17 +39,19 @@ export default function renderDiceRoll(
     </div>`,
     `<style>
         .dice-div { cursor: pointer; transform-style: preserve-3d; height: 12rem; width: 9rem;}
+        .locked {z-index: -1}
     </style>
     `,
   );
 
   element.innerHTML += `<button id="btnRoll">ROLL</button>`;
 
-  //find cards and add click event listener
+  //find dice and add click event listener
   if (params.lockable) {
     element.querySelectorAll(".lockable-dice").forEach((dice) => {
       dice.addEventListener("click", ({ target: dice }) => {
-        dice.classList.toggle("dice-img-lock");
+        (dice.classList.toggle("opacity-25"),
+          dice.classList.toggle("dice-img-lock"));
       });
     });
   }
@@ -88,6 +90,7 @@ export default function renderDiceRoll(
       isRolling = false;
       params.finishedRolling();
     }, 1000);
+    
   }
 
   //return the element in case it is needed for further logic

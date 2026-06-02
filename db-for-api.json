@@ -107,6 +107,15 @@
         "email": "john@saskpolytech.ca"
       },
       "id": "xApXbGKmJSA"
+    },
+    {
+      "score": 567,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "ADF7D1AB7Q8"
     }
   ],
   "users": [

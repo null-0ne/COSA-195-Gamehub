@@ -97,13 +97,22 @@ to get the final score (lower scores are better). </li>
     rollCount: 0,
     finishedRolling: function () {
       this.rollCount++;
-      alert(this.rollCount);
+      console.log(this.rollCount);
     },
   });
+
   renderYahtzeeScoreCard(document.querySelector(`.score-form`), sharedParams);
+
   let inputOnes = element.querySelectorAll(".catInput");
   for (let input of inputOnes) {
     input.addEventListener("change", function () {
+      sharedParams.scoreSpan.innerHTML = sharedParams.totalScore;
+    });
+  }
+
+  let catNames = element.querySelectorAll(".catName");
+  for (let cat of catNames) {
+    cat.addEventListener("click", function () {
       sharedParams.scoreSpan.innerHTML = sharedParams.totalScore;
     });
   }
