@@ -33,11 +33,14 @@ export default function renderYahtzeeCountPage(
               <div class="gameplay">
               </div>
               <div class="text-center pt-5">
-                <h1>SCORE: <span id="updateScore">0</span></h1>
+                <h1>Total Rolls: <span id="updateScore">0</span></h1>
               </div>
             </div>
+            <div class="last-roll-container col-5 m-1 border border-secondary rounded grey">
             <div class="col-4  score-form">
             </div>
+            </div>
+            
           </div>
         </div>
     </div>
@@ -88,10 +91,6 @@ to get the final score (lower scores are better). </li>
       postScores(this.totalScore, "yahtzee-count", 1, "john@saskpolytech.ca");
     },
     scoreSpan: document.getElementById("updateScore"),
-  };
-
-  //renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
-  renderDiceRoll(document.querySelector(`.gameplay`), {
     dice: [1, 2, 3, 4, 5],
     lockable: true,
     rollCount: 0,
@@ -99,8 +98,10 @@ to get the final score (lower scores are better). </li>
       this.rollCount++;
       console.log(this.rollCount);
     },
-  });
+  };
 
+  //renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
+  renderDiceRoll(document.querySelector(`.gameplay`), sharedParams);
   renderYahtzeeScoreCard(document.querySelector(`.score-form`), sharedParams);
 
   let inputOnes = element.querySelectorAll(".catInput");
