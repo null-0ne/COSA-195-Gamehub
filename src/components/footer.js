@@ -1,5 +1,3 @@
-//https://getbootstrap.com/docs/5.3/components/navbar/#placement
-
 export default function renderFooter(
     element = document.createElement('div'), /* default new div element*/
     params = [
@@ -15,7 +13,6 @@ export default function renderFooter(
     }] /* default advertisement array*/
 ) {
     element.setAttribute('class','fixed-bottom bg-primary');
-    element.setAttribute('data-bs-theme','dark');
     element.classList.add("p-0");
     //set the content of the nav bar
     element.innerHTML = `   
@@ -34,35 +31,52 @@ export default function renderFooter(
 
     let nIndex = 0; //This keeps track of what advertisement is being shown
 
-    
+    //Initialize the message to be the first in the array
     const link = document.getElementById("link");
     link.innerText = params[0].message;
     link.href = params[0].link;
 
+    //Get forward and back buttons from the html
     const backBtn = document.getElementById("backBtn");
     const fwdBtn = document.getElementById("fwdBtn");
 
+    //Initialize button listeners
     backBtn.addEventListener("click", prevAd);
     fwdBtn.addEventListener("click", nextAd);
 
+    //Initialize interval to cycle through ads every 5 seconds
+    let adInterval = setInterval(nextAd, 5000);
+
+    /**
+     * This function changes the ad to the next ad in the array. If it is at the end of the 
+     * array it will restart at the first element in the array
+     */
     function nextAd(){
         if(nIndex === params.length - 1){
             nIndex = 0;
         } else {
             nIndex++;
         }
+        clearInterval(adInterval);
         link.innerText = params[nIndex].message;
         link.href = params[nIndex].link;
+        adInterval = setInterval(nextAd, 5000);
     }
 
+    /**
+     * This function changes the ad to the previous ad in the array. If it is at the first 
+     * element in the array it will go to the last element in the array.
+     */
     function prevAd(){
         if(nIndex === 0){
             nIndex = params.length - 1;
         } else {
             nIndex--;
         }
+        clearInterval(adInterval);
         link.innerText = params[nIndex].message;
         link.href = params[nIndex].link;
+        adInterval = setInterval(nextAd, 5000);
     }
     //return the element in case it is need for further logic
     return element;

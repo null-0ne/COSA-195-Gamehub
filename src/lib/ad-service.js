@@ -1,3 +1,7 @@
+/**
+ * This function fetches an array of 'ad' objects from the api
+ * @returns Array of 'ad' objects
+ */
 export async function retrieveAds(){
     try{
         const response = await fetch(`/api/ads`);
