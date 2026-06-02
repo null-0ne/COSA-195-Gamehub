@@ -9,6 +9,7 @@ import renderLeaderboardPage from "./leaderboards-page.js";
 import renderYahtzeeCountPage from "./yahtzee-count-page.js";
 import renderLoginPage from "./login-page.js";
 import renderRegisterPage from "./register-page.js";
+import renderProfilePage from "./profile-page.js";
 
 const appElement = document.querySelector("#app");
 const navElement = document.querySelector(".navbar");
@@ -36,5 +37,6 @@ router
   .on("/yahtzee-count", (url) => renderYahtzeeCountPage(appElement))
   .on("/login", (url) => renderLoginPage(appElement))
   .on("/register", (url) => renderRegisterPage(appElement))
+  .on("/profile", (url) => renderProfilePage(appElement))
   .on(() => renderHomePage(appElement, { title: "Home Page" }))
   .resolve(); // execute the JS module to render the page
