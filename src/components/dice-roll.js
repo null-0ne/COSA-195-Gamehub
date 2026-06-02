@@ -34,7 +34,8 @@ export default function renderDiceRoll(
     (str, d) => `
     ${str}
     <div class="dice-div m-2 position-relative ${bsFlex} w-25" data-arrIndex="${d - 1}">
-            <img class="lockable-dice w-75 min" src="images/dice${d}.png" alt="dice ${d}" />
+            <img class="lockable-dice w-75 min position-absolute" src="images/dice${d}.png" alt="dice ${d}" />
+            <img class="w-75 min position-absolute locked" src="/images/dice-${d}-lock.png" />
     </div>`,
     `<style>
         .dice-div { cursor: pointer; transform-style: preserve-3d; height: 12rem; width: 9rem;}
