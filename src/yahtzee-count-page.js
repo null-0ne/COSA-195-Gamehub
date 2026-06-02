@@ -10,6 +10,7 @@ import { postScores } from "./lib/score-service.js";
 import renderYahtzeeScoreCard from "./components/yahtzee-score-card.js";
 import renderGameplaySection from "./components/gameplay-section.js";
 import renderHelpSlider from "./components/help-slider.js";
+//import {renderTriviaQuestion} from "./components/trivia-question.js"; --FIX
 /**
  * Render function to inject content into an HTML element
  * @param {*} element - HTML element target container
@@ -81,7 +82,14 @@ long as they want.</li>
 <li>When all the possible combinations have been selected, the 
 game is over. The number of rolls for each combination is totaled
 to get the final score (lower scores are better). </li>
-</ul>`})
+</ul>`});
+
+  //sam code
+  // document.querySelector("button:nth-of-type(1)").addEventListener("click", function(){
+  //   renderTriviaQuestion();
+  // });
+
+
 
   const sharedParams = {
     totalScore: 0,
