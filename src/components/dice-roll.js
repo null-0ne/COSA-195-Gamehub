@@ -73,7 +73,7 @@ export default function renderDiceRoll(
       ".lockable-dice:not(.dice-img-lock)",
     );
     isRolling = true;
-
+    const lockedDie = element.querySelectorAll(".locked");
     let rollAnimation = setInterval(() => {
       for (const die of unlockedDice) {
         const i = die.getAttribute("data-arrIndex");
@@ -81,6 +81,13 @@ export default function renderDiceRoll(
         params.dice[i] = randomDiceFace;
 
         die.src = `/images/dice${randomDiceFace}.png`;
+      }
+      for (let x = 0; x < params.dice.length; x++) {
+        let dieVal = unlockedDice[x].src.charAt(
+          unlockedDice[x].src.lastIndexOf("e") + 1,
+        );
+        lockedDie[x].src = "images/dice-" + dieVal + "-lock.png";
+        console.log(lockedDie[x].src);
       }
     }, 100);
 
