@@ -14,24 +14,31 @@ title: Users can view ads on every page
     participant h as Home Page<br><<component>>
     participant a as Footer<br><<component>>
     participant s as AdService<br><<service>>
-
+    Note over u,s: This sequence will be the same for all pages
     u->>h: Navigates to Home Page
     activate h
         h ->> h: renderHomePage(element:HTMLElement,params:Object)
-        h ->> a: renderFooter(element:HTMLElement,params:Object)
+        h ->> s: retrieveAds()
+        activate s
+            s -->> h: return ads: Ad[]
+        deactivate s
+        h ->> a: renderFooter(element:HTMLElement,params:ads)
         activate a
-            a ->> s: retrieveAds()
-            activate s
-                s -->> a: returns ads: Ad[]
-            deactivate s
             a -->> h: Rendered footer
         deactivate a
         h -->> u: Displays rendered home page
-        alt User clicks arrow to change advertisement
-            u ->> h: User clicks arrow in footer
-            h ->> a: changeAd()
+        alt User clicks forward arrow to change advertisement
+            u ->> h: User clicks forward arrow in footer
+            h ->> a: nextAd()
             activate a
-            a -->> h: Rendered footer
+                a -->> h: Rendered footer
+            deactivate a
+            h -->> u: Displays rendered home page
+        else User clicks back arrow to change advertisement
+            u ->> h: User clicks back arrow in footer
+            h ->> a: prevAd()
+            activate a
+                a -->> h: Rendered footer
             deactivate a
             h -->> u: Displays rendered home page
         end

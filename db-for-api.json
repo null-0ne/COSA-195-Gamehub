@@ -1,4 +1,45 @@
-{
+{"ads":[
+    {
+      "category": "Saskatchewan Polytechnic",
+      "message": "Visit Saskatchewan Polytechnic’s website!",
+      "link": "https://saskpolytech.ca/"
+    },
+    {
+      "category": "Saskatchewan Polytechnic",
+      "message": "Find out about the Saskatchewan Polytechnic Students’ Association (SPSA)",
+      "link": "https://spsa.ca/"
+    },
+    {
+      "category": "Saskatchewan Polytechnic",
+      "message": "SaskPolytech participates in the Skills Canada competitions – visit their website!",
+      "link": "https://www.skillscompetencescanada.com/en/competitions/"
+    },
+    {
+      "category": "Saskatchewan Polytechnic",
+      "message": "SaskPolytech offers Prior Learning Assessment and Recognition (PLAR) credit",
+      "link": "https://saskpolytech.ca/admissions/get-credit/plar.aspx"
+    },
+    {
+      "category": "CST",
+      "message": "See the details of the Computer Systems Technology (CST) program",
+      "link": "https://saskpolytech.ca/programs-and-courses/programs/Computer-Systems-Technology.aspx"
+    },
+    {
+      "category": "CST",
+      "message": "The CST program is accredited by the Canadian Information Processing Society (CIPS) - visit their website!",
+      "link": "https://cips.ca/"
+    },
+    {
+      "category": "CST",
+      "message": "The CST program is offered at the SaskPolytech Saskatoon campus – check it out!",
+      "link": "https://saskpolytech.ca/about/campuses/saskatoon-campus.aspx"
+    },
+    {
+      "category": "CST",
+      "message": "The CST program is offered at the SaskPolytech Regina campus – check it out!",
+      "link": "https://saskpolytech.ca/about/campuses/regina-campus.aspx"
+    }
+  ],
   "scores": [
     {
       "id": "1",

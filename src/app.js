@@ -9,12 +9,15 @@ import renderLeaderboardPage from "./leaderboards-page.js";
 import renderYahtzeeCountPage from "./yahtzee-count-page.js";
 import renderLoginPage from "./login-page.js";
 import renderRegisterPage from "./register-page.js";
+import renderFooter from "./components/footer.js";
+import { retrieveAds } from "./lib/ad-service.js";
 
 const appElement = document.querySelector("#app");
 const navElement = document.querySelector(".navbar");
-
+const footerElement = document.querySelector("#footer");
+const ads = await retrieveAds(); //This gets the ads from the api
 renderNavBar(navElement);
-
+renderFooter(footerElement, ads);
 // Creat an instance of the Navigo library used to route to different "Pages"
 const router = new Navigo("/", { linksSelector: "a" });
 

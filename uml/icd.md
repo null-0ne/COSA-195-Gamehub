@@ -31,7 +31,8 @@ classDiagram
 
     class Footer{
         +renderFooter(element:HTMLElement,params:Object):HTMLElement
-        +changeAd()
+        +nextAd()
+        +prevAd()
     }
     
     %% ---------LIB -----------%%
