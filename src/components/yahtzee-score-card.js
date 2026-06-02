@@ -3,6 +3,7 @@
  * @param {*} element - css selector of element to inject content
  * @param {*} params - optional values, objects or functions needed to render on the page
  */
+//import{ renderTriviaQuestion} from "./trivia-question.js";
 
 export default function renderYahtzeeScoreCard(
   element = document.createElement("div") /**/,
@@ -84,6 +85,13 @@ export default function renderYahtzeeScoreCard(
     
     .addEventListener("click", submitScore);
 
+    
+  
+
   //return the element in case it is needed for further logic
   return element;
+
+
+  
+
 }
