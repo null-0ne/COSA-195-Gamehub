@@ -1,9 +1,7 @@
 //import Navigo from 'navigo';  //Documentation: https://github.com/krasimir/navigo/blob/master/DOCUMENTATION.md
 import renderHomePage from "./home-page.js";
 import renderCrapsPage from "./craps-page.js";
-import renderProductPage from "./examples/product-page.js";
-import renderContactPage from "./examples/counter-page.js";
-import renderMemoryPage from "./examples/memory-page.js";
+import renderPigPage from "./pig-page.js";
 import renderNavBar from "./components/navbar.js";
 import renderLeaderboardPage from "./leaderboards-page.js";
 import renderYahtzeeCountPage from "./yahtzee-count-page.js";
@@ -34,6 +32,7 @@ router
   .on("/leaderboard", (url) => renderLeaderboardPage(appElement))
   .on("/craps", (url) => renderCrapsPage(appElement))
   .on("/yahtzee-count", (url) => renderYahtzeeCountPage(appElement))
+  .on("/pig-solitaire", (url) => renderPigPage(appElement))
   .on("/login", (url) => renderLoginPage(appElement))
   .on("/register", (url) => renderRegisterPage(appElement))
   .on(() => renderHomePage(appElement, { title: "Home Page" }))
