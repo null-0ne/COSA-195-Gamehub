@@ -14,16 +14,16 @@ title: as_a_user_i_want_to_answer_trivia_to_submit_my_score
     participant g as CrapsPage<br><<component>>
     participant t as TriviaQuestion<br><<component>>
     participant qs as QuestionService<br><<service>>
-    participant d as Database<br><<database>>
 
     u->>g: user clicks submit score
     activate g
-    g->>t: RenderQuestion(appElement, param)
+    g->>qs: fetchQuestion()
+    activate qs
+    qs-->>g: fetchQuestion() String
+    deactivate qs
+    g ->>t: RenderQuestion(String)
     activate t
-    t->>qs: fetchQuestion()
-    qs->>d: fetchQuestion()
-    d-->>qs: fetchQuestion() String
-    qs -->>t: fetchQuestion() String
+
     t-->>g: RenderTrivia() String
     u->>t: sumbit trivia Answer
     t->>t: CalculateAnswer(answer)
@@ -34,8 +34,6 @@ title: as_a_user_i_want_to_answer_trivia_to_submit_my_score
     end
     deactivate t
     deactivate g
-
-
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```

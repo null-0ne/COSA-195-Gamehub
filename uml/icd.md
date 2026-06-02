@@ -24,6 +24,11 @@ classDiagram
         +renderNavBar(element:HTMLElement,params:Object):HTMLElement
     }
 
+    class TriviaQuestion{
+        +renderTriviaQuestion(element:HTMLElement,params:Object):HTMLElement
+        +DetermineAnswer(String): Boolean
+    }
+
 
     class YahtzeeScoreCard{
         +renderYahtzeeScoreCard(element:HTMLElement,params:Object):HTMLElement
@@ -97,20 +102,22 @@ classDiagram
 
     
      %% Relationships
-    %% NavBar <-- YahtzeeCountPage : layout
-    %% scoreService<-- YahtzeeCountPage : uses
-    %% YahtzeeCountPage <-- yahtzee-scorecard : uses
-    %% YahtzeeCountPage <-- gameplay-section : uses
-    %% LoginPage --> UserService : fetches data
-    %% RegisterPage --> UserService : fetches data
-    %% NavBar <-- CrapsPage : layout
-    %% NavBar <-- YahtzeeCountPage : layout
-    %% YahtzeeCountPage --> HelpSlider: uses
-    %% CrapsPage --> HelpSlider: uses
-    %% CrapsPage --> score-service : sends score data
-    %% LeaderboardPage --> GameCard : holds
-    %% LeaderboardPage --> NavBar : has
-    %% LeaderboardPage --> Footer : has
+     NavBar <-- YahtzeeCountPage : layout
+     ScoreService<-- YahtzeeCountPage : uses
+     YahtzeeCountPage <-- YahtzeeScoreCard : uses
+     YahtzeeCountPage <-- GameplaySection : uses
+     YahtzeeCountPage --> TriviaQuestion: uses
+    LoginPage --> NavBar : uses
+     LoginPage --> UserService : fetches data
+     RegisterPage --> UserService : fetches data
+     RegisterPage --> NavBar : uses
+     NavBar <-- CrapsPage : layout
+     NavBar <-- YahtzeeCountPage : layout
+     YahtzeeCountPage --> HelpSlider: uses
+     CrapsPage --> TriviaQuestion: uses
+     CrapsPage --> HelpSlider: uses
+     CrapsPage --> ScoreService : sends score data
+     NavBar <-- LeaderboardPage : Layout
 
     
 
