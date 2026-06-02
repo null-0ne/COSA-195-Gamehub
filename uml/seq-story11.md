@@ -23,7 +23,7 @@ title: as_a_user_i_want_to_answer_trivia_to_submit_my_score
     deactivate qs
     g ->>t: RenderQuestion(String)
     activate t
-
+    
     t-->>g: RenderTrivia() String
     u->>t: sumbit trivia Answer
     t->>t: CalculateAnswer(answer)

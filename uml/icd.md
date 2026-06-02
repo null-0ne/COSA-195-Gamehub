@@ -118,7 +118,6 @@ classDiagram
      CrapsPage --> HelpSlider: uses
      CrapsPage --> ScoreService : sends score data
      NavBar <-- LeaderboardPage : Layout
-
     
 
 
