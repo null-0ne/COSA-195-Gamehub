@@ -1,5 +1,6 @@
 import { postScores } from "./lib/score-service.js";
 import renderGameplaySection from "./components/gameplay-section.js";
+import renderPigScorecard from "./components/pig-score-card.js";
 import renderHelpSlider from "./components/help-slider.js";
 import renderDiceRoll from "./components/dice-roll.js";
 /**
@@ -30,8 +31,9 @@ export default function renderPigPage(
                 <h1>Points: <span id="updateScore">0</span></h1>
                 <h1>Number of Rolls: <span id="updateRolls">0</div></h1>
               </div>
+              <div class="col-4 border border-secondary rounded grey  score-form align-items-center d-flex flex-wrap">
             </div>
-            <div class="col-4  score-form">
+            
             </div>
           </div>
         </div>
@@ -47,6 +49,9 @@ export default function renderPigPage(
 <li></li>
 </ul>`,
   });
+
+  let lastRoll = 0;
+  let numRolled = 0;
 
   const sharedParams = {
     totalScore: 0,
@@ -64,14 +69,17 @@ export default function renderPigPage(
     finishedRolling: function () {
       this.rollCount++;
       document.getElementById("updateRolls").innerHTML = this.rollCount;
-
-      let numRolled = parseInt(
+      lastRoll = numRolled;
+      numRolled = parseInt(
         document
           .querySelector(".lockable-dice")
           .src.charAt(
             document.querySelector(".lockable-dice").src.lastIndexOf("e") + 1,
           ),
       );
+
+      document.getElementById("lastRolled").src =
+        "images/dice" + lastRoll + ".png";
 
       if (numRolled === 1) {
         this.scoreSpan.innerHTML = 0;
@@ -86,12 +94,6 @@ export default function renderPigPage(
   renderDiceRoll(document.querySelector(`.gameplay`), sharedParams);
 
   //   renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
-  let inputOnes = element.querySelectorAll(".catInput");
-  for (let input of inputOnes) {
-    input.addEventListener("change", function () {
-      sharedParams.scoreSpan.innerHTML = sharedParams.totalScore;
-    });
-  }
-  //return the element in case it is needed for further logic
+  renderPigScorecard(document.querySelector(`.score-form`), sharedParams);
   return element;
 }
