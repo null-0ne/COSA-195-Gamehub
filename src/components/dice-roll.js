@@ -51,6 +51,7 @@ export default function renderDiceRoll(
     element.querySelectorAll(".lockable-dice").forEach((dice) => {
       dice.addEventListener("click", ({ target: dice }) => {
         (dice.classList.toggle("dice-img-lock"),
+          element.querySelector(".locked").classList.toggle("dice-img-lock"),
           dice.classList.toggle("opacity-25"));
       });
     });
@@ -59,6 +60,7 @@ export default function renderDiceRoll(
   element.querySelector("#btnRoll").addEventListener("click", diceRoll);
 
   let isRolling = false;
+  let randomDiceFace;
 
   /**
    * Dice rolling animation
@@ -73,24 +75,25 @@ export default function renderDiceRoll(
       ".lockable-dice:not(.dice-img-lock)",
     );
 
-    const lockImg = element.querySelectorAll(".locked");
+    const lockImg = element.querySelectorAll(".locked:not(.dice-img-lock)");
 
     isRolling = true;
 
     let rollAnimation = setInterval(() => {
+      let i = 0;
       for (const die of unlockedDice) {
-        const i = die.getAttribute("data-arrIndex");
-        const randomDiceFace = Math.floor(Math.random() * 6 + 1);
-        params.dice[i] = randomDiceFace;
+        //const i = die.getAttribute("data-arrIndex");
+        randomDiceFace = Math.floor(Math.random() * 6 + 1);
+        params.dice[i++] = randomDiceFace;
+        console.log(i);
 
         die.src = `/images/dice${randomDiceFace}.png`;
-
-        for (let j = 0; j < params.dice.length; j++) {
-          const dieVal = unlockedDice[j].src.charAt(
-            unlockedDice[j].src.lastIndexOf("e") + 1,
-          );
-          lockImg[j].src = `/images/dice-${randomDiceFace}-lock.png`;
-        }
+      }
+      for (let j = 0; j < params.dice.length; j++) {
+        let dieVal = unlockedDice[j].src.charAt(
+          unlockedDice[j].src.lastIndexOf("e") + 1,
+        );
+        lockImg[j].src = `/images/dice-${dieVal}-lock.png`;
       }
     }, 100);
 
@@ -99,6 +102,7 @@ export default function renderDiceRoll(
 
       isRolling = false;
       params.finishedRolling();
+      console.log(params.dice);
     }, 1000);
   }
 

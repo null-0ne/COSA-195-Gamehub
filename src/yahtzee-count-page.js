@@ -36,7 +36,7 @@ export default function renderYahtzeeCountPage(
                 <h1>Total Rolls: <span id="updateScore">0</span></h1>
               </div>
             </div>
-            <div class="col-6 border border-secondary rounded grey score-form">
+            <div class="col-6 padding-lg border border-secondary rounded grey score-form">
             </div>
             
           </div>
@@ -91,7 +91,12 @@ to get the final score (lower scores are better). </li>
     scoreSpan: document.getElementById("updateScore"),
 
     submitScores: function () {
-      postScores(this.totalScore, "yahtzee-count", 1, "john@saskpolytech.ca");
+      postScores(
+        this.totalScore,
+        "yahtzee-count",
+        sessionStorage.getItem("id"),
+        sessionStorage.getItem("email"),
+      );
     },
 
     dice: [1, 2, 3, 4, 5],
