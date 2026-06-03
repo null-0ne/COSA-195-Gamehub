@@ -23,17 +23,20 @@ export default function renderPigPage(
     </div>
         </div>
           <div class="row">
-            <div class="col-8 border border-secondary rounded grey ">
+            <div class="col-8 boder border-secondary rounded grey ">
               <div class="gameplay">
               </div>
               <div class="text-center pt-5">
-                
                 <h1>Points: <span id="updateScore">0</span></h1>
-                <h1>Number of Rolls: <span id="updateRolls">0</div></h1>
+                <h1>Number of Rolls: <span id="updateRolls">0</span></h1>
               </div>
-              <div class="col-4 border border-secondary rounded grey  score-form align-items-center d-flex flex-wrap">
             </div>
-            
+            <div class="col-4 border border-secondary rounded grey score-form align-items-center d-flex flex-wrap">
+            </div>
+            <div>
+              <h1 >BANKED SCORE: <span id="bankedScore">0</span></h1>
+              <button class="btn btn-primary" id="btnSubmit" type="button" >Submit Score</button>
+              <button class="btn btn-primary" id="btnReset" type="button" >Reset Game</button>
             </div>
           </div>
         </div>
@@ -52,6 +55,8 @@ export default function renderPigPage(
 
   let lastRoll = 0;
   let numRolled = 0;
+  let bankedPoints = 0;
+  let bankCount = 0;
 
   const sharedParams = {
     totalScore: 0,
@@ -83,6 +88,11 @@ export default function renderPigPage(
 
       if (numRolled === 1) {
         this.scoreSpan.innerHTML = 0;
+        if(lastRoll === 1)
+        {
+          bankedPoints = 0;
+          document.getElementById("bankedScore").innerHTML = bankedPoints;
+        }
       } else {
         this.scoreSpan.innerHTML =
           parseInt(this.scoreSpan.innerHTML) + numRolled;
@@ -91,7 +101,29 @@ export default function renderPigPage(
     scoreSpan: document.getElementById("updateScore"),
   };
 
+  
+
   renderDiceRoll(document.querySelector(`.gameplay`), sharedParams);
+  
+  document.querySelector("#btnBank").addEventListener("click", bankPoints);
+  console.log(sharedParams.rollCount * bankCount);
+  document.querySelector("#btnSubmit").addEventListener("click", submitScore);
+
+  function bankPoints() {
+    if(sharedParams.rollCount > 0 && parseInt(sharedParams.scoreSpan.innerHTML) > 0)
+    {
+      bankedPoints += parseInt(sharedParams.scoreSpan.innerHTML);
+      sharedParams.scoreSpan.innerHTML = 0;
+      // console.log(bankedPoints);
+      document.getElementById("bankedScore").innerHTML = bankedPoints;
+      bankCount++;
+    }
+  }
+
+  function submitScore()
+  {
+    postScores(sharedParams.rollCount * bankCount, "pig-solitaire", sessionStorage.getItem("id"), sessionStorage.getItem("email"))
+  }
 
   //   renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
   renderPigScorecard(document.querySelector(`.score-form`), sharedParams);

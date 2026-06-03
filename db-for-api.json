@@ -89,15 +89,6 @@
       "gameTitle": "craps",
       "score": 0,
       "id": "ZJAaNczdTwM"
-    },
-    {
-      "score": 0,
-      "gameTitle": "yahtzee-count",
-      "user": {
-        "id": 1,
-        "email": "john@saskpolytech.ca"
-      },
-      "id": "bA0Xq_KYb_M"
     }
   ],
   "users": [
@@ -105,11 +96,6 @@
       "id": "1",
       "email": "ogugofor2899@saskpolytech.ca",
       "password": "123abc"
-    },
-    {
-      "email": "michael1@saskpolytech.ca",
-      "password": "fdsf1234",
-      "id": "wDf11CJWvDQ"
     }
   ],
   "products": [

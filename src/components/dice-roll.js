@@ -20,6 +20,7 @@ export default function renderDiceRoll(
   params = {
     dice: [1, 2, 3, 4, 5],
     lockable: true,
+    rollCount: 0,
     finishedRolling: function () {
       console.log("Finished rolling");
     },
@@ -45,6 +46,9 @@ export default function renderDiceRoll(
   );
 
   element.innerHTML += `<button id="btnRoll">ROLL</button>`;
+  if (params.dice.length === 1){
+    element.innerHTML += `<button id="btnBank">BANK</button>`;
+  }
 
   //find dice and add click event listener
   if (params.lockable) {
@@ -57,7 +61,7 @@ export default function renderDiceRoll(
   }
 
   element.querySelector("#btnRoll").addEventListener("click", diceRoll);
-
+  
   let isRolling = false;
 
   /**
@@ -87,7 +91,7 @@ export default function renderDiceRoll(
           unlockedDice[x].src.lastIndexOf("e") + 1,
         );
         lockedDie[x].src = "images/dice-" + dieVal + "-lock.png";
-        console.log(lockedDie[x].src);
+        // console.log(lockedDie[x].src);
       }
     }, 100);
 
