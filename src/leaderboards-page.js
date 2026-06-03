@@ -10,6 +10,7 @@ Purpose:     Leaderboard View
 */ 
 import renderLeaderboardList from './components/leaderboard-list.js'
 import {getScores} from "./lib/score-service.js";
+
 // import {formatDate, formatDateTime, formatTime} from './examples/lib/formatter.js';
 
 export default async function renderLeaderboardPage(
@@ -19,7 +20,6 @@ export default async function renderLeaderboardPage(
    // set the content of the element
       element.innerHTML = `
       <div>
-          <h1><img src="/sp.jpg" class="logo vanilla" alt="Saskpolytech logo" />${params.title}</h1>
           <div class="container text-center">
             <div class="row align-items-start">
                 <div class="col">

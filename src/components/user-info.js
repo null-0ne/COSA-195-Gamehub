@@ -9,7 +9,7 @@ export default function renderUserInfo(
   params = {} 
 ) {
   element.innerHTML = `
-    <div class="container-xl px-4 mt-4">
+    <div class="px-4 mt-4">
     
     
     <div class="row">

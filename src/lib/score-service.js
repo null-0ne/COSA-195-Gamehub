@@ -17,7 +17,10 @@
 export async function getScores(params={}){
 
     //transform the params.textSearch in a URL query string so that API server does a text search on title and size of product
-    const searchQuery =  params.textSearch?.length ? `gameTitle:eq=${params.textSearch}` : '';
+    const searchQuery =  params.textSearch?.length ? `gameTitle:eq=${params.textSearch}` : '' ;
+
+    //email search
+    const emailQuery =  params.email?.length ? `user.email:eq=${params.email}` : '';
 
     //transform the params.sortOrder in a URL query string so thar API server sorts the items by the fields and direction
     const sortQuery =  params.sortOrder ? `_sort=${params.sortOrder ?? 'score'}` : '';
@@ -26,7 +29,7 @@ export async function getScores(params={}){
     const pagingQuery =  params.paging ? `_page=${params.paging.page ?? '1'}&_per_page=${params.paging.limit ??'999'}` : '';
 
     //join the various query strings into a full URL and fetch - wait for result
-    const result = await fetch(`/api/scores?${searchQuery}&${sortQuery}&${pagingQuery}`);
+    const result = await fetch(`/api/scores?${searchQuery}&${sortQuery}&${pagingQuery}&${emailQuery}`);
 
     //if result does not have an OK status then return an empty array
     if (!result.ok) { return [] }
