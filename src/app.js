@@ -12,12 +12,18 @@ import renderRegisterPage from "./register-page.js";
 import renderFooter from "./components/footer.js";
 import { retrieveAds } from "./lib/ad-service.js";
 
+
+
+(async() => { /**********************Start of self calling function*************************/
+
+
+
 const appElement = document.querySelector("#app");
 const navElement = document.querySelector(".navbar");
-const footerElement = document.querySelector("#footer");
+const footerElement = document.querySelector("footer .container");
 const ads = await retrieveAds(); //This retrieves the ads from the api
 //renderNavBar(navElement);
-renderFooter(footerElement, ads);
+renderFooter(footerElement, {ads:ads});
 // Creat an instance of the Navigo library used to route to different "Pages"
 const router = new Navigo("/", { linksSelector: "a" });
 
@@ -54,3 +60,7 @@ router
     renderNavBar(navElement, {title:"Dashboard"});
     })
   .resolve(); // execute the JS module to render the page
+
+})();/**********************End of self calling function*************************/
+
+

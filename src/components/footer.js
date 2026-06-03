@@ -1,6 +1,6 @@
 export default function renderFooter(
     element = document.createElement('div'), /* default new div element*/
-    params = [
+    params = { ads:[
     {
     "category": "default",
     "message": "This could be your advertisement",
@@ -10,74 +10,33 @@ export default function renderFooter(
     "category": "default",
     "message": "This is a default advertisement",
     "link": "#"
-    }] /* default advertisement array*/
+    }]} /* default advertisement array*/
 ) {
-    element.setAttribute('class','fixed-bottom bg-primary');
-    element.classList.add("p-0");
     //set the content of the nav bar
+    //use the built-in JS array function 'reduce' to convert the array of product objects in to an HTML string
+    //reduce loops through each item in the products array and outputs an HTML string for each then joins them all in several list items
+    const messagesHTML = params.ads.reduce((str, ad, i) => `
+    ${str}
+        <div class="carousel-item ${i === 0 ? 'active' : ''}" >
+            <a href="${ad.link}" class="text-white">${ad.message}</a>
+        </div>
+    `, '');
+
     element.innerHTML = `   
-    <div class="container-fluid p-1 d-flex justify-content-between align-items-center">
-        <div class="ms-4">
-            <button class="btn btn-outline-light rounded fw-bold" id="backBtn"><-</button>
+    <div id="carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+        <div class="carousel-inner text-center " id="carouselDiv">
+            ${messagesHTML}
         </div>
-        <div>
-            <a href="#" class='text-white fs-3' id="link"></a>
-        </div>
-        <div class="me-4">
-            <button class="btn btn-outline-light rounded fw-bold" id="fwdBtn">-></button>
-        </div>
-    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
     `;
-
-    let nIndex = 0; //This keeps track of what advertisement is being shown
-
-    //Initialize the message to be the first in the array
-    const link = document.getElementById("link");
-    link.innerText = params[0].message;
-    link.href = params[0].link;
-
-    //Get forward and back buttons from the html
-    const backBtn = document.getElementById("backBtn");
-    const fwdBtn = document.getElementById("fwdBtn");
-
-    //Initialize button listeners
-    backBtn.addEventListener("click", prevAd);
-    fwdBtn.addEventListener("click", nextAd);
-
-    //Initialize interval to cycle through ads every 5 seconds
-    let adInterval = setInterval(nextAd, 5000);
-
-    /**
-     * This function changes the ad to the next ad in the array. If it is at the end of the 
-     * array it will restart at the first element in the array
-     */
-    function nextAd(){
-        if(nIndex === params.length - 1){
-            nIndex = 0;
-        } else {
-            nIndex++;
-        }
-        clearInterval(adInterval);
-        link.innerText = params[nIndex].message;
-        link.href = params[nIndex].link;
-        adInterval = setInterval(nextAd, 5000);
-    }
-
-    /**
-     * This function changes the ad to the previous ad in the array. If it is at the first 
-     * element in the array it will go to the last element in the array.
-     */
-    function prevAd(){
-        if(nIndex === 0){
-            nIndex = params.length - 1;
-        } else {
-            nIndex--;
-        }
-        clearInterval(adInterval);
-        link.innerText = params[nIndex].message;
-        link.href = params[nIndex].link;
-        adInterval = setInterval(nextAd, 5000);
-    }
     //return the element in case it is need for further logic
     return element;
 }

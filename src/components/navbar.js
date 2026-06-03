@@ -44,10 +44,18 @@ export default function renderNavBar(
 
     const profileDiv = document.getElementById("profileDiv");
     if(sessionStorage.getItem("id")){
-        profileDiv.innerHTML = `<button class="btn btn-success text-black fw-bold border border-2 border-black me-2">Sign Out</button>`
+        profileDiv.innerHTML = `
+        <img src="/images/dice9.png" class="navBarProfilePic me-2"/>
+        <button class="btn btn-success text-black fw-bold border border-2 border-black me-2" id="signOut">Sign Out</button>`
+        document.getElementById("signOut").addEventListener("click", function(){
+            sessionStorage.removeItem("id");
+            sessionStorage.removeItem("email");
+            profileDiv.innerHTML = ` <a href="/login" class='link-offset-2 link-underline link-underline-opacity-0 text-black me-2 btn btn-success border border-2 border-black fw-bold'>Login</a>`
+        })
     } else{
         profileDiv.innerHTML = ` <a href="/login" class='link-offset-2 link-underline link-underline-opacity-0 text-black me-2 btn btn-success border border-2 border-black fw-bold'>Login</a>`
     }
+
     
     //return the element in case it is need for further logic
     return element;
