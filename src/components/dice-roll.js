@@ -44,14 +44,14 @@ export default function renderDiceRoll(
     `,
   );
 
-  element.innerHTML += `<button id="btnRoll">ROLL</button>`;
+  element.innerHTML += `<button class="btn btn-primary" id="btnRoll">ROLL</button>`;
 
   //find dice and add click event listener
   if (params.lockable) {
     element.querySelectorAll(".lockable-dice").forEach((dice) => {
       dice.addEventListener("click", ({ target: dice }) => {
-        (dice.classList.toggle("opacity-25"),
-          dice.classList.toggle("dice-img-lock"));
+        (dice.classList.toggle("dice-img-lock"),
+          dice.classList.toggle("opacity-25"));
       });
     });
   }
@@ -84,6 +84,13 @@ export default function renderDiceRoll(
         params.dice[i] = randomDiceFace;
 
         die.src = `/images/dice${randomDiceFace}.png`;
+
+        for (let j = 0; j < params.dice.length; j++) {
+          const dieVal = unlockedDice[j].src.charAt(
+            unlockedDice[j].src.lastIndexOf("e") + 1,
+          );
+          lockImg[j].src = `/images/dice-${randomDiceFace}-lock.png`;
+        }
       }
     }, 100);
 
@@ -92,7 +99,6 @@ export default function renderDiceRoll(
 
       isRolling = false;
       params.finishedRolling();
-      console.log(element.querySelector(".locked").src);
     }, 1000);
   }
 

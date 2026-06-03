@@ -29,16 +29,14 @@ export default function renderYahtzeeCountPage(
     </div>
         </div>
           <div class="row">
-            <div class="col-8 border border-secondary rounded grey ">
+            <div class="col-6 border border-secondary rounded grey ">
               <div class="gameplay">
               </div>
               <div class="text-center pt-5">
                 <h1>Total Rolls: <span id="updateScore">0</span></h1>
               </div>
             </div>
-            <div class="last-roll-container col-5 m-1 border border-secondary rounded grey">
-            <div class="col-4  score-form">
-            </div>
+            <div class="col-6 border border-secondary rounded grey score-form">
             </div>
             
           </div>
@@ -87,36 +85,52 @@ to get the final score (lower scores are better). </li>
 
   const sharedParams = {
     totalScore: 0,
+    totalRolls: 0,
+    rollCount: 0,
+
+    scoreSpan: document.getElementById("updateScore"),
+
     submitScores: function () {
       postScores(this.totalScore, "yahtzee-count", 1, "john@saskpolytech.ca");
     },
-    scoreSpan: document.getElementById("updateScore"),
+
     dice: [1, 2, 3, 4, 5],
     lockable: true,
-    rollCount: 0,
     finishedRolling: function () {
       this.rollCount++;
-      console.log(this.rollCount);
+      this.totalRolls++;
+
+      //triggering category highlights after each roll
+      if (typeof window.updateHighlights === "function") {
+        window.updateHighlights();
+      }
     },
   };
 
-  //renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
-  renderDiceRoll(document.querySelector(`.gameplay`), sharedParams);
-  renderYahtzeeScoreCard(document.querySelector(`.score-form`), sharedParams);
+  const diceElement = renderDiceRoll(
+    document.querySelector(`.gameplay`),
+    sharedParams,
+  );
 
-  let inputOnes = element.querySelectorAll(".catInput");
-  for (let input of inputOnes) {
-    input.addEventListener("change", function () {
-      sharedParams.scoreSpan.innerHTML = sharedParams.totalScore;
-    });
-  }
+  const scoreElement = renderYahtzeeScoreCard(
+    document.querySelector(`.score-form`),
+    sharedParams,
+  );
 
-  let catNames = element.querySelectorAll(".catName");
-  for (let cat of catNames) {
-    cat.addEventListener("click", function () {
-      sharedParams.scoreSpan.innerHTML = sharedParams.totalScore;
-    });
-  }
+  // let inputOnes = element.querySelectorAll(".catInput");
+  // for (let input of inputOnes) {
+  //   input.addEventListener("change", function () {
+  //     sharedParams.scoreSpan.innerHTML = sharedParams.totalScore;
+  //   });
+  // }
+
+  // let catNames = element.querySelectorAll(".catName");
+  // for (let cat of catNames) {
+  //   cat.addEventListener("click", function () {
+  //     sharedParams.scoreSpan.innerHTML = sharedParams.totalScore;
+  //   });
+  // }
+
   //return the element in case it is needed for further logic
   return element;
 }

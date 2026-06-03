@@ -8,92 +8,128 @@ export default function renderYahtzeeScoreCard(
   element = document.createElement("div") /**/,
   params = {} /*An object that should contain the score, the postScores function and the span to update the score on the page*/,
 ) {
-  element.innerHTML = `<table class="table">
-  <thead >
-    <tr>
-      <th scope="col" class="text-center">Category</th>
-      <th scope="col" class="text-center">Times Roll</th>
-      <th scope="col" class="text-center">Category</th>
-      <th scope="col" class="text-center">Times Roll</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th class="catName" scope="row">Ones</th>
-      <td><input id="Ones"type="number" class="catInput"></input></td>
-      <th class="catName" >Three of a kind</th>
-      <td><input id="Threeofakind"type="number" class="catInput"></input></td>
-    </tr>
-   <tr>
-      <th class="catName" scope="row">Twos</th>
-      <td><input id="Twos"type="number" class="catInput"></input></td>
-      <th class="catName" >Four of a kind</th>
-      <td><input id="Fourofakind"type="number" class="catInput"></input></td>
-    </tr>
-    <tr>
-      <th class="catName" scope="row">Threes</th>
-      <td><input id="Threes"type="number" class="catInput"></input></td>
-      <th class="catName" >Full House</th>
-      <td><input id="FullHouse"type="number" class="catInput"></input></td>
-    </tr>
-    <tr>
-      <th scope="row" class="catName" >Fours</th>
-      <td><input id="Fours"type="number" class="catInput"></input></td>
-      <th class="catName" >Small Straight</th>
-      <td><input id="SmallStraight"type="number" class="catInput"></input></td>
-    </tr>
-    <tr>
-      <th scope="row" class="catName" >Fives</th>
-      <td><input id="Fives"type="number" class="catInput"></input></td>
-      <th class="catName" >Large Straight</th>
-      <td><input id="LargeStraight"type="number" class="catInput"></input></td>
-    </tr>
-    <tr>
-      <th class="catName" scope="row">Sixes</th>
-      <td><input id="Sixes"type="number" class="catInput"></input></td>
-      <th class="catName" >Yahtzee</th>
-      <td><input id="Yahtzee"type="number" class="catInput"></input></td>
-    </tr>
-    <tr >
-      <td colspan="3"><button class="btn btn-primary" id="btnSubmit" type="button" >Submit</button></td>
-    </tr>
-  </tbody>
-  
-</table>
+  element.innerHTML = `<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row mb-2">
+        <div class="col-8 catName" data-category="Ones">Ones</div>
+          <div class="col">
+            <input id="Ones" class="catInput form-control" readonly>
+              </div>
+            </div>
+        <div class="row mb-2">
+          <div class="col-8 catName" data-category="Twos">Twos</div>
+            <div class="col">
+              <input id="Twos" class="catInput form-control" readonly>
+                </div>
+              </div>
+        <div class="row mb-2">
+          <div class="col-8 catName" data-category="Threes">Threes</div>
+            <div class="col">
+              <input id="Threes" class="catInput form-control" readonly>
+                </div>
+              </div>
+        <div class="row mb-2">
+          <div class="col-8 catName" data-category="Fours">Fours</div>
+            <div class="col">
+              <input id="Fours" class="catInput form-control" readonly>
+                </div>
+              </div>
+        <div class="row mb-2">
+          <div class="col-8 catName" data-category="Fives">Fives</div>
+            <div class="col">
+              <input id="Fives" class="catInput form-control" readonly>
+                </div>
+              </div>
+        <div class="row mb-2">
+          <div class="col-8 catName" data-category="Sixes">Sixes</div>
+            <div class="col">
+              <input id="Sixes" class="catInput form-control form-control-sm" readonly>
+                </div>
+              </div>
+            </div>
+            
+    <div class="col-md-6">
+      <div class="row mb-2">
+      <div class="col-8 catName" data-category="ThreeOfAKind">Three of a Kind</div>
+          <div class="col">
+            <input id="ThreeOfAKind" class="catInput form-control" readonly>
+              </div>
+            </div>
+      <div class="row mb-2">
+      <div class="col-8 catName" data-category="FourOfAKind">Four of a Kind</div>
+          <div class="col">
+            <input id="FourOfAKind" class="catInput form-control" readonly>
+              </div>
+            </div>
+      <div class="row mb-2">
+      <div class="col-8 catName" data-category="SmallStraight">Small Straight</div>
+          <div class="col">
+            <input id="SmallStraight" class="catInput form-control" readonly>
+              </div>
+            </div>
+      <div class="row mb-2">
+      <div class="col-8 catName" data-category="LargeStraight">Large Straight</div>
+          <div class="col">
+            <input id="LargeStraight" class="catInput form-control" readonly>
+              </div>
+            </div>
+      <div class="row mb-2">
+      <div class="col-8 catName" data-category="FullHouse">Full House</div>
+          <div class="col">
+            <input id="FullHouse" class="catInput form-control" readonly>
+              </div>
+            </div>
+      <div class="row mb-2">
+      <div class="col-8 catName" data-category="Yahtzee">Yahtzee</div>
+          <div class="col">
+            <input id="Yahtzee" class="catInput form-control" readonly>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="row mt-3">
+        <div class="col text-center">
+          <button id="btnSubmit" class="btn btn-primary">Submit Score</button>
+          </div>
+        </div>
+      </div>
   `;
 
-  let inputOnes = element.querySelectorAll(".catInput");
-  for (let input of inputOnes) {
-    input.addEventListener("change", function () {
-      params.totalScore = 0;
-      for (let otherInput of inputOnes) {
-        let num = parseInt(otherInput.value, 10);
-        if (!isNaN(num)) {
-          params.totalScore += parseInt(otherInput.value, 10);
-        }
-      }
-      console.log(params.totalScore);
-    });
+  const inputs = element.querySelectorAll(".catInput");
+  const categories = element.querySelectorAll(".catName");
+
+  /**
+   * Helper to find the counts of dice
+   * @param {*} dice
+   * @returns
+   */
+  function getCounts(dice) {
+    const counts = {};
+
+    for (let die of dice) {
+      counts[die] = (counts[die] || 0) + 1;
+    }
+    return counts;
   }
 
-  //  cat selection
-  let catNames = element.querySelectorAll(".catName");
-  for (let cat of catNames) {
-    cat.addEventListener("click", function () {
-      params.totalScore = 0;
-      let input = element.querySelector(
-        `#${cat.innerHTML.replaceAll(" ", "")}`,
-      );
-      input.value = params.rollCount;
-      for (let otherInput of inputOnes) {
-        let num = parseInt(otherInput.value, 10);
-        if (!isNaN(num)) {
-          params.totalScore += parseInt(otherInput.value, 10);
-        }
+  function hasStraight(dice, length) {
+    const uniqueDice = [...new Set(dice)].sort((a, b) => a - b);
+
+    let maxRun = 1;
+    let run = 1;
+
+    for (let i = 1; i < uniqueDice.length; i++) {
+      if (uniqueDice[i] === uniqueDice[i - 1] + 1) {
+        run++;
+        maxRun = Math.max(maxRun, run);
+      } else {
+        run = 1;
       }
-      // params.totalScore += params.rollCount;
-      params.rollCount = 0;
-    });
+    }
+
+    return maxRun >= length;
   }
 
   function submitScore() {
