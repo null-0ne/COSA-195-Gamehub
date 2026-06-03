@@ -45,7 +45,7 @@ export default function renderNavBar(
     const profileDiv = document.getElementById("profileDiv");
     if(sessionStorage.getItem("id")){
         profileDiv.innerHTML = `
-        <img src="/images/dice9.png" class="navBarProfilePic me-2"/>
+        <img src="/images/dice9.png" class="navBarProfilePic me-2 rounded"/>
         <button class="btn btn-success text-black fw-bold border border-2 border-black me-2" id="signOut">Sign Out</button>`
         document.getElementById("signOut").addEventListener("click", function(){
             sessionStorage.removeItem("id");

@@ -53,8 +53,14 @@ router
     renderYahtzeeCountPage(appElement);
     renderNavBar(navElement, {title:"Yahtzee Count"});
   })
-  .on("/login", (url) => renderLoginPage(appElement))
-  .on("/register", (url) => renderRegisterPage(appElement))
+  .on("/login", (url) => {
+    renderLoginPage(appElement);
+    renderNavBar(navElement, {title:"Login"});
+  })
+  .on("/register", (url) => {
+    renderRegisterPage(appElement);
+    renderNavBar(navElement, {title:"Register"});
+  })
   .on(() => {
     renderHomePage(appElement, { title: "Home Page" });
     renderNavBar(navElement, {title:"Dashboard"});
