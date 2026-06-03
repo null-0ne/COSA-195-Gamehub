@@ -30,6 +30,10 @@ export default function renderYahtzeeCountPage(
           <div class='d-flex justify-content-end pt-3'>
     <div id='divHelp'></div>
     </div>
+    <div id='Test'>
+    </div>
+  </div>
+    </div>
     </div>
         </div>
           <div class="row">
@@ -111,15 +115,13 @@ to get the final score (lower scores are better). </li>
   console.log(btnPress);
   btnPress.addEventListener("click", function(){
     console.log("test");
-    btnPress.setAttribute("data-target","#exampleModalCenter");
-    btnPress.setAttribute("data-toggle","modal");
-    renderTriviaQuestion(element ,{
+    renderTriviaQuestion(document.getElementById("Test") ,{ questions : {
             "question": "What does 'dix-neuf' mean in French?",
             "answers": [
               "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"
             ],
             "correctAnswer": 4
-          });
+          }});
   });
 
    

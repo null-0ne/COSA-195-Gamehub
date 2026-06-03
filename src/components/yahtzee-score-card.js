@@ -56,7 +56,7 @@ export default function renderYahtzeeScoreCard(
       <td><input type="number" class="catInput"></input></td>
     </tr>
     <tr >
-      <td colspan="3"><button class="btn btn-primary" id="btnSubmit" type="button" >Submit</button></td>
+      <td colspan="3"><button class="btn btn-primary" id="btnSubmit" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button" >Submit</button></td>
     </tr>
   </tbody>
   

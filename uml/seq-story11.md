@@ -34,6 +34,6 @@ title: as_a_user_i_want_to_answer_trivia_to_submit_my_score
     end
     deactivate t
     deactivate g
-
+    
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```
