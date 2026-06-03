@@ -43,14 +43,19 @@ export default function renderPigPage(
     </div>
     `;
   renderHelpSlider(document.getElementById("divHelp"), {
-    text: `<p>
-     </p>
-    <p></p>
-<p>Basic Rules:</p>
+    text: `<p>Pig Solitaire
+    is a dice game where the player tries to get a banked score of at least 100
+    with the minimum amount of rolls and banking of points.
+    </p>
+<p>Basic Rules: </br>
+Each round, a player repeatedly rolls a dice until a one is rolled or the player "banks" their current dice score</p>
 <ul>
-<li></li>
-<li></li>
-</ul>`,
+<li>If the player rolls a one they lose their unbanked points and have to begin building it up again</li>
+<li>If the player rolls any other number, it is added to their turn total and the player's turn continues.</li>
+<li>If the player rolls a one twice in a row, they will lose their banked points and have to start all over again.</li>
+</ul>
+<p><strong>Once a player</strong></p>
+<p>For example</p>`,
   });
 
   let lastRoll = 0;
@@ -106,7 +111,6 @@ export default function renderPigPage(
   renderDiceRoll(document.querySelector(`.gameplay`), sharedParams);
   
   document.querySelector("#btnBank").addEventListener("click", bankPoints);
-  console.log(sharedParams.rollCount * bankCount);
   document.querySelector("#btnSubmit").addEventListener("click", submitScore);
 
   function bankPoints() {
@@ -122,7 +126,32 @@ export default function renderPigPage(
 
   function submitScore()
   {
-    postScores(sharedParams.rollCount * bankCount, "pig-solitaire", sessionStorage.getItem("id"), sessionStorage.getItem("email"))
+    if (bankedPoints + parseInt(sharedParams.scoreSpan.innerHTML) >= 100)
+    {
+      postScores(bankCount == 0 ? sharedParams.rollCount : sharedParams.rollCount * bankCount, "pig-solitaire", sessionStorage.getItem("id"), sessionStorage.getItem("email"))
+      resetGame();
+    }
+  }
+
+  document.querySelector("#btnReset").addEventListener("click", resetGame);
+
+  function resetGame ()
+  {
+    lastRoll = 0;
+    numRolled = 0;
+    bankedPoints = 0;
+    bankCount = 0;
+
+    sharedParams.totalScore = 0;
+    sharedParams.rollCount = 0;
+
+    document.getElementById("lastRolled").src =
+        "images/dice" + lastRoll + ".png";
+
+    sharedParams.scoreSpan.innerHTML = 0;
+
+    document.getElementById("updateRolls").innerHTML = 0;
+    document.getElementById("bankedScore").innerHTML = 0;
   }
 
   //   renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
