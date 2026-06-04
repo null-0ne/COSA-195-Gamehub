@@ -33,7 +33,7 @@ export default function renderDiceRoll(
   element.innerHTML = params.dice.reduce(
     (str, d, i) => `
     ${str}
-    <div class="dice-div m-2 position-relative ${bsFlex} w-25" data-arrIndex="${i}">
+    <div class="dice-div m-2 position-relative ${bsFlex} w-25" data-arr-index="${i}">
             <img class="lockable-dice w-75 min position-absolute" src="images/dice${d}.png" alt="dice ${d}" />
             <img class="locked w-75 min position-absolute" src="/images/dice-${d}-lock.png" />
     </div>`,
@@ -48,21 +48,18 @@ export default function renderDiceRoll(
 
   //find dice and add click event listener
   if (params.lockable) {
-  element.querySelectorAll(".lockable-dice").forEach((dice) => {
-    dice.addEventListener("click", ({ target }) => {
+    element.querySelectorAll(".lockable-dice").forEach((dice) => {
+      dice.addEventListener("click", ({ target }) => {
+        // Find the matching lock image in the same dice-div
+        const lockImg = target.closest(".dice-div").querySelector(".locked");
 
-      // Find the matching lock image in the same dice-div
-      const lockImg = target
-        .closest(".dice-div")
-        .querySelector(".locked");
+        target.classList.toggle("dice-img-lock");
+        target.classList.toggle("opacity-25");
 
-      target.classList.toggle("dice-img-lock");
-      target.classList.toggle("opacity-25");
-
-      lockImg.classList.toggle("dice-img-lock");
+        lockImg.classList.toggle("dice-img-lock");
+      });
     });
-  });
-}
+  }
 
   element.querySelector("#btnRoll").addEventListener("click", diceRoll);
 
@@ -89,13 +86,13 @@ export default function renderDiceRoll(
     let rollAnimation = setInterval(() => {
       let i = 0;
       for (const die of unlockedDice) {
-
         // Getting the index of the array
-        const diceDiv = die.closest(".dice-div");
-        const index = parseInt(diceDiv.dataset.arrIndex);
+        //const diceDiv = die.closest(".dice-div");
+        //const index = parseInt(diceDiv.dataset.arrindex);
 
         randomDiceFace = Math.floor(Math.random() * 6 + 1);
-        params.dice[index] = randomDiceFace;
+        params.dice[die.parentElement.getAttribute("data-arr-index")] =
+          randomDiceFace;
 
         die.src = `/images/dice${randomDiceFace}.png`;
       }
