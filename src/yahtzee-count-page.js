@@ -90,25 +90,17 @@ game is over. The number of rolls for each combination is totaled
 to get the final score (lower scores are better). </li>
 </ul>`});
 
+//make async function to render question and listen for when the submit button on modal is clicked
 async function render()
 {
   let qData = await getQuestion();
-  renderTriviaQuestion(document.getElementById("Test"), {questions: qData});
+  renderTriviaQuestion(document.getElementById("Test"), {questions: qData, onCorrect: function(){sharedParams.submitScores();}, onInCorrect: function(){window.alert("You answered Wrong game will be reset"); location.reload();}});
   document.getElementById("subButton").addEventListener("click", function(){
     console.log(document.querySelector('input[name="fav_language"]:checked').value);
     console.log("correct:" + qData.correctAnswer);
-            if(document.querySelector('input[name="fav_language"]:checked').value == qData.correctAnswer)
-             {
-                sharedParams.submitScores();
-             }
-             else
-            {
-                window.alert("You answered Wrong game will be reset");
-                location.reload();
-             }
   })
 }
-
+//render the question and add to the html
 render();
 
 

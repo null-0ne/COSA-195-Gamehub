@@ -41,6 +41,17 @@ export function renderTriviaQuestion(
 
   }
 
+  document.querySelector("#subButton").addEventListener("click", function(){
+              if(document.querySelector('input[name="fav_language"]:checked').value == params.questions.correctAnswer)
+             {
+                onCorrect();
+
+             }
+             else
+            {
+                onInCorrect();
+            }
+  });
 
   return element;
 }

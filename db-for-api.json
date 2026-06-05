@@ -1817,6 +1817,33 @@
         "email": "john@saskpolytech.ca"
       },
       "id": "1RJPQq_9-dM"
+    },
+    {
+      "score": 6,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "50tbEkA_zfY"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "eWjL4UnKMpg"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "vM0zOH6h5sI"
     }
   ],
   "users": [
@@ -1984,1546 +2011,158 @@
   ],
   "questions": [
     {
-      "category": "French",
-      "facts": [
-        {
-          "fact": "The number 1 in French is 'un'",
-          "questions": [
-            {
-              "question": "What is the number 1 in French?",
-              "answers": [
-                "un",
-                "deux",
-                "trois",
-                "quatre"
-              ],
-              "correctAnswer": 0
-            },
-            {
-              "question": "What does 'un' mean in French?",
-              "answers": [
-                "one",
-                "two",
-                "three",
-                "four"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        },
-        {
-          "fact": "The number 2 in French is 'deux'",
-          "questions": [
-            {
-              "question": "What is the number 2 in French?",
-              "answers": [
-                "un",
-                "deux",
-                "trois",
-                "quatre"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "What does 'deux' mean in French?",
-              "answers": [
-                "one",
-                "two",
-                "three",
-                "four"
-              ],
-              "correctAnswer": 1
-            }
-          ]
-        },
-        {
-          "fact": "The number 3 in French is 'trois'",
-          "questions": [
-            {
-              "question": "What is the number 3 in French?",
-              "answers": [
-                "un",
-                "deux",
-                "trois",
-                "quatre"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'trois' mean in French?",
-              "answers": [
-                "one",
-                "two",
-                "three",
-                "four"
-              ],
-              "correctAnswer": 2
-            }
-          ]
-        },
-        {
-          "fact": "The number 4 in French is 'quatre'",
-          "questions": [
-            {
-              "question": "What is the number 4 in French?",
-              "answers": [
-                "un",
-                "deux",
-                "trois",
-                "quatre"
-              ],
-              "correctAnswer": 3
-            },
-            {
-              "question": "What does 'quatre' mean in French?",
-              "answers": [
-                "one",
-                "two",
-                "three",
-                "four"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 5 in French is 'cinq'",
-          "questions": [
-            {
-              "question": "What is the number 5 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "huit",
-                "neuf"
-              ],
-              "correctAnswer": 0
-            },
-            {
-              "question": "What does 'cinq' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "eight"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        },
-        {
-          "fact": "The number 6 in French is 'six'",
-          "questions": [
-            {
-              "question": "What is the number 6 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "huit",
-                "neuf"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "What does 'six' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "eight"
-              ],
-              "correctAnswer": 1
-            }
-          ]
-        },
-        {
-          "fact": "The number 7 in French is 'sept'",
-          "questions": [
-            {
-              "question": "What is the number 7 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "sept",
-                "neuf"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'sept' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "eight"
-              ],
-              "correctAnswer": 2
-            }
-          ]
-        },
-        {
-          "fact": "The number 8 in French is 'huit'",
-          "questions": [
-            {
-              "question": "What is the number 8 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "huit",
-                "neuf"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'huit' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "eight"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 9 in French is 'neuf'",
-          "questions": [
-            {
-              "question": "What is the number 9 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "huit",
-                "neuf"
-              ],
-              "correctAnswer": 3
-            },
-            {
-              "question": "What does 'neuf' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "nine"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 10 in French is 'dix'",
-          "questions": [
-            {
-              "question": "What is the number 10 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 0
-            },
-            {
-              "question": "What does 'dix' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        },
-        {
-          "fact": "The number 11 in French is 'onze'",
-          "questions": [
-            {
-              "question": "What is the number 11 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "What does 'onze' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen"
-              ],
-              "correctAnswer": 1
-            }
-          ]
-        },
-        {
-          "fact": "The number 12 in French is 'douze'",
-          "questions": [
-            {
-              "question": "What is the number 12 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'douze' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen"
-              ],
-              "correctAnswer": 2
-            }
-          ]
-        },
-        {
-          "fact": "The number 13 in French is 'treize'",
-          "questions": [
-            {
-              "question": "What is the number 13 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 3
-            },
-            {
-              "question": "What does 'treize' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 14 in French is 'quatorze'",
-          "questions": [
-            {
-              "question": "What is the number 14 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 4
-            },
-            {
-              "question": "What does 'quatorze' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen",
-                "fourteen"
-              ],
-              "correctAnswer": 4
-            }
-          ]
-        },
-        {
-          "fact": "The number 15 in French is 'quinze'",
-          "questions": [
-            {
-              "question": "What is the number 15 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 0
-            },
-            {
-              "question": "What does 'quinze' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        },
-        {
-          "fact": "The number 16 in French is 'seize'",
-          "questions": [
-            {
-              "question": "What is the number 16 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "What does 'seize' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 1
-            }
-          ]
-        },
-        {
-          "fact": "The number 17 in French is 'dix-sept'",
-          "questions": [
-            {
-              "question": "What is the number 17 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'dix-sept' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 2
-            }
-          ]
-        },
-        {
-          "fact": "The number 18 in French is 'dix-huit'",
-          "questions": [
-            {
-              "question": "What is the number 18 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 3
-            },
-            {
-              "question": "What does 'dix-huit' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 19 in French is 'dix-neuf'",
-          "questions": [
-            {
-              "question": "What is the number 19 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 4
-            },
-            {
-              "question": "What does 'dix-neuf' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 4
-            }
-          ]
-        },
-        {
-          "fact": "The number 20 in French is 'vingt'",
-          "questions": [
-            {
-              "question": "What is the number 20 in French?",
-              "answers": [
-                "zwanzig",
-                "vingt"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "True or false: 'vingt' means 20 in French.",
-              "answers": [
-                "true",
-                "false"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        },
-        {
-          "fact": "The number 1 in French is 'un'",
-          "questions": [
-            {
-              "question": "What is the number 1 in French?",
-              "answers": [
-                "un",
-                "deux",
-                "trois",
-                "quatre"
-              ],
-              "correctAnswer": 0
-            },
-            {
-              "question": "What does 'un' mean in French?",
-              "answers": [
-                "one",
-                "two",
-                "three",
-                "four"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        },
-        {
-          "fact": "The number 2 in French is 'deux'",
-          "questions": [
-            {
-              "question": "What is the number 2 in French?",
-              "answers": [
-                "un",
-                "deux",
-                "trois",
-                "quatre"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "What does 'deux' mean in French?",
-              "answers": [
-                "one",
-                "two",
-                "three",
-                "four"
-              ],
-              "correctAnswer": 1
-            }
-          ]
-        },
-        {
-          "fact": "The number 3 in French is 'trois'",
-          "questions": [
-            {
-              "question": "What is the number 3 in French?",
-              "answers": [
-                "un",
-                "deux",
-                "trois",
-                "quatre"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'trois' mean in French?",
-              "answers": [
-                "one",
-                "two",
-                "three",
-                "four"
-              ],
-              "correctAnswer": 2
-            }
-          ]
-        },
-        {
-          "fact": "The number 4 in French is 'quatre'",
-          "questions": [
-            {
-              "question": "What is the number 4 in French?",
-              "answers": [
-                "un",
-                "deux",
-                "trois",
-                "quatre"
-              ],
-              "correctAnswer": 3
-            },
-            {
-              "question": "What does 'quatre' mean in French?",
-              "answers": [
-                "one",
-                "two",
-                "three",
-                "four"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 5 in French is 'cinq'",
-          "questions": [
-            {
-              "question": "What is the number 5 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "huit",
-                "neuf"
-              ],
-              "correctAnswer": 0
-            },
-            {
-              "question": "What does 'cinq' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "eight"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        },
-        {
-          "fact": "The number 6 in French is 'six'",
-          "questions": [
-            {
-              "question": "What is the number 6 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "huit",
-                "neuf"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "What does 'six' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "eight"
-              ],
-              "correctAnswer": 1
-            }
-          ]
-        },
-        {
-          "fact": "The number 7 in French is 'sept'",
-          "questions": [
-            {
-              "question": "What is the number 7 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "sept",
-                "neuf"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'sept' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "eight"
-              ],
-              "correctAnswer": 2
-            }
-          ]
-        },
-        {
-          "fact": "The number 8 in French is 'huit'",
-          "questions": [
-            {
-              "question": "What is the number 8 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "huit",
-                "neuf"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'huit' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "eight"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 9 in French is 'neuf'",
-          "questions": [
-            {
-              "question": "What is the number 9 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "huit",
-                "neuf"
-              ],
-              "correctAnswer": 3
-            },
-            {
-              "question": "What does 'neuf' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "nine"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 10 in French is 'dix'",
-          "questions": [
-            {
-              "question": "What is the number 10 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 0
-            },
-            {
-              "question": "What does 'dix' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        },
-        {
-          "fact": "The number 11 in French is 'onze'",
-          "questions": [
-            {
-              "question": "What is the number 11 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "What does 'onze' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen"
-              ],
-              "correctAnswer": 1
-            }
-          ]
-        },
-        {
-          "fact": "The number 12 in French is 'douze'",
-          "questions": [
-            {
-              "question": "What is the number 12 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'douze' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen"
-              ],
-              "correctAnswer": 2
-            }
-          ]
-        },
-        {
-          "fact": "The number 13 in French is 'treize'",
-          "questions": [
-            {
-              "question": "What is the number 13 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 3
-            },
-            {
-              "question": "What does 'treize' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 14 in French is 'quatorze'",
-          "questions": [
-            {
-              "question": "What is the number 14 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 4
-            },
-            {
-              "question": "What does 'quatorze' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen",
-                "fourteen"
-              ],
-              "correctAnswer": 4
-            }
-          ]
-        },
-        {
-          "fact": "The number 15 in French is 'quinze'",
-          "questions": [
-            {
-              "question": "What is the number 15 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 0
-            },
-            {
-              "question": "What does 'quinze' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        },
-        {
-          "fact": "The number 16 in French is 'seize'",
-          "questions": [
-            {
-              "question": "What is the number 16 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "What does 'seize' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 1
-            }
-          ]
-        },
-        {
-          "fact": "The number 17 in French is 'dix-sept'",
-          "questions": [
-            {
-              "question": "What is the number 17 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'dix-sept' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 2
-            }
-          ]
-        },
-        {
-          "fact": "The number 18 in French is 'dix-huit'",
-          "questions": [
-            {
-              "question": "What is the number 18 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 3
-            },
-            {
-              "question": "What does 'dix-huit' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 19 in French is 'dix-neuf'",
-          "questions": [
-            {
-              "question": "What is the number 19 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 4
-            },
-            {
-              "question": "What does 'dix-neuf' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 4
-            }
-          ]
-        },
-        {
-          "fact": "The number 20 in French is 'vingt'",
-          "questions": [
-            {
-              "question": "What is the number 20 in French?",
-              "answers": [
-                "zwanzig",
-                "vingt"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "True or false: 'vingt' means 20 in French.",
-              "answers": [
-                "true",
-                "false"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        },
-        {
-          "fact": "The number 1 in French is 'un'",
-          "questions": [
-            {
-              "question": "What is the number 1 in French?",
-              "answers": [
-                "un",
-                "deux",
-                "trois",
-                "quatre"
-              ],
-              "correctAnswer": 0
-            },
-            {
-              "question": "What does 'un' mean in French?",
-              "answers": [
-                "one",
-                "two",
-                "three",
-                "four"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        },
-        {
-          "fact": "The number 2 in French is 'deux'",
-          "questions": [
-            {
-              "question": "What is the number 2 in French?",
-              "answers": [
-                "un",
-                "deux",
-                "trois",
-                "quatre"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "What does 'deux' mean in French?",
-              "answers": [
-                "one",
-                "two",
-                "three",
-                "four"
-              ],
-              "correctAnswer": 1
-            }
-          ]
-        },
-        {
-          "fact": "The number 3 in French is 'trois'",
-          "questions": [
-            {
-              "question": "What is the number 3 in French?",
-              "answers": [
-                "un",
-                "deux",
-                "trois",
-                "quatre"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'trois' mean in French?",
-              "answers": [
-                "one",
-                "two",
-                "three",
-                "four"
-              ],
-              "correctAnswer": 2
-            }
-          ]
-        },
-        {
-          "fact": "The number 4 in French is 'quatre'",
-          "questions": [
-            {
-              "question": "What is the number 4 in French?",
-              "answers": [
-                "un",
-                "deux",
-                "trois",
-                "quatre"
-              ],
-              "correctAnswer": 3
-            },
-            {
-              "question": "What does 'quatre' mean in French?",
-              "answers": [
-                "one",
-                "two",
-                "three",
-                "four"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 5 in French is 'cinq'",
-          "questions": [
-            {
-              "question": "What is the number 5 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "huit",
-                "neuf"
-              ],
-              "correctAnswer": 0
-            },
-            {
-              "question": "What does 'cinq' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "eight"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        },
-        {
-          "fact": "The number 6 in French is 'six'",
-          "questions": [
-            {
-              "question": "What is the number 6 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "huit",
-                "neuf"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "What does 'six' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "eight"
-              ],
-              "correctAnswer": 1
-            }
-          ]
-        },
-        {
-          "fact": "The number 7 in French is 'sept'",
-          "questions": [
-            {
-              "question": "What is the number 7 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "sept",
-                "neuf"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'sept' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "eight"
-              ],
-              "correctAnswer": 2
-            }
-          ]
-        },
-        {
-          "fact": "The number 8 in French is 'huit'",
-          "questions": [
-            {
-              "question": "What is the number 8 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "huit",
-                "neuf"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'huit' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "eight"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 9 in French is 'neuf'",
-          "questions": [
-            {
-              "question": "What is the number 9 in French?",
-              "answers": [
-                "cinq",
-                "six",
-                "huit",
-                "neuf"
-              ],
-              "correctAnswer": 3
-            },
-            {
-              "question": "What does 'neuf' mean in French?",
-              "answers": [
-                "five",
-                "six",
-                "seven",
-                "nine"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 10 in French is 'dix'",
-          "questions": [
-            {
-              "question": "What is the number 10 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 0
-            },
-            {
-              "question": "What does 'dix' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        },
-        {
-          "fact": "The number 11 in French is 'onze'",
-          "questions": [
-            {
-              "question": "What is the number 11 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "What does 'onze' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen"
-              ],
-              "correctAnswer": 1
-            }
-          ]
-        },
-        {
-          "fact": "The number 12 in French is 'douze'",
-          "questions": [
-            {
-              "question": "What is the number 12 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'douze' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen"
-              ],
-              "correctAnswer": 2
-            }
-          ]
-        },
-        {
-          "fact": "The number 13 in French is 'treize'",
-          "questions": [
-            {
-              "question": "What is the number 13 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 3
-            },
-            {
-              "question": "What does 'treize' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 14 in French is 'quatorze'",
-          "questions": [
-            {
-              "question": "What is the number 14 in French?",
-              "answers": [
-                "dix",
-                "onze",
-                "douze",
-                "treize",
-                "quatorze"
-              ],
-              "correctAnswer": 4
-            },
-            {
-              "question": "What does 'quatorze' mean in French?",
-              "answers": [
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen",
-                "fourteen"
-              ],
-              "correctAnswer": 4
-            }
-          ]
-        },
-        {
-          "fact": "The number 15 in French is 'quinze'",
-          "questions": [
-            {
-              "question": "What is the number 15 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 0
-            },
-            {
-              "question": "What does 'quinze' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        },
-        {
-          "fact": "The number 16 in French is 'seize'",
-          "questions": [
-            {
-              "question": "What is the number 16 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "What does 'seize' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 1
-            }
-          ]
-        },
-        {
-          "fact": "The number 17 in French is 'dix-sept'",
-          "questions": [
-            {
-              "question": "What is the number 17 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 2
-            },
-            {
-              "question": "What does 'dix-sept' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 2
-            }
-          ]
-        },
-        {
-          "fact": "The number 18 in French is 'dix-huit'",
-          "questions": [
-            {
-              "question": "What is the number 18 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 3
-            },
-            {
-              "question": "What does 'dix-huit' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
-        {
-          "fact": "The number 19 in French is 'dix-neuf'",
-          "questions": [
-            {
-              "question": "What is the number 19 in French?",
-              "answers": [
-                "quinze",
-                "seize",
-                "dix-sept",
-                "dix-huit",
-                "dix-neuf"
-              ],
-              "correctAnswer": 4
-            },
-            {
-              "question": "What does 'dix-neuf' mean in French?",
-              "answers": [
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen"
-              ],
-              "correctAnswer": 4
-            }
-          ]
-        },
-        {
-          "fact": "The number 20 in French is 'vingt'",
-          "questions": [
-            {
-              "question": "What is the number 20 in French?",
-              "answers": [
-                "zwanzig",
-                "vingt"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "True or false: 'vingt' means 20 in French.",
-              "answers": [
-                "true",
-                "false"
-              ],
-              "correctAnswer": 0
-            }
-          ]
-        }
+      "question": "What is the number 1 in French?",
+      "answers": [
+        "un",
+        "deux",
+        "trois",
+        "quatre"
       ],
-      "id": "G_XGsq_CrKo"
+      "correctAnswer": 0,
+      "id": "6t-j-KsvNKY"
+    },
+    {
+      "question": "What does 'un' mean in French?",
+      "answers": [
+        "one",
+        "two",
+        "three",
+        "four"
+      ],
+      "correctAnswer": 0,
+      "id": "MsIUkagaEGM"
+    },
+    {
+      "question": "What is the number 2 in French?",
+      "answers": [
+        "un",
+        "deux",
+        "trois",
+        "quatre"
+      ],
+      "correctAnswer": 1,
+      "id": "-1P-SPbr3YM"
+    },
+    {
+      "question": "What does 'deux' mean in French?",
+      "answers": [
+        "one",
+        "two",
+        "three",
+        "four"
+      ],
+      "correctAnswer": 1,
+      "id": "n0gVZsbOcEY"
+    },
+    {
+      "question": "What is the number 3 in French?",
+      "answers": [
+        "un",
+        "deux",
+        "trois",
+        "quatre"
+      ],
+      "correctAnswer": 2,
+      "id": "sXOfJanupuA"
+    },
+    {
+      "question": "What does 'trois' mean in French?",
+      "answers": [
+        "one",
+        "two",
+        "three",
+        "four"
+      ],
+      "correctAnswer": 2,
+      "id": "Sbofsl6ETio"
+    },
+    {
+      "question": "What is the number 4 in French?",
+      "answers": [
+        "un",
+        "deux",
+        "trois",
+        "quatre"
+      ],
+      "correctAnswer": 3,
+      "id": "HalH23_WLAE"
+    },
+    {
+      "question": "What does 'quatre' mean in French?",
+      "answers": [
+        "one",
+        "two",
+        "three",
+        "four"
+      ],
+      "correctAnswer": 3,
+      "id": "i4__fDFjuVc"
+    },
+    {
+      "question": "What is the number 5 in French?",
+      "answers": [
+        "cinq",
+        "six",
+        "huit",
+        "neuf"
+      ],
+      "correctAnswer": 0,
+      "id": "vClgYJq4_bw"
+    },
+    {
+      "question": "What does 'cinq' mean in French?",
+      "answers": [
+        "five",
+        "six",
+        "seven",
+        "eight"
+      ],
+      "correctAnswer": 0,
+      "id": "xvmKaGQzGhQ"
+    },
+    {
+      "question": "What is the number 6 in French?",
+      "answers": [
+        "cinq",
+        "six",
+        "huit",
+        "neuf"
+      ],
+      "correctAnswer": 1,
+      "id": "iHx7y8TnTCM"
+    },
+    {
+      "question": "What does 'six' mean in French?",
+      "answers": [
+        "five",
+        "six",
+        "seven",
+        "eight"
+      ],
+      "correctAnswer": 1,
+      "id": "sE3s0Xj_-HE"
+    },
+    {
+      "question": "What is the number 7 in French?",
+      "answers": [
+        "cinq",
+        "six",
+        "sept",
+        "neuf"
+      ],
+      "correctAnswer": 2,
+      "id": "wWye5ksEd_4"
+    },
+    {
+      "question": "What does 'sept' mean in French?",
+      "answers": [
+        "five",
+        "six",
+        "seven",
+        "eight"
+      ],
+      "correctAnswer": 2,
+      "id": "jLfsIO7Jw1g"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

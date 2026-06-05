@@ -14,7 +14,10 @@ export async function getQuestion(params={}){
 
     console.log("data function called");
 
-    const result = await fetch(`/api/questions`);
+    //transform the params.paging in a URL query string so API server returns a subset of items based on the page num and the limit per page
+    const pagingQuery =  params.paging ? `_page=${params.paging.page ?? '1'}&_per_page=${params.paging.limit ??'999'}` : '';
+
+    const result = await fetch(`/api/questions${pagingQuery}`);
 
     console.log(result);
 
@@ -29,17 +32,16 @@ export async function getQuestion(params={}){
     //console.log(dataFromAPI);
     console.log(dataFromAPI);
 
-    //grab a random question
-    let facts = dataFromAPI[0].facts;
-    let randChoice = Math.floor(Math.random()*facts.length);
    
-    let randQuestion = Math.floor(Math.random() * facts[randChoice].questions.length);
-    let pickedQuestion = facts[randChoice].questions[randQuestion];
+   
+    let randQuestion = dataFromAPI[Math.floor(Math.random()*dataFromAPI.length)];
+   
+   
     console.log("ONE QUESTION:");
-    console.log(pickedQuestion);
+    console.log(randQuestion);
 
 
    
     // return dataFromAPI;
-    return pickedQuestion;
+    return randQuestion;
 }
