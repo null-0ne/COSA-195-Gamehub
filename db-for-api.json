@@ -1,45 +1,54 @@
-{ "ads": [
-  {
-    "category": "Saskatchewan Polytechnic",
-    "message": "Visit Saskatchewan Polytechnic’s website!",
-    "link": "https://saskpolytech.ca/"
-  },
-  {
-    "category": "Saskatchewan Polytechnic",
-    "message": "Find out about the Saskatchewan Polytechnic Students’ Association (SPSA)",
-    "link": "https://spsa.ca/"
-  },
-  {
-    "category": "Saskatchewan Polytechnic",
-    "message": "SaskPolytech participates in the Skills Canada competitions – visit their website!",
-    "link": "https://www.skillscompetencescanada.com/en/competitions/"
-  },
-  {
-    "category": "Saskatchewan Polytechnic",
-    "message": "SaskPolytech offers Prior Learning Assessment and Recognition (PLAR) credit",
-    "link": "https://saskpolytech.ca/admissions/get-credit/plar.aspx"
-  },
-  {
-    "category": "CST",
-    "message": "See the details of the Computer Systems Technology (CST) program",
-    "link": "https://saskpolytech.ca/programs-and-courses/programs/Computer-Systems-Technology.aspx"
-  },
-  {
-    "category": "CST",
-    "message": "The CST program is accredited by the Canadian Information Processing Society (CIPS) - visit their website!",
-    "link": "https://cips.ca/"
-  },
-  {
-    "category": "CST",
-    "message": "The CST program is offered at the SaskPolytech Saskatoon campus – check it out!",
-    "link": "https://saskpolytech.ca/about/campuses/saskatoon-campus.aspx"
-  },
-  {
-    "category": "CST",
-    "message": "The CST program is offered at the SaskPolytech Regina campus – check it out!",
-    "link": "https://saskpolytech.ca/about/campuses/regina-campus.aspx"
-  }
-],
+{
+  "ads": [
+    {
+      "category": "Saskatchewan Polytechnic",
+      "message": "Visit Saskatchewan Polytechnic’s website!",
+      "link": "https://saskpolytech.ca/",
+      "id": "8255dN-DYcM"
+    },
+    {
+      "category": "Saskatchewan Polytechnic",
+      "message": "Find out about the Saskatchewan Polytechnic Students’ Association (SPSA)",
+      "link": "https://spsa.ca/",
+      "id": "KsefvauQog8"
+    },
+    {
+      "category": "Saskatchewan Polytechnic",
+      "message": "SaskPolytech participates in the Skills Canada competitions – visit their website!",
+      "link": "https://www.skillscompetencescanada.com/en/competitions/",
+      "id": "iTRB7QcJcUU"
+    },
+    {
+      "category": "Saskatchewan Polytechnic",
+      "message": "SaskPolytech offers Prior Learning Assessment and Recognition (PLAR) credit",
+      "link": "https://saskpolytech.ca/admissions/get-credit/plar.aspx",
+      "id": "zyxefatb9lE"
+    },
+    {
+      "category": "CST",
+      "message": "See the details of the Computer Systems Technology (CST) program",
+      "link": "https://saskpolytech.ca/programs-and-courses/programs/Computer-Systems-Technology.aspx",
+      "id": "mu9-fLoSAOw"
+    },
+    {
+      "category": "CST",
+      "message": "The CST program is accredited by the Canadian Information Processing Society (CIPS) - visit their website!",
+      "link": "https://cips.ca/",
+      "id": "YmyjKDe_qSQ"
+    },
+    {
+      "category": "CST",
+      "message": "The CST program is offered at the SaskPolytech Saskatoon campus – check it out!",
+      "link": "https://saskpolytech.ca/about/campuses/saskatoon-campus.aspx",
+      "id": "zkT2GL5sn6g"
+    },
+    {
+      "category": "CST",
+      "message": "The CST program is offered at the SaskPolytech Regina campus – check it out!",
+      "link": "https://saskpolytech.ca/about/campuses/regina-campus.aspx",
+      "id": "jz7wY_i3Yho"
+    }
+  ],
   "scores": [
     {
       "id": "1",
@@ -137,6 +146,29 @@
       "id": "1",
       "email": "ogugofor2899@saskpolytech.ca",
       "password": "123abc"
+    },
+    {
+      "email": "testing@saskpolytech.ca",
+      "password": "123456789",
+      "id": "xNhoe5_5Cw8"
+    },
+    {
+      "email": "testing2@saskpolytech.ca",
+      "password": "123456789",
+      "gamerTag": "player2",
+      "id": "pykg1lwQc5E"
+    },
+    {
+      "email": "testing3@saskpolytech.ca",
+      "password": "123456789",
+      "gamerTag": "player2",
+      "id": "w4k9s-Yokw4"
+    },
+    {
+      "email": "testing4@saskpolytech.ca",
+      "password": "123456789",
+      "gamerTag": "player2",
+      "id": "7-J4Y5hcXsw"
     }
   ],
   "products": [

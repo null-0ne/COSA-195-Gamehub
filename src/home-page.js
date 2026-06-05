@@ -10,7 +10,7 @@ export default function renderHomePage(
 ) {
   //set the content for the home page
   element.innerHTML = `
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between" id="cardContainer">
       <a href="/craps" class="link-underline link-underline-opacity-0">
       <div class="card mt-4">
         <image src="/images/crapsImg.png" class="card-img-top gameImg" alt="craps game" />

@@ -4,12 +4,12 @@ export default function renderFooter(
     {
     "category": "default",
     "message": "This could be your advertisement",
-    "link": "#"
+    "link": "https://saskpolytech.ca/"
     },
     {
     "category": "default",
     "message": "This is a default advertisement",
-    "link": "#"
+    "link": "https://saskpolytech.ca/"
     }], interval:1000} /* default advertisement array*/
 ) {
     //set the content of the nav bar
@@ -18,7 +18,7 @@ export default function renderFooter(
     const messagesHTML = params.ads.reduce((str, ad, i) => `
     ${str}
         <div class="carousel-item ${i === 0 ? 'active' : ''}" >
-            <a href="${ad.link}" class="text-white">${ad.message}</a>
+            <a target="_blank" href=${ad.link} class="text-white">${ad.message}</a>
         </div>
     `, '');
 

@@ -23,7 +23,7 @@ const navElement = document.querySelector(".navbar");
 const footerElement = document.querySelector("footer .container");
 const ads = await retrieveAds(); //This retrieves the ads from the api
 //renderNavBar(navElement);
-//renderFooter(footerElement, {ads:ads, interval:1000});
+renderFooter(footerElement, {ads:ads, interval:1000});
 // Creat an instance of the Navigo library used to route to different "Pages"
 const router = new Navigo("/", { linksSelector: "a" });
 
@@ -44,32 +44,32 @@ router
   .on("/leaderboard", (url) => {
     renderLeaderboardPage(appElement);
     renderNavBar(navElement, {title:"Leaderboard"});
-    renderFooter(footerElement, {ads:ads, interval:1000});
+    //renderFooter(footerElement, {ads:ads, interval:1000});
   })
   .on("/craps", (url) => {
     renderCrapsPage(appElement);
     renderNavBar(navElement, {title:"Craps"});
-    renderFooter(footerElement, {ads:ads, interval:1000});
+    //renderFooter(footerElement, {ads:ads, interval:1000});
   })
   .on("/yahtzee-count", (url) => {
     renderYahtzeeCountPage(appElement);
     renderNavBar(navElement, {title:"Yahtzee Count"});
-    renderFooter(footerElement, {ads:ads, interval:1000});
+    //renderFooter(footerElement, {ads:ads, interval:1000});
   })
   .on("/login", (url) => {
     renderLoginPage(appElement);
     renderNavBar(navElement, {title:"Login"});
-    renderFooter(footerElement, {ads:ads, interval:1000});
+    //renderFooter(footerElement, {ads:ads, interval:1000});
   })
   .on("/register", (url) => {
     renderRegisterPage(appElement);
     renderNavBar(navElement, {title:"Register"});
-    renderFooter(footerElement, {ads:ads, interval:1000});
+   // renderFooter(footerElement, {ads:ads, interval:1000});
   })
   .on(() => {
     renderHomePage(appElement, { title: "Home Page" });
     renderNavBar(navElement, {title:"Dashboard"});
-    renderFooter(footerElement, {ads:ads, interval:1000});
+    //renderFooter(footerElement, {ads:ads, interval:1000});
     })
   .resolve(); // execute the JS module to render the page
 

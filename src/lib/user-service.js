@@ -24,12 +24,17 @@ export async function retrieveLogin(email, password){
     }
 }
 
-export async function register(email, password){
+export async function register(email, password, gamerTag){
     try{
         const checkEmail = await fetch(`/api/users?email=${email}`);
         const userExists = await checkEmail.json();
         console.log(userExists);
         if(userExists.length > 0){ //user already exists
+            return {id:"exists"};
+        } 
+        const checkGamerTag = await fetch(`/api/users?gamerTag=${gamerTag}`);
+        const gamerTagExists = await checkGamerTag.json();
+        if(gamerTagExists.length > 0){
             return {id:"exists"};
         }
         const response = await fetch(`/api/users`, {
@@ -37,7 +42,7 @@ export async function register(email, password){
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({email, password})
+            body: JSON.stringify({email, password, gamerTag})
         });
         const user = await response.json();
         sessionStorage.setItem("email", email);
