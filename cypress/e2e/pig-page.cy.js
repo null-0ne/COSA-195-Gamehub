@@ -64,4 +64,17 @@ describe("pig solitaire page test", () => {
     cy.get("#updateScore").should("contain", "0");
     cy.get("#updateRolls").should("contain", "0");
   });
+
+  it("Updates the previous roll image properly after rolling more than once", () => {
+    cy.get("#btnRoll").click();
+    cy.wait(1200);
+    cy.get(".lockable-dice")
+      .invoke("attr", "src")
+      .then((image) => {
+        let firstNum = image.charAt(12);
+        cy.get("#btnRoll").click();
+        cy.wait(1200);
+        cy.get("#lastRolled").invoke("attr", "src").should("contain", firstNum);
+      });
+  });
 });
