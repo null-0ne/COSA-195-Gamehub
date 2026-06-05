@@ -32,8 +32,8 @@ export default function renderYahtzeeCountPage(
             <div class="col-6 border border-secondary rounded grey ">
               <div class="gameplay">
               </div>
-              <div class="text-center pt-5">
-                <h1>Total Rolls: <span id="updateScore">0</span></h1>
+              <div class="text-center py-5">
+                <h1>Current Rolls: <span id="updateScore">0</span></h1>
               </div>
             </div>
             <div class="col-6 padding-lg border border-secondary rounded grey score-form">
@@ -101,7 +101,7 @@ to get the final score (lower scores are better). </li>
     lockable: true,
     finishedRolling: function () {
       this.rolls.push(1);
-      document.getElementById("updateScore").innerHTML = this.rolls.length;
+      document.getElementById("updateScore").innerHTML = this.rolls.reduce((a, b) => a + b, 0);
     },
   };
 

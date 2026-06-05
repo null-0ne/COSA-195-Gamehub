@@ -8,7 +8,7 @@ export default function renderYahtzeeScoreCard(
   element = document.createElement("div") /**/,
   params = {} /*An object that should contain the score, the postScores function and the span to update the score on the page*/,
 ) {
-  element.innerHTML = `<div class="container">
+  element.innerHTML = `<div class="container pt-5">
   <div class="row">
     <div class="col-md-6">
       <div class="row mb-2">
@@ -93,12 +93,16 @@ export default function renderYahtzeeScoreCard(
         <div class="col text-center">
           <button id="btnSubmit" class="btn btn-primary">Submit Score</button>
           </div>
+          <div class="text-center py-5">
+                <h1>Total Rolls: <span id="totalScore">0</span></h1>
+              </div>
         </div>
       </div>
   `;
 
   const inputs = element.querySelectorAll(".catInput");
   const categories = element.querySelectorAll(".catName");
+  const diceButtons = document.querySelectorAll(".lockable-dice");
 
   /**
    * Helper to find the counts of dice
@@ -127,26 +131,42 @@ export default function renderYahtzeeScoreCard(
     }, 1100);
   });
 
+  for (const box of inputs) {
+    box.addEventListener("click", () => boxEvent(box));
+    box.disabled = true;
+    box.style.backgroundColor = "white";
+  }
   function gameLogic() {
     const counts = getCounts(params.dice);
-    console.log(counts);
+    console.log(params.rolls.reduce((a, b) => a + b, 0));
     for (const box of inputs) {
-      box.style.backgroundColor = "white";
       if (canScore(counts, box.id)) {
         box.style.backgroundColor = "yellow";
-        box.addEventListener("click", function boxEvent() {
-          box.value = params.rolls.reduce((a, b) => a + b, 0);
-          params.rolls.fill(0);
-          box.disabled = true;
-          // for (const box of inputs) {
-          //   if (box.style.backgroundColor == "yellow") {
-          //     box.style.backgroundColor = "white";
-          //     box.removeEventListener("click", boxEvent());
-          //   }
-          // }
-        });
+        box.disabled = false;
+      } else {
+        box.disabled = true;
+        box.style.backgroundColor = "white";
       }
     }
+  }
+  function boxEvent(box) {
+    box.value = params.rolls.reduce((a, b) => a + b, 0);
+    for (const boxx of inputs) {
+      boxx.disabled = true;
+      boxx.style.backgroundColor = "white";
+    }
+    document.getElementById("totalScore").innerHTML = params.rolls.length;
+    params.rolls.fill(0);
+    document.getElementById("updateScore").innerHTML = params.rolls.reduce(
+      (a, b) => a + b,
+      0,
+    );
+    for (let button of diceButtons) {
+      if (button.classList.contains("dice-img-lock")) {
+        button.click();
+      }
+    }
+    document.getElementById("btnRoll").click();
   }
 
   function canScore(counts, boxId) {
@@ -231,7 +251,6 @@ export default function renderYahtzeeScoreCard(
 
   function hasThreeOfAKind(counts) {
     for (let value of counts) {
-      console.log(value);
       if (value >= 3) {
         return true;
         break;
@@ -246,22 +265,6 @@ export default function renderYahtzeeScoreCard(
       }
     }
     return false;
-  }
-  function hasFullHouse(counts) {
-    // let tok = false;
-    // let twoOK = false;
-    // for (let value of counts) {
-    //   if (value >= 3) {
-    //     tok = true;
-    //     continue
-    //   }
-    //   if(value >= 2)
-    //   {
-    //     twoOk = true;
-    //     continue;
-    //   }
-    // }
-    // return twoOK && tok;
   }
 
   function hasStraight(dice, length) {
