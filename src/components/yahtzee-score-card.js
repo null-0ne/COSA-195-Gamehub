@@ -100,8 +100,6 @@ export default function renderYahtzeeScoreCard(
   const inputs = element.querySelectorAll(".catInput");
   const categories = element.querySelectorAll(".catName");
 
-  params.dice.addEventListener("change", getCounts);
-
   /**
    * Helper to find the counts of dice
    * @param {*} dice
@@ -120,47 +118,151 @@ export default function renderYahtzeeScoreCard(
     // for (let die of dice) {
     //   counts[die] = (counts[die] || 0) + 1;
     // }
-    console.log(counts);
+
     return counts;
   }
+  document.getElementById("btnRoll").addEventListener("click", () => {
+    let updateLogic = setTimeout(() => {
+      gameLogic();
+    }, 1100);
+  });
 
   function gameLogic() {
+    const counts = getCounts(params.dice);
+    console.log(counts);
     for (const box of inputs) {
-      if (canScore(params.dice, box.id)) {
-        box.addEventListener("click", () => {
+      box.style.backgroundColor = "white";
+      if (canScore(counts, box.id)) {
+        box.style.backgroundColor = "yellow";
+        box.addEventListener("click", function boxEvent() {
           box.value = params.rolls.reduce((a, b) => a + b, 0);
           params.rolls.fill(0);
+          box.disabled = true;
+          // for (const box of inputs) {
+          //   if (box.style.backgroundColor == "yellow") {
+          //     box.style.backgroundColor = "white";
+          //     box.removeEventListener("click", boxEvent());
+          //   }
+          // }
         });
       }
     }
   }
 
-  function canScore(dice, boxId) {
-    const counts = getCounts(params.dice);
-
-    const values = Object.values(counts);
-
+  function canScore(counts, boxId) {
     switch (boxId) {
       case "Ones":
-        return counts[0] >= 3;
+        return (
+          counts[0] >= 3 &&
+          params.rolls.reduce((a, b) => a + b, 0) > 0 &&
+          document.getElementById("Ones").value == ""
+        );
       case "Twos":
-        return true;
+        return (
+          counts[1] >= 3 &&
+          params.rolls.reduce((a, b) => a + b, 0) > 0 &&
+          document.getElementById("Twos").value == ""
+        );
       case "Threes":
-        return true;
+        return (
+          counts[2] >= 3 &&
+          params.rolls.reduce((a, b) => a + b, 0) > 0 &&
+          document.getElementById("Threes").value == ""
+        );
       case "Fours":
-        return true;
+        return (
+          counts[3] >= 3 &&
+          params.rolls.reduce((a, b) => a + b, 0) > 0 &&
+          document.getElementById("Fours").value == ""
+        );
       case "Fives":
-        return true;
+        return (
+          counts[4] >= 3 &&
+          params.rolls.reduce((a, b) => a + b, 0) > 0 &&
+          document.getElementById("Fives").value == ""
+        );
       case "Sixes":
-        return true;
+        return (
+          counts[5] >= 3 &&
+          params.rolls.reduce((a, b) => a + b, 0) > 0 &&
+          document.getElementById("Sixes").value == ""
+        );
       case "ThreeOfAKind":
-        return true;
+        return (
+          hasThreeOfAKind(counts) &&
+          params.rolls.reduce((a, b) => a + b, 0) > 0 &&
+          document.getElementById("ThreeOfAKind").value == ""
+        );
+      case "FourOfAKind":
+        return (
+          hasFourOfAKind(counts) &&
+          params.rolls.reduce((a, b) => a + b, 0) > 0 &&
+          document.getElementById("FourOfAKind").value == ""
+        );
+      case "SmallStraight":
+        return (
+          hasStraight(params.dice, params.dice.length - 1) &&
+          params.rolls.reduce((a, b) => a + b, 0) > 0 &&
+          document.getElementById("SmallStraight").value == ""
+        );
+      case "LargeStraight":
+        return (
+          hasStraight(params.dice, params.dice.length) &&
+          params.rolls.reduce((a, b) => a + b, 0) > 0 &&
+          document.getElementById("LargeStraight").value == ""
+        );
+      case "FullHouse":
+        return (
+          counts.includes(3) &&
+          counts.includes(2) &&
+          params.rolls.reduce((a, b) => a + b, 0) > 0 &&
+          document.getElementById("FullHouse").value == ""
+        );
+      case "Yahtzee":
+        return (
+          counts.includes(5) &&
+          params.rolls.reduce((a, b) => a + b, 0) > 0 &&
+          document.getElementById("Yahtzee").value == ""
+        );
       default:
         return false;
     }
   }
 
-  function hasThreeOfAKind(dice) {}
+  function hasThreeOfAKind(counts) {
+    for (let value of counts) {
+      console.log(value);
+      if (value >= 3) {
+        return true;
+        break;
+      }
+    }
+    return false;
+  }
+  function hasFourOfAKind(counts) {
+    for (let value of counts) {
+      if (value >= 4) {
+        return true;
+      }
+    }
+    return false;
+  }
+  function hasFullHouse(counts) {
+    // let tok = false;
+    // let twoOK = false;
+    // for (let value of counts) {
+    //   if (value >= 3) {
+    //     tok = true;
+    //     continue
+    //   }
+    //   if(value >= 2)
+    //   {
+    //     twoOk = true;
+    //     continue;
+    //   }
+    // }
+    // return twoOK && tok;
+  }
 
   function hasStraight(dice, length) {
     const uniqueDice = [...new Set(dice)].sort((a, b) => a - b);
