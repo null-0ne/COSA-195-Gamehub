@@ -82,8 +82,7 @@ export default function renderYahtzeeScoreCard(
   }
   async function submitScore()
   {
-   // params.submitScores(params.totalScore);
-
+    params.submitScores(params.totalScore);
   }
   // element.querySelector("#btnSubmit")
     

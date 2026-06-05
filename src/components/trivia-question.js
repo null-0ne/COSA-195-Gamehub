@@ -14,18 +14,18 @@ export function renderTriviaQuestion(
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Skill Test Question</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" id='radio'>
-        ${params.questions.question}
+        ${params.questions.question}<br>
 
         
       </div>
       
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" form="form" class="btn btn-primary" id='subButton'>Submit</button>
+        <button type="submit" form="form" class="btn btn-primary" data-bs-dismiss="modal" id='subButton'>Submit</button>
       </div>
     </div>
   </div>
@@ -34,35 +34,16 @@ export function renderTriviaQuestion(
 
   for(let i = 0; i < params.questions.answers.length; i++)
   {
-    document.getElementById("radio").innerHTML += `
+    element.querySelector("#radio").innerHTML += `
 
 <input type="radio" id="${i}" name="fav_language" value="${i}" checked>
 <label for="html">${params.questions.answers[i]}</label><br>`
 
   }
 
-  
-
-
 
   return element;
 }
 
-// export function returnAnswer(){
-//     document.getElementById("subButton").onclick = () => {
-//           if(document.querySelector('input[name="fav_language"]:checked').value === params.question.correctAnswer)
-//             {
-//               return true;
-//             }
-//             else
-//               {
-//                 return false;
-//             }
-//   }
-//   }
-
-
-  //params = {questions: {}, onCorrect: function(){return false;},
-   //   onInCorrect: function(){return false;}}
 
    

@@ -1781,6 +1781,42 @@
         "email": "john@saskpolytech.ca"
       },
       "id": "sYI4dIBwOA0"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "zLZ6uiKjoBM"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "PJiAS1Qq1R8"
+    },
+    {
+      "score": 0,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "W0TPZI3ZujE"
+    },
+    {
+      "score": 3,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": 1,
+        "email": "john@saskpolytech.ca"
+      },
+      "id": "1RJPQq_9-dM"
     }
   ],
   "users": [

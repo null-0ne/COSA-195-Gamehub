@@ -99,11 +99,12 @@ async function render()
     console.log("correct:" + qData.correctAnswer);
             if(document.querySelector('input[name="fav_language"]:checked').value == qData.correctAnswer)
              {
-              console.log("True");
+                sharedParams.submitScores();
              }
              else
-               {
-                 console.log("false");
+            {
+                window.alert("You answered Wrong game will be reset");
+                location.reload();
              }
   })
 }
@@ -131,6 +132,5 @@ render();
     });
   }
 
-  
   return element;
 }
