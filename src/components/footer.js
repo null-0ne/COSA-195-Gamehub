@@ -10,7 +10,7 @@ export default function renderFooter(
     "category": "default",
     "message": "This is a default advertisement",
     "link": "#"
-    }]} /* default advertisement array*/
+    }], interval:1000} /* default advertisement array*/
 ) {
     //set the content of the nav bar
     //use the built-in JS array function 'reduce' to convert the array of product objects in to an HTML string
@@ -23,7 +23,7 @@ export default function renderFooter(
     `, '');
 
     element.innerHTML = `   
-    <div id="carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+    <div id="carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="${params.interval}">
         <div class="carousel-inner text-center " id="carouselDiv">
             ${messagesHTML}
         </div>
