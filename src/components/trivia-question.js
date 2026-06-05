@@ -1,8 +1,8 @@
 "use strict"
 
 export function renderTriviaQuestion(
-        element = document.createElement("div")
-        , params = {questions: {}, onCorrect: function(){return false;},
+        element = document.createElement("div"),
+        params = {questions: {}, onCorrect: function(){return false;},
       onInCorrect: function(){return false;}}
         ) {
             //console.log(element);
@@ -18,7 +18,7 @@ export function renderTriviaQuestion(
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" id='radio'>
-        ${params.question.question}
+        ${params.questions.question}
 
         
       </div>
@@ -32,12 +32,12 @@ export function renderTriviaQuestion(
 </div>
 `;
 
-  for(let i = 0; i < params.question.answers.length; i++)
+  for(let i = 0; i < params.questions.answers.length; i++)
   {
     document.getElementById("radio").innerHTML += `
 
 <input type="radio" id="${i}" name="fav_language" value="${i}" checked>
-<label for="html">${params.question.answers[i]}</label><br>`
+<label for="html">${params.questions.answers[i]}</label><br>`
 
   }
 
@@ -48,14 +48,21 @@ export function renderTriviaQuestion(
   return element;
 }
 
-export function returnAnswer(){
-    document.getElementById("subButton").onclick = () => {
-          if(document.querySelector('input[name="fav_language"]:checked').value === params.question.correctAnswer)
-            {
-              return true;
-            }
-            else{
-                return false;
-            }
-  }
-  }
+// export function returnAnswer(){
+//     document.getElementById("subButton").onclick = () => {
+//           if(document.querySelector('input[name="fav_language"]:checked').value === params.question.correctAnswer)
+//             {
+//               return true;
+//             }
+//             else
+//               {
+//                 return false;
+//             }
+//   }
+//   }
+
+
+  //params = {questions: {}, onCorrect: function(){return false;},
+   //   onInCorrect: function(){return false;}}
+
+   

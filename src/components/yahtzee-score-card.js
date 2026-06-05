@@ -7,6 +7,7 @@
 
 import { getQuestion } from "../lib/question-service";
 import { renderTriviaQuestion } from "./trivia-question";
+// import { returnAnswer } from "./trivia-question";
 
 export default function renderYahtzeeScoreCard(
   element = document.createElement("div") /**/,
@@ -81,14 +82,12 @@ export default function renderYahtzeeScoreCard(
   }
   async function submitScore()
   {
-        let qData = await getQuestion();
-    renderTriviaQuestion(document.getElementById("Test"), {question:qData, onCorrect: function(){},  onInCorrect: function(){}});
-    let answer = returnAnswer(qData.answer);
-    params.submitScores(params.totalScore);
+   // params.submitScores(params.totalScore);
+
   }
-  element.querySelector("#btnSubmit")
+  // element.querySelector("#btnSubmit")
     
-    .addEventListener("click", submitScore);
+  //   .addEventListener("click", submitScore);
 
     
   

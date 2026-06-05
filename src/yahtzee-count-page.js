@@ -12,7 +12,7 @@ import renderGameplaySection from "./components/gameplay-section.js";
 import renderHelpSlider from "./components/help-slider.js";
 import {renderTriviaQuestion} from "./components/trivia-question.js"; 
 import { getQuestion } from "./lib/question-service.js";
-import { returnAnswer } from "./components/trivia-question.js";
+// import { returnAnswer } from "./components/trivia-question.js";
 /**
  * Render function to inject content into an HTML element
  * @param {*} element - HTML element target container
@@ -90,6 +90,26 @@ game is over. The number of rolls for each combination is totaled
 to get the final score (lower scores are better). </li>
 </ul>`});
 
+async function render()
+{
+  let qData = await getQuestion();
+  renderTriviaQuestion(document.getElementById("Test"), {questions: qData});
+  document.getElementById("subButton").addEventListener("click", function(){
+    console.log(document.querySelector('input[name="fav_language"]:checked').value);
+    console.log("correct:" + qData.correctAnswer);
+            if(document.querySelector('input[name="fav_language"]:checked').value == qData.correctAnswer)
+             {
+              console.log("True");
+             }
+             else
+               {
+                 console.log("false");
+             }
+  })
+}
+
+render();
+
 
 
 
@@ -111,17 +131,6 @@ to get the final score (lower scores are better). </li>
     });
   }
 
-   //sam code
-   //table button:nth-of-type()
-  // let btnPress = document.querySelectorAll("button")[4];
-  // console.log(btnPress);
-  // btnPress.addEventListener("click", async function(){
-  //   console.log("test");
-    
-    
-  // });
-
-   
-  //return the element in case it is needed for further logic
+  
   return element;
 }
