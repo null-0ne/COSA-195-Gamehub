@@ -40,8 +40,9 @@ export default function renderPigPage(
               <h1 class="me-5">BANKED SCORE: <span id="bankedScore">0</span></h1>
           </div>
           <div class="d-flex flex-row-reverse me-5">
-              <button class="btn btn-primary me-5" id="btnReset" type="button" >Reset Game</button>
+              <button class="btn btn-primary " id="btnReset" type="button" >Reset Game</button>
               <button class="btn btn-primary me-3" id="btnSubmit" type="button" >Submit Score</button>
+              <button id="btnBank" class="btn btn-primary me-3">Bank Score</button>
               
           </div>
         </div>

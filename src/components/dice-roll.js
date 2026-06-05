@@ -45,12 +45,7 @@ export default function renderDiceRoll(
     `,
   );
 
-  if (params.dice.length === 1) {
-    element.innerHTML += `<div><button id="btnRoll">ROLL</button></div>`;
-    element.innerHTML += `<button id="btnBank">BANK</button>`;
-  } else {
-    element.innerHTML += `<button id="btnRoll">ROLL</button>`;
-  }
+  element.innerHTML += `<div><button id="btnRoll">ROLL</button></div>`;
 
   //find dice and add click event listener
   if (params.lockable) {
