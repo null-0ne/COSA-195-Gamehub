@@ -23,7 +23,7 @@ export default function renderDiceRoll(
     finishedRolling: function () {
       console.log("Finished rolling");
     },
-  } /* default is face down */,
+  },
 ) {
   // boostrap classes for flex
   const bsFlex = "d-flex flex-wrap justify-content-center align-items-center";
@@ -31,9 +31,9 @@ export default function renderDiceRoll(
   element.setAttribute("class", `${bsFlex}`);
 
   element.innerHTML = params.dice.reduce(
-    (str, d) => `
+    (str, d, i) => `
     ${str}
-    <div class="dice-div m-2 position-relative ${bsFlex} w-25" data-arrIndex="${d - 1}">
+    <div class="dice-div m-2 position-relative ${bsFlex} w-25" data-arr-index="${i}">
             <img class="lockable-dice w-75 min position-absolute" src="images/dice${d}.png" alt="dice ${d}" />
             <img class="locked w-75 min position-absolute" src="/images/dice-${d}-lock.png" />
     </div>`,
@@ -49,10 +49,14 @@ export default function renderDiceRoll(
   //find dice and add click event listener
   if (params.lockable) {
     element.querySelectorAll(".lockable-dice").forEach((dice) => {
-      dice.addEventListener("click", ({ target: dice }) => {
-        (dice.classList.toggle("dice-img-lock"),
-          element.querySelector(".locked").classList.toggle("dice-img-lock"),
-          dice.classList.toggle("opacity-25"));
+      dice.addEventListener("click", ({ target }) => {
+        // Find the matching lock image in the same dice-div
+        const lockImg = target.closest(".dice-div").querySelector(".locked");
+
+        target.classList.toggle("dice-img-lock");
+        target.classList.toggle("opacity-25");
+
+        lockImg.classList.toggle("dice-img-lock");
       });
     });
   }
@@ -75,25 +79,20 @@ export default function renderDiceRoll(
       ".lockable-dice:not(.dice-img-lock)",
     );
 
-    const lockImg = element.querySelectorAll(".locked:not(.dice-img-lock)");
+    const lockImgs = element.querySelectorAll(".locked");
 
     isRolling = true;
 
     let rollAnimation = setInterval(() => {
-      let i = 0;
       for (const die of unlockedDice) {
-        //const i = die.getAttribute("data-arrIndex");
         randomDiceFace = Math.floor(Math.random() * 6 + 1);
-        params.dice[i++] = randomDiceFace;
-        console.log(i);
+        params.dice[die.parentElement.getAttribute("data-arr-index")] =
+          randomDiceFace;
 
         die.src = `/images/dice${randomDiceFace}.png`;
       }
       for (let j = 0; j < params.dice.length; j++) {
-        let dieVal = unlockedDice[j].src.charAt(
-          unlockedDice[j].src.lastIndexOf("e") + 1,
-        );
-        lockImg[j].src = `/images/dice-${dieVal}-lock.png`;
+        lockImgs[j].src = `/images/dice-${params.dice[j]}-lock.png`;
       }
     }, 100);
 
@@ -102,7 +101,6 @@ export default function renderDiceRoll(
 
       isRolling = false;
       params.finishedRolling();
-      console.log(params.dice);
     }, 1000);
   }
 

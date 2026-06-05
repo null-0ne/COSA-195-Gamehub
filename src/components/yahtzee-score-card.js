@@ -114,6 +114,42 @@ export default function renderYahtzeeScoreCard(
     return counts;
   }
 
+  for (const box of inputs) {
+    if (canScore(params.dice, box.id)) {
+      box.addEventListener("click", () => {
+        box.value = params.rolls.reduce((a, b) => a + b, 0);
+        params.rolls.fill(0);
+      });
+    }
+  }
+
+  function canScore(dice, boxId) {
+    const counts = getCounts(dice);
+    
+    switch (boxId) {
+      case "Ones":
+        return true;
+      case "Twos":
+        return true;
+      case "Threes":
+        return true;
+      case "Fours":
+        return true;
+      case "Fives":
+        return true;
+      case "Sixes":
+        return true;
+      case "ThreeOfAKind":
+        return 
+      default:
+        return false;
+    }
+  }
+
+  function hasThreeOfAKind(dice) {
+
+  }
+
   function hasStraight(dice, length) {
     const uniqueDice = [...new Set(dice)].sort((a, b) => a - b);
 

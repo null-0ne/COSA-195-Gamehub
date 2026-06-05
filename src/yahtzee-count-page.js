@@ -84,9 +84,7 @@ to get the final score (lower scores are better). </li>
   });
 
   const sharedParams = {
-    totalScore: 0,
-    totalRolls: 0,
-    rollCount: 0,
+    rolls: [],
 
     scoreSpan: document.getElementById("updateScore"),
 
@@ -102,8 +100,8 @@ to get the final score (lower scores are better). </li>
     dice: [1, 2, 3, 4, 5],
     lockable: true,
     finishedRolling: function () {
-      this.rollCount++;
-      this.totalRolls++;
+      this.rolls.push(1);
+      document.getElementById("updateScore").innerHTML = this.rolls.length;
 
       //triggering category highlights after each roll
       if (typeof window.updateHighlights === "function") {
