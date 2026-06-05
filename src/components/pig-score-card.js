@@ -17,7 +17,7 @@ export default function renderPigScorecard(
 
   element.innerHTML = `
   <h1>Previous Roll:</h1>
-  <img id="lastRolled" src="images/dice0.png" alt="dice"></img>
+  <img id="lastRolled" class="position-absolute top-50 start-50 translate-middle w-50 min mw-50" src="images/dice0.png" alt="dice"></img>
   `;
 
   return element;

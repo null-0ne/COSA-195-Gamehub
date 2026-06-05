@@ -45,9 +45,11 @@ export default function renderDiceRoll(
     `,
   );
 
-  element.innerHTML += `<button id="btnRoll">ROLL</button>`;
-  if (params.dice.length === 1){
+  if (params.dice.length === 1) {
+    element.innerHTML += `<div><button id="btnRoll">ROLL</button></div>`;
     element.innerHTML += `<button id="btnBank">BANK</button>`;
+  } else {
+    element.innerHTML += `<button id="btnRoll">ROLL</button>`;
   }
 
   //find dice and add click event listener
@@ -61,7 +63,7 @@ export default function renderDiceRoll(
   }
 
   element.querySelector("#btnRoll").addEventListener("click", diceRoll);
-  
+
   let isRolling = false;
 
   /**

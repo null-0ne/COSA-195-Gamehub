@@ -15,7 +15,7 @@ export default function renderPigPage(
   // set the content of the element
   element.innerHTML = `
     <div>
-        ${params.title}</h1>
+        
         <div class="">
           <div class='d-flex justify-content-end pt-3'>
     <div id='divHelp'></div>
@@ -23,7 +23,8 @@ export default function renderPigPage(
     </div>
         </div>
           <div class="row">
-            <div class="col-8 boder border-secondary rounded grey ">
+            <div class="col-7 border-secondary rounded grey me-5">
+            <h1>Current Roll:</h1>
               <div class="gameplay">
               </div>
               <div class="text-center pt-5">
@@ -31,13 +32,17 @@ export default function renderPigPage(
                 <h1>Number of Rolls: <span id="updateRolls">0</span></h1>
               </div>
             </div>
-            <div class="col-4 border border-secondary rounded grey score-form align-items-center d-flex flex-wrap">
+            <div class="col-4 border border-secondary rounded grey score-form position-relative ms-5 ">
             </div>
-            <div>
-              <h1 >BANKED SCORE: <span id="bankedScore">0</span></h1>
-              <button class="btn btn-primary" id="btnSubmit" type="button" >Submit Score</button>
-              <button class="btn btn-primary" id="btnReset" type="button" >Reset Game</button>
-            </div>
+            
+          </div>
+          <div class="d-flex flex-row-reverse">
+              <h1 class="me-5">BANKED SCORE: <span id="bankedScore">0</span></h1>
+          </div>
+          <div class="d-flex flex-row-reverse me-5">
+              <button class="btn btn-primary me-5" id="btnReset" type="button" >Reset Game</button>
+              <button class="btn btn-primary me-3" id="btnSubmit" type="button" >Submit Score</button>
+              
           </div>
         </div>
     </div>
@@ -54,8 +59,9 @@ Each round, a player repeatedly rolls a dice until a one is rolled or the player
 <li>If the player rolls any other number, it is added to their turn total and the player's turn continues.</li>
 <li>If the player rolls a one twice in a row, they will lose their banked points and have to start all over again.</li>
 </ul>
-<p><strong>Once a player</strong></p>
-<p>For example</p>`,
+<p><strong>Once a player's score reaches 100+, they win and the game ends. To submit their score they must answer a trivia question.
+ Their position on the leaderboard is determined by how many rolls it took for them to win multiplied by the number of banks they used.</strong></p>
+`,
   });
 
   let lastRoll = 0;
@@ -93,8 +99,7 @@ Each round, a player repeatedly rolls a dice until a one is rolled or the player
 
       if (numRolled === 1) {
         this.scoreSpan.innerHTML = 0;
-        if(lastRoll === 1)
-        {
+        if (lastRoll === 1) {
           bankedPoints = 0;
           document.getElementById("bankedScore").innerHTML = bankedPoints;
         }
@@ -106,16 +111,16 @@ Each round, a player repeatedly rolls a dice until a one is rolled or the player
     scoreSpan: document.getElementById("updateScore"),
   };
 
-  
-
   renderDiceRoll(document.querySelector(`.gameplay`), sharedParams);
-  
+
   document.querySelector("#btnBank").addEventListener("click", bankPoints);
   document.querySelector("#btnSubmit").addEventListener("click", submitScore);
 
   function bankPoints() {
-    if(sharedParams.rollCount > 0 && parseInt(sharedParams.scoreSpan.innerHTML) > 0)
-    {
+    if (
+      sharedParams.rollCount > 0 &&
+      parseInt(sharedParams.scoreSpan.innerHTML) > 0
+    ) {
       bankedPoints += parseInt(sharedParams.scoreSpan.innerHTML);
       sharedParams.scoreSpan.innerHTML = 0;
       // console.log(bankedPoints);
@@ -124,19 +129,23 @@ Each round, a player repeatedly rolls a dice until a one is rolled or the player
     }
   }
 
-  function submitScore()
-  {
-    if (bankedPoints + parseInt(sharedParams.scoreSpan.innerHTML) >= 100)
-    {
-      postScores(bankCount == 0 ? sharedParams.rollCount : sharedParams.rollCount * bankCount, "pig-solitaire", sessionStorage.getItem("id"), sessionStorage.getItem("email"))
+  function submitScore() {
+    if (bankedPoints + parseInt(sharedParams.scoreSpan.innerHTML) >= 100) {
+      postScores(
+        bankCount == 0
+          ? sharedParams.rollCount
+          : sharedParams.rollCount * bankCount,
+        "pig-solitaire",
+        sessionStorage.getItem("id"),
+        sessionStorage.getItem("email"),
+      );
       resetGame();
     }
   }
 
   document.querySelector("#btnReset").addEventListener("click", resetGame);
 
-  function resetGame ()
-  {
+  function resetGame() {
     lastRoll = 0;
     numRolled = 0;
     bankedPoints = 0;
@@ -146,7 +155,7 @@ Each round, a player repeatedly rolls a dice until a one is rolled or the player
     sharedParams.rollCount = 0;
 
     document.getElementById("lastRolled").src =
-        "images/dice" + lastRoll + ".png";
+      "images/dice" + lastRoll + ".png";
 
     sharedParams.scoreSpan.innerHTML = 0;
 
