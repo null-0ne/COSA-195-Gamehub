@@ -64,7 +64,7 @@ export default function renderUserInfo(
     <div class="col-6 col-md-3">
     <input type="radio" name="avatarPicker" id="avatar1" class="btn-check" value="/images/avatar1.png" checked>
     <label class="card h-100 btn btn-outline-primary p-0 border-2 overflow-hidden" for="avatar1">
-        <img src="../public/images/avatar1.png" class="img-fluid" >
+        <img src="/images/avatar1.png" class="img-fluid" >
         <div class="card-body p-2 text-center text-dark">Option One</div>
     </label>
     </div>
@@ -72,7 +72,7 @@ export default function renderUserInfo(
     <div class="col-6 col-md-3">
     <input type="radio" name="avatarPicker" id="avatar2" class="btn-check" value="/images/avatar2.png">
     <label class="card h-100 btn btn-outline-primary p-0 border-2 overflow-hidden" for="avatar2">
-        <img src="../public/images/avatar2.png" class="img-fluid" alt="Option 2">
+        <img src="/images/avatar2.png" class="img-fluid" alt="Option 2">
         <div class="card-body p-2 text-center text-dark">Option Two</div>
     </label>
     </div>
@@ -80,7 +80,7 @@ export default function renderUserInfo(
     <div class="col-6 col-md-3">
     <input type="radio" name="avatarPicker" id="avatar3" class="btn-check" value="/images/avatar3.png">
     <label class="card h-100 btn btn-outline-primary p-0 border-2 overflow-hidden" for="avatar3">
-        <img src="../public/images/avatar3.png" class="img-fluid" alt="Option 3">
+        <img src="/images/avatar3.png" class="img-fluid" alt="Option 3">
         <div class="card-body p-2 text-center text-dark">Option Three</div>
       </label>
     </div>
@@ -100,19 +100,28 @@ export default function renderUserInfo(
 `;
 
 let gamerAvatar;
+params.updateProfile();
+element.querySelector("#profileImg").src = sessionStorage.getItem("avatar")
+element.querySelector("#gamerTag").value = sessionStorage.getItem("gamerTag");   
 
 
-element.querySelector("#btnSaveProfile").addEventListener("click", function(){
-    submitProfile();
+
+element.querySelector("#btnSaveProfile").addEventListener("click", async function(){
+    //element.querySelector("#imgPicker").style.display = "none";
+    await submitProfile();
+    console.log(params);
+    element.querySelector("#profileImg").src = sessionStorage.getItem("avatar")
+    element.querySelector("#gamerTag").value =  sessionStorage.getItem("gamerTag");
     
 })
 
-function submitProfile()
+async function submitProfile()
   {
 
     params.gamerTag =  element.querySelector("#gamerTag").value;
     params.gamerAvatar =  element.querySelector('input[type="radio"]:checked').value;
-    params.submitProfile();
+    await params.submitProfile();
+    await params.updateProfile();
   }
 //when user clicks
 let displayBlock = false;

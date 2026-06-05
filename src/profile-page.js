@@ -11,6 +11,7 @@ import renderLeaderboardList from "./components/leaderboard-list.js";
 import renderUserInfo from "./components/user-info.js";
 import { getScores } from "./lib/score-service.js";
 import { postProfile } from "./lib/user-service.js";
+import { getProfile } from "./lib/user-service.js";
 
 // import {formatDate, formatDateTime, formatTime} from './examples/lib/formatter.js';
 
@@ -91,8 +92,12 @@ export default async function renderLeaderboardPage(
   renderUserInfo(document.querySelector(".userInfo"), {
     gamerTag : "",
     gamerAvatar: "",
-    submitProfile: function () {
-          postProfile(this.gamerTag,this.gamerAvatar);
+    updateProfile : async function() {
+      await getProfile(sessionStorage.getItem("email"));
+    }
+    ,
+    submitProfile: async function () {
+          await postProfile(this.gamerTag,this.gamerAvatar);
         },
     email: sessionStorage.getItem("email")
   });

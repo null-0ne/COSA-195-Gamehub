@@ -51,16 +51,17 @@ export async function register(email, password){
 
 export async function postProfile(userTag, userAvatar){
     
-    const result = await fetch(`/api/users?email=${sessionStorage.getItem("email")}`, {
-    method: "POST",
-    body: JSON.stringify({
-        
-        user: {
-            email: sessionStorage.getItem("email"),
-            gamerTag: userTag,
-            avatar: userAvatar
-        },
-    }),
+    const usersFound = await fetch(`/api/users?email=${sessionStorage.getItem("email")}`);
+
+    const users = await usersFound.json();
+    const user = users[0];
+
+    user.gamerTag = userTag;
+    user.avatar = userAvatar;
+    
+    const result = await fetch(`/api/users/${user.id}`, {
+    method: "PUT",
+    body: JSON.stringify(user),
     headers: {
         "Content-Type": "application/json; charset=UTF-8",
     },
@@ -68,3 +69,26 @@ export async function postProfile(userTag, userAvatar){
     .then((response) => response.json())
     .then((json) => console.log(json));
 }
+
+export async function getProfile(email){
+    try{
+        const response = await fetch(`/api/users?email=${email}`);
+        if(!response.ok){
+            throw new Error("Error retrieving data");
+        }
+        const user = await response.json();
+        console.log(user);
+        if(user.length > 0) //user logs in
+        {
+            sessionStorage.setItem("gamerTag", user[0].gamerTag);
+            sessionStorage.setItem("avatar", user[0].avatar);
+        }
+             
+        return user
+    }
+    catch(error){
+        console.error(error);
+    }
+}
+
+

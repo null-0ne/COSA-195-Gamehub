@@ -127,6 +127,25 @@
       "avatar": "/images/avatar1.png"
     },
     {
+      "gamerTag": "hello",
+      "avatar": "/images/avatar2.png",
+      "id": "3"
+    },
+    {
+      "id": "323",
+      "email": "email@email.com",
+      "password": "123abc",
+      "gamerTag": "wuihsduih",
+      "avatar": "/images/avatar2.png"
+    },
+    {
+      "user": {
+        "gamerTag": "hgtyt",
+        "avatar": "/images/avatar3.png"
+      },
+      "id": "2"
+    },
+    {
       "user": {},
       "id": "8BVH0mtRWRs"
     },
