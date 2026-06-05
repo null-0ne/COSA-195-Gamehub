@@ -19,13 +19,13 @@ describe("pig solitaire page test", () => {
     cy.wait(1200);
     cy.get(".lockable-dice")
       .invoke("attr", "src")
-      .then(($img) => {
-        while (parseInt($img.charAt($img.lastIndexOf("e") + 1)) == 1) {
-          cy.get("#btnRoll").click();
-          cy.wait(1200);
-          $img = cy.get(".lockable-dice").invoke("attr", "src");
+      .then((image) => {
+        console.log(parseInt(image.charAt(12)));
+        if (parseInt(image.charAt(12)) === 1) {
+          cy.get("#updateScore").should("contain", "0");
+        } else {
+          cy.get("#updateScore").should("not.contain", "0");
         }
-        cy.get("#updateScore").should("not.contain", "0");
       });
   });
 });
