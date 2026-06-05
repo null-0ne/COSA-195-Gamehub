@@ -10,6 +10,7 @@ Purpose:     Leaderboard View
 import renderLeaderboardList from "./components/leaderboard-list.js";
 import renderUserInfo from "./components/user-info.js";
 import { getScores } from "./lib/score-service.js";
+import { postProfile } from "./lib/user-service.js";
 
 // import {formatDate, formatDateTime, formatTime} from './examples/lib/formatter.js';
 
@@ -40,7 +41,7 @@ export default async function renderLeaderboardPage(
                 </div>
             </div>
       </div>
-                   
+                
             
             
             </div>
@@ -48,7 +49,8 @@ export default async function renderLeaderboardPage(
 
     `;
   //declare scores from async fetch sort by scores decending and limit top 3
-  const crapScores = await getScores({
+  if(sessionStorage.getItem("email") != null){
+    const crapScores = await getScores({
     textSearch: "craps", // filter to craps
     sortOrder: "-score", //score descending
     email: sessionStorage.getItem("email"),
@@ -68,7 +70,7 @@ export default async function renderLeaderboardPage(
     paging: { page: params.pageNum, limit: 3 }, // limit 3 items per page
   });
 
-  //call to render the product-list component in the list-group ol element, pass the products to render in the params
+    //call to render the product-list component in the list-group ol element, pass the products to render in the params
   renderLeaderboardList(
     document.querySelector(".col:nth-of-type(1)  .list-group"),
     { scores: crapScores },
@@ -81,9 +83,21 @@ export default async function renderLeaderboardPage(
     document.querySelector(".col:nth-of-type(3)  .list-group"),
     { scores: pigScores },
   );
+}
 
-  renderUserInfo(document.querySelector(".userInfo"), { user: {} });
-  render(document.query);
+
+
+
+  renderUserInfo(document.querySelector(".userInfo"), {
+    gamerTag : "",
+    gamerAvatar: "",
+    submitProfile: function () {
+          postProfile(this.gamerTag,this.gamerAvatar);
+        },
+    email: sessionStorage.getItem("email")
+  });
+  
+  //render(document.query);
   //return the element in case it is needed for further logic
   return element;
 }

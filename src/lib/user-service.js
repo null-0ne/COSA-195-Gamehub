@@ -49,3 +49,22 @@ export async function register(email, password){
     }
 }
 
+export async function postProfile(userTag, userAvatar){
+    
+    const result = await fetch(`/api/users?email=${sessionStorage.getItem("email")}`, {
+    method: "POST",
+    body: JSON.stringify({
+        
+        user: {
+            email: sessionStorage.getItem("email"),
+            gamerTag: userTag,
+            avatar: userAvatar
+        },
+    }),
+    headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+    },
+    })
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+}

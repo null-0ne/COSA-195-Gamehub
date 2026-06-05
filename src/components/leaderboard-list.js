@@ -23,10 +23,10 @@ export default function renderLeaderboardList(
     ${str}
     <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
-        <div class="fw-bold">${p.user.email}</div>
+        
         ${p.score}
         </div>
-        <span class="badge bg-primary rounded-pill">${p.score}</span>
+        
     </li>
     `, '');
 
@@ -35,3 +35,6 @@ export default function renderLeaderboardList(
     //return the element in case it is needed for further logic
     return element;
 }
+
+//<div class="fw-bold">${p.user.email}</div>
+//<span class="badge bg-primary rounded-pill">${p.score}</span>

@@ -19,10 +19,10 @@ export default function renderUserInfo(
         
                 <div class="card-body text-center ">
     
-                    <img class="img-account-profile img-fluid h-25 w-25 rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                    <img id="profileImg" class="img-account-profile img-fluid h-25 w-25 rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                     
                 </div>
-                <button class="btn btn-primary" id="btnChangeImg" type="button">Change Profile Image</button>
+                <button class="btn btn-primary" id="btnSaveProfile" type="button">Save Profile</button>
             </div>
         </div>
         <div class="col-8 ">
@@ -34,10 +34,10 @@ export default function renderUserInfo(
 
                         <div class="row align-items-center">
                             <div class="col-auto">
-                             <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                            <label class="small mb-1" for="inputEmailAddress">Email address</label>
                             </div>
                             <div class="col text-center">
-                           <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@saskpolytech.ca">
+                           <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value=${params.email}>
                             </div>
                            
                         </div>
@@ -48,20 +48,93 @@ export default function renderUserInfo(
                             <div class="col text-center">
                            <input type="text" class="form-control" id="gamerTag" placeholder="kilroy21">
                             </div>
-                            <div class="col text-end">
-                            <button class="btn btn-primary" id="btnChangeTag" type="button">Change Tag</button>
-                            </div>
-                        </div>
                         
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
-  `;
 
-  
+    <div id = "imgPicker" class="container my-4">
+    <label class="form-label fw-bold mb-3">Choose an Avatar</label>
+    <div class="row g-3">
+    
+    
+    <div class="col-6 col-md-3">
+    <input type="radio" name="avatarPicker" id="avatar1" class="btn-check" value="/images/avatar1.png" checked>
+    <label class="card h-100 btn btn-outline-primary p-0 border-2 overflow-hidden" for="avatar1">
+        <img src="../public/images/avatar1.png" class="img-fluid" >
+        <div class="card-body p-2 text-center text-dark">Option One</div>
+    </label>
+    </div>
+
+    <div class="col-6 col-md-3">
+    <input type="radio" name="avatarPicker" id="avatar2" class="btn-check" value="/images/avatar2.png">
+    <label class="card h-100 btn btn-outline-primary p-0 border-2 overflow-hidden" for="avatar2">
+        <img src="../public/images/avatar2.png" class="img-fluid" alt="Option 2">
+        <div class="card-body p-2 text-center text-dark">Option Two</div>
+    </label>
+    </div>
+
+    <div class="col-6 col-md-3">
+    <input type="radio" name="avatarPicker" id="avatar3" class="btn-check" value="/images/avatar3.png">
+    <label class="card h-100 btn btn-outline-primary p-0 border-2 overflow-hidden" for="avatar3">
+        <img src="../public/images/avatar3.png" class="img-fluid" alt="Option 3">
+        <div class="card-body p-2 text-center text-dark">Option Three</div>
+      </label>
+    </div>
+
+    <div class="col-6 col-md-3">
+    <input type="radio" name="avatarPicker" id="avatar4" class="btn-check" value="/images/avatar4.png">
+    <label class="card h-100 btn btn-outline-primary p-0 border-2 overflow-hidden" for="avatar4">
+        <img src="/images/avatar4.png" class="img-fluid" alt="Option 3">
+        <div class="card-body p-2 text-center text-dark">Option Four</div>
+      </label>
+    </div>
+
+  </div>
+</div>
+
+</div>
+`;
+
+let gamerAvatar;
+
+
+element.querySelector("#btnSaveProfile").addEventListener("click", function(){
+    submitProfile();
+    
+})
+
+function submitProfile()
+  {
+
+    params.gamerTag =  element.querySelector("#gamerTag").value;
+    params.gamerAvatar =  element.querySelector('input[type="radio"]:checked').value;
+    params.submitProfile();
+  }
+//when user clicks
+let displayBlock = false;
+element.querySelector("#profileImg").addEventListener("click", function(){
+    if(displayBlock == false){
+        element.querySelector("#imgPicker").style.display = "block";
+        displayBlock = true;
+    }
+    else{
+        element.querySelector("#imgPicker").style.display = "none";
+        displayBlock = false;
+    } 
+})
+
+// let arrBtnChk = element.querySelectorAll(".btn-check");
+        
+//         element.querySelector("#imgPicker").addEventListener("click", function(){
+            
+            
+            
+//         })
+
   //return the element in case it is needed for further logic
   return element;
 }

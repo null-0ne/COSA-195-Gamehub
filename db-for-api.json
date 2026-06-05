@@ -19,6 +19,33 @@
       "score": 3
     },
     {
+      "id": "2",
+      "gameTitle": "craps",
+      "user": {
+        "id": 3,
+        "email": "email@email.com"
+      },
+      "score": 3
+    },
+    {
+      "id": "2",
+      "gameTitle": "craps",
+      "user": {
+        "id": 3,
+        "email": "email@email.com"
+      },
+      "score": 3
+    },
+    {
+      "id": "2",
+      "gameTitle": "pig",
+      "user": {
+        "id": 3,
+        "email": "email@email.com"
+      },
+      "score": 3
+    },
+    {
       "id": "3",
       "gameTitle": "craps",
       "user": {
@@ -95,7 +122,43 @@
     {
       "id": "1",
       "email": "ogugofor2899@saskpolytech.ca",
-      "password": "123abc"
+      "password": "123abc",
+      "gamerTag": "firstgamer",
+      "avatar": "/images/avatar1.png"
+    },
+    {
+      "user": {},
+      "id": "8BVH0mtRWRs"
+    },
+    {
+      "user": {},
+      "id": "nmhhe58FWrQ"
+    },
+    {
+      "user": {},
+      "id": "EjaRpwW7u9A"
+    },
+    {
+      "user": {
+        "email": "email@email.com"
+      },
+      "id": "VvvY8K303bU"
+    },
+    {
+      "user": {
+        "email": "email@email.com",
+        "gamerTag": "asddf",
+        "avatar": "/images/avatar1.png"
+      },
+      "id": "cKohCFdYPNM"
+    },
+    {
+      "user": {
+        "email": "email@email.com",
+        "gamerTag": "tiger",
+        "avatar": "/images/avatar2.png"
+      },
+      "id": "39HjYeJBNaU"
     }
   ],
   "products": [
