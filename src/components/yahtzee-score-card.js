@@ -100,35 +100,49 @@ export default function renderYahtzeeScoreCard(
   const inputs = element.querySelectorAll(".catInput");
   const categories = element.querySelectorAll(".catName");
 
+  params.dice.addEventListener("change", getCounts);
+
   /**
    * Helper to find the counts of dice
    * @param {*} dice
    * @returns
    */
   function getCounts(dice) {
-    const counts = {};
-
-    for (let die of dice) {
-      counts[die] = (counts[die] || 0) + 1;
+    const counts = [0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < 6; i++) {
+      for (let die of params.dice) {
+        if (i + 1 == die) {
+          counts[i]++;
+        }
+      }
     }
+
+    // for (let die of dice) {
+    //   counts[die] = (counts[die] || 0) + 1;
+    // }
+    console.log(counts);
     return counts;
   }
 
-  for (const box of inputs) {
-    if (canScore(params.dice, box.id)) {
-      box.addEventListener("click", () => {
-        box.value = params.rolls.reduce((a, b) => a + b, 0);
-        params.rolls.fill(0);
-      });
+  function gameLogic() {
+    for (const box of inputs) {
+      if (canScore(params.dice, box.id)) {
+        box.addEventListener("click", () => {
+          box.value = params.rolls.reduce((a, b) => a + b, 0);
+          params.rolls.fill(0);
+        });
+      }
     }
   }
 
   function canScore(dice, boxId) {
-    const counts = getCounts(dice);
-    
+    const counts = getCounts(params.dice);
+
+    const values = Object.values(counts);
+
     switch (boxId) {
       case "Ones":
-        return true;
+        return counts[0] >= 3;
       case "Twos":
         return true;
       case "Threes":
@@ -140,15 +154,13 @@ export default function renderYahtzeeScoreCard(
       case "Sixes":
         return true;
       case "ThreeOfAKind":
-        return 
+        return true;
       default:
         return false;
     }
   }
 
-  function hasThreeOfAKind(dice) {
-
-  }
+  function hasThreeOfAKind(dice) {}
 
   function hasStraight(dice, length) {
     const uniqueDice = [...new Set(dice)].sort((a, b) => a - b);

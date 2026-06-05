@@ -1,6 +1,8 @@
 //https://www.geeksforgeeks.org/bootstrap/how-to-create-image-overlay-effects-in-bootstrap/
 //https://www.geeksforgeeks.org/bootstrap/how-to-use-image-overlay-correctly-with-bootstrap/
 
+import renderYahtzeeScoreCard from "./yahtzee-score-card";
+
 /*
  Filename:    dice-roll.js
  Student:     Rylan & Garrett

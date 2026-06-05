@@ -102,11 +102,6 @@ to get the final score (lower scores are better). </li>
     finishedRolling: function () {
       this.rolls.push(1);
       document.getElementById("updateScore").innerHTML = this.rolls.length;
-
-      //triggering category highlights after each roll
-      if (typeof window.updateHighlights === "function") {
-        window.updateHighlights();
-      }
     },
   };
 
