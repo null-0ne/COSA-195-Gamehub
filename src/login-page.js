@@ -81,6 +81,7 @@ export default function renderLoginPage(
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
     const userObject = await retrieveLogin(email, password);
+    console.log(userObject);
 
     //check for empty inputs:
     if (email.trim() == "" || password.trim() == "") {

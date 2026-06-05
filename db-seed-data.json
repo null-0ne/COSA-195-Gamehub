@@ -136,7 +136,16 @@
     {
       "id": "1",
       "email": "ogugofor2899@saskpolytech.ca",
-      "password": "123abc"
+      "password": "123abc",
+      "gamerTag": "player6",
+      "avatar": "/images/bison.png"
+    },
+    {
+      "email": "test@saskpolytech.ca",
+      "password": "123456789",
+      "gamerTag": "player1",
+      "avatar": "/images/bison.png",
+      "id": "BsOX3SytQlc"
     }
   ],
   "products": [

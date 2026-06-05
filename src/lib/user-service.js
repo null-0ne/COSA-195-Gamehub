@@ -7,6 +7,8 @@
 export async function retrieveLogin(email, password){
     try{
         const response = await fetch(`/api/users?email=${email}&password=${password}`);
+        console.log(email);
+        console.log(password);
         if(!response.ok){
             throw new Error("Error retrieving data");
         }
@@ -16,6 +18,7 @@ export async function retrieveLogin(email, password){
         {
             sessionStorage.setItem("email", email);
             sessionStorage.setItem("id", user[0].id);
+            sessionStorage.setItem("avatar", user[0].avatar);
         }
         return user
     }
@@ -42,11 +45,12 @@ export async function register(email, password, gamerTag){
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({email, password, gamerTag})
+            body: JSON.stringify({email, password, gamerTag, avatar:"/images/bison.png"})
         });
         const user = await response.json();
         sessionStorage.setItem("email", email);
         sessionStorage.setItem("id", user.id);
+        sessionStorage.setItem("avatar", user.avatar);
         return user;
     }
     catch(error){

@@ -1,3 +1,5 @@
+import { retrieveLogin } from "../lib/user-service.js";
+
 /**
  * NavBar Component - a reuseable component that can be injected many times on the different "Pages"
  * Render function to inject content into an HTML element
@@ -19,7 +21,6 @@ export default function renderNavBar(
         </a>
         <h1 class="text-white text-uppercase me-5 pe-5">${params.title}</h1>
         <div id="profileDiv">
-            <a href="/login" class='link-offset-2 link-underline link-underline-opacity-0 text-white me-2'><button>Login</button></a>
         </div>
             </div>
     <div class='container-fluid bg-success p-0 border border-dark border-3'>
@@ -42,18 +43,21 @@ export default function renderNavBar(
     </div>
     `;
 
+    
     const profileDiv = document.getElementById("profileDiv");
     if(sessionStorage.getItem("id")){
         profileDiv.innerHTML = `
-        <img src="/images/dice9.png" class="navBarProfilePic me-2 rounded"/>
+        <img src="/images/bison.png" class="navBarProfilePic me-2 rounded"/>
         <button class="btn btn-success text-black fw-bold border border-2 border-black me-2" id="signOut">Sign Out</button>`
         document.getElementById("signOut").addEventListener("click", function(){
             sessionStorage.removeItem("id");
             sessionStorage.removeItem("email");
-            profileDiv.innerHTML = ` <a href="/login" class='link-offset-2 link-underline link-underline-opacity-0 text-black me-2 btn btn-success border border-2 border-black fw-bold'>Login</a>`
+            profileDiv.innerHTML = ` <a href="/login" class='link-offset-2 link-underline link-underline-opacity-0 text-black me-2 btn btn-success border border-2 border-black fw-bold'>Login</a>
+            <a href="/register" class='link-offset-2 link-underline link-underline-opacity-0 text-black me-2 btn btn-success border border-2 border-black fw-bold'>Register</a>`
         })
     } else{
-        profileDiv.innerHTML = ` <a href="/login" class='link-offset-2 link-underline link-underline-opacity-0 text-black me-2 btn btn-success border border-2 border-black fw-bold'>Login</a>`
+        profileDiv.innerHTML = ` <a href="/login" class='link-offset-2 link-underline link-underline-opacity-0 text-black me-2 btn btn-success border border-2 border-black fw-bold'>Login</a>
+        <a href="/register" class='link-offset-2 link-underline link-underline-opacity-0 text-black me-2 btn btn-success border border-2 border-black fw-bold'>Register</a>`
     }
 
     

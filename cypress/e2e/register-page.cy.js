@@ -10,8 +10,8 @@ describe('contact page test', () => {
         cy.get('#login').as('loginForm').should('be.visible')
     })
 
-    it('displays three text input fields', () => {
-        cy.get('input.input-group-text').as('textInputs').should('have.length', 3)
+    it('displays four text input fields', () => {
+        cy.get('input.input-group-text').as('textInputs').should('have.length', 4)
     })
 
     it('displays sign up and back button', () => {
@@ -36,24 +36,27 @@ describe('contact page test', () => {
     })
 
     it('displays error message if email is correct and password/confirm password fields are not the same', () => {
-        cy.get('input.input-group-text').eq(0).type('wight714@saskpolytech.ca')
-        cy.get('input.input-group-text').eq(1).type('asdf1234')
-        cy.get('input.input-group-text').eq(2).type('bfdg2341')
+        cy.get('input.input-group-text').eq(0).type('wight714@saskpolytech.ca');
+        cy.get('input.input-group-text').eq(1).type('player');
+        cy.get('input.input-group-text').eq(2).type('asdf1234');
+        cy.get('input.input-group-text').eq(3).type('bfdg2341');
         cy.get('input.btn').eq(0).click();
         cy.get('#errorMessage').should('have.text', 'Passwords must match');
     })
 
     it('displays error message if password is less than 8 characters', () => {
-        cy.get('input.input-group-text').eq(0).type('wight714@saskpolytech.ca')
-        cy.get('input.input-group-text').eq(1).type('123')
+        cy.get('input.input-group-text').eq(0).type('wight714@saskpolytech.ca');
+        cy.get('input.input-group-text').eq(1).type('player');
+        cy.get('input.input-group-text').eq(2).type('123');
         cy.get('input.btn').eq(0).click();
         cy.get('#errorMessage').should('have.text', 'Password must be at least 8 characters');
     })
 
     it('Redirect to home page when registration is valid', () => {
-        cy.get('input.input-group-text').eq(0).type('michael1@saskpolytech.ca')
-        cy.get('input.input-group-text').eq(1).type('fdsf1234')
+        cy.get('input.input-group-text').eq(0).type('michael3@saskpolytech.ca')
+        cy.get('input.input-group-text').eq(1).type('player5');
         cy.get('input.input-group-text').eq(2).type('fdsf1234')
+        cy.get('input.input-group-text').eq(3).type('fdsf1234')
         cy.get('input.btn').eq(0).click();
         cy.url().should('eq', "http://localhost:5173/") ;
     })
