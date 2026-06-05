@@ -5,6 +5,9 @@
  */
 //import{ renderTriviaQuestion} from "./trivia-question.js";
 
+import { getQuestion } from "../lib/question-service";
+import { renderTriviaQuestion } from "./trivia-question";
+
 export default function renderYahtzeeScoreCard(
   element = document.createElement("div") /**/,
   params = {} /*An object that should contain the score, the postScores function and the span to update the score on the page*/,
@@ -76,9 +79,11 @@ export default function renderYahtzeeScoreCard(
       console.log(params.totalScore);
     });
   }
-  function submitScore()
+  async function submitScore()
   {
-
+        let qData = await getQuestion();
+    renderTriviaQuestion(document.getElementById("Test"), {question:qData, onCorrect: function(){},  onInCorrect: function(){}});
+    let answer = returnAnswer(qData.answer);
     params.submitScores(params.totalScore);
   }
   element.querySelector("#btnSubmit")

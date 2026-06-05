@@ -10,7 +10,7 @@
  * @param params   p
  * @returns
  */
-export async function getQuetion(params={}){
+export async function getQuestion(params={}){
 
     console.log("data function called");
 

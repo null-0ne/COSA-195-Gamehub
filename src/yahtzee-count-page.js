@@ -11,7 +11,8 @@ import renderYahtzeeScoreCard from "./components/yahtzee-score-card.js";
 import renderGameplaySection from "./components/gameplay-section.js";
 import renderHelpSlider from "./components/help-slider.js";
 import {renderTriviaQuestion} from "./components/trivia-question.js"; 
-import { getQuetion } from "./lib/question-service.js";
+import { getQuestion } from "./lib/question-service.js";
+import { returnAnswer } from "./components/trivia-question.js";
 /**
  * Render function to inject content into an HTML element
  * @param {*} element - HTML element target container
@@ -112,14 +113,13 @@ to get the final score (lower scores are better). </li>
 
    //sam code
    //table button:nth-of-type()
-  let btnPress = document.querySelectorAll("button")[4];
-  console.log(btnPress);
-  btnPress.addEventListener("click", async function(){
-    console.log("test");
+  // let btnPress = document.querySelectorAll("button")[4];
+  // console.log(btnPress);
+  // btnPress.addEventListener("click", async function(){
+  //   console.log("test");
     
-     let qData = await getQuetion();
-    renderTriviaQuestion(document.getElementById("Test"), qData);
-  });
+    
+  // });
 
    
   //return the element in case it is needed for further logic

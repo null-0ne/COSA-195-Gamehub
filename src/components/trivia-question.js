@@ -2,7 +2,8 @@
 
 export function renderTriviaQuestion(
         element = document.createElement("div")
-        , params = {questions: {}}
+        , params = {questions: {}, onCorrect: function(){return false;},
+      onInCorrect: function(){return false;}}
         ) {
             //console.log(element);
 
@@ -17,12 +18,9 @@ export function renderTriviaQuestion(
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" id='radio'>
-        ${params.question}
+        ${params.question.question}
 
-        <form id="form">
-         
-
-        </form>
+        
       </div>
       
       <div class="modal-footer">
@@ -34,28 +32,30 @@ export function renderTriviaQuestion(
 </div>
 `;
 
-  for(let i = 0; i < params.answers.length; i++)
+  for(let i = 0; i < params.question.answers.length; i++)
   {
-    document.getElementById("form").innerHTML += `
+    document.getElementById("radio").innerHTML += `
 
-<input type="radio" id="${params.answers[i]}" name="fav_language" value="${params.answers[i]}" checked>
-<label for="html">${params.answers[i]}</label><br>`
-
-  }
-
-  document.getElementById("subButton").onclick = () => {
-          if(document.querySelector('input[name="fav_language"]:checked').value === params.answers[params.correctAnswer])
-      {
-        console.log("true")
-      }
-      else
-      {
-        console.log("false");
-      }
+<input type="radio" id="${i}" name="fav_language" value="${i}" checked>
+<label for="html">${params.question.answers[i]}</label><br>`
 
   }
+
+  
 
 
 
   return element;
 }
+
+export function returnAnswer(){
+    document.getElementById("subButton").onclick = () => {
+          if(document.querySelector('input[name="fav_language"]:checked').value === params.question.correctAnswer)
+            {
+              return true;
+            }
+            else{
+                return false;
+            }
+  }
+  }
