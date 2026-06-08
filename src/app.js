@@ -8,6 +8,7 @@ import renderNavBar from "./components/navbar.js";
 import renderLeaderboardPage from "./leaderboards-page.js";
 import renderYahtzeeCountPage from "./yahtzee-count-page.js";
 import renderLoginPage from "./login-page.js";
+import renderPigPage from "./pig-page.js";
 import renderRegisterPage from "./register-page.js";
 
 const appElement = document.querySelector("#app");
@@ -36,5 +37,9 @@ router
   .on("/yahtzee-count", (url) => renderYahtzeeCountPage(appElement))
   .on("/login", (url) => renderLoginPage(appElement))
   .on("/register", (url) => renderRegisterPage(appElement))
+   .on("/pig-solitaire", (url) => {
+    renderPigPage(appElement);
+    renderNavBar(navElement, { title: "Pig Solitaire" });
+  })
   .on(() => renderHomePage(appElement, { title: "Home Page" }))
   .resolve(); // execute the JS module to render the page
