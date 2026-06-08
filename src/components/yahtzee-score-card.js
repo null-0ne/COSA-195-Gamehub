@@ -11,7 +11,7 @@ import { renderTriviaQuestion } from "./trivia-question";
 
 export default function renderYahtzeeScoreCard(
   element = document.createElement("div") /**/,
-  params = {} /*An object that should contain the score, the postScores function and the span to update the score on the page*/,
+  params = {submitScores: function(){return;}} /*An object that should contain the score, the postScores function and the span to update the score on the page*/,
 ) {
   element.innerHTML = `<table class="table">
   <thead >
@@ -60,7 +60,7 @@ export default function renderYahtzeeScoreCard(
       <td><input type="number" class="catInput"></input></td>
     </tr>
     <tr >
-      <td colspan="3"><button class="btn btn-primary" id="btnSubmit" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button" >Submit</button></td>
+      <td colspan="3"><button class="btn btn-primary" id="btnSubmit" type="button" >Submit</button></td>
     </tr>
   </tbody>
   
@@ -84,9 +84,7 @@ export default function renderYahtzeeScoreCard(
   {
     params.submitScores(params.totalScore);
   }
-  // element.querySelector("#btnSubmit")
-    
-  //   .addEventListener("click", submitScore);
+
 
     
   

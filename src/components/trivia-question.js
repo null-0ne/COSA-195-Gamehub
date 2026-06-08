@@ -2,15 +2,14 @@
 
 export function renderTriviaQuestion(
         element = document.createElement("div"),
-        params = {questions: {}, isShown: false, onCorrect: function(){return false;},
-      onInCorrect: function(){return false;}}
-        ) {
-            //console.log(element);
-
+        params = {questions: {}, onCorrect: function(){return false;},
+      onInCorrect: function(){return false;}, modal: null}
+        ) 
+{
 
         element.innerHTML = `
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalTrivia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -53,8 +52,9 @@ export function renderTriviaQuestion(
             }
   });
 
-  const modal = new bootstrap.Modal('#exampleModal');
-  modal.show();
+ // if(!params.modal) {
+   // params.modal.modal = new bootstrap.Modal(element.querySelector('#modalTrivia'));
+ // }
   return element;
 }
 

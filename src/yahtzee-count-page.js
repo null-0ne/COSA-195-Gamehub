@@ -18,7 +18,7 @@ import { getQuestion } from "./lib/question-service.js";
  * @param {*} element - HTML element target container
  * @param {*} params - optional values, objects or functions needed to render on the page
  */
-export default function renderYahtzeeCountPage(
+export default async function renderYahtzeeCountPage(
   element = document.createElement("div") /*default - new div element*/,
   params = { title: "Yahtzee count" } /*default*/,
 ) {
@@ -91,26 +91,32 @@ to get the final score (lower scores are better). </li>
 </ul>`});
 
 //make async function to render question and listen for when the submit button on modal is clicked
-async function render()
-{
-  let qData = await getQuestion();
-  renderTriviaQuestion(document.getElementById("Test"), {questions: qData, onCorrect: function(){sharedParams.submitScores();}, onInCorrect: function(){window.alert("You answered Wrong game will be reset"); location.reload();}});
+const userEmail = sessionStorage.getItem("email");
+const userId = sessionStorage.getItem("ID");
+let modalElement = {modal: false};
+
+  const qData = await getQuestion();
+  renderTriviaQuestion(document.getElementById("Test"), {questions: qData, modal: modalElement,
+     onCorrect: function(){postScores(this.totalScore, "yahtzee-count", userId, userEmail);}, 
+     onInCorrect: function(){resetGame();}});
   document.getElementById("subButton").addEventListener("click", function(){
     console.log(document.querySelector('input[name="fav_language"]:checked').value);
     console.log("correct:" + qData.correctAnswer);
   })
-}
-//render the question and add to the html
-render();
 
+ // modalElement.modal.show();
 
+  function resetGame()
+  {
+    return;
+  }
 
 
 
   const sharedParams = {
     totalScore: 0,
     submitScores: function () {
-      postScores(this.totalScore, "yahtzee-count", 1, "john@saskpolytech.ca");
+      modalElement.modal.show();
     },
     scoreSpan: document.getElementById("updateScore"),
   };
