@@ -1,12 +1,10 @@
 import {renderTriviaQuestion } from "../../src/components/trivia-question.js";
-import { getQuestion } from "../../src/lib/question-service.js";
 
 describe('Trivia Question Component Test ', () => {
-    document.getElementById("cy-root").innerHTML += `<button class="btn btn-primary" id="btnSubmit" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button" >Submit</button>`;
-    let question = getQuestion();
-    it('trivia question visible', () => {
-        console.log(question);
-        cy.mount(renderTriviaQuestion,{params: {questions:  {
+   // document.getElementById("cy-root").innerHTML += `<button class="btn btn-primary" id="btnSubmit" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button" >Submit</button>`;
+    it("if answer is correct return true" , () => {
+      cy.mount(renderTriviaQuestion, {params: {
+        questions:  {
               "question": "What is the number 12 in French?",
               "answers": [
                 "dix",
@@ -16,17 +14,11 @@ describe('Trivia Question Component Test ', () => {
                 "quatorze"
               ],
               "correctAnswer": 2
-            }, onCorrect: function(){}}});
+            },
+            isShown: true,
+       onCorrect: function(){return true;},
+       onInCorrect: function(){return false;}
+    }});
+    });
 
-
-           
-
-       
-
-
-       
-       
     })
-       
-   
-})

@@ -2,7 +2,7 @@
 
 export function renderTriviaQuestion(
         element = document.createElement("div"),
-        params = {questions: {}, onCorrect: function(){return false;},
+        params = {questions: {}, isShown: false, onCorrect: function(){return false;},
       onInCorrect: function(){return false;}}
         ) {
             //console.log(element);
@@ -41,18 +41,20 @@ export function renderTriviaQuestion(
 
   }
 
-  document.querySelector("#subButton").addEventListener("click", function(){
-              if(document.querySelector('input[name="fav_language"]:checked').value == params.questions.correctAnswer)
+  element.querySelector("#subButton").addEventListener("click", function(){
+              if(element.querySelector('input[name="fav_language"]:checked').value == params.questions.correctAnswer)
              {
-                onCorrect();
+                params.onCorrect();
 
              }
              else
             {
-                onInCorrect();
+                params.onInCorrect();
             }
   });
 
+  const modal = new bootstrap.Modal('#exampleModal');
+  modal.show();
   return element;
 }
 
