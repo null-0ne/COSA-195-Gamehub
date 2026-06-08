@@ -1,9 +1,6 @@
 //import Navigo from 'navigo';  //Documentation: https://github.com/krasimir/navigo/blob/master/DOCUMENTATION.md
 import renderHomePage from "./home-page.js";
 import renderCrapsPage from "./craps-page.js";
-import renderProductPage from "./examples/product-page.js";
-import renderContactPage from "./examples/counter-page.js";
-import renderMemoryPage from "./examples/memory-page.js";
 import renderNavBar from "./components/navbar.js";
 import renderLeaderboardPage from "./leaderboards-page.js";
 import renderYahtzeeCountPage from "./yahtzee-count-page.js";
@@ -22,8 +19,7 @@ const appElement = document.querySelector("#app");
 const navElement = document.querySelector(".navbar");
 const footerElement = document.querySelector("footer .container");
 const ads = await retrieveAds(); //This retrieves the ads from the api
-//renderNavBar(navElement);
-renderFooter(footerElement, {ads:ads, interval:1000});
+renderFooter(footerElement, {ads:ads, interval:10000});
 // Creat an instance of the Navigo library used to route to different "Pages"
 const router = new Navigo("/", { linksSelector: "a" });
 

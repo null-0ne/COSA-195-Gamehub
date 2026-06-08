@@ -34,43 +34,25 @@ export default function renderLoginPage(
                 </form>
                 </div>
                 
-
                 <div id="bottomStuff" class="d-flex flex-column justify-content-center align-items-center w-50 h-50">
                 <div>
                     <p> Do not have an account? </p>
                 </div>
                 <div>
-                    <a class="btn btn-success text-black" href="/register">SIGN UP</a>
+                    <a class="btn btn-success text-black form-btn" href="/register">SIGN UP</a>
                 </div>
                 <div>
-                    <a href="/" class="btn btn-link">Continue without an account</a>
+                    <a href="/" class="btn btn-link form-btn">Continue without an account</a>
                 </div>
                 </div>
             </div>
     `;
   document.getElementById("errorMessage").classList = "";
-  // let backgroundHolder = document.createElement("div");
-  // document.body.style.backgroundImage = "url('../images/bg image.png')";
-  // document.body.style.backgroundRepeat = "no-repeat";
-  // document.body.style.backgroundSize = "contain";
+
 
   let errorMessage = document.getElementById("errorMessage");
   errorMessage.classList = "text-danger";
 
-  // outerElem.classList =
-  //   "d-flex justify-content-center align-items-center vh-100 vw-100";
-
-  // document
-  //   .getElementById("continue2Dash")
-  //   .addEventListener("click", redirectToDashboard);
-
-  // function redirectToDashboard() {
-  //   window.location = "http://localhost:5173/"; //dashboard
-  // }
-
-  // document.getElementById("btnSignUp").addEventListener("click", () => {
-  //   window.location = "http://localhost:5173/register";
-  // });
 
   //submit handler!
   document.addEventListener("submit", async function (event) {

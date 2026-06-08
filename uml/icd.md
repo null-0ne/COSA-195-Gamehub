@@ -44,7 +44,6 @@ classDiagram
         <<service>>
         +retrieveLogin(email: string, password: string) Object[]
         +register(email: string, password: string) Object[]
-        +registerValidate(email: string, password: string) boolean
     }
 
     class AdService{
@@ -92,13 +91,12 @@ classDiagram
     class LoginPage {
     <<view>>
         +renderLoginPage(element:HTMLElement,title:string,pageNum:int):HTMLElement
-        +redirectToDashboard()
     }
 
     class RegisterPage {
     <<view>>
         +renderRegisterPage(element:HTMLElement,title:string):HTMLElement
-        +redirectToDashboard()
+        +registerValidation(email: string, password: string) boolean
     }
 
     class YahtzeeCountPage {
@@ -106,7 +104,6 @@ classDiagram
     }
 
 
-    
      %% Relationships
     HomePage --> Footer : layout
     YahtzeeCountPage --> Footer : layout
@@ -134,21 +131,5 @@ classDiagram
     RegisterPage --> UserService : fetches data
 
     Footer --> AdService : fetches data
-    %% scoreService<-- YahtzeeCountPage : uses
-    %% YahtzeeCountPage <-- yahtzee-scorecard : uses
-    %% YahtzeeCountPage <-- gameplay-section : uses
-    %% LoginPage --> UserService : fetches data
-    %% RegisterPage --> UserService : fetches data
-    
-    %% YahtzeeCountPage --> HelpSlider: uses
-    %% CrapsPage --> HelpSlider: uses
-    %% CrapsPage --> score-service : sends score data
-    %% LeaderboardPage --> GameCard : holds
-    %% LeaderboardPage --> NavBar : has
-    %% LeaderboardPage --> Footer : has
-
-    
-
-
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```
