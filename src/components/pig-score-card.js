@@ -16,7 +16,7 @@ export default function renderPigScorecard(
   const bsFlex = "d-flex flex-wrap  align-items-center";
 
   element.innerHTML = `
-  <h1>Previous Roll:</h1>
+  <h1 id="prevRoll">Previous Roll:</h1>
   <img id="lastRolled" class="position-absolute top-50 start-50 translate-middle w-50 min mw-50" src="images/dice0.png" alt="dice"></img>
   `;
 
