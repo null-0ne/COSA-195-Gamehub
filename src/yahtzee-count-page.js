@@ -85,6 +85,7 @@ to get the final score (lower scores are better). </li>
 
   const sharedParams = {
     rolls: [],
+    totalScore: 0,
 
     scoreSpan: document.getElementById("updateScore"),
 
@@ -115,19 +116,7 @@ to get the final score (lower scores are better). </li>
     sharedParams,
   );
 
-  // let inputOnes = element.querySelectorAll(".catInput");
-  // for (let input of inputOnes) {
-  //   input.addEventListener("change", function () {
-  //     sharedParams.scoreSpan.innerHTML = sharedParams.totalScore;
-  //   });
-  // }
-
-  // let catNames = element.querySelectorAll(".catName");
-  // for (let cat of catNames) {
-  //   cat.addEventListener("click", function () {
-  //     sharedParams.scoreSpan.innerHTML = sharedParams.totalScore;
-  //   });
-  // }
+  
 
   //return the element in case it is needed for further logic
   return element;

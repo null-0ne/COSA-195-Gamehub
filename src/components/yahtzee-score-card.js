@@ -156,6 +156,7 @@ export default function renderYahtzeeScoreCard(
       boxx.style.backgroundColor = "white";
     }
     document.getElementById("totalScore").innerHTML = params.rolls.length;
+    params.totalScore = params.rolls.length;
     params.rolls.fill(0);
     document.getElementById("updateScore").innerHTML = params.rolls.reduce(
       (a, b) => a + b,
@@ -167,6 +168,15 @@ export default function renderYahtzeeScoreCard(
       }
     }
     document.getElementById("btnRoll").click();
+  }
+
+  function resetGame() {
+    for (const box of inputs) {
+      box.value = "";
+    }
+    document.getElementById("totalScore").innerHTML = 0;
+    params.rolls = [];
+    params.totalScore = 0;
   }
 
   function canScore(counts, boxId) {
@@ -286,7 +296,10 @@ export default function renderYahtzeeScoreCard(
   }
 
   function submitScore() {
-    params.submitScores(params.totalScore);
+    if (inputs !== "") {
+      params.submitScores(params.totalScore);
+      resetGame();
+    }
   }
   element
     .querySelector("#btnSubmit")

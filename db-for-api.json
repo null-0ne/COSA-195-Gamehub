@@ -91,71 +91,149 @@
       "id": "ZJAaNczdTwM"
     },
     {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": null,
+        "email": null
+      },
+      "id": "XBowoS-V_Os"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": null,
+        "email": null
+      },
+      "id": "Fyh7P7mYvsQ"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": null,
+        "email": null
+      },
+      "id": "SwJ6HW9GkWo"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": null,
+        "email": null
+      },
+      "id": "O3l6lQ3UR9o"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": null,
+        "email": null
+      },
+      "id": "3k0uzL33eAY"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": null,
+        "email": null
+      },
+      "id": "HSzwyQTtjWc"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": null,
+        "email": null
+      },
+      "id": "7H5IJ-qAODo"
+    },
+    {
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": null,
+        "email": null
+      },
+      "id": "QJ4vzkJiXCw"
+    },
+    {
       "score": 0,
       "gameTitle": "yahtzee-count",
       "user": {
-        "id": 1,
-        "email": "john@saskpolytech.ca"
+        "id": null,
+        "email": null
       },
-      "id": "JkmJGrmN708"
+      "id": "QfTLo4dw8es"
     },
     {
-      "score": 0,
-      "gameTitle": "yahtzee-count",
-      "user": {
-        "id": 1,
-        "email": "john@saskpolytech.ca"
-      },
-      "id": "xApXbGKmJSA"
-    },
-    {
-      "score": 567,
-      "gameTitle": "yahtzee-count",
-      "user": {
-        "id": 1,
-        "email": "john@saskpolytech.ca"
-      },
-      "id": "ADF7D1AB7Q8"
-    },
-    {
+      "score": 4,
       "gameTitle": "yahtzee-count",
       "user": {
         "id": null,
         "email": null
       },
-      "id": "uCwoW61QCFI"
+      "id": "BUhrsvnlblA"
     },
     {
+      "score": 6,
       "gameTitle": "yahtzee-count",
       "user": {
         "id": null,
         "email": null
       },
-      "id": "qJ2kY8VL6ao"
+      "id": "yFcq_gihN_A"
     },
     {
+      "score": 27,
       "gameTitle": "yahtzee-count",
       "user": {
         "id": null,
         "email": null
       },
-      "id": "GbaXRvAIWEk"
+      "id": "cVvnUq9KqIM"
     },
     {
+      "score": 2,
       "gameTitle": "yahtzee-count",
       "user": {
         "id": null,
         "email": null
       },
-      "id": "63CICJb-LV0"
+      "id": "qaK2obyqmf0"
     },
     {
+      "score": 9,
       "gameTitle": "yahtzee-count",
       "user": {
         "id": null,
         "email": null
       },
-      "id": "2wexVGGeX6c"
+      "id": "5mHamEziMoE"
+    },
+    {
+      "score": 4,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": null,
+        "email": null
+      },
+      "id": "R1COKTca1_s"
+    },
+    {
+      "score": 4,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": null,
+        "email": null
+      },
+      "id": "zyuIJER4jp8"
+    },
+    {
+      "score": 1,
+      "gameTitle": "yahtzee-count",
+      "user": {
+        "id": null,
+        "email": null
+      },
+      "id": "0DAJULHTdC8"
     }
   ],
   "users": [
@@ -163,11 +241,6 @@
       "id": "1",
       "email": "ogugofor2899@saskpolytech.ca",
       "password": "123abc"
-    },
-    {
-      "email": "michael1@saskpolytech.ca",
-      "password": "fdsf1234",
-      "id": "wDf11CJWvDQ"
     }
   ],
   "products": [
