@@ -107,7 +107,7 @@ element.querySelector("#gamerTag").value = sessionStorage.getItem("gamerTag");
 
 
 element.querySelector("#btnSaveProfile").addEventListener("click", async function(){
-    //element.querySelector("#imgPicker").style.display = "none";
+
     await submitProfile();
     console.log(params);
     element.querySelector("#profileImg").src = sessionStorage.getItem("avatar")
@@ -122,6 +122,7 @@ async function submitProfile()
     params.gamerAvatar =  element.querySelector('input[type="radio"]:checked').value;
     await params.submitProfile();
     await params.updateProfile();
+     element.querySelector("#imgPicker").style.display = "none";
   }
 //when user clicks
 let displayBlock = false;
