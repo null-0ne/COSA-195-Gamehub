@@ -89,11 +89,18 @@ export default async function renderLeaderboardPage(
 
 
 
+let storeEmail = sessionStorage.getItem("email");
+//let storeAvatar = sessionStorage.getItem("avatar");
+//let storeTag = sessionStorage.getItem("gamerTag")
+
+let profileUser = await getProfile(storeEmail);
+
   renderUserInfo(document.querySelector(".userInfo"), {
-    gamerTag : "",
-    gamerAvatar: "",
+
+    gamerTag : profileUser.gamerTag,
+    gamerAvatar: profileUser.avatar,
     updateProfile : async function() {
-      await getProfile(sessionStorage.getItem("email"));
+      await getProfile(storeEmail);
     }
     ,
     submitProfile: async function () {

@@ -18,6 +18,8 @@ renderNavBar(navElement);
 // Creat an instance of the Navigo library used to route to different "Pages"
 const router = new Navigo("/", { linksSelector: "a" });
 
+//check for logged in user and redirect clicks to login page.
+
 router.notFound(() => {
   // this is like the default case statement in a switch statement
   appElement.innerHTML = `
@@ -30,7 +32,8 @@ router.notFound(() => {
 
 // connect the routes with the appropriate page module - this is like a switch statement
 // see documentation at https://github.com/krasimir/navigo/blob/master/DOCUMENTATION.md
-router
+if(sessionStorage.getItem("email")!=null){
+  router
   .on("/index.html", () => router.navigate("/"))
   .on("/leaderboard", (url) => renderLeaderboardPage(appElement))
   .on("/craps", (url) => renderCrapsPage(appElement))
@@ -40,3 +43,19 @@ router
   .on("/profile", (url) => renderProfilePage(appElement))
   .on(() => renderHomePage(appElement, { title: "Home Page" }))
   .resolve(); // execute the JS module to render the page
+}
+else{
+
+
+ router
+  .on("/index.html", () => router.navigate("/"))
+  .on("/leaderboard", (url) => renderLeaderboardPage(appElement))
+  .on("/craps", (url) => renderCrapsPage(appElement))
+  .on("/yahtzee-count", (url) => renderYahtzeeCountPage(appElement))
+  .on("/login", (url) => renderLoginPage(appElement))
+  .on("/profile", (url) => renderLoginPage(appElement))
+  .on("/register", (url) => renderRegisterPage(appElement))
+  .on(() => renderHomePage(appElement, { title: "Home Page" }))
+  .resolve(); // execute the JS module to render the page
+}
+

@@ -37,7 +37,7 @@ export default function renderUserInfo(
                             <label class="small mb-1" for="inputEmailAddress">Email address</label>
                             </div>
                             <div class="col text-center">
-                           <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value=${params.email}>
+                           <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value=${params.email} disabled>
                             </div>
                            
                         </div>
