@@ -103,6 +103,8 @@ export default function renderYahtzeeScoreCard(
   const inputs = element.querySelectorAll(".catInput");
   const categories = element.querySelectorAll(".catName");
   const diceButtons = document.querySelectorAll(".lockable-dice");
+  let validScore = true;
+  document.getElementById("btnSubmit").disabled = true;
 
   /**
    * Helper to find the counts of dice
@@ -148,6 +150,17 @@ export default function renderYahtzeeScoreCard(
         box.style.backgroundColor = "white";
       }
     }
+
+    validScore = true
+    for (const input of inputs) {
+      if (input.value === "") {
+        validScore = false;
+      }
+    }
+    if(validScore)
+    {
+      document.getElementById("btnSubmit").disabled = false;
+    }
   }
   function boxEvent(box) {
     box.value = params.rolls.reduce((a, b) => a + b, 0);
@@ -177,6 +190,7 @@ export default function renderYahtzeeScoreCard(
     document.getElementById("totalScore").innerHTML = 0;
     params.rolls = [];
     params.totalScore = 0;
+    document.getElementById("btnSubmit").disabled = true;
   }
 
   function canScore(counts, boxId) {
@@ -296,10 +310,13 @@ export default function renderYahtzeeScoreCard(
   }
 
   function submitScore() {
-    if (inputs !== "") {
+    
+    
+    if (validScore) {
       params.submitScores(params.totalScore);
-      resetGame();
+        resetGame();
     }
+    
   }
   element
     .querySelector("#btnSubmit")
