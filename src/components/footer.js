@@ -1,3 +1,16 @@
+/*
+ Filename:    footer.js
+ Student:     Rylan Wight
+ Course:      COSA 195 (Systems Project)
+ Date:        2026-06-08
+ Purpose:     Footer component
+              A reusable component that can be injected many times on the different "Pages"
+*/
+/**
+ * Render function to inject content into an HTML element
+ * @param {*} element - css selector of element to inject content
+ * @param {*} params - Ad array for carousel to cycle through and the interval at which they automatically change
+ */
 export default function renderFooter(
     element = document.createElement('div'), /* default new div element*/
     params = { ads:[
@@ -12,9 +25,8 @@ export default function renderFooter(
     "link": "https://saskpolytech.ca/"
     }], interval:1000} /* default advertisement array*/
 ) {
-    //set the content of the nav bar
-    //use the built-in JS array function 'reduce' to convert the array of product objects in to an HTML string
-    //reduce loops through each item in the products array and outputs an HTML string for each then joins them all in several list items
+    //use the built-in JS array function 'reduce' to convert the array of ad objects in to an HTML string
+    //reduce loops through each item in the ads array and outputs an HTML string for each then joins them all in several div items
     const messagesHTML = params.ads.reduce((str, ad, i) => `
     ${str}
         <div class="carousel-item ${i === 0 ? 'active' : ''}" >

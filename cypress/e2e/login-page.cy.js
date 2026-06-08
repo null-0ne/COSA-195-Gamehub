@@ -21,7 +21,8 @@ describe('contact page test', () => {
     })
 
     it('display 2 input buttons', () => {
-        cy.get('input.btn').as('inputBtn').should('have.length', 2);
+        cy.get('input.btn').as('inputBtn').should('have.length', 1);
+        cy.get('a.btn').as('inputA').should('have.length',1);
     })
 
     it('Shows error message when fields are empty', () => {

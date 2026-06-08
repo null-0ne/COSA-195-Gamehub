@@ -52,6 +52,7 @@ export default function renderNavBar(
         document.getElementById("signOut").addEventListener("click", function(){
             sessionStorage.removeItem("id");
             sessionStorage.removeItem("email");
+            sessionStorage.removeItem("avatar");
             profileDiv.innerHTML = ` <a href="/login" class='link-offset-2 link-underline link-underline-opacity-0 text-black me-2 btn btn-success border border-2 border-black fw-bold'>Login</a>
             <a href="/register" class='link-offset-2 link-underline link-underline-opacity-0 text-black me-2 btn btn-success border border-2 border-black fw-bold'>Register</a>`
         })

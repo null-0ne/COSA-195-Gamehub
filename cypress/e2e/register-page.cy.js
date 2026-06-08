@@ -15,7 +15,7 @@ describe('contact page test', () => {
     })
 
     it('displays sign up and back button', () => {
-        cy.get('input.btn').as('submit').should('have.length', 2);
+        cy.get('input.btn').as('submit').should('have.length', 1);
     })
 
     it('displays error message if all fields are empty', () => {
@@ -33,6 +33,24 @@ describe('contact page test', () => {
         cy.get('input.input-group-text').eq(0).type('wight714@saskpolytech.ca')
         cy.get('input.btn').eq(0).click();
         cy.get('#errorMessage').should('have.text', 'Password must be at least 8 characters');
+    })
+
+    it('displays error message if gamer tag is in use', () => {
+        cy.get('input.input-group-text').eq(0).type('ogugofor2899@saskpolytech.ca');
+        cy.get('input.input-group-text').eq(1).type('player6');
+        cy.get('input.input-group-text').eq(2).type('123abcasd');
+        cy.get('input.input-group-text').eq(3).type('123abcasd');
+        cy.get('input.btn').eq(0).click();
+        cy.get('#errorMessage').should('have.text', 'That user already exists');
+    })
+
+    it('displays error message if password does not include a letter', () => {
+        cy.get('input.input-group-text').eq(0).type('ogugofor8888@saskpolytech.ca');
+        cy.get('input.input-group-text').eq(1).type('player8');
+        cy.get('input.input-group-text').eq(2).type('123456789');
+        cy.get('input.input-group-text').eq(3).type('123456789');
+        cy.get('input.btn').eq(0).click();
+        cy.get('#errorMessage').should('have.text', 'Passwords must have letters and numbers');
     })
 
     it('displays error message if email is correct and password/confirm password fields are not the same', () => {
@@ -62,7 +80,7 @@ describe('contact page test', () => {
     })
 
     it('Redirect to login-page when back button is clicked', () => {
-        cy.get('input.btn').eq(1).click();
+        cy.get('a.btn').eq(0).click();
         cy.url().should('eq', "http://localhost:5173/login") ;
     })
 });

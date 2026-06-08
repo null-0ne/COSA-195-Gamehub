@@ -12,7 +12,6 @@ export default function renderLoginPage(
     element = document.createElement('div'), /*default - new div element*/
     params = {title: 'Product', pageNum: 1} /*default*/) {
   
-      //document.querySelector("body").classList = "diceBackground";
   
   element.innerHTML = `
         <div id="test" class="m-auto mt-4 border border-3 border-black d-flex justify-content-center align-items-center w-50 h-100 flex-column">
@@ -41,10 +40,10 @@ export default function renderLoginPage(
                     <p> Do not have an account? </p>
                 </div>
                 <div>
-                    <input type="button" value="SIGN UP" id="btnSignUp" class="btn btn-success text-black"/>
+                    <a class="btn btn-success text-black" href="/register">SIGN UP</a>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-link" id="continue2Dash">Continue without an account</button>
+                    <a href="/" class="btn btn-link">Continue without an account</a>
                 </div>
                 </div>
             </div>
@@ -61,17 +60,17 @@ export default function renderLoginPage(
   // outerElem.classList =
   //   "d-flex justify-content-center align-items-center vh-100 vw-100";
 
-  document
-    .getElementById("continue2Dash")
-    .addEventListener("click", redirectToDashboard);
+  // document
+  //   .getElementById("continue2Dash")
+  //   .addEventListener("click", redirectToDashboard);
 
-  function redirectToDashboard() {
-    window.location = "http://localhost:5173/"; //dashboard
-  }
+  // function redirectToDashboard() {
+  //   window.location = "http://localhost:5173/"; //dashboard
+  // }
 
-  document.getElementById("btnSignUp").addEventListener("click", () => {
-    window.location = "http://localhost:5173/register";
-  });
+  // document.getElementById("btnSignUp").addEventListener("click", () => {
+  //   window.location = "http://localhost:5173/register";
+  // });
 
   //submit handler!
   document.addEventListener("submit", async function (event) {

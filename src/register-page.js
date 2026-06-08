@@ -38,20 +38,13 @@ export default function renderRegisterPage(
                     <div class="w-100">
                         <p id="errorMessage" class="text-danger"></p>
                         <input type="submit" value="SIGN UP" id="btnSignUp" class="btn btn-success d-grid gap-2 col-6 mx-auto text-black"/>
-                        <input type="button" value="BACK" id="btnBack" class="btn btn-success d-grid gap-2 col-6 mx-auto text-black mt-2" />
+                        <a href="/login" class="btn btn-success d-grid gap-2 col-6 mx-auto text-black mt-2">BACK</a>
                     <div>
                     </fieldset>
                 </form>
                 </div>
         </div>        
     `;
-
-
-                    
-
-  document.getElementById("btnBack").addEventListener("click", () => {
-    window.location = "http://localhost:5173/login";
-  });
 
   document.addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -80,7 +73,8 @@ export default function renderRegisterPage(
 
 function registerValidation(email, password , confirmPassword, gamerTag){
     
-    let emailRegex = /^[a-zA-z0-9._%+-]+@saskpolytech\.ca$/
+    let emailRegex = /^[a-zA-z0-9._%+-]+@saskpolytech\.ca$/;
+    let passwordRegex = /[a-zA-z]+/;
 
     if(!emailRegex.test(email)){
         errorMessage.innerText = "Invalid email, must be a @saskpolytech.ca email";
@@ -94,10 +88,13 @@ function registerValidation(email, password , confirmPassword, gamerTag){
                 if(gamerTag.length < 3){
                     errorMessage.innerText = "Gamer Tag must be at least 3 characters";
                 } else {
-                    errorMessage.innerText = "";
-                    return true;
+                    if(!passwordRegex.test(password)){
+                        errorMessage.innerText = "Passwords must have letters and numbers"
+                    } else {
+                        errorMessage.innerText = "";
+                        return true;
+                    }
                 }
-                
             }
         }
     }
