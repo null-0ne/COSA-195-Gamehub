@@ -41,7 +41,7 @@ export default function renderPigPage(
           </div>
           <div class="d-flex flex-row-reverse me-5">
               <button class="btn btn-primary " id="btnReset" type="button" >Reset Game</button>
-              <button class="btn btn-primary me-3" id="btnSubmit" type="button" >Submit Score</button>
+              <button class="btn btn-primary me-3" id="btnSubmit" type="button" disabled >Submit Score</button>
               <button id="btnBank" class="btn btn-primary me-3">Bank Score</button>
               
           </div>
@@ -108,6 +108,14 @@ Each round, a player repeatedly rolls a dice until a one is rolled or the player
         this.scoreSpan.innerHTML =
           parseInt(this.scoreSpan.innerHTML) + numRolled;
       }
+      if (bankedPoints + parseInt(this.scoreSpan.innerHTML) >= 100)
+      {
+        document.querySelector("#btnBank").disabled = true;
+        document.querySelector("#btnRoll").disabled = true;
+        document.querySelector("#btnSubmit").disabled = false;
+        
+      }
+     
     },
     scoreSpan: document.getElementById("updateScore"),
   };
@@ -152,7 +160,6 @@ Each round, a player repeatedly rolls a dice until a one is rolled or the player
     bankedPoints = 0;
     bankCount = 0;
 
-    sharedParams.totalScore = 0;
     sharedParams.rollCount = 0;
 
     document.getElementById("lastRolled").src =
@@ -162,6 +169,10 @@ Each round, a player repeatedly rolls a dice until a one is rolled or the player
 
     document.getElementById("updateRolls").innerHTML = 0;
     document.getElementById("bankedScore").innerHTML = 0;
+    document.querySelector("#btnRoll").disabled = false;
+    document.querySelector("#btnBank").disabled = false;
+    document.querySelector("#btnSubmit").disabled = true;
+    
   }
 
   //   renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);

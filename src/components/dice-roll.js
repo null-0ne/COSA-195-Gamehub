@@ -97,6 +97,7 @@ export default function renderDiceRoll(
 
       isRolling = false;
       params.finishedRolling();
+      
     }, 1000);
   }
 
