@@ -7,6 +7,22 @@
 %%----------------------- MERMAID MARKUP BELOW --------------------%%
 erDiagram
 
+
+
+    %% User {
+    %%   String email
+    %%   int score
+    %%   String gameId
+    %% }
+
+
+
+    Ads {
+      String advertisementId PK
+      String category
+      String message
+      String link
+    }
     PigScore {
     String email FK
     String gamerTag

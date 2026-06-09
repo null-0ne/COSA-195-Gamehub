@@ -6,8 +6,8 @@
 */
 
 /* Example Styles that are applied to a card that flips
-   including transitions and transforms to make card "flip" 
-   not handled by boot strap
+    including transitions and transforms to make card "flip" 
+    not handled by boot strap
 
 .flippable-card {
     cursor: pointer;
@@ -47,4 +47,14 @@
     background-image: url('../images/bg image.png');
     background-repeat: no-repeat;
     background-size: contian;
+}
+
+.gameImg{
+    width: 400px;
+    height: 300px;
+}
+
+.navBarProfilePic{
+    width: 50px;
+    height: 50px;
 }

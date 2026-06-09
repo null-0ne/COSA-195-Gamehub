@@ -11,6 +11,8 @@
 import { postScores } from "./lib/score-service";
 import renderHelpSlider from "./components/help-slider.js";
 import renderDiceRoll from "./components/dice-roll.js";
+import renderFooter from "./components/footer.js";
+//import {renderRollSec} from "./components/renderRollSection";
 
 /**renders the craps page
  *
