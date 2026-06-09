@@ -19,7 +19,7 @@ export default function renderUserInfo(
         
                 <div class="card-body text-center ">
     
-                    <img id="profileImg" class="img-account-profile img-fluid h-25 w-25 rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                    <img id="profileImg" class="img-account-profile img-fluid h-25 w-25 rounded-circle mb-2" src="${params.gamerAvatar? params.gamerAvatar :"/images/avatar1.png" }" alt="">
                     
                 </div>
                 <button class="btn btn-primary" id="btnSaveProfile" type="button">Save Profile</button>
@@ -46,7 +46,7 @@ export default function renderUserInfo(
                             <label class="small mb-1" for="gamerTag">Gamer Tag</label>
                             </div>
                             <div class="col text-center">
-                           <input type="text" class="form-control" id="gamerTag" placeholder="kilroy21">
+                           <input type="text" class="form-control" id="gamerTag" placeholder="kilroy21" value="${params.gamerTag ? params.gamerTag: ""}">
                             </div>
                         
                         </div>
@@ -56,13 +56,13 @@ export default function renderUserInfo(
         </div>
     </div>
 
-    <div id = "imgPicker" class="container my-4">
+    <div id="imgPicker" class="container my-4 d-none">
     <label class="form-label fw-bold mb-3">Choose an Avatar</label>
     <div class="row g-3">
     
     
-    <div class="col-6 col-md-3">
-    <input type="radio" name="avatarPicker" id="avatar1" class="btn-check" value="/images/avatar1.png" checked>
+    <div class="col-6 col-md-3" >
+    <input type="radio" name="avatarPicker"  class="btn-check" value="/images/avatar1.png" checked>
     <label class="card h-100 btn btn-outline-primary p-0 border-2 overflow-hidden" for="avatar1">
         <img src="/images/avatar1.png" class="img-fluid" >
         <div class="card-body p-2 text-center text-dark">Option One</div>
@@ -100,51 +100,32 @@ export default function renderUserInfo(
 `;
 
 let gamerAvatar;
-params.updateProfile();
-element.querySelector("#profileImg").src = sessionStorage.getItem("avatar")
-element.querySelector("#gamerTag").value = sessionStorage.getItem("gamerTag");   
+// params.updateProfile();
+// element.querySelector("#profileImg").src = sessionStorage.getItem("avatar")
+// element.querySelector("#gamerTag").value = sessionStorage.getItem("gamerTag");   
 
 
 
 element.querySelector("#btnSaveProfile").addEventListener("click", async function(){
 
-    await submitProfile();
+    params.gamerTag =  element.querySelector("#gamerTag").value;
+    params.gamerAvatar =  element.querySelector('input[type="radio"]:checked').value;
+    await params.submitProfile?.();
+    await params.updateProfile?.(); // set session storage
+
+
+    element.querySelector("#imgPicker").classList.add("d-none");
     console.log(params);
-    element.querySelector("#profileImg").src = sessionStorage.getItem("avatar")
-    element.querySelector("#gamerTag").value =  sessionStorage.getItem("gamerTag");
+    element.querySelector("#profileImg").src = params.gamerAvatar;
+    element.querySelector("#gamerTag").value =  params.gamerTag;
     
 })
 
-async function submitProfile()
-  {
-
-    params.gamerTag =  element.querySelector("#gamerTag").value;
-    params.gamerAvatar =  element.querySelector('input[type="radio"]:checked').value;
-    await params.submitProfile();
-    await params.updateProfile();
-     element.querySelector("#imgPicker").style.display = "none";
-  }
 //when user clicks
 let displayBlock = false;
 element.querySelector("#profileImg").addEventListener("click", function(){
-    if(displayBlock == false){
-        element.querySelector("#imgPicker").style.display = "block";
-        displayBlock = true;
-    }
-    else{
-        element.querySelector("#imgPicker").style.display = "none";
-        displayBlock = false;
-    } 
+    element.querySelector("#imgPicker").classList.toggle("d-none");
 })
 
-// let arrBtnChk = element.querySelectorAll(".btn-check");
-        
-//         element.querySelector("#imgPicker").addEventListener("click", function(){
-            
-            
-            
-//         })
-
-  //return the element in case it is needed for further logic
   return element;
 }

@@ -76,12 +76,13 @@ export async function getProfile(email){
         if(!response.ok){
             throw new Error("Error retrieving data");
         }
-        const user = await response.json();
+        const users = await response.json();
+        const user = users[0]
         console.log(user);
-        if(user.length > 0) //user logs in
+        if(user) //user logs in
         {
-            sessionStorage.setItem("gamerTag", user[0].gamerTag);
-            sessionStorage.setItem("avatar", user[0].avatar);
+            sessionStorage.setItem("gamerTag", user.gamerTag);
+            sessionStorage.setItem("avatar", user.avatar);
         }
              
         return user

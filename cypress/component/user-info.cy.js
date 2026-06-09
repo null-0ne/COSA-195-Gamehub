@@ -9,11 +9,33 @@ import renderUserInfo from "../../src/components/user-info.js";
 
 describe("", () => {
   it("checks user info - email, tag, and avatar", () => {
+     cy.mount(renderUserInfo,{params: {email: "email@saskpolytech.ca", gamerAvatar : "/images/avatar3.png", gamerTag: "tiger"}});
 
-    sessionStorage.setItem("email", "ogugofor2899@saskpolytech.ca")
-    let avatar = sessionStorage.getItem("avatar")
-    cy.get("#inputEmailAddress").should("have.value","ogugofor2899@saskpolytech.ca")
-    cy.get("#gamerTag").should("have.value","")
-    
+    cy.get("#inputEmailAddress").should("have.value","email@saskpolytech.ca")
+    cy.get("#gamerTag").should("have.value","tiger")
+
+    cy.get("#profileImg").click()
+    cy.get("#imgPicker").should("be.visible")
+
+    cy.get("#profileImg").click()
+    cy.get("#imgPicker").should("not.be.visible")
+
+    cy.get("#profileImg").click()
+    cy.get("#imgPicker").should("be.visible")
+    cy.get('input[type="radio"][value="/images/avatar4.png"]')
+     .should('not.be.checked')
+
+    cy.get('input[type="radio"][value="/images/avatar2.png"]')
+     .check({force: true})
+     .should('be.checked')
+     
+    cy.get("#gamerTag").clear()
+    cy.get("#gamerTag").type("Lion")
+
+    cy.get("#btnSaveProfile").click()
+
+    cy.get("#inputEmailAddress")
+    .should("be.disabled")
+     
   });
 });

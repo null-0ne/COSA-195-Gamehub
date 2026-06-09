@@ -93,7 +93,8 @@ let storeEmail = sessionStorage.getItem("email");
 //let storeAvatar = sessionStorage.getItem("avatar");
 //let storeTag = sessionStorage.getItem("gamerTag")
 
-let profileUser = await getProfile(storeEmail);
+let profileUser = await getProfile(storeEmail); //also set seesion storge
+console.log(profileUser);
 
   renderUserInfo(document.querySelector(".userInfo"), {
 
@@ -101,11 +102,10 @@ let profileUser = await getProfile(storeEmail);
     gamerAvatar: profileUser.avatar,
     updateProfile : async function() {
       await getProfile(storeEmail);
-    }
-    ,
+    },
     submitProfile: async function () {
-          await postProfile(this.gamerTag,this.gamerAvatar);
-        },
+      await postProfile(this.gamerTag,this.gamerAvatar);
+    },
     email: sessionStorage.getItem("email")
   });
   
