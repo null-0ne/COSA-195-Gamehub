@@ -20,6 +20,10 @@ title: Story 12 Pig Solitaire Page
     activate pig
 
     pig->>pig: renderGame()
+    pig->>dice: renderDiceRoll()
+    activate dice
+    dice->>pig: returns dice element
+    deactivate dice
     u->>pig: clicks roll dice button
 
     pig->>dice: rollDice()

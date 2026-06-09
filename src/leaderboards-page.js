@@ -29,6 +29,10 @@ export default async function renderLeaderboardPage(
                     <h3>Yahtzee Count</h3>
                     <ol class="list-group list-group-numbered"><li>NO Records Found</li></ol>
                 </div>
+                <div class="col">
+                    <h3>Pig Solitaire</h3>
+                    <ol class="list-group list-group-numbered"><li>NO Records Found</li></ol>
+                </div>
             </div>
           </div>
       </div>
@@ -46,6 +50,12 @@ export default async function renderLeaderboardPage(
     paging: { page: params.pageNum, limit: 3 }, // limit 3 items per page
   });
 
+  const pigScores = await getScores({
+    textSearch: "pig-solitaire",
+    sortOrder: "score",
+    paging: { page: params.pageNum, limit: 3 },
+  });
+
   //call to render the product-list component in the list-group ol element, pass the products to render in the params
   renderLeaderboardList(document.querySelector(".col > .list-group"), {
     scores: crapScores,
@@ -53,6 +63,11 @@ export default async function renderLeaderboardPage(
   renderLeaderboardList(
     document.querySelector(".col:nth-of-type(2) > .list-group"),
     { scores: yahtzeeScores },
+  );
+
+  renderLeaderboardList(
+    document.querySelector(".col:nth-of-type(3) > .list-group"),
+    { scores: pigScores },
   );
 
   //return the element in case it is needed for further logic

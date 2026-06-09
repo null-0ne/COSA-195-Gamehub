@@ -1,5 +1,3 @@
-let score;
-
 describe("pig solitaire page test", () => {
   beforeEach(() => {
     cy.visit(`http://localhost:5173/pig-solitaire`);
