@@ -91,7 +91,7 @@ export default function renderYahtzeeScoreCard(
 
       <div class="row mt-3">
         <div class="col text-center">
-          <button id="btnSubmit" class="btn btn-primary">Submit Score</button>
+          <button id="btnReset" class="btn btn-primary">Reset</button>
           </div>
           <div class="text-center py-5">
                 <h1>Total Rolls: <span id="totalScore">0</span></h1>
@@ -104,7 +104,7 @@ export default function renderYahtzeeScoreCard(
   const categories = element.querySelectorAll(".catName");
   const diceButtons = document.querySelectorAll(".lockable-dice");
   let validScore = true;
-  document.getElementById("btnSubmit").disabled = true;
+  document.getElementById("btnReset").disabled = true;
 
   /**
    * Helper to find the counts of dice
@@ -120,16 +120,12 @@ export default function renderYahtzeeScoreCard(
         }
       }
     }
-
-    // for (let die of dice) {
-    //   counts[die] = (counts[die] || 0) + 1;
-    // }
-
     return counts;
   }
   document.getElementById("btnRoll").addEventListener("click", () => {
     let updateLogic = setTimeout(() => {
       gameLogic();
+      document.getElementById("btnReset").disabled = false;
     }, 1100);
   });
 
@@ -151,15 +147,15 @@ export default function renderYahtzeeScoreCard(
       }
     }
 
-    validScore = true
+    validScore = true;
     for (const input of inputs) {
       if (input.value === "") {
         validScore = false;
       }
     }
-    if(validScore)
-    {
-      document.getElementById("btnSubmit").disabled = false;
+    if (validScore) {
+      document.getElementById("btnReset").disabled = false;
+      params.scoreCardComplete = true;
     }
   }
   function boxEvent(box) {
@@ -190,7 +186,10 @@ export default function renderYahtzeeScoreCard(
     document.getElementById("totalScore").innerHTML = 0;
     params.rolls = [];
     params.totalScore = 0;
-    document.getElementById("btnSubmit").disabled = true;
+    document.getElementById("btnReset").disabled = true;
+    params.scoreCardComplete = true;
+
+    document.getElementById("btnRoll").click();
   }
 
   function canScore(counts, boxId) {
@@ -309,19 +308,14 @@ export default function renderYahtzeeScoreCard(
     return maxRun >= length;
   }
 
-  function submitScore() {
-    
-    
-    if (validScore) {
-      params.submitScores(params.totalScore);
-        resetGame();
-    }
-    
+  function resetButton() {
+    //if (validScore) {
+    //params.submitScores(params.totalScore);
+    resetGame();
+    //}
   }
-  element
-    .querySelector("#btnSubmit")
 
-    .addEventListener("click", submitScore);
+  element.querySelector("#btnReset").addEventListener("click", resetButton);
 
   //return the element in case it is needed for further logic
   return element;

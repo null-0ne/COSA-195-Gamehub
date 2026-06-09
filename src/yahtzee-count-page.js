@@ -38,7 +38,9 @@ export default function renderYahtzeeCountPage(
             </div>
             <div class="col-6 padding-lg border border-secondary rounded grey score-form">
             </div>
-            
+            <div class="col text-center">
+          <button id="btnSubmit" class="btn btn-primary">Submit Score</button>
+          </div>
           </div>
         </div>
     </div>
@@ -82,10 +84,12 @@ game is over. The number of rolls for each combination is totaled
 to get the final score (lower scores are better). </li>
 </ul>`,
   });
+  document.getElementById("btnSubmit").disabled = true;
 
   const sharedParams = {
     rolls: [],
     totalScore: 0,
+    scoreCardComplete: false,
 
     scoreSpan: document.getElementById("updateScore"),
 
@@ -102,7 +106,10 @@ to get the final score (lower scores are better). </li>
     lockable: true,
     finishedRolling: function () {
       this.rolls.push(1);
-      document.getElementById("updateScore").innerHTML = this.rolls.reduce((a, b) => a + b, 0);
+      document.getElementById("updateScore").innerHTML = this.rolls.reduce(
+        (a, b) => a + b,
+        0,
+      );
     },
   };
 
@@ -116,7 +123,24 @@ to get the final score (lower scores are better). </li>
     sharedParams,
   );
 
-  
+  if (sharedParams.scoreCardComplete) {
+    document.getElementById("btnSubmit").disabled = false;
+  } else {
+    document.getElementById("btnSubmit").disabled = true;
+  }
+
+  function submitScores() {
+    postScores(
+      sharedParams.totalScore,
+      "yahtzee-count",
+      sessionStorage.getItem("id"),
+      sessionStorage.getItem("email"),
+    );
+
+    sharedParams.scoreCardComplete = false;
+  }
+
+  document.getElementById("btnSubmit").addEventListener("click", submitScores);
 
   //return the element in case it is needed for further logic
   return element;
