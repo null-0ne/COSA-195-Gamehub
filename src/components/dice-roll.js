@@ -1,6 +1,8 @@
 //https://www.geeksforgeeks.org/bootstrap/how-to-create-image-overlay-effects-in-bootstrap/
 //https://www.geeksforgeeks.org/bootstrap/how-to-use-image-overlay-correctly-with-bootstrap/
 
+import renderYahtzeeScoreCard from "./yahtzee-score-card";
+
 /*
  Filename:    dice-roll.js
  Student:     Rylan & Garrett
@@ -23,7 +25,7 @@ export default function renderDiceRoll(
     finishedRolling: function () {
       console.log("Finished rolling");
     },
-  } /* default is face down */,
+  },
 ) {
   // boostrap classes for flex
   const bsFlex = "d-flex flex-wrap justify-content-center align-items-center";
@@ -84,12 +86,7 @@ export default function renderDiceRoll(
     isRolling = true;
 
     let rollAnimation = setInterval(() => {
-      let i = 0;
       for (const die of unlockedDice) {
-        // Getting the index of the array
-        //const diceDiv = die.closest(".dice-div");
-        //const index = parseInt(diceDiv.dataset.arrindex);
-
         randomDiceFace = Math.floor(Math.random() * 6 + 1);
         params.dice[die.parentElement.getAttribute("data-arr-index")] =
           randomDiceFace;
@@ -106,7 +103,6 @@ export default function renderDiceRoll(
 
       isRolling = false;
       params.finishedRolling();
-      console.log(params.dice);
     }, 1000);
   }
 
