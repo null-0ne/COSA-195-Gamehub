@@ -6,7 +6,7 @@
     Purpose:     End To End test Dashboard Page
 */
 
-describe('Dashboard page tests', () => {
+describe('Home page tests', () => {
     beforeEach(() => {
         // Cypress starts out with a blank slate for each test
         // so we must tell it to visit our website with the `cy.visit()` command.
