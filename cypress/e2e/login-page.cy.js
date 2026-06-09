@@ -16,12 +16,13 @@ describe('contact page test', () => {
         cy.get('input.input-group-text').as('textInputs').should('have.length', 2)
     })
 
-    it('displays link button', () => {
-        cy.get('button.btn').as('buttons').should('have.length', 1);
+    it('displays submit button', () => {
+        cy.get('input.btn').as('buttons').should('have.length', 1);
     })
 
     it('display 2 input buttons', () => {
-        cy.get('input.btn').as('inputBtn').should('have.length', 2);
+        //cy.get('input.btn').as('inputBtn').should('have.length', 1);
+        cy.get('a.form-btn').as('inputA').should('have.length', 2);
     })
 
     it('Shows error message when fields are empty', () => {
@@ -56,12 +57,12 @@ describe('contact page test', () => {
     })
 
     it('Continue without an account button redirects to home page', () => {
-        cy.get('button.btn').click();
+        cy.get('a.form-btn').eq(1).click();
         cy.url().should('eq', "http://localhost:5173/");
     })
 
     it('Sign up button redirects to the register page', () => {
-        cy.get('input.btn').eq(1).click();
+        cy.get('a.form-btn').eq(0).click();
         cy.url().should('eq',"http://localhost:5173/register")
     })
 

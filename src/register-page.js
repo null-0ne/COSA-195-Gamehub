@@ -13,16 +13,24 @@ export default function renderRegisterPage(
                     <fieldset id = "loginInfo" class="d-flex flex-column justify-content-center align-items-center">
                     <div>
                         <label for="email" class="fw-bold form-label"> Email Address: </label>
+                    </div>
+                    <div>
                         <input name ="custEmail" id="email" type="email" placeholder="example@saskpolytech.ca" class="input-group-text w-100 bg-secondary"/>
                     </div>
                     <div>
-                        <label for="password" class="fw-bold "> Password: <label/>
+                        <label for="gamerTag" class="fw-bold form-label">Gamer Tag:</label>
+                    </div>
+                    <div>
+                        <input id="gamerTag" type="text" placeholder="Player123" class="input-group-text w-100 bg-secondary"/>
+                    </div> 
+                    <div>
+                        <label for="password" class="fw-bold form-label"> Password: <label/>
                     </div>
                     <div>
                         <input name = "password" id="password" type="password" class="input-group-text w-100 bg-secondary "/>
                     </div>
                     <div>
-                        <label for="confirmPassword" class="fw-bold"> Confirm Password: <label/>
+                        <label for="confirmPassword" class="fw-bold form-label"> Confirm Password: <label/>
                     </div>
                     <div>
                         <input name = "confirmPassword" id="confirmPassword" type="password" class="input-group-text w-100 bg-secondary "/>
@@ -30,7 +38,7 @@ export default function renderRegisterPage(
                     <div class="w-100">
                         <p id="errorMessage" class="text-danger"></p>
                         <input type="submit" value="SIGN UP" id="btnSignUp" class="btn btn-success d-grid gap-2 col-6 mx-auto text-black"/>
-                        <input type="button" value="BACK" id="btnBack" class="btn btn-success d-grid gap-2 col-6 mx-auto text-black mt-2" />
+                        <a href="/login" class="btn btn-success d-grid gap-2 col-6 mx-auto text-black mt-2">BACK</a>
                     <div>
                     </fieldset>
                 </form>
@@ -38,24 +46,21 @@ export default function renderRegisterPage(
         </div>        
     `;
 
-  document.getElementById("btnBack").addEventListener("click", () => {
-    window.location = "http://localhost:5173/login";
-  });
-
   document.addEventListener("submit", async function (event) {
     event.preventDefault();
 
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
     let confirmPassword = document.getElementById("confirmPassword").value;
+    let gamerTag = document.getElementById("gamerTag").value
 
-    if (email.trim() == "" || password.trim() == "") {
+    if (email.trim() == "" || password.trim() == "" || gamerTag.trim() == "") {
       document.getElementById("errorMessage").innerText =
         "You are missing one or more fields!";
     }
 
-    if (registerValidation(email, password, confirmPassword)) {
-      const userObject = await register(email, password);
+    if (registerValidation(email, password, confirmPassword, gamerTag)) {
+      const userObject = await register(email, password, gamerTag);
       console.log(userObject);
       if(userObject.id === "exists"){
         errorMessage.innerText = "That user already exists";
@@ -66,9 +71,10 @@ export default function renderRegisterPage(
     }
   });
 
-function registerValidation(email, password , confirmPassword){
+function registerValidation(email, password , confirmPassword, gamerTag){
     
-    let emailRegex = /^[a-zA-z0-9._%+-]+@saskpolytech\.ca$/
+    let emailRegex = /^[a-zA-z0-9._%+-]+@saskpolytech\.ca$/;
+    let passwordRegex = /[a-zA-z]+/;
 
     if(!emailRegex.test(email)){
         errorMessage.innerText = "Invalid email, must be a @saskpolytech.ca email";
@@ -79,8 +85,16 @@ function registerValidation(email, password , confirmPassword){
             if(confirmPassword !== password){
                 errorMessage.innerText = "Passwords must match";
             } else {
-                errorMessage.innerText = "";
-                return true;
+                if(gamerTag.length < 3){
+                    errorMessage.innerText = "Gamer Tag must be at least 3 characters";
+                } else {
+                    if(!passwordRegex.test(password)){
+                        errorMessage.innerText = "Passwords must have letters and numbers"
+                    } else {
+                        errorMessage.innerText = "";
+                        return true;
+                    }
+                }
             }
         }
     }

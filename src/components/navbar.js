@@ -1,3 +1,5 @@
+import { retrieveLogin } from "../lib/user-service.js";
+
 /**
  * NavBar Component - a reuseable component that can be injected many times on the different "Pages"
  * Render function to inject content into an HTML element
@@ -6,36 +8,60 @@
  */
 export default function renderNavBar(
     element = document.createElement('nav'), /* default new nav element*/
-    params = {} /* default empty object*/
+    params = { title: "navbar"} /* default object*/
 ) {
     element.setAttribute('class','navbar bg-primary');
     element.setAttribute('data-bs-theme','dark');
     element.classList.add("p-0");
     //set the content of the nav bar
     element.innerHTML = `   
-    <div class="container-fluid p-0">
+    <div class="container-fluid p-0 d-flex justify-content-between">
         <a classhref="/">
             <img src="/sp.jpg" class="logo vanilla" alt="Saskpolytech logo" />
         </a>
-        <a href="/login" class='link-offset-2 link-underline link-underline-opacity-0 text-white'><button>Login</button></a>
-    </div>
-    <div class='container-fluid bg-success p-0 border border-dark'>
-        <div class='row w-100 h-100 text-center'>
-        <div class='col-md-3 text-white'>
-        <a href="/" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Home</a>
+        <h1 class="text-white text-uppercase me-5 pe-5">${params.title}</h1>
+        <div id="profileDiv">
         </div>
-        <div class='col-md-3 text-white'>
-        <a href="/craps" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Craps</a>
+            </div>
+    <div class='container-fluid bg-success p-0 border border-dark border-3'>
+        <div class='row w-100 text-center'>
+        <div class='col text-white'>
+        <a href="/" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Home</a>
         </div>
-        <div class='col-md-3 text-white'>
-        <a href="/yahtzee-count" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Yahtzee Count</a>
+        <div class='col text-white border-start border-3'>
+        <a href="/craps" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Craps</a>
         </div>
-        <div class='col-md-3 text-white'>
-        <a href="/leaderboard" class='link-offset-2 link-underline link-underline-opacity-0 text-black'>Leaderboard</a>
+        <div class='col text-white border-start border-3'>
+        <a href="/yahtzee-count" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Yahtzee Count</a>
+        </div>
+        <div class='col text-white border-start border-3'>
+        <a href="/" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Pig Solitaire</a>
+        </div>
+        <div class='col text-white border-start border-3'>
+        <a href="/leaderboard" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Leaderboard</a>
         </div>
     </div>
     `;
 
+    
+    const profileDiv = document.getElementById("profileDiv");
+    if(sessionStorage.getItem("id")){
+        profileDiv.innerHTML = `
+        <img src="/images/bison.png" class="navBarProfilePic me-2 rounded"/>
+        <button class="btn btn-success text-black fw-bold border border-2 border-black me-2" id="signOut">Sign Out</button>`
+        document.getElementById("signOut").addEventListener("click", function(){
+            sessionStorage.removeItem("id");
+            sessionStorage.removeItem("email");
+            sessionStorage.removeItem("avatar");
+            profileDiv.innerHTML = ` <a href="/login" class='link-offset-2 link-underline link-underline-opacity-0 text-black me-2 btn btn-success border border-2 border-black fw-bold'>Login</a>
+            <a href="/register" class='link-offset-2 link-underline link-underline-opacity-0 text-black me-2 btn btn-success border border-2 border-black fw-bold'>Register</a>`
+        })
+    } else{
+        profileDiv.innerHTML = ` <a href="/login" class='link-offset-2 link-underline link-underline-opacity-0 text-black me-2 btn btn-success border border-2 border-black fw-bold'>Login</a>
+        <a href="/register" class='link-offset-2 link-underline link-underline-opacity-0 text-black me-2 btn btn-success border border-2 border-black fw-bold'>Register</a>`
+    }
+
+    
     //return the element in case it is need for further logic
     return element;
 }
