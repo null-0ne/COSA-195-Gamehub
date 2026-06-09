@@ -6,7 +6,13 @@
 
 export default function renderYahtzeeScoreCard(
   element = document.createElement("div") /**/,
-  params = {} /*An object that should contain the score, the postScores function and the span to update the score on the page*/,
+  params = {
+    dice: [1, 2, 3, 4, 5],
+    rolls: [],
+    totalScore: 0,
+    scoreCardComplete: false,
+    validateRolls: function () {},
+  } /*An object that should contain the score, the postScores function and the span to update the score on the page*/,
 ) {
   element.innerHTML = `<div class="container pt-5">
   <div class="row">
@@ -90,9 +96,7 @@ export default function renderYahtzeeScoreCard(
         </div>
 
       <div class="row mt-3">
-        <div class="col text-center">
-          <button id="btnReset" class="btn btn-primary">Reset</button>
-          </div>
+      
           <div class="text-center py-5">
                 <h1>Total Rolls: <span id="totalScore">0</span></h1>
               </div>
@@ -100,11 +104,11 @@ export default function renderYahtzeeScoreCard(
       </div>
   `;
 
+  params.validateRolls = gameLogic;
   const inputs = element.querySelectorAll(".catInput");
   const categories = element.querySelectorAll(".catName");
   const diceButtons = document.querySelectorAll(".lockable-dice");
   let validScore = true;
-  document.getElementById("btnReset").disabled = true;
 
   /**
    * Helper to find the counts of dice
@@ -122,12 +126,6 @@ export default function renderYahtzeeScoreCard(
     }
     return counts;
   }
-  document.getElementById("btnRoll").addEventListener("click", () => {
-    let updateLogic = setTimeout(() => {
-      gameLogic();
-      document.getElementById("btnReset").disabled = false;
-    }, 1100);
-  });
 
   for (const box of inputs) {
     box.addEventListener("click", () => boxEvent(box));
@@ -154,7 +152,6 @@ export default function renderYahtzeeScoreCard(
       }
     }
     if (validScore) {
-      document.getElementById("btnReset").disabled = false;
       params.scoreCardComplete = true;
     }
   }
@@ -164,19 +161,11 @@ export default function renderYahtzeeScoreCard(
       boxx.disabled = true;
       boxx.style.backgroundColor = "white";
     }
-    document.getElementById("totalScore").innerHTML = params.rolls.length;
+    element.querySelector("#totalScore").innerHTML = params.rolls.length;
     params.totalScore = params.rolls.length;
     params.rolls.fill(0);
-    document.getElementById("updateScore").innerHTML = params.rolls.reduce(
-      (a, b) => a + b,
-      0,
-    );
-    for (let button of diceButtons) {
-      if (button.classList.contains("dice-img-lock")) {
-        button.click();
-      }
-    }
-    document.getElementById("btnRoll").click();
+
+    params.selectCategory();
   }
 
   function resetGame() {
@@ -186,10 +175,7 @@ export default function renderYahtzeeScoreCard(
     document.getElementById("totalScore").innerHTML = 0;
     params.rolls = [];
     params.totalScore = 0;
-    document.getElementById("btnReset").disabled = true;
     params.scoreCardComplete = true;
-
-    document.getElementById("btnRoll").click();
   }
 
   function canScore(counts, boxId) {
@@ -198,74 +184,74 @@ export default function renderYahtzeeScoreCard(
         return (
           counts[0] >= 3 &&
           params.rolls.reduce((a, b) => a + b, 0) > 0 &&
-          document.getElementById("Ones").value == ""
+          element.querySelector("#Ones").value == ""
         );
       case "Twos":
         return (
           counts[1] >= 3 &&
           params.rolls.reduce((a, b) => a + b, 0) > 0 &&
-          document.getElementById("Twos").value == ""
+          element.querySelector("#Twos").value == ""
         );
       case "Threes":
         return (
           counts[2] >= 3 &&
           params.rolls.reduce((a, b) => a + b, 0) > 0 &&
-          document.getElementById("Threes").value == ""
+          element.querySelector("#Threes").value == ""
         );
       case "Fours":
         return (
           counts[3] >= 3 &&
           params.rolls.reduce((a, b) => a + b, 0) > 0 &&
-          document.getElementById("Fours").value == ""
+          element.querySelector("#Fours").value == ""
         );
       case "Fives":
         return (
           counts[4] >= 3 &&
           params.rolls.reduce((a, b) => a + b, 0) > 0 &&
-          document.getElementById("Fives").value == ""
+          element.querySelector("#Fives").value == ""
         );
       case "Sixes":
         return (
           counts[5] >= 3 &&
           params.rolls.reduce((a, b) => a + b, 0) > 0 &&
-          document.getElementById("Sixes").value == ""
+          element.querySelector("#Sixes").value == ""
         );
       case "ThreeOfAKind":
         return (
           hasThreeOfAKind(counts) &&
           params.rolls.reduce((a, b) => a + b, 0) > 0 &&
-          document.getElementById("ThreeOfAKind").value == ""
+          element.querySelector("#ThreeOfAKind").value == ""
         );
       case "FourOfAKind":
         return (
           hasFourOfAKind(counts) &&
           params.rolls.reduce((a, b) => a + b, 0) > 0 &&
-          document.getElementById("FourOfAKind").value == ""
+          element.querySelector("#FourOfAKind").value == ""
         );
       case "SmallStraight":
         return (
           hasStraight(params.dice, params.dice.length - 1) &&
           params.rolls.reduce((a, b) => a + b, 0) > 0 &&
-          document.getElementById("SmallStraight").value == ""
+          element.querySelector("#SmallStraight").value == ""
         );
       case "LargeStraight":
         return (
           hasStraight(params.dice, params.dice.length) &&
           params.rolls.reduce((a, b) => a + b, 0) > 0 &&
-          document.getElementById("LargeStraight").value == ""
+          element.querySelector("#LargeStraight").value == ""
         );
       case "FullHouse":
         return (
           counts.includes(3) &&
           counts.includes(2) &&
           params.rolls.reduce((a, b) => a + b, 0) > 0 &&
-          document.getElementById("FullHouse").value == ""
+          element.querySelector("#FullHouse").value == ""
         );
       case "Yahtzee":
         return (
           counts.includes(5) &&
           params.rolls.reduce((a, b) => a + b, 0) > 0 &&
-          document.getElementById("Yahtzee").value == ""
+          element.querySelector("#Yahtzee").value == ""
         );
       default:
         return false;
@@ -309,10 +295,7 @@ export default function renderYahtzeeScoreCard(
   }
 
   function resetButton() {
-    //if (validScore) {
-    //params.submitScores(params.totalScore);
     resetGame();
-    //}
   }
 
   element.querySelector("#btnReset").addEventListener("click", resetButton);

@@ -1,9 +1,9 @@
 /*
-    Filename:    
-    Student:    Garrett Thomson
+    Filename:    dice-roll.js
+    Student:     Dustin Oliver & Garrett Thomson
     Course:      COSA 195 (Systems Project)
     Date:        2026-05-15
-    Purpose:     End To End test Craps Page
+    Purpose:     Component test for dice-roll
 */
 describe("Dice roll component test", () => {
   beforeEach(() => {
@@ -25,7 +25,7 @@ describe("Dice roll component test", () => {
 
     cy.wait(1200);
 
-    cy.get("#gameColRow24").should("not.contain", "= 0");
+    cy.get("#updateScore").should("not.contain", "= 0");
   });
 
   it("updates games played record when game ends", () => {

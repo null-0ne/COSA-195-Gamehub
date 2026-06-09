@@ -40,6 +40,7 @@ export default function renderYahtzeeCountPage(
             </div>
             <div class="col text-center">
           <button id="btnSubmit" class="btn btn-primary">Submit Score</button>
+          <button id="btnReset" onclick="window.location.reload()" class="btn btn-primary">Reset</button>
           </div>
           </div>
         </div>
@@ -85,6 +86,8 @@ to get the final score (lower scores are better). </li>
 </ul>`,
   });
   document.getElementById("btnSubmit").disabled = true;
+  const diceElement = document.querySelector(`.gameplay`);
+  const scoreCardElement = document.querySelector(`.score-form`);
 
   const sharedParams = {
     rolls: [],
@@ -93,13 +96,12 @@ to get the final score (lower scores are better). </li>
 
     scoreSpan: document.getElementById("updateScore"),
 
-    submitScores: function () {
-      postScores(
-        this.totalScore,
-        "yahtzee-count",
-        sessionStorage.getItem("id"),
-        sessionStorage.getItem("email"),
-      );
+    validateRolls: function () {},
+
+    selectCategory: function () {
+      document.getElementById("updateScore").innerHTML = "0";
+      this.dice = [1, 2, 3, 4, 5];
+      renderDiceRoll(diceElement, this);
     },
 
     dice: [1, 2, 3, 4, 5],
@@ -110,24 +112,18 @@ to get the final score (lower scores are better). </li>
         (a, b) => a + b,
         0,
       );
+
+      this.validateRolls();
+
+      if (sharedParams.scoreCardComplete) {
+        document.getElementById("btnSubmit").disabled = false;
+      }
     },
   };
 
-  const diceElement = renderDiceRoll(
-    document.querySelector(`.gameplay`),
-    sharedParams,
-  );
+  renderDiceRoll(diceElement, sharedParams);
 
-  const scoreElement = renderYahtzeeScoreCard(
-    document.querySelector(`.score-form`),
-    sharedParams,
-  );
-
-  if (sharedParams.scoreCardComplete) {
-    document.getElementById("btnSubmit").disabled = false;
-  } else {
-    document.getElementById("btnSubmit").disabled = true;
-  }
+  renderYahtzeeScoreCard(scoreCardElement, sharedParams);
 
   function submitScores() {
     postScores(
