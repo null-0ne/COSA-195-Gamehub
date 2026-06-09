@@ -11,8 +11,7 @@ export function renderTriviaQuestion(
                   <div id='test'>
                   ${params.questions.question}<br>
                   </div>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" form="form" class="btn btn-primary" data-bs-dismiss="modal" id='subButton'>Submit</button>
+                <button type="submit" form="form" class="btn btn-primary w-100 "  id='subButton'>Submit</button>
                  </div>`;
         
 
@@ -29,11 +28,14 @@ export function renderTriviaQuestion(
   element.querySelector("#subButton").addEventListener("click", function(){
               if(element.querySelector('input[name="fav_language"]:checked').value == params.questions.correctAnswer)
              {
+              element.querySelector("#test").setAttribute("style", "color: green");
                 params.onCorrect();
+
 
              }
              else
             {
+              element.querySelector("#test").setAttribute("style", "color: red");
                 params.onInCorrect();
             }
   });

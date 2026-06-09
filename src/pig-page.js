@@ -188,22 +188,7 @@ Each round, a player repeatedly rolls a dice until a one is rolled or the player
   renderPigScorecard(document.querySelector(`.score-form`), sharedParams);
 
 
-  //trivia code
-//    const qData = await getQuestion();
-//     renderTriviaQuestion(document.getElementById("Test"), {questions: qData,
-//        onCorrect: function(){postScores(this.totalScore, "yahtzee-count", userId, userEmail);}, 
-//        onInCorrect: function(){resetGame();}});
-//     document.getElementById("subButton").addEventListener("click", function(){
-//       console.log(document.querySelector('input[name="fav_language"]:checked').value);
-//       console.log("correct:" + qData.correctAnswer);
-//     })
   
-   // modalElement.modal.show();
-  
-    function resetGame()
-    {
-      return;
-    }
 
 
 

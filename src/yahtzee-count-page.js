@@ -10,49 +10,61 @@ import { postScores } from "./lib/score-service.js";
 import renderYahtzeeScoreCard from "./components/yahtzee-score-card.js";
 import renderGameplaySection from "./components/gameplay-section.js";
 import renderHelpSlider from "./components/help-slider.js";
-import {renderTriviaQuestion} from "./components/trivia-question.js"; 
+import renderDiceRoll from "./components/dice-roll.js";
 import { getQuestion } from "./lib/question-service.js";
-// import { returnAnswer } from "./components/trivia-question.js";
+import { renderTriviaQuestion } from "./components/trivia-question.js";
 /**
  * Render function to inject content into an HTML element
  * @param {*} element - HTML element target container
  * @param {*} params - optional values, objects or functions needed to render on the page
  */
-export default async function renderYahtzeeCountPage(
+export  default async function renderYahtzeeCountPage(
   element = document.createElement("div") /*default - new div element*/,
   params = { title: "Yahtzee count" } /*default*/,
 ) {
   // set the content of the element
   element.innerHTML = `
     <div>
-        <h1><img src="/sp.jpg" class="logo vanilla" alt="Saskpolytech logo" />
-        ${params.title}</h1>
-        <div class="">
-        <h2>SaskPolytech Yahtzee Count</h2>
           <div class='d-flex justify-content-end pt-3'>
     <div id='divHelp'></div>
-    </div>
-    <div id='Test'>
-    </div>
-  </div>
     </div>
     </div>
         </div>
           <div class="row">
-            <div class="col-8 border border-secondary rounded grey ">
+            <div class="col-6 border border-secondary rounded grey ">
               <div class="gameplay">
               </div>
-              <div class="text-center pt-5">
-                <h1>SCORE: <span id="updateScore">0</span></h1>
+              <div class="text-center py-5">
+                <h1>Current Rolls: <span id="updateScore">0</span></h1>
               </div>
             </div>
-            <div class="col-4  score-form">
+            <div class="col-6 padding-lg border border-secondary rounded grey score-form">
             </div>
+            <div class="col text-center">
+            <div class="d-flex flex-row-reverse me-5">
+              <button class="btn btn-primary " id="btnReset" type="button" >Reset Game</button>
+              <button class="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#modalTrivia" id="btnSubmit" type="button" >Submit Score</button>
+        <div class="modal fade" id="modalTrivia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Skill Test Question</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id='radio'>
+
+         </div>
+          </div>
           </div>
         </div>
     </div>
     `;
-    renderHelpSlider(document.getElementById("divHelp"),{text: `<p>Yahtzee Count
+
+  const qData = await getQuestion();
+       renderTriviaQuestion(document.getElementById("radio"), {questions: qData, onCorrect: function(){console.log("correct");submitScores();}, onInCorrect: function(){console.log("incorrect");resetGame();}});
+
+  renderHelpSlider(document.getElementById("divHelp"), {
+    text: `<p>Yahtzee Count
     is a dice game where players try to get certain patterns of dice in the
     smallest number of rolls.
      </p>
@@ -88,47 +100,73 @@ long as they want.</li>
 <li>When all the possible combinations have been selected, the 
 game is over. The number of rolls for each combination is totaled
 to get the final score (lower scores are better). </li>
-</ul>`});
-
-//make async function to render question and listen for when the submit button on modal is clicked
-const userEmail = sessionStorage.getItem("email");
-const userId = sessionStorage.getItem("ID");
-let modalElement = {modal: false};
-
-  const qData = await getQuestion();
-  renderTriviaQuestion(document.getElementById("Test"), {questions: qData, modal: modalElement,
-     onCorrect: function(){postScores(this.totalScore, "yahtzee-count", userId, userEmail);}, 
-     onInCorrect: function(){resetGame();}});
-  document.getElementById("subButton").addEventListener("click", function(){
-    console.log(document.querySelector('input[name="fav_language"]:checked').value);
-    console.log("correct:" + qData.correctAnswer);
-  })
-
- // modalElement.modal.show();
-
-  function resetGame()
-  {
-    return;
-  }
+</ul>`,
 
 
+  });
+
+
+    
+
+
+  document.getElementById("btnSubmit").disabled = false; //CHANGE TO TRUE
 
   const sharedParams = {
+    rolls: [],
     totalScore: 0,
-    submitScores: function () {
-      modalElement.modal.show();
-    },
+    scoreCardComplete: false,
+
     scoreSpan: document.getElementById("updateScore"),
+
+    submitScores: function () {
+      postScores(
+        this.totalScore,
+        "yahtzee-count",
+        sessionStorage.getItem("id"),
+        sessionStorage.getItem("email"),
+      );
+    },
+
+    dice: [1, 2, 3, 4, 5],
+    lockable: true,
+    finishedRolling: function () {
+      this.rolls.push(1);
+      document.getElementById("updateScore").innerHTML = this.rolls.reduce(
+        (a, b) => a + b,
+        0,
+      );
+    },
   };
 
-  renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
-  renderYahtzeeScoreCard(document.querySelector(`.score-form`), sharedParams);
-  let inputOnes = element.querySelectorAll(".catInput");
-  for (let input of inputOnes) {
-    input.addEventListener("change", function () {
-      sharedParams.scoreSpan.innerHTML = sharedParams.totalScore;
-    });
+  const diceElement = renderDiceRoll(
+    document.querySelector(`.gameplay`),
+    sharedParams,
+  );
+
+  const scoreElement = renderYahtzeeScoreCard(
+    document.querySelector(`.score-form`),
+    sharedParams,
+  );
+
+  if (sharedParams.scoreCardComplete) {
+    document.getElementById("btnSubmit").disabled = false;
+  } else {
+    document.getElementById("btnSubmit").disabled = false; //CHANGE TO TRUE
   }
 
+  function submitScores() {
+    postScores(
+      sharedParams.totalScore,
+      "yahtzee-count",
+      sessionStorage.getItem("id"),
+      sessionStorage.getItem("email"),
+    );
+
+    sharedParams.scoreCardComplete = false;
+  }
+
+  //document.getElementById("btnSubmit").addEventListener("click", submitScores);
+
+  //return the element in case it is needed for further logic
   return element;
 }
