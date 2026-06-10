@@ -7,41 +7,50 @@
 %%----------------------- MERMAID MARKUP BELOW --------------------%%
 
 sequenceDiagram
-title: Story 9 Profile Page
+    actor u as user
+    participant p as profilepage <br><<component>>
+    participant us as userservice <br><<service>>
+    participant ss as scoreservice <br><<service>>
+    participant uic as userinfocomponent <br><<component>>
+    participant lc as leaderboardlistcomponent <br><<component>>
 
-    actor u as User
-    participant p as ProfilePage <br><<component>>
-    participant f as UpdateProfileService<br><<service>>
-    participant s as UserService <br><<service>>
-    participant m as ScoreService<br><<service>>
-    %%participant r as RenderScore<br><<component>>
+    u ->> p: navigates to profile page
 
-
-    u->>p: navigates to profile page
-    alt Logged in
-        activate p
-            p->>p: renderLoginPage(element:HTMLElement,title:string pageNum:int)
-
-    opt updateProfile
-        p->>p: User updates profile
-        p->>f: updateProfile()
-        activate f
-        f->>p: postUpdate(String image, String gamerTag)
-        deactivate f
-        p->>p: renderLoginPage(element:HTMLElement,title:string)
+    alt user is not logged in
+    p->> p: redirect to login page
 
 
+    else user is logged in
+    activate p
 
-    end
-            p->>m: getScores(String gameName)
+    p ->> us: getProfile(email) request current user profile
+    us -->> p: returns user profile data
 
-            activate m
-            m->>p: returns users:User[]
-            deactivate m
-            p->>u: display scores
-        deactivate p
+    p ->> uic: renderUserInfo(gamerTag, avatar, email)
+
+    alt user updates profile
+        u ->> uic: changes gamerTag or avatar
+        uic ->> us: postProfile(gamerTag, avatar) submit updated profile
+        uic ->> us: getProfile(email) request updated profile
+        us -->> uic: returns updated profile
+        uic ->> uic: update page with new avatar and gamerTag
     end
 
+    p ->> ss: getScores("craps") request top 3 scores for craps
+    ss -->> p: returns top 3 craps scores
+    p ->> lc: renderLeaderboardList(craps scores)
+
+    p ->> ss: getScores("yahtzee-count") request top 3 scores for yahtzee-count
+    ss -->> p: returns top 3 yahtzee-count scores
+    p ->> lc: renderLeaderboardList(yahtzee scores)
+
+    p ->> ss: getScores("pig") request top 3 scores for pig
+    ss -->> p: returns top 3 pig scores
+    p ->> lc: renderLeaderboardList(pig scores)
+
+    p -->> u: displays profile info and leaderboard results
+    deactivate p
+    end
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```

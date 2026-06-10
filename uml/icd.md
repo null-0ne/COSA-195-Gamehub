@@ -20,6 +20,10 @@ classDiagram
         +renderLeaderboardList(element:HTMLElement,params:Object):HTMLElement
     }
 
+    class UserInfo{
+        +renderUserInfo(element:HTMLElement,params:Object):HTMLElement
+    }
+
     class NavBar {
         +renderNavBar(element:HTMLElement,params:Object):HTMLElement
     }
@@ -33,6 +37,7 @@ classDiagram
         <<service>>
         +postScore(int Scores,String gameTitle, String userID, String email) : Score
         +getScores(textSearch:string,sortOrder:string,paging:Object) : Score[]
+
     }
 
     class UserService{
@@ -40,6 +45,9 @@ classDiagram
         +retrieveLogin(email: string, password: string) Object[]
         +register(email: string, password: string) Object[]
         +registerValidate(email: string, password: string) boolean
+        +postProfile(userTag: string, userAvatar: string)
+        +getProfie(email: string) : User
+
     }
 
     %% ---------PAGES ----------%%
@@ -83,6 +91,9 @@ classDiagram
     <<view>>
         +renderLoginPage(element:HTMLElement,title:string,pageNum:int):HTMLElement
         +redirectToDashboard()
+    }
+    class ProfilePage {
+         +renderProfilePage(element:HTMLElement,title:string):HTMLElement
     }
 
     class RegisterPage {

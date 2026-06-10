@@ -39,6 +39,8 @@ erDiagram
       int id PK
       String email
       String password
+      String tagName
+      String avatar
     }
 
     %% Relationships
