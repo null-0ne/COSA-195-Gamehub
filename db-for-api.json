@@ -1,11 +1,62 @@
 {
+  "ads": [
+    {
+      "category": "Saskatchewan Polytechnic",
+      "message": "Visit Saskatchewan Polytechnic’s website!",
+      "link": "https://saskpolytech.ca/",
+      "id": "TOEZO-p-q9o"
+    },
+    {
+      "category": "Saskatchewan Polytechnic",
+      "message": "Find out about the Saskatchewan Polytechnic Students’ Association (SPSA)",
+      "link": "https://spsa.ca/",
+      "id": "e5FpBP9xz1k"
+    },
+    {
+      "category": "Saskatchewan Polytechnic",
+      "message": "SaskPolytech participates in the Skills Canada competitions – visit their website!",
+      "link": "https://www.skillscompetencescanada.com/en/competitions/",
+      "id": "Zr-iE3KDDqA"
+    },
+    {
+      "category": "Saskatchewan Polytechnic",
+      "message": "SaskPolytech offers Prior Learning Assessment and Recognition (PLAR) credit",
+      "link": "https://saskpolytech.ca/admissions/get-credit/plar.aspx",
+      "id": "WgAxcoXxx-I"
+    },
+    {
+      "category": "CST",
+      "message": "See the details of the Computer Systems Technology (CST) program",
+      "link": "https://saskpolytech.ca/programs-and-courses/programs/Computer-Systems-Technology.aspx",
+      "id": "ldl3toqXB7I"
+    },
+    {
+      "category": "CST",
+      "message": "The CST program is accredited by the Canadian Information Processing Society (CIPS) - visit their website!",
+      "link": "https://cips.ca/",
+      "id": "N3qFD5gMwMA"
+    },
+    {
+      "category": "CST",
+      "message": "The CST program is offered at the SaskPolytech Saskatoon campus – check it out!",
+      "link": "https://saskpolytech.ca/about/campuses/saskatoon-campus.aspx",
+      "id": "oJcJ_IyWRh8"
+    },
+    {
+      "category": "CST",
+      "message": "The CST program is offered at the SaskPolytech Regina campus – check it out!",
+      "link": "https://saskpolytech.ca/about/campuses/regina-campus.aspx",
+      "id": "aHNyAqw2KW8"
+    }
+  ],
   "scores": [
     {
       "id": "1",
       "gameTitle": "craps",
       "user": {
-        "id": 1,
-        "email": "email@email.com"
+        "id": "1",
+        "email": "ogugofor2899@saskpolytech.ca",
+        "gamerTag": "tiger"
       },
       "score": 2.567
     },
@@ -15,6 +66,8 @@
       "user": {
         "id": 3,
         "email": "email3@email.com"
+        ,
+        "gamerTag": "buffolo"
       },
       "score": 3
     },
@@ -24,6 +77,8 @@
       "user": {
         "id": 4,
         "email": "email4@email.com"
+        ,
+        "gamerTag": "lion3"
       },
       "score": 0.00001
     },
@@ -32,7 +87,8 @@
       "gameTitle": "craps",
       "user": {
         "id": 2,
-        "email": "email2@email.com"
+        "email": "email2@email.com",
+        "gamerTag": "tigerrt45"
       },
       "score": 4
     },
@@ -42,6 +98,8 @@
       "user": {
         "id": 3,
         "email": "email3@email.com"
+        ,
+        "gamerTag": "tiger4r5"
       },
       "score": 1
     },
@@ -49,8 +107,9 @@
       "id": "6",
       "gameTitle": "yahtzee-count",
       "user": {
-        "id": 1,
-        "email": "email@email.com"
+       "id": "1",
+        "email": "ogugofor2899@saskpolytech.ca",
+        "gamerTag": "tiger"
       },
       "score": 25
     },
@@ -60,6 +119,8 @@
       "user": {
         "id": 4,
         "email": "email4@email.com"
+        ,
+        "gamerTag": "tiger4t5"
       },
       "score": 50
     },
@@ -68,7 +129,8 @@
       "gameTitle": "yahtzee-count",
       "user": {
         "id": 2,
-        "email": "email2@email.com"
+        "email": "email2@email.com",
+        "gamerTag": "tiger45r"
       },
       "score": 35
     },
@@ -77,18 +139,50 @@
       "gameTitle": "yahtzee-count",
       "user": {
         "id": 3,
-        "email": "ogugofor2899@saskpolytech.ca"
+        "email": "ogugofor2899@saskpolytech.ca",
+        "gamerTag": "tiger45"
       },
       "score": 45
     },
     {
       "user": {
         "id": 991674,
-        "email": "ogugofor2899@saskpolytech.ca"
+        "email": "ogugofor2899@saskpolytech.ca",
+        "gamerTag": "tiger23"
       },
       "gameTitle": "craps",
       "score": 0,
       "id": "ZJAaNczdTwM"
+    },
+    {
+      "user": {
+        "id": 500324,
+        "email": "bob2435@email89.com",
+        "gamerTag": "lion"
+      },
+      "gameTitle": "pig-solitaire",
+      "score": 295,
+      "id": "SdjsBfjFSA"
+    },
+    {
+      "user": {
+        "id": 325676,
+        "email": "robert2853@email17.com",
+        "gamerTag": "tiger"
+      },
+      "gameTitle": "pig-solitaire",
+      "score": 500,
+      "id": "SFHafjogAs"
+    },
+    {
+      "user": {
+        "id": 324665,
+        "email": "sally2345@email32.com",
+        "gamerTag": "cat21"
+      },
+      "gameTitle": "pig-solitaire",
+      "score": 410,
+      "id": "AFSAhfadgd"
     }
   ],
   "users": [
@@ -96,8 +190,22 @@
       "id": "1",
       "email": "ogugofor2899@saskpolytech.ca",
       "password": "123abc",
-      "gamerTag": "bmb,b,n,,vb",
-      "avatar": "/images/avatar1.png"
+      "gamerTag": "tiger",
+      "avatar": "/images/avatar2.png"
+    },
+    {
+      "email": "test@saskpolytech.ca",
+      "password": "123456789",
+      "gamerTag": "player1",
+      "avatar": "/images/bison.png",
+      "id": "BsOX3SytQlc"
+    },
+    {
+      "email": "michael3@saskpolytech.ca",
+      "password": "fdsf1234",
+      "gamerTag": "player5",
+      "avatar": "/images/bison.png",
+      "id": "dSCielNmk4M"
     }
   ],
   "products": [
@@ -249,6 +357,162 @@
           "quantity": 5
         }
       ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "What is the number 1 in French?",
+      "answers": [
+        "un",
+        "deux",
+        "trois",
+        "quatre"
+      ],
+      "correctAnswer": 0,
+      "id": "6t-j-KsvNKY"
+    },
+    {
+      "question": "What does 'un' mean in French?",
+      "answers": [
+        "one",
+        "two",
+        "three",
+        "four"
+      ],
+      "correctAnswer": 0,
+      "id": "MsIUkagaEGM"
+    },
+    {
+      "question": "What is the number 2 in French?",
+      "answers": [
+        "un",
+        "deux",
+        "trois",
+        "quatre"
+      ],
+      "correctAnswer": 1,
+      "id": "-1P-SPbr3YM"
+    },
+    {
+      "question": "What does 'deux' mean in French?",
+      "answers": [
+        "one",
+        "two",
+        "three",
+        "four"
+      ],
+      "correctAnswer": 1,
+      "id": "n0gVZsbOcEY"
+    },
+    {
+      "question": "What is the number 3 in French?",
+      "answers": [
+        "un",
+        "deux",
+        "trois",
+        "quatre"
+      ],
+      "correctAnswer": 2,
+      "id": "sXOfJanupuA"
+    },
+    {
+      "question": "What does 'trois' mean in French?",
+      "answers": [
+        "one",
+        "two",
+        "three",
+        "four"
+      ],
+      "correctAnswer": 2,
+      "id": "Sbofsl6ETio"
+    },
+    {
+      "question": "What is the number 4 in French?",
+      "answers": [
+        "un",
+        "deux",
+        "trois",
+        "quatre"
+      ],
+      "correctAnswer": 3,
+      "id": "HalH23_WLAE"
+    },
+    {
+      "question": "What does 'quatre' mean in French?",
+      "answers": [
+        "one",
+        "two",
+        "three",
+        "four"
+      ],
+      "correctAnswer": 3,
+      "id": "i4__fDFjuVc"
+    },
+    {
+      "question": "What is the number 5 in French?",
+      "answers": [
+        "cinq",
+        "six",
+        "huit",
+        "neuf"
+      ],
+      "correctAnswer": 0,
+      "id": "vClgYJq4_bw"
+    },
+    {
+      "question": "What does 'cinq' mean in French?",
+      "answers": [
+        "five",
+        "six",
+        "seven",
+        "eight"
+      ],
+      "correctAnswer": 0,
+      "id": "xvmKaGQzGhQ"
+    },
+    {
+      "question": "What is the number 6 in French?",
+      "answers": [
+        "cinq",
+        "six",
+        "huit",
+        "neuf"
+      ],
+      "correctAnswer": 1,
+      "id": "iHx7y8TnTCM"
+    },
+    {
+      "question": "What does 'six' mean in French?",
+      "answers": [
+        "five",
+        "six",
+        "seven",
+        "eight"
+      ],
+      "correctAnswer": 1,
+      "id": "sE3s0Xj_-HE"
+    },
+    {
+      "question": "What is the number 7 in French?",
+      "answers": [
+        "cinq",
+        "six",
+        "sept",
+        "neuf"
+      ],
+      "correctAnswer": 2,
+      "id": "wWye5ksEd_4"
+    },
+    {
+      "question": "What does 'sept' mean in French?",
+      "answers": [
+        "five",
+        "six",
+        "seven",
+        "eight"
+      ],
+      "correctAnswer": 2,
+      "id": "jLfsIO7Jw1g"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

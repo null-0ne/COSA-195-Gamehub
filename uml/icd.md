@@ -1,4 +1,4 @@
-# UML Class Diagram for Examples
+# UML Class Diagram for Polytech Game Hub
 
 ```mermaid
 %%{init:{"securityLevel":"loose","layout":"elk","elk":{"nodePlacementStrategy":"NETWORK_SIMPLEX"},"theme":"base",
@@ -28,10 +28,20 @@ classDiagram
         +renderNavBar(element:HTMLElement,params:Object):HTMLElement
     }
 
+    class TriviaQuestion{
+        +renderTriviaQuestion(element:HTMLElement,params:Object):HTMLElement
+        +DetermineAnswer(String): Boolean
+    }
+
 
     class YahtzeeScoreCard{
         +renderYahtzeeScoreCard(element:HTMLElement,params:Object):HTMLElement
     }
+
+    class Footer{
+        +renderFooter(element:HTMLElement,params:Object):HTMLElement
+    }
+    
     %% ---------LIB -----------%%
     class ScoreService {
         <<service>>
@@ -44,10 +54,14 @@ classDiagram
         <<service>>
         +retrieveLogin(email: string, password: string) Object[]
         +register(email: string, password: string) Object[]
-        +registerValidate(email: string, password: string) boolean
-        +postProfile(userTag: string, userAvatar: string)
+         +postProfile(userTag: string, userAvatar: string)
         +getProfie(email: string) : User
+    }
 
+    class AdService{
+        <<service>>
+        +retrieveAds() Object[]
+       
     }
 
     %% ---------PAGES ----------%%
@@ -90,39 +104,64 @@ classDiagram
     class LoginPage {
     <<view>>
         +renderLoginPage(element:HTMLElement,title:string,pageNum:int):HTMLElement
-        +redirectToDashboard()
     }
     class ProfilePage {
          +renderProfilePage(element:HTMLElement,title:string):HTMLElement
     }
-
+    
     class RegisterPage {
     <<view>>
         +renderRegisterPage(element:HTMLElement,title:string):HTMLElement
-        +redirectToDashboard()
+        +registerValidation(email: string, password: string) boolean
     }
 
     class YahtzeeCountPage {
         +renderYahtzeeCountPage(element:HTMLElement,params:Object):HTMLElement
     }
 
-    
-     %% Relationships
-    %% NavBar <-- YahtzeeCountPage : layout
-    %% scoreService<-- YahtzeeCountPage : uses
-    %% YahtzeeCountPage <-- yahtzee-scorecard : uses
-    %% YahtzeeCountPage <-- gameplay-section : uses
-    %% LoginPage --> UserService : fetches data
-    %% RegisterPage --> UserService : fetches data
-    %% NavBar <-- CrapsPage : layout
-    %% NavBar <-- YahtzeeCountPage : layout
-    %% YahtzeeCountPage --> HelpSlider: uses
-    %% CrapsPage --> HelpSlider: uses
-    %% CrapsPage --> score-service : sends score data
-    %% LeaderboardPage --> GameCard : holds
-    %% LeaderboardPage --> NavBar : has
-    %% LeaderboardPage --> Footer : has
 
+
+    class PigPage {
+        +renderPigPage(element:HTMLElement,params:Object):HTMLElement
+        +holdScore()
+    }
+
+
+     %% Relationships
+    HomePage --> Footer : layout
+    YahtzeeCountPage --> Footer : layout
+    CrapsPage --> Footer : layout
+    LeaderboardPage --> Footer : layout
+    LoginPage --> Footer : layout
+    RegisterPage --> Footer : layout
+    PigPage --> Footer : layout
+
+    HomePage --> NavBar : layout
+    CrapsPage --> NavBar : layout
+    YahtzeeCountPage --> TriviaQuestion: uses
+    YahtzeeCountPage --> NavBar : layout
+    LeaderboardPage --> NavBar : layout
+
+    YahtzeeCountPage --> ScoreService : uses
+    YahtzeeCountPage --> YahtzeeScoreCard : uses
+    YahtzeeCountPage --> GameplaySection : uses
+    YahtzeeCountPage --> HelpSlider : uses
+
+    LeaderboardPage --> LeaderboardList : holds
+
+    LoginPage --> UserService : fetches data
+    RegisterPage --> UserService : fetches data
+
+    Footer --> AdService : fetches data
+    CrapsPage --> HelpSlider: uses
+    CrapsPage --> TriviaQuestion: uses
+    CrapsPage --> ScoreService : sends score data
+    PigPage --> HelpSlider : uses
+    PigPage --> TriviaQuestion: uses
+    PigPage --> ScoreService : sends score data
+    PigPage --> NavBar : layout
+    PigPage <-- GameplaySection : uses
+    HomePage --> PigPage : links
     
 
 

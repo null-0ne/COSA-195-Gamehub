@@ -19,28 +19,31 @@ describe('product page tests', () => {
 
     it('displays 3 products and check last product text', () => {
         // add some tests
-        cy.get('h1').should('have.text', `Leaderboard`)
+        cy.get('h1').should('have.text', `LeaderboardLeaderboard`)
 
         //ensure 3 craps records listed
         cy.get('.col:first-of-type > .list-group:first-of-type > .list-group-item').should('have.length', 3)
         
         //ensure 3 craps records listed
-        cy.get('.col:first-of-type > .list-group:first-of-type > .list-group-item').should('have.length', 3)
+        cy.get('.col:nth-of-type(2) > .list-group:first-of-type > .list-group-item').should('have.length', 3)
+
+        //ensure 3 craps records listed
+        cy.get('.col:nth-of-type(3) > .list-group:first-of-type > .list-group-item').should('have.length', 3)
 
         //alternative way to check text matches without extra whitespaces
         cy.get('.col:first-of-type > .list-group:first-of-type > .list-group-item').last().invoke('text')
         .then((text) => {
             // Replaces all whitespace characters (including newlines) with nothing
             const cleanedText = text.replace(/\s+/g, '').trim();
-            expect(cleanedText).to.equal('email@email.com2.5672.567');
+            expect(cleanedText).to.equal('tiger2.567');
         });
 
         cy.get('.col:nth-of-type(2) > .list-group:first-of-type > .list-group-item').should('have.length', 3)
 
-        cy.get('.col:nth-of-type(2) > .list-group:first-of-type > .list-group-item').last().invoke('text')
+        cy.get('.col:nth-of-type(3) > .list-group:first-of-type > .list-group-item').last().invoke('text')
         .then((text) => {
             const cleanedText = text.replace(/\s+/g, '').trim();
-            expect(cleanedText).to.equal('email3@email.com4545');
+            expect(cleanedText).to.equal('tiger500');
         })
     })
 });

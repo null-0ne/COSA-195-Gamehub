@@ -14,7 +14,6 @@ title: Login Page
     participant l as LoginPage<br><<component>>
     participant c as UserService<br><<service>>
     
-
     u->>l: Navigates to login page
     activate l
     l->>l: renderLoginPage(element:HTMLElement,title:string,pageNum:int)
@@ -25,7 +24,7 @@ title: Login Page
         deactivate c
         alt User is not null
             l->>u: redirectToDashboard()
-
+            
     deactivate l
 
         end
