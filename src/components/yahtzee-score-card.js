@@ -110,6 +110,10 @@ export default function renderYahtzeeScoreCard(
   const diceButtons = document.querySelectorAll(".lockable-dice");
   let validScore = true;
 
+  if (params.autoGameLogic) {
+    setTimeout(gameLogic, 1000);
+  }
+
   /**
    * Helper to find the counts of dice
    * @param {*} dice
@@ -132,6 +136,7 @@ export default function renderYahtzeeScoreCard(
     box.disabled = true;
     box.style.backgroundColor = "white";
   }
+
   function gameLogic() {
     const counts = getCounts(params.dice);
     console.log(params.rolls.reduce((a, b) => a + b, 0));
@@ -297,8 +302,6 @@ export default function renderYahtzeeScoreCard(
   function resetButton() {
     resetGame();
   }
-
-  element.querySelector("#btnReset").addEventListener("click", resetButton);
 
   //return the element in case it is needed for further logic
   return element;

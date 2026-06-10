@@ -18,7 +18,7 @@ import renderDiceRoll from "./components/dice-roll.js";
  */
 export default function renderYahtzeeCountPage(
   element = document.createElement("div") /*default - new div element*/,
-  params = { title: "Yahtzee count" } /*default*/,
+  params = { title: "yahtzee count" } /*default*/,
 ) {
   // set the content of the element
   element.innerHTML = `

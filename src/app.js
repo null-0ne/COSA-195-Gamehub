@@ -41,7 +41,7 @@ router
   })
   .on("/yahtzee-count", (url) => {
     renderYahtzeeCountPage(appElement);
-    renderNavBar(navElement, { title: "yahtzee-count" });
+    renderNavBar(navElement, { title: "yahtzee count" });
   })
   .on("/pig-solitaire", (url) => {
     renderPigSolitairePage(appElement);
