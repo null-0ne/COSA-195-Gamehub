@@ -24,6 +24,12 @@ classDiagram
         +renderNavBar(element:HTMLElement,params:Object):HTMLElement
     }
 
+    class TriviaQuestion{
+        +renderTriviaQuestion(element:HTMLElement,params:Object):HTMLElement
+        +DetermineAnswer(String): Boolean
+    }
+
+
     class YahtzeeScoreCard{
         +renderYahtzeeScoreCard(element:HTMLElement,params:Object):HTMLElement
     }
@@ -102,10 +108,7 @@ classDiagram
         +renderYahtzeeCountPage(element:HTMLElement,params:Object):HTMLElement
     }
 
-    class PigPage {
-        +renderPigPage(element:HTMLElement,params:Object):HTMLElement
-        +holdScore()
-    }
+
 
     class PigPage {
         +renderPigPage(element:HTMLElement,params:Object):HTMLElement
@@ -124,6 +127,7 @@ classDiagram
 
     HomePage --> NavBar : layout
     CrapsPage --> NavBar : layout
+    YahtzeeCountPage --> TriviaQuestion: uses
     YahtzeeCountPage --> NavBar : layout
     LeaderboardPage --> NavBar : layout
 
@@ -139,8 +143,10 @@ classDiagram
 
     Footer --> AdService : fetches data
     CrapsPage --> HelpSlider: uses
+    CrapsPage --> TriviaQuestion: uses
     CrapsPage --> ScoreService : sends score data
     PigPage --> HelpSlider : uses
+    PigPage --> TriviaQuestion: uses
     PigPage --> ScoreService : sends score data
     PigPage --> NavBar : layout
     PigPage <-- GameplaySection : uses

@@ -75,4 +75,14 @@ describe("pig solitaire page test", () => {
         cy.get("#lastRolled").invoke("attr", "src").should("contain", firstNum);
       });
   });
+
+    it("User submits score text indicates correct or incorrect", () => {
+        cy.get("#btnSubmit").click();
+        for(let i = 0; i < 4; i++) {
+            cy.get(`input[type="radio"][value="${i}"]`).check();
+            cy.get("#subButton").click();
+            cy.get("#test").invoke("css", "color").should("not.contain", "black");
+            
+         }
+      });
 });

@@ -3,12 +3,14 @@ import renderGameplaySection from "./components/gameplay-section.js";
 import renderPigScorecard from "./components/pig-score-card.js";
 import renderHelpSlider from "./components/help-slider.js";
 import renderDiceRoll from "./components/dice-roll.js";
+import { getQuestion } from "./lib/question-service.js";
+import {renderTriviaQuestion} from "./components/trivia-question.js"; 
 /**
  * Render function to inject content into an HTML element
  * @param {*} element - HTML element target container
  * @param {*} params - optional values, objects or functions needed to render on the page
  */
-export default function renderPigPage(
+export default async  function renderPigPage(
   element = document.createElement("div") /*default - new div element*/,
   params = { title: "Pig Solitaire" } /*default*/,
 ) {
@@ -41,13 +43,31 @@ export default function renderPigPage(
           </div>
           <div class="d-flex flex-row-reverse me-5">
               <button class="btn btn-primary " id="btnReset" type="button" >Reset Game</button>
-              <button class="btn btn-primary me-3" id="btnSubmit" type="button" disabled >Submit Score</button>
+              <button class="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#modalTrivia" id="btnSubmit" type="button" >Submit Score</button>
+        <div class="modal fade" id="modalTrivia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Skill Test Question</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id='radio'>
+
+         </div>
+    </div>
+  </div>
+</div>
               <button id="btnBank" class="btn btn-primary me-3">Bank Score</button>
               
           </div>
         </div>
     </div>
     `;
+
+    const qData = await getQuestion();
+    renderTriviaQuestion(document.getElementById("radio"), {questions: qData, onCorrect: function(){console.log("correct");submitScore();}, onInCorrect: function(){console.log("incorrect");resetGame();}})
+    
+
   renderHelpSlider(document.getElementById("divHelp"), {
     text: `<p>Pig Solitaire
     is a dice game where the player tries to get a banked score of at least 100
@@ -123,7 +143,7 @@ Each round, a player repeatedly rolls a dice until a one is rolled or the player
   renderDiceRoll(document.querySelector(`.gameplay`), sharedParams);
 
   document.querySelector("#btnBank").addEventListener("click", bankPoints);
-  document.querySelector("#btnSubmit").addEventListener("click", submitScore);
+ // document.querySelector("#btnSubmit").addEventListener("click", submitScore);
 
   function bankPoints() {
     if (
@@ -160,6 +180,7 @@ Each round, a player repeatedly rolls a dice until a one is rolled or the player
     bankedPoints = 0;
     bankCount = 0;
 
+    sharedParams.totalScore = 0;
     sharedParams.rollCount = 0;
 
     document.getElementById("lastRolled").src =

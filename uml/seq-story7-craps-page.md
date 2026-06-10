@@ -31,7 +31,7 @@ title: Story 7 Craps Page
             dice-->>craps: updates boolean value (point or win/loss)
             deactivate dice
     end
-
+    
     else continue false
         craps->>ups: updateSession()
         activate ups

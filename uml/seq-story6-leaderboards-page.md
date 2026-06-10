@@ -15,7 +15,7 @@ title: Leaderboards that show the top 3 scores in each game
     participant m as LeaderboardService<br><<service>>
     participant n as LeaderboardList<br><<component>>
     participant f as Formatter<br><<utility>
-
+    
     u->>l: navigates to page
     activate l
 
