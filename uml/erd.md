@@ -23,20 +23,28 @@ erDiagram
       String message
       String link
     }
+    PigScore {
+    String email FK
+    String gamerTag
+    int score
+    String gameId PK
+    int rank
+    }
 
-     YahtzeeCountScore {
-       String email FK
-       int score
-       String gameId PK
-       int rank
-     }
 
-     CrapsScore {
-       String email FK
-       String gameId PK
-       int rank
-       int score
-     }
+    YahtzeeCountScore {
+      String email FK
+      int score
+      String gameId PK
+      int rank
+    }
+
+    CrapsScore {
+      String email FK
+      String gameId PK
+      int rank
+      int score
+    }
 
     scores {
       int id PK
@@ -53,6 +61,8 @@ erDiagram
     %% Relationships
     users ||--o{ scores : "has"
     scores }o--o{ CrapsScore : "submits"
+    scores }o--o{ YahtzeeCountScore : "submits"
+    scores }o--o{ PigScore : "submits"
 
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```

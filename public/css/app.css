@@ -6,8 +6,8 @@
 */
 
 /* Example Styles that are applied to a card that flips
-   including transitions and transforms to make card "flip" 
-   not handled by boot strap
+    including transitions and transforms to make card "flip" 
+    not handled by boot strap
 
 .flippable-card {
     cursor: pointer;

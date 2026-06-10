@@ -1,4 +1,4 @@
-# UML Class Diagram for Examples
+# UML Class Diagram for Polytech Game Hub
 
 ```mermaid
 %%{init:{"securityLevel":"loose","layout":"elk","elk":{"nodePlacementStrategy":"NETWORK_SIMPLEX"},"theme":"base",
@@ -23,7 +23,6 @@ classDiagram
     class NavBar {
         +renderNavBar(element:HTMLElement,params:Object):HTMLElement
     }
-
 
     class YahtzeeScoreCard{
         +renderYahtzeeScoreCard(element:HTMLElement,params:Object):HTMLElement
@@ -103,6 +102,16 @@ classDiagram
         +renderYahtzeeCountPage(element:HTMLElement,params:Object):HTMLElement
     }
 
+    class PigPage {
+        +renderPigPage(element:HTMLElement,params:Object):HTMLElement
+        +holdScore()
+    }
+
+    class PigPage {
+        +renderPigPage(element:HTMLElement,params:Object):HTMLElement
+        +holdScore()
+    }
+
 
      %% Relationships
     HomePage --> Footer : layout
@@ -111,6 +120,7 @@ classDiagram
     LeaderboardPage --> Footer : layout
     LoginPage --> Footer : layout
     RegisterPage --> Footer : layout
+    PigPage --> Footer : layout
 
     HomePage --> NavBar : layout
     CrapsPage --> NavBar : layout
@@ -122,14 +132,21 @@ classDiagram
     YahtzeeCountPage --> GameplaySection : uses
     YahtzeeCountPage --> HelpSlider : uses
 
-    CrapsPage --> ScoreService : uses
-    CrapsPage --> HelpSlider : uses
-
     LeaderboardPage --> LeaderboardList : holds
 
     LoginPage --> UserService : fetches data
     RegisterPage --> UserService : fetches data
 
     Footer --> AdService : fetches data
+    CrapsPage --> HelpSlider: uses
+    CrapsPage --> ScoreService : sends score data
+    PigPage --> HelpSlider : uses
+    PigPage --> ScoreService : sends score data
+    PigPage --> NavBar : layout
+    PigPage <-- GameplaySection : uses
+    HomePage --> PigPage : links
+    
+
+
 %%----------------------- MERMAID MARKUP ABOVE --------------------%%
 ```

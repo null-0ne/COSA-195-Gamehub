@@ -1,5 +1,6 @@
 import { retrieveLogin } from "../lib/user-service.js";
 
+import renderCrapsPage from "../craps-page";
 /**
  * NavBar Component - a reuseable component that can be injected many times on the different "Pages"
  * Render function to inject content into an HTML element
@@ -7,8 +8,8 @@ import { retrieveLogin } from "../lib/user-service.js";
  * @param {*} params - optional values, objects or functions needed to render on the page
  */
 export default function renderNavBar(
-    element = document.createElement('nav'), /* default new nav element*/
-    params = { title: "navbar"} /* default object*/
+  element = document.createElement("nav") /* default new nav element*/,
+  params = { title: "navbar" } /* default object*/,
 ) {
     element.setAttribute('class','navbar bg-primary');
     element.setAttribute('data-bs-theme','dark');
@@ -35,7 +36,7 @@ export default function renderNavBar(
         <a href="/yahtzee-count" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Yahtzee Count</a>
         </div>
         <div class='col text-white border-start border-3'>
-        <a href="/" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Pig Solitaire</a>
+        <a href="/pig-solitaire" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Pig Solitaire</a>
         </div>
         <div class='col text-white border-start border-3'>
         <a href="/leaderboard" class='link-offset-2 link-underline link-underline-opacity-0 text-black fs-3 fw-bold'>Leaderboard</a>

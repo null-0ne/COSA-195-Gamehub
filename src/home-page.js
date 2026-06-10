@@ -27,7 +27,7 @@ export default function renderHomePage(
         </div>
       </div>
       </a>
-      <a href="#" class="link-underline link-underline-opacity-0">
+      <a href="/pig-solitaire" class="link-underline link-underline-opacity-0">
       <div class="card mt-4">
         <image src="/images/pigImg.png" class="card-img-top gameImg" alt="craps game" />
         <div class="card-body bg-success text-black text-center">
