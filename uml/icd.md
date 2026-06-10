@@ -1,4 +1,4 @@
-# UML Class Diagram for Examples
+# UML Class Diagram for Polytech Game Hub
 
 ```mermaid
 %%{init:{"securityLevel":"loose","layout":"elk","elk":{"nodePlacementStrategy":"NETWORK_SIMPLEX"},"theme":"base",
@@ -33,6 +33,11 @@ classDiagram
     class YahtzeeScoreCard{
         +renderYahtzeeScoreCard(element:HTMLElement,params:Object):HTMLElement
     }
+
+    class Footer{
+        +renderFooter(element:HTMLElement,params:Object):HTMLElement
+    }
+    
     %% ---------LIB -----------%%
     class ScoreService {
         <<service>>
@@ -44,7 +49,11 @@ classDiagram
         <<service>>
         +retrieveLogin(email: string, password: string) Object[]
         +register(email: string, password: string) Object[]
-        +registerValidate(email: string, password: string) boolean
+    }
+
+    class AdService{
+        <<service>>
+        +retrieveAds() Object[]
     }
 
     %% ---------PAGES ----------%%
@@ -87,37 +96,61 @@ classDiagram
     class LoginPage {
     <<view>>
         +renderLoginPage(element:HTMLElement,title:string,pageNum:int):HTMLElement
-        +redirectToDashboard()
     }
 
     class RegisterPage {
     <<view>>
         +renderRegisterPage(element:HTMLElement,title:string):HTMLElement
-        +redirectToDashboard()
+        +registerValidation(email: string, password: string) boolean
     }
 
     class YahtzeeCountPage {
         +renderYahtzeeCountPage(element:HTMLElement,params:Object):HTMLElement
     }
 
-    
+
+
+    class PigPage {
+        +renderPigPage(element:HTMLElement,params:Object):HTMLElement
+        +holdScore()
+    }
+
+
      %% Relationships
-     NavBar <-- YahtzeeCountPage : layout
-     ScoreService<-- YahtzeeCountPage : uses
-     YahtzeeCountPage <-- YahtzeeScoreCard : uses
-     YahtzeeCountPage <-- GameplaySection : uses
-     YahtzeeCountPage --> TriviaQuestion: uses
-    LoginPage --> NavBar : uses
-     LoginPage --> UserService : fetches data
-     RegisterPage --> UserService : fetches data
-     RegisterPage --> NavBar : uses
-     NavBar <-- CrapsPage : layout
-     NavBar <-- YahtzeeCountPage : layout
-     YahtzeeCountPage --> HelpSlider: uses
-     CrapsPage --> TriviaQuestion: uses
-     CrapsPage --> HelpSlider: uses
-     CrapsPage --> ScoreService : sends score data
-     NavBar <-- LeaderboardPage : Layout
+    HomePage --> Footer : layout
+    YahtzeeCountPage --> Footer : layout
+    CrapsPage --> Footer : layout
+    LeaderboardPage --> Footer : layout
+    LoginPage --> Footer : layout
+    RegisterPage --> Footer : layout
+    PigPage --> Footer : layout
+
+    HomePage --> NavBar : layout
+    CrapsPage --> NavBar : layout
+    YahtzeeCountPage --> TriviaQuestion: uses
+    YahtzeeCountPage --> NavBar : layout
+    LeaderboardPage --> NavBar : layout
+
+    YahtzeeCountPage --> ScoreService : uses
+    YahtzeeCountPage --> YahtzeeScoreCard : uses
+    YahtzeeCountPage --> GameplaySection : uses
+    YahtzeeCountPage --> HelpSlider : uses
+
+    LeaderboardPage --> LeaderboardList : holds
+
+    LoginPage --> UserService : fetches data
+    RegisterPage --> UserService : fetches data
+
+    Footer --> AdService : fetches data
+    CrapsPage --> HelpSlider: uses
+    CrapsPage --> TriviaQuestion: uses
+    CrapsPage --> ScoreService : sends score data
+    PigPage --> HelpSlider : uses
+    PigPage --> TriviaQuestion: uses
+    PigPage --> ScoreService : sends score data
+    PigPage --> NavBar : layout
+    PigPage <-- GameplaySection : uses
+    HomePage --> PigPage : links
     
 
 

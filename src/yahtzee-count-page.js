@@ -109,7 +109,7 @@ to get the final score (lower scores are better). </li>
     
 
 
-  document.getElementById("btnSubmit").disabled = false; //CHANGE TO TRUE
+  document.getElementById("btnSubmit").disabled = true;
 
   const sharedParams = {
     rolls: [],
@@ -151,7 +151,7 @@ to get the final score (lower scores are better). </li>
   if (sharedParams.scoreCardComplete) {
     document.getElementById("btnSubmit").disabled = false;
   } else {
-    document.getElementById("btnSubmit").disabled = false; //CHANGE TO TRUE
+    document.getElementById("btnSubmit").disabled = true;
   }
 
   function submitScores() {

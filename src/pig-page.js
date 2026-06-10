@@ -128,6 +128,14 @@ Each round, a player repeatedly rolls a dice until a one is rolled or the player
         this.scoreSpan.innerHTML =
           parseInt(this.scoreSpan.innerHTML) + numRolled;
       }
+      if (bankedPoints + parseInt(this.scoreSpan.innerHTML) >= 100)
+      {
+        document.querySelector("#btnBank").disabled = true;
+        document.querySelector("#btnRoll").disabled = true;
+        document.querySelector("#btnSubmit").disabled = false;
+        
+      }
+     
     },
     scoreSpan: document.getElementById("updateScore"),
   };
@@ -182,15 +190,13 @@ Each round, a player repeatedly rolls a dice until a one is rolled or the player
 
     document.getElementById("updateRolls").innerHTML = 0;
     document.getElementById("bankedScore").innerHTML = 0;
+    document.querySelector("#btnRoll").disabled = false;
+    document.querySelector("#btnBank").disabled = false;
+    document.querySelector("#btnSubmit").disabled = true;
+    
   }
 
   //   renderGameplaySection(document.querySelector(`.gameplay`), sharedParams);
   renderPigScorecard(document.querySelector(`.score-form`), sharedParams);
-
-
-  
-
-
-
   return element;
 }
